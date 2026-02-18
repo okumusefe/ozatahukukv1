@@ -595,6 +595,7 @@ body {
     color: var(--text-light);
     line-height: 1.9;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .about-vision {
@@ -619,6 +620,7 @@ body {
     line-height: 1.9;
     margin-bottom: 1.5rem;
     color: rgba(255, 255, 255, 0.95);
+    text-align: justify;
 }
 
 .about-office {
@@ -635,7 +637,7 @@ body {
     font-size: 1.15rem;
     color: var(--text-light);
     line-height: 1.9;
-    text-align: center;
+    text-align: justify;
 }
 
 .about-principles {
@@ -685,6 +687,7 @@ body {
     font-size: 1rem;
     color: var(--text-light);
     line-height: 1.8;
+    text-align: justify;
 }
 
 .about-expertise {
@@ -701,7 +704,7 @@ body {
     font-size: 1.15rem;
     color: var(--text-light);
     line-height: 1.9;
-    text-align: center;
+    text-align: justify;
 }
 
 .about-network {
@@ -726,6 +729,7 @@ body {
     font-size: 1.1rem;
     color: var(--text-light);
     line-height: 1.9;
+    text-align: justify;
 }
 
 .network-map {
@@ -761,6 +765,7 @@ body {
     color: var(--text-light);
     line-height: 1.9;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 .services-highlight {
@@ -782,6 +787,7 @@ body {
     color: var(--text-light);
     line-height: 1.8;
     margin-bottom: 1.5rem;
+    text-align: justify;
 }
 
 @media (max-width: 768px) {
