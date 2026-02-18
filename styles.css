@@ -790,9 +790,14 @@ body {
     text-align: justify;
 }
 
-.contact-info-section {
+.contact-form-section {
     padding: 5rem 0;
     background: var(--white);
+}
+
+.contact-info-section {
+    padding: 5rem 0;
+    background: var(--bg-light);
 }
 
 .contact-info-grid {
@@ -802,7 +807,7 @@ body {
 }
 
 .contact-info-card {
-    background: var(--bg-light);
+    background: var(--white);
     padding: 3rem 2rem;
     border-radius: 15px;
     text-align: center;
@@ -846,11 +851,6 @@ body {
 
 .contact-info-card a:hover {
     color: var(--accent-color);
-}
-
-.contact-form-section {
-    padding: 5rem 0;
-    background: var(--bg-light);
 }
 
 .contact-form-wrapper {
