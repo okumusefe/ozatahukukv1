@@ -50,20 +50,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
-        contactForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const formData = new FormData(contactForm);
-            const data = {};
-            formData.forEach((value, key) => {
-                data[key] = value;
-            });
-
-            console.log('Form submitted:', data);
-            
+        if (window.location.hash === '#success') {
             showModal();
-            contactForm.reset();
-        });
+            history.replaceState(null, null, ' ');
+        }
     }
 });
 

@@ -47,7 +47,12 @@
                         <p>Hukuki danışmanlık veya randevu talepleriniz için aşağıdaki formu doldurabilirsiniz. En kısa sürede size geri dönüş yapacağız.</p>
                     </div>
 
-                    <form class="contact-form" id="contactForm" action="mailto:info@ozatahukuk.av.tr" method="post" enctype="text/plain">
+                    <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@ozatahukuk.av.tr" method="POST">
+                        <input type="hidden" name="_subject" value="Yeni İletişim Formu Mesajı - Özata Hukuk">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="https://ozatahukuk.av.tr/iletisim.html#success">
+                        
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="name">Ad Soyad *</label>
@@ -62,34 +67,34 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Telefon *</label>
-                                <input type="tel" id="phone" name="phone" required>
+                                <input type="tel" id="phone" name="Telefon" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Konu</label>
-                                <select id="subject" name="subject">
+                                <select id="subject" name="Konu">
                                     <option value="">Konu Seçiniz</option>
-                                    <option value="aile-hukuku">Aile Hukuku</option>
-                                    <option value="ceza-hukuku">Ceza Hukuku</option>
-                                    <option value="miras-hukuku">Miras Hukuku</option>
-                                    <option value="is-hukuku">İş Hukuku</option>
-                                    <option value="idare-hukuku">İdare Hukuku</option>
-                                    <option value="icra-iflas-hukuku">İcra İflas Hukuku</option>
-                                    <option value="gayrimenkul-hukuku">Gayrimenkul Hukuku</option>
-                                    <option value="yabancilar-hukuku">Yabancılar Hukuku</option>
-                                    <option value="tuketici-hukuku">Tüketici Hukuku</option>
-                                    <option value="diger">Diğer</option>
+                                    <option value="Aile Hukuku">Aile Hukuku</option>
+                                    <option value="Ceza Hukuku">Ceza Hukuku</option>
+                                    <option value="Miras Hukuku">Miras Hukuku</option>
+                                    <option value="İş Hukuku">İş Hukuku</option>
+                                    <option value="İdare Hukuku">İdare Hukuku</option>
+                                    <option value="İcra İflas Hukuku">İcra İflas Hukuku</option>
+                                    <option value="Gayrimenkul Hukuku">Gayrimenkul Hukuku</option>
+                                    <option value="Yabancılar Hukuku">Yabancılar Hukuku</option>
+                                    <option value="Tüketici Hukuku">Tüketici Hukuku</option>
+                                    <option value="Diğer">Diğer</option>
                                 </select>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <label for="message">Mesajınız *</label>
-                            <textarea id="message" name="message" rows="6" required></textarea>
+                            <textarea id="message" name="Mesaj" rows="6" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="privacy" name="privacy" required>
+                                <input type="checkbox" id="privacy" name="_privacy_accept" value="Kabul Edildi" required>
                                 <span>Kişisel verilerimin işlenmesini ve <a href="#" class="privacy-link">gizlilik politikasını</a> kabul ediyorum. *</span>
                             </label>
                         </div>
