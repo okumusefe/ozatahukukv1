@@ -1261,6 +1261,7 @@ body {
 
     .hero-buttons {
         flex-direction: column;
+        align-items: center;
     }
 
     .btn {
