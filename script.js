@@ -61,8 +61,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
             console.log('Form submitted:', data);
             
-            alert('Mesajınız alındı! En kısa sürede size geri dönüş yapacağız.');
+            showModal();
             contactForm.reset();
         });
     }
 });
+
+function showModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.add('show');
+        document.body.style.overflow = 'hidden';
+    }
+}
+
+function closeModal() {
+    const modal = document.getElementById('successModal');
+    if (modal) {
+        modal.classList.remove('show');
+        document.body.style.overflow = 'auto';
+    }
+}
+
+window.onclick = function(event) {
+    const modal = document.getElementById('successModal');
+    if (event.target === modal) {
+        closeModal();
+    }
+}
