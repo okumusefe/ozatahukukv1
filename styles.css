@@ -484,6 +484,94 @@ body {
     color: rgba(255, 255, 255, 0.9);
 }
 
+.practice-areas-detail {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.practice-area-item {
+    background: var(--white);
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    box-shadow: var(--shadow);
+    transition: all 0.3s ease;
+}
+
+.practice-area-item:hover {
+    box-shadow: var(--shadow-lg);
+    transform: translateY(-5px);
+}
+
+.practice-area-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 2px solid var(--bg-light);
+}
+
+.practice-area-icon-large {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    flex-shrink: 0;
+}
+
+.practice-area-header h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin: 0;
+}
+
+.practice-area-content {
+    line-height: 1.8;
+}
+
+.lead-text {
+    font-size: 1.15rem;
+    color: var(--text-color);
+    margin-bottom: 2rem;
+    line-height: 1.9;
+    text-align: justify;
+}
+
+.practice-area-content h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin: 2rem 0 1.5rem 0;
+    font-weight: 600;
+}
+
+.service-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.service-list li {
+    position: relative;
+    padding-left: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+.service-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: var(--accent-color);
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -572,6 +660,38 @@ body {
         grid-template-columns: 1fr;
         gap: 2rem;
     }
+
+    .practice-area-item {
+        padding: 2rem;
+    }
+
+    .practice-area-header {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.5rem;
+    }
+
+    .practice-area-icon-large {
+        width: 80px;
+        height: 80px;
+    }
+
+    .practice-area-header h2 {
+        font-size: 2rem;
+    }
+
+    .lead-text {
+        font-size: 1.05rem;
+        text-align: left;
+    }
+
+    .practice-area-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -602,5 +722,36 @@ body {
 
     .quote p {
         font-size: 1.25rem;
+    }
+
+    .practice-area-item {
+        padding: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .practice-area-icon-large {
+        width: 70px;
+        height: 70px;
+    }
+
+    .practice-area-header h2 {
+        font-size: 1.75rem;
+    }
+
+    .practice-area-content h3 {
+        font-size: 1.2rem;
+    }
+
+    .service-list li {
+        font-size: 0.95rem;
+        padding-left: 1.5rem;
+    }
+
+    .page-hero h1 {
+        font-size: 2rem;
+    }
+
+    .page-hero p {
+        font-size: 1rem;
     }
 }
