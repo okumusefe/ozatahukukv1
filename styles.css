@@ -572,6 +572,218 @@ body {
     font-size: 1.2rem;
 }
 
+.about-intro {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.about-intro-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-intro-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-weight: 700;
+}
+
+.about-intro-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.about-vision {
+    padding: 5rem 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--white);
+}
+
+.vision-content {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+}
+
+.vision-icon {
+    flex-shrink: 0;
+    color: var(--accent-color);
+}
+
+.vision-text p {
+    font-size: 1.1rem;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.about-office {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.office-content {
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.office-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    text-align: center;
+}
+
+.about-principles {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+.principle-card {
+    text-align: center;
+    padding: 2.5rem;
+    background: var(--bg-light);
+    border-radius: 15px;
+    transition: all 0.3s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.principle-icon {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+}
+
+.principle-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.principle-card p {
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.8;
+}
+
+.about-expertise {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.expertise-content {
+    max-width: 900px;
+    margin: 2rem auto 0;
+}
+
+.expertise-content p {
+    font-size: 1.15rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    text-align: center;
+}
+
+.about-network {
+    padding: 5rem 0;
+    background: var(--white);
+}
+
+.network-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.network-text h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.network-text p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.9;
+}
+
+.network-map {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.map-placeholder {
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+    background: linear-gradient(135deg, var(--bg-light) 0%, #e9ecef 100%);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-color);
+}
+
+.about-services {
+    padding: 5rem 0;
+    background: var(--bg-light);
+}
+
+.services-content {
+    max-width: 1000px;
+    margin: 2rem auto 0;
+}
+
+.services-content p {
+    font-size: 1.1rem;
+    color: var(--text-light);
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
+.services-highlight {
+    background: var(--white);
+    padding: 3rem;
+    border-radius: 15px;
+    margin-top: 3rem;
+    box-shadow: var(--shadow);
+}
+
+.services-highlight h3 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+.services-highlight p {
+    font-size: 1.05rem;
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
 @media (max-width: 768px) {
     .nav-menu {
         position: fixed;
@@ -692,6 +904,40 @@ body {
     .page-hero h1 {
         font-size: 2.5rem;
     }
+
+    .about-intro-content h2 {
+        font-size: 2rem;
+    }
+
+    .vision-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .vision-icon {
+        margin-bottom: 2rem;
+    }
+
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .network-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .network-text h2 {
+        font-size: 2rem;
+    }
+
+    .services-highlight {
+        padding: 2rem;
+    }
+
+    .services-highlight h3 {
+        font-size: 1.5rem;
+    }
 }
 
 @media (max-width: 480px) {
@@ -753,5 +999,34 @@ body {
 
     .page-hero p {
         font-size: 1rem;
+    }
+
+    .about-intro-content h2 {
+        font-size: 1.75rem;
+    }
+
+    .about-intro-content p {
+        font-size: 1rem;
+    }
+
+    .principle-icon {
+        width: 80px;
+        height: 80px;
+    }
+
+    .principle-card {
+        padding: 2rem;
+    }
+
+    .network-text h2 {
+        font-size: 1.75rem;
+    }
+
+    .services-highlight {
+        padding: 1.5rem;
+    }
+
+    .services-highlight h3 {
+        font-size: 1.3rem;
     }
 }
