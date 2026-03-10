@@ -79,3 +79,16 @@ window.onclick = function(event) {
         closeModal();
     }
 }
+
+function toggleArticle(articleId) {
+    const article = document.getElementById(articleId);
+    const button = event.target;
+    
+    if (article.style.display === 'none') {
+        article.style.display = 'block';
+        button.textContent = 'Daha Az Göster ↑';
+    } else {
+        article.style.display = 'none';
+        button.textContent = 'Devamını Oku →';
+    }
+}
