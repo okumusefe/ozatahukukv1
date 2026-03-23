@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Özata Hukuk - İzmir'in tüm ilçelerinde ve Türkiye genelinde hukuki hizmet. Aliağa, Balçova, Bayındır, Bayraklı, Bergama, Beydağ, Bornova, Buca, Çeşme, Çiğli ve daha fazla ilçede avukatlık hizmetleri.">
+    <meta name="keywords" content="İzmir avukat, Aliağa avukat, Balçova avukat, Bayındır avukat, Bayraklı avukat, Bergama avukat, Beydağ avukat, Bornova avukat, Buca avukat, Çeşme avukat, Çiğli avukat, Dikili avukat, Foça avukat, Gaziemir avukat, Güzelbahçe avukat, Karabağlar avukat, Karaburun avukat, Karşıyaka avukat, Kemalpaşa avukat, Kınık avukat, Kiraz avukat, Konak avukat, Menderes avukat, Menemen avukat, Narlıdere avukat, Ödemiş avukat, Seferihisar avukat, Selçuk avukat, Tire avukat, Torbalı avukat, Urla avukat">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Özata Hukuk - Çalışma Bölgelerimiz | İzmir ve Tüm İlçeleri</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .district-section {
+            padding: 80px 0;
+        }
+        .district-section.alt-bg {
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        .district-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .district-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .district-header p {
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+        .district-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .district-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 35px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+        .district-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .district-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .district-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(201,169,97,0.1);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+        .district-card .services-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .district-card .services-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .district-card .services-list li:last-child {
+            border-bottom: none;
+        }
+        .district-card .services-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .district-card .contact-info {
+            background: var(--bg-light);
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .district-card .contact-info p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .district-card .contact-info strong {
+            color: var(--primary-color);
+        }
+        .city-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 40px;
+        }
+        .city-card {
+            background: var(--white);
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+        }
+        .city-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+        }
+        .city-card .city-icon {
+            width: 60px;
+            height: 60px;
+            background: rgba(201,169,97,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-color);
+        }
+        .city-card h3 {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .city-card .city-type {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .city-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+        @media (max-width: 768px) {
+            .district-grid {
+                grid-template-columns: 1fr;
+            }
+            .city-grid {
+                grid-template-columns: 1fr;
+            }
+            .district-header h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html">ÖZATA HUKUK</a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="calisma-bolgeleri.html" class="active">Çalışma Bölgelerimiz</a></li>
+                <li><a href="yayinlar.html">Yayınlar</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Çalışma Bölgelerimiz</h1>
+                <p>İzmir'in tüm ilçelerinde ve Türkiye genelinde hukuki hizmet ağımız</p>
+            </div>
+        </section>
+
+        <!-- İzmir İlçeleri Bölümü -->
+        <section class="district-section">
+            <div class="container">
+                <div class="district-header">
+                    <h2>İzmir İlçelerinde Hizmetinizdeyiz</h2>
+                    <p>Avukat Ege ÖZATA ve ekibi olarak, İzmir'in tüm ilçelerinde profesyonel avukatlık ve hukuki danışmanlık hizmetleri sunmaktayız. Her ilçede müvekkillerimizin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                </div>
+
+                <div class="district-grid">
+                    <!-- Aliağa -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Aliağa Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Aliağa'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Aliağa Aile ve Boşanma Avukatı</li>
+                            <li>Aliağa İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Aliağa Ceza Avukatı</li>
+                            <li>Aliağa İdare Avukatı</li>
+                            <li>Aliağa Ticaret ve Şirketler Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Balçova -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Balçova Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Balçova'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Balçova Aile ve Boşanma Avukatı</li>
+                            <li>Balçova İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Balçova Ceza Avukatı</li>
+                            <li>Balçova Gayrimenkul Avukatı</li>
+                            <li>Balçova Tüketici Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Bayındır -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Bayındır Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Bayındır'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Bayındır Aile ve Boşanma Avukatı</li>
+                            <li>Bayındır Miras Avukatı</li>
+                            <li>Bayındır Ceza Avukatı</li>
+                            <li>Bayındır İcra ve İflas Avukatı</li>
+                            <li>Bayındır Tarım ve Hayvancılık Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Bayraklı -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Bayraklı Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Bayraklı'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Bayraklı Aile ve Boşanma Avukatı</li>
+                            <li>Bayraklı İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Bayraklı Ceza Avukatı</li>
+                            <li>Bayraklı Ticaret ve Şirketler Avukatı</li>
+                            <li>Bayraklı Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Bergama -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Bergama Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, Bergama'da hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir.</p>
+                        <ul class="services-list">
+                            <li>Bergama Aile ve Boşanma Avukatı</li>
+                            <li>Bergama İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Bergama Ceza Avukatı</li>
+                            <li>Bergama İdare Avukatı</li>
+                            <li>Bergama Miras Avukatı</li>
+                            <li>Bergama Ticaret ve Şirketler Avukatı</li>
+                            <li>Bergama Gayrimenkul Avukatı</li>
+                            <li>Bergama İcra ve İflas Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Beydağ -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Beydağ Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Beydağ'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Beydağ Aile ve Boşanma Avukatı</li>
+                            <li>Beydağ Miras Avukatı</li>
+                            <li>Beydağ Tarım Hukuku</li>
+                            <li>Beydağ İcra ve İflas Avukatı</li>
+                            <li>Beydağ Sözleşmeler Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Bornova -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Bornova Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Bornova'da faaliyet gösteren hukuk büromuz, Ege Üniversitesi bölgesinde ve çevresindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Bornova Aile ve Boşanma Avukatı</li>
+                            <li>Bornova İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Bornova Ceza Avukatı</li>
+                            <li>Bornova Eğitim Hukuku</li>
+                            <li>Bornova Fikri ve Sınai Mülkiyet Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Buca -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Buca Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Buca'da faaliyet gösteren hukuk büromuz, İzmir'in en büyük ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Buca Aile ve Boşanma Avukatı</li>
+                            <li>Buca İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Buca Ceza Avukatı</li>
+                            <li>Buca Ticaret ve Şirketler Avukatı</li>
+                            <li>Buca Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Çeşme -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Çeşme Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Çeşme'de faaliyet gösteren hukuk büromuz, turizm bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Çeşme Aile ve Boşanma Avukatı</li>
+                            <li>Çeşme Turizm ve Otelcilik Hukuku</li>
+                            <li>Çeşme Ceza Avukatı</li>
+                            <li>Çeşme Gayrimenkul Avukatı</li>
+                            <li>Çeşme Yabancılar ve Vatandaşlık Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Çiğli -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Çiğli Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Çiğli'de faaliyet gösteren hukuk büromuz, sanayi ve organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Çiğli Aile ve Boşanma Avukatı</li>
+                            <li>Çiğli İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Çiğli Ticaret ve Şirketler Avukatı</li>
+                            <li>Çiğli Ceza Avukatı</li>
+                            <li>Çiğli Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Dikili -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Dikili Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Dikili'de faaliyet gösteren hukuk büromuz, kuzey Ege bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Dikili Aile ve Boşanma Avukatı</li>
+                            <li>Dikili Miras Avukatı</li>
+                            <li>Dikili Ceza Avukatı</li>
+                            <li>Dikili Gayrimenkul Avukatı</li>
+                            <li>Dikili Turizm Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Foça -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Foça Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Foça'da faaliyet gösteren hukuk büromuz, turizm ve balıkçılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Foça Aile ve Boşanma Avukatı</li>
+                            <li>Foça Turizm ve Otelcilik Hukuku</li>
+                            <li>Foça Ceza Avukatı</li>
+                            <li>Foça Deniz Ticareti Hukuku</li>
+                            <li>Foça Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Gaziemir -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Gaziemir Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Gaziemir'de faaliyet gösteren hukuk büromuz, sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Gaziemir Aile ve Boşanma Avukatı</li>
+                            <li>Gaziemir İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Gaziemir Ticaret ve Şirketler Avukatı</li>
+                            <li>Gaziemir Ceza Avukatı</li>
+                            <li>Gaziemir Sanayi ve Ticaret Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Güzelbahçe -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Güzelbahçe Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Güzelbahçe'de faaliyet gösteren hukuk büromuz, sahil bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Güzelbahçe Aile ve Boşanma Avukatı</li>
+                            <li>Güzelbahçe Gayrimenkul Avukatı</li>
+                            <li>Güzelbahçe Ceza Avukatı</li>
+                            <li>Güzelbahçe Tüketici Hukuku</li>
+                            <li>Güzelbahçe İmar ve Belediye Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Karabağlar -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Karabağlar Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Karabağlar'da faaliyet gösteren hukuk büromuz, İzmir'in kalabalık ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Karabağlar Aile ve Boşanma Avukatı</li>
+                            <li>Karabağlar İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Karabağlar Ceza Avukatı</li>
+                            <li>Karabağlar Gayrimenkul Avukatı</li>
+                            <li>Karabağlar Tüketici Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Karaburun -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Karaburun Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Karaburun'da faaliyet gösteren hukuk büromuz, yarımada bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Karaburun Aile ve Boşanma Avukatı</li>
+                            <li>Karaburun Deniz Ticareti Hukuku</li>
+                            <li>Karaburun Ceza Avukatı</li>
+                            <li>Karaburun Tarım ve Hayvancılık Hukuku</li>
+                            <li>Karaburun Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Karşıyaka -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Karşıyaka Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Karşıyaka'da faaliyet gösteren hukuk büromuz, İzmir'in en merkezi ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Karşıyaka Aile ve Boşanma Avukatı</li>
+                            <li>Karşıyaka İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Karşıyaka Ceza Avukatı</li>
+                            <li>Karşıyaka Ticaret ve Şirketler Avukatı</li>
+                            <li>Karşıyaka Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Kemalpaşa -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Kemalpaşa Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Kemalpaşa'da faaliyet gösteren hukuk büromuz, organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Kemalpaşa Aile ve Boşanma Avukatı</li>
+                            <li>Kemalpaşa İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Kemalpaşa Sanayi ve Ticaret Hukuku</li>
+                            <li>Kemalpaşa Ceza Avukatı</li>
+                            <li>Kemalpaşa Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Kınık -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Kınık Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Kınık'ta faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Kınık Aile ve Boşanma Avukatı</li>
+                            <li>Kınık Tarım ve Hayvancılık Hukuku</li>
+                            <li>Kınık Ceza Avukatı</li>
+                            <li>Kınık Miras Avukatı</li>
+                            <li>Kınık Sözleşmeler Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Kiraz -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Kiraz Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Kiraz'da faaliyet gösteren hukuk büromuz, tarım bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Kiraz Aile ve Boşanma Avukatı</li>
+                            <li>Kiraz Tarım Hukuku</li>
+                            <li>Kiraz Ceza Avukatı</li>
+                            <li>Kiraz Miras Avukatı</li>
+                            <li>Kiraz İcra ve İflas Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Konak -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Konak Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Konak'ta faaliyet gösteren hukuk büromuz, İzmir'in merkezi ilçesinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Konak Aile ve Boşanma Avukatı</li>
+                            <li>Konak İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Konak Ceza Avukatı</li>
+                            <li>Konak İdare ve İmar Hukuku</li>
+                            <li>Konak Ticaret ve Şirketler Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Menderes -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Menderes Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Menderes'te faaliyet gösteren hukuk büromuz, tarım ve turizm bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Menderes Aile ve Boşanma Avukatı</li>
+                            <li>Menderes Turizm ve Otelcilik Hukuku</li>
+                            <li>Menderes Tarım Hukuku</li>
+                            <li>Menderes Ceza Avukatı</li>
+                            <li>Menderes Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Menemen -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Menemen Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Menemen'de faaliyet gösteren hukuk büromuz, tarım ve sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Menemen Aile ve Boşanma Avukatı</li>
+                            <li>Menemen İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Menemen Tarım Hukuku</li>
+                            <li>Menemen Ceza Avukatı</li>
+                            <li>Menemen Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Narlıdere -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Narlıdere Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Narlıdere'de faaliyet gösteren hukuk büromuz, İzmir'in incisi olarak bilinen ilçede müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Narlıdere Aile ve Boşanma Avukatı</li>
+                            <li>Narlıdere Eğitim Hukuku</li>
+                            <li>Narlıdere Ceza Avukatı</li>
+                            <li>Narlıdere Gayrimenkul Avukatı</li>
+                            <li>Narlıdere Tüketici Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Ödemiş -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Ödemiş Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Ödemiş'te faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Ödemiş Aile ve Boşanma Avukatı</li>
+                            <li>Ödemiş Tarım ve Hayvancılık Hukuku</li>
+                            <li>Ödemiş Ceza Avukatı</li>
+                            <li>Ödemiş Miras Avukatı</li>
+                            <li>Ödemiş Sözleşmeler Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Seferihisar -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Seferihisar Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Seferihisar'da faaliyet gösteren hukuk büromuz, Türkiye'nin ilk Cittaslow şehrindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Seferihisar Aile ve Boşanma Avukatı</li>
+                            <li>Seferihisar Turizm ve Otelcilik Hukuku</li>
+                            <li>Seferihisar Ceza Avukatı</li>
+                            <li>Seferihisar Tarım ve Hayvancılık Hukuku</li>
+                            <li>Seferihisar Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Selçuk -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Selçuk Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Selçuk'ta faaliyet gösteren hukuk büromuz, tarihi ve turistik bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Selçuk Aile ve Boşanma Avukatı</li>
+                            <li>Selçuk Turizm ve Otelcilik Hukuku</li>
+                            <li>Selçuk Tarihi Eserler ve Kültür Varlıkları Hukuku</li>
+                            <li>Selçuk Ceza Avukatı</li>
+                            <li>Selçuk Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Tire -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Tire Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Tire'de faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Tire Aile ve Boşanma Avukatı</li>
+                            <li>Tire Tarım ve Hayvancılık Hukuku</li>
+                            <li>Tire Ceza Avukatı</li>
+                            <li>Tire Miras Avukatı</li>
+                            <li>Tire Sözleşmeler Hukuku</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Torbalı -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Torbalı Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Torbalı'da faaliyet gösteren hukuk büromuz, organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Torbalı Aile ve Boşanma Avukatı</li>
+                            <li>Torbalı İş ve Sosyal Güvenlik Avukatı</li>
+                            <li>Torbalı Sanayi ve Ticaret Hukuku</li>
+                            <li>Torbalı Ceza Avukatı</li>
+                            <li>Torbalı Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+
+                    <!-- Urla -->
+                    <div class="district-card">
+                        <h3>
+                            <span class="district-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                            </span>
+                            Urla Avukat ve Hukuk Bürosu
+                        </h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Urla'da faaliyet gösteren hukuk büromuz, İzmir'in en seçkin ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <ul class="services-list">
+                            <li>Urla Aile ve Boşanma Avukatı</li>
+                            <li>Urla Turizm ve Otelcilik Hukuku</li>
+                            <li>Urla Tarım ve Hayvancılık Hukuku</li>
+                            <li>Urla Ceza Avukatı</li>
+                            <li>Urla Gayrimenkul Avukatı</li>
+                        </ul>
+                        <div class="contact-info">
+                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
+                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="district-header" style="margin-top: 80px;">
+                    <h2>Diğer Şehirlerdeki Hizmet Ağımız</h2>
+                    <p>İzmir dışında Türkiye'nin dört bir yanındaki müvekkillerimize çözüm ortaklarımız aracılığıyla hizmet vermekteyiz.</p>
+                </div>
+
+                <div class="city-grid">
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>İstanbul</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>İstanbul genelinde hukuki destek ve danışmanlık hizmetleri</p>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Ankara</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>Başkent'te idari ve hukuki süreçlerde profesyonel destek</p>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Antalya</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>Akdeniz bölgesinde hukuki hizmet ve danışmanlık</p>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Manisa</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>Ege bölgesinde kapsamlı hukuki destek hizmetleri</p>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Uşak</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>İç Ege'de hukuki danışmanlık ve dava takibi</p>
+                    </div>
+
+                    <div class="city-card">
+                        <div class="city-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        </div>
+                        <h3>Çanakkale</h3>
+                        <p class="city-type">Çözüm Ortağı</p>
+                        <p>Marmara bölgesinde hukuki hizmet ve temsil</p>
+                    </div>
+                </div>
+
+                <div class="regions-cta">
+                    <h3>Yaşadığınız ilçe listede yok mu?</h3>
+                    <p>İzmir'in tüm ilçelerinde ve Türkiye'nin her yerinden müvekkillerimize hizmet verebilmek için geniş bir iş birliği ağına sahibiz. Bulunduğunuz bölgede hukuki destek almak için bizimle iletişime geçin.</p>
+                    <a href="iletisim.html" class="btn btn-primary">İletişime Geçin</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                        <li><a href="yayinlar.html">Yayınlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
