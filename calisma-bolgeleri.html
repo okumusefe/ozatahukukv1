@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Özata Hukuk - İzmir'in tüm ilçelerinde ve Türkiye genelinde hukuki hizmet. Aliağa, Balçova, Bayındır, Bayraklı, Bergama, Beydağ, Bornova, Buca, Çeşme, Çiğli ve daha fazla ilçede avukatlık hizmetleri.">
+    <meta name="description" content="Özata Hukuk - İzmir'in tüm ilçelerinde ve Türkiye genelinde hukuki hizmet. Aliağa, Balçova, Bayındır, Bayraklı, Bergama, Beydağ, Bornova, Buca, Çeşme, Çiğli, Dikili, Foça, Gaziemir, Güzelbahçe, Karabağlar, Karaburun, Karşıyaka, Kemalpaşa, Kınık, Kiraz, Konak, Menderes, Menemen, Narlıdere, Ödemiş, Seferihisar, Selçuk, Tire, Torbalı, Urla'da avukatlık hizmetleri.">
     <meta name="keywords" content="İzmir avukat, Aliağa avukat, Balçova avukat, Bayındır avukat, Bayraklı avukat, Bergama avukat, Beydağ avukat, Bornova avukat, Buca avukat, Çeşme avukat, Çiğli avukat, Dikili avukat, Foça avukat, Gaziemir avukat, Güzelbahçe avukat, Karabağlar avukat, Karaburun avukat, Karşıyaka avukat, Kemalpaşa avukat, Kınık avukat, Kiraz avukat, Konak avukat, Menderes avukat, Menemen avukat, Narlıdere avukat, Ödemiş avukat, Seferihisar avukat, Selçuk avukat, Tire avukat, Torbalı avukat, Urla avukat">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
@@ -15,167 +15,38 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        .district-section {
-            padding: 80px 0;
-        }
-        .district-section.alt-bg {
-            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
-        }
-        .district-header {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-        .district-header h2 {
-            font-size: 2.5rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-        }
-        .district-header p {
-            color: var(--text-light);
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .district-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
-        }
-        .district-card {
-            background: var(--white);
-            border-radius: 15px;
-            padding: 35px;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-            border-top: 4px solid var(--accent-color);
-        }
-        .district-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
-        }
-        .district-card h3 {
-            font-size: 1.4rem;
-            color: var(--primary-color);
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .district-icon {
-            width: 40px;
-            height: 40px;
-            background: rgba(201,169,97,0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--accent-color);
-        }
-        .district-card .services-list {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-        .district-card .services-list li {
-            padding: 8px 0;
-            padding-left: 25px;
-            position: relative;
-            color: var(--text-color);
-            font-size: 0.95rem;
-            border-bottom: 1px solid #f0f0f0;
-        }
-        .district-card .services-list li:last-child {
-            border-bottom: none;
-        }
-        .district-card .services-list li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            color: var(--accent-color);
-            font-weight: bold;
-        }
-        .district-card .contact-info {
-            background: var(--bg-light);
-            padding: 20px;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-        .district-card .contact-info p {
-            margin: 5px 0;
-            font-size: 0.9rem;
-            color: var(--text-color);
-        }
-        .district-card .contact-info strong {
-            color: var(--primary-color);
-        }
-        .city-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 25px;
-            margin-top: 40px;
-        }
-        .city-card {
-            background: var(--white);
-            border-radius: 12px;
-            padding: 30px;
-            text-align: center;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            transition: all 0.3s ease;
-        }
-        .city-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.12);
-        }
-        .city-card .city-icon {
-            width: 60px;
-            height: 60px;
-            background: rgba(201,169,97,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 20px;
-            color: var(--accent-color);
-        }
-        .city-card h3 {
-            font-size: 1.3rem;
-            color: var(--primary-color);
-            margin-bottom: 10px;
-        }
-        .city-card .city-type {
-            color: var(--accent-color);
-            font-weight: 600;
-            font-size: 0.9rem;
-            margin-bottom: 10px;
-        }
-        .city-card p {
-            color: var(--text-light);
-            font-size: 0.95rem;
-        }
-        @media (max-width: 768px) {
-            .district-grid {
-                grid-template-columns: 1fr;
-            }
-            .city-grid {
-                grid-template-columns: 1fr;
-            }
-            .district-header h2 {
-                font-size: 2rem;
-            }
-        }
+        .district-section { padding: 80px 0; }
+        .district-header { text-align: center; margin-bottom: 50px; }
+        .district-header h2 { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .district-header p { color: var(--text-light); max-width: 700px; margin: 0 auto; }
+        .district-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; margin-top: 40px; }
+        .district-card { background: var(--white); border-radius: 15px; padding: 40px; box-shadow: 0 10px 40px rgba(0,0,0,0.08); transition: all 0.3s ease; border-top: 4px solid var(--accent-color); }
+        .district-card:hover { transform: translateY(-10px); box-shadow: 0 20px 60px rgba(0,0,0,0.12); }
+        .district-card h3 { font-size: 1.5rem; color: var(--primary-color); margin-bottom: 20px; display: flex; align-items: center; gap: 12px; }
+        .district-icon { width: 40px; height: 40px; background: rgba(201,169,97,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; color: var(--accent-color); }
+        .district-card .services-list { list-style: none; padding: 0; margin: 20px 0; }
+        .district-card .services-list li { padding: 8px 0; padding-left: 25px; position: relative; color: var(--text-color); font-size: 0.95rem; border-bottom: 1px solid #f0f0f0; }
+        .district-card .services-list li:last-child { border-bottom: none; }
+        .district-card .services-list li::before { content: '✓'; position: absolute; left: 0; color: var(--accent-color); font-weight: bold; }
+        .contact-info { background: var(--bg-light); padding: 20px; border-radius: 10px; margin-top: 20px; }
+        .contact-info p { margin: 5px 0; font-size: 0.9rem; color: var(--text-color); }
+        .fee-section { background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid var(--accent-color); }
+        .fee-section h4 { color: var(--primary-color); margin-bottom: 10px; }
+        .notice-box { background: rgba(201,169,97,0.1); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid var(--accent-color); }
+        .city-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 25px; margin-top: 40px; }
+        .city-card { background: var(--white); border-radius: 12px; padding: 30px; text-align: center; box-shadow: 0 5px 20px rgba(0,0,0,0.08); transition: all 0.3s ease; }
+        .city-card:hover { transform: translateY(-5px); box-shadow: 0 10px 30px rgba(0,0,0,0.12); }
+        .city-icon { width: 60px; height: 60px; background: rgba(201,169,97,0.1); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: var(--accent-color); }
+        .city-card h3 { font-size: 1.3rem; color: var(--primary-color); margin-bottom: 10px; }
+        .city-type { color: var(--accent-color); font-weight: 600; font-size: 0.9rem; margin-bottom: 10px; }
+        @media (max-width: 768px) { .district-grid, .city-grid { grid-template-columns: 1fr; } .district-header h2 { font-size: 2rem; } }
     </style>
 </head>
 <body>
     <header class="header">
         <nav class="nav-container">
-            <div class="logo">
-                <a href="index.html">ÖZATA HUKUK</a>
-            </div>
-            <button class="mobile-menu-toggle" aria-label="Menü">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="logo"><a href="index.html">ÖZATA HUKUK</a></div>
+            <button class="mobile-menu-toggle" aria-label="Menü"><span></span><span></span><span></span></button>
             <ul class="nav-menu">
                 <li><a href="index.html">Anasayfa</a></li>
                 <li><a href="hakkimizda.html">Hakkımızda</a></li>
@@ -195,738 +66,445 @@
             </div>
         </section>
 
-        <!-- İzmir İlçeleri Bölümü -->
         <section class="district-section">
             <div class="container">
                 <div class="district-header">
                     <h2>İzmir İlçelerinde Hizmetinizdeyiz</h2>
-                    <p>Avukat Ege ÖZATA ve ekibi olarak, İzmir'in tüm ilçelerinde profesyonel avukatlık ve hukuki danışmanlık hizmetleri sunmaktayız. Her ilçede müvekkillerimizin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                    <p>Avukat Ege ÖZATA ve ekibi olarak, İzmir'in tüm ilçelerinde profesyonel avukatlık ve hukuki danışmanlık hizmetleri sunmaktayız. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
                 </div>
 
                 <div class="district-grid">
                     <!-- Aliağa -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Aliağa Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Aliağa'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Aliağa Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Aliağa Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Aliağa Aile ve Boşanma Avukatı</li>
-                            <li>Aliağa İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Aliağa Ceza Avukatı</li>
-                            <li>Aliağa İdare Avukatı</li>
-                            <li>Aliağa Ticaret ve Şirketler Avukatı</li>
+                            <li>Aliağa Aile ve Boşanma Avukatı</li><li>Aliağa İş ve Sosyal Güvenlik Avukatı</li><li>Aliağa Ceza Avukatı</li><li>Aliağa İdare Avukatı</li><li>Aliağa Miras Avukatı</li><li>Aliağa Ticaret ve Şirketler Avukatı</li><li>Aliağa Sağlık Avukatı</li><li>Aliağa Yabancılar Avukatı</li><li>Aliağa Fikri ve Sınai Mülkiyet Avukatı</li><li>Aliağa Gayrimenkul Avukatı</li><li>Aliağa Bilişim Avukatı</li><li>Aliağa İcra ve İflas Avukatı</li><li>Aliağa Sigorta Avukatı</li><li>Aliağa Tüketici Avukatı</li><li>Aliağa Sözleşmeler ve Borçlar Avukatı</li><li>Aliağa Spor Avukatı</li><li>Aliağa Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Aliağa Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Aliağa Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Balçova -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Balçova Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Balçova'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Balçova Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Balçova Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Balçova Aile ve Boşanma Avukatı</li>
-                            <li>Balçova İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Balçova Ceza Avukatı</li>
-                            <li>Balçova Gayrimenkul Avukatı</li>
-                            <li>Balçova Tüketici Avukatı</li>
+                            <li>Balçova Aile ve Boşanma Avukatı</li><li>Balçova İş ve Sosyal Güvenlik Avukatı</li><li>Balçova Ceza Avukatı</li><li>Balçova İdare Avukatı</li><li>Balçova Miras Avukatı</li><li>Balçova Ticaret ve Şirketler Avukatı</li><li>Balçova Sağlık Avukatı</li><li>Balçova Yabancılar Avukatı</li><li>Balçova Fikri ve Sınai Mülkiyet Avukatı</li><li>Balçova Gayrimenkul Avukatı</li><li>Balçova Bilişim Avukatı</li><li>Balçova İcra ve İflas Avukatı</li><li>Balçova Sigorta Avukatı</li><li>Balçova Tüketici Avukatı</li><li>Balçova Sözleşmeler ve Borçlar Avukatı</li><li>Balçova Spor Avukatı</li><li>Balçova Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Balçova Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Balçova Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Bayındır -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Bayındır Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Bayındır'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Bayındır Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Bayındır Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Bayındır Aile ve Boşanma Avukatı</li>
-                            <li>Bayındır Miras Avukatı</li>
-                            <li>Bayındır Ceza Avukatı</li>
-                            <li>Bayındır İcra ve İflas Avukatı</li>
-                            <li>Bayındır Tarım ve Hayvancılık Hukuku</li>
+                            <li>Bayındır Aile ve Boşanma Avukatı</li><li>Bayındır İş ve Sosyal Güvenlik Avukatı</li><li>Bayındır Ceza Avukatı</li><li>Bayındır İdare Avukatı</li><li>Bayındır Miras Avukatı</li><li>Bayındır Ticaret ve Şirketler Avukatı</li><li>Bayındır Sağlık Avukatı</li><li>Bayındır Yabancılar Avukatı</li><li>Bayındır Fikri ve Sınai Mülkiyet Avukatı</li><li>Bayındır Gayrimenkul Avukatı</li><li>Bayındır Bilişim Avukatı</li><li>Bayındır İcra ve İflas Avukatı</li><li>Bayındır Sigorta Avukatı</li><li>Bayındır Tüketici Avukatı</li><li>Bayındır Sözleşmeler ve Borçlar Avukatı</li><li>Bayındır Spor Avukatı</li><li>Bayındır Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Bayındır Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Bayındır Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Bayraklı -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Bayraklı Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Bayraklı'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Bayraklı Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Bayraklı Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Bayraklı Aile ve Boşanma Avukatı</li>
-                            <li>Bayraklı İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Bayraklı Ceza Avukatı</li>
-                            <li>Bayraklı Ticaret ve Şirketler Avukatı</li>
-                            <li>Bayraklı Gayrimenkul Avukatı</li>
+                            <li>Bayraklı Aile ve Boşanma Avukatı</li><li>Bayraklı İş ve Sosyal Güvenlik Avukatı</li><li>Bayraklı Ceza Avukatı</li><li>Bayraklı İdare Avukatı</li><li>Bayraklı Miras Avukatı</li><li>Bayraklı Ticaret ve Şirketler Avukatı</li><li>Bayraklı Sağlık Avukatı</li><li>Bayraklı Yabancılar Avukatı</li><li>Bayraklı Fikri ve Sınai Mülkiyet Avukatı</li><li>Bayraklı Gayrimenkul Avukatı</li><li>Bayraklı Bilişim Avukatı</li><li>Bayraklı İcra ve İflas Avukatı</li><li>Bayraklı Sigorta Avukatı</li><li>Bayraklı Tüketici Avukatı</li><li>Bayraklı Sözleşmeler ve Borçlar Avukatı</li><li>Bayraklı Spor Avukatı</li><li>Bayraklı Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Bayraklı Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Bayraklı Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Bergama -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Bergama Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, Bergama'da hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Bergama Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Bergama Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Bergama Aile ve Boşanma Avukatı</li>
-                            <li>Bergama İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Bergama Ceza Avukatı</li>
-                            <li>Bergama İdare Avukatı</li>
-                            <li>Bergama Miras Avukatı</li>
-                            <li>Bergama Ticaret ve Şirketler Avukatı</li>
-                            <li>Bergama Gayrimenkul Avukatı</li>
-                            <li>Bergama İcra ve İflas Avukatı</li>
+                            <li>Bergama Aile ve Boşanma Avukatı</li><li>Bergama İş ve Sosyal Güvenlik Avukatı</li><li>Bergama Ceza Avukatı</li><li>Bergama İdare Avukatı</li><li>Bergama Miras Avukatı</li><li>Bergama Ticaret ve Şirketler Avukatı</li><li>Bergama Sağlık Avukatı</li><li>Bergama Yabancılar Avukatı</li><li>Bergama Fikri ve Sınai Mülkiyet Avukatı</li><li>Bergama Gayrimenkul Avukatı</li><li>Bergama Bilişim Avukatı</li><li>Bergama İcra ve İflas Avukatı</li><li>Bergama Sigorta Avukatı</li><li>Bergama Tüketici Avukatı</li><li>Bergama Sözleşmeler ve Borçlar Avukatı</li><li>Bergama Spor Avukatı</li><li>Bergama Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Bergama Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Bergama Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Beydağ -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Beydağ Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Beydağ'da faaliyet gösteren hukuk büromuz, bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Beydağ Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Beydağ Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Beydağ Aile ve Boşanma Avukatı</li>
-                            <li>Beydağ Miras Avukatı</li>
-                            <li>Beydağ Tarım Hukuku</li>
-                            <li>Beydağ İcra ve İflas Avukatı</li>
-                            <li>Beydağ Sözleşmeler Hukuku</li>
+                            <li>Beydağ Aile ve Boşanma Avukatı</li><li>Beydağ İş ve Sosyal Güvenlik Avukatı</li><li>Beydağ Ceza Avukatı</li><li>Beydağ İdare Avukatı</li><li>Beydağ Miras Avukatı</li><li>Beydağ Ticaret ve Şirketler Avukatı</li><li>Beydağ Sağlık Avukatı</li><li>Beydağ Yabancılar Avukatı</li><li>Beydağ Fikri ve Sınai Mülkiyet Avukatı</li><li>Beydağ Gayrimenkul Avukatı</li><li>Beydağ Bilişim Avukatı</li><li>Beydağ İcra ve İflas Avukatı</li><li>Beydağ Sigorta Avukatı</li><li>Beydağ Tüketici Avukatı</li><li>Beydağ Sözleşmeler ve Borçlar Avukatı</li><li>Beydağ Spor Avukatı</li><li>Beydağ Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Beydağ Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Beydağ Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Bornova -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Bornova Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Bornova'da faaliyet gösteren hukuk büromuz, Ege Üniversitesi bölgesinde ve çevresindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Bornova Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Bornova Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Bornova Aile ve Boşanma Avukatı</li>
-                            <li>Bornova İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Bornova Ceza Avukatı</li>
-                            <li>Bornova Eğitim Hukuku</li>
-                            <li>Bornova Fikri ve Sınai Mülkiyet Avukatı</li>
+                            <li>Bornova Aile ve Boşanma Avukatı</li><li>Bornova İş ve Sosyal Güvenlik Avukatı</li><li>Bornova Ceza Avukatı</li><li>Bornova İdare Avukatı</li><li>Bornova Miras Avukatı</li><li>Bornova Ticaret ve Şirketler Avukatı</li><li>Bornova Sağlık Avukatı</li><li>Bornova Yabancılar Avukatı</li><li>Bornova Fikri ve Sınai Mülkiyet Avukatı</li><li>Bornova Gayrimenkul Avukatı</li><li>Bornova Bilişim Avukatı</li><li>Bornova İcra ve İflas Avukatı</li><li>Bornova Sigorta Avukatı</li><li>Bornova Tüketici Avukatı</li><li>Bornova Sözleşmeler ve Borçlar Avukatı</li><li>Bornova Spor Avukatı</li><li>Bornova Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Bornova Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Bornova Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Buca -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Buca Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Buca'da faaliyet gösteren hukuk büromuz, İzmir'in en büyük ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Buca Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Buca Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Buca Aile ve Boşanma Avukatı</li>
-                            <li>Buca İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Buca Ceza Avukatı</li>
-                            <li>Buca Ticaret ve Şirketler Avukatı</li>
-                            <li>Buca Gayrimenkul Avukatı</li>
+                            <li>Buca Aile ve Boşanma Avukatı</li><li>Buca İş ve Sosyal Güvenlik Avukatı</li><li>Buca Ceza Avukatı</li><li>Buca İdare Avukatı</li><li>Buca Miras Avukatı</li><li>Buca Ticaret ve Şirketler Avukatı</li><li>Buca Sağlık Avukatı</li><li>Buca Yabancılar Avukatı</li><li>Buca Fikri ve Sınai Mülkiyet Avukatı</li><li>Buca Gayrimenkul Avukatı</li><li>Buca Bilişim Avukatı</li><li>Buca İcra ve İflas Avukatı</li><li>Buca Sigorta Avukatı</li><li>Buca Tüketici Avukatı</li><li>Buca Sözleşmeler ve Borçlar Avukatı</li><li>Buca Spor Avukatı</li><li>Buca Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Buca Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Buca Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Çeşme -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Çeşme Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Çeşme'de faaliyet gösteren hukuk büromuz, turizm bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Çeşme Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Çeşme Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Çeşme Aile ve Boşanma Avukatı</li>
-                            <li>Çeşme Turizm ve Otelcilik Hukuku</li>
-                            <li>Çeşme Ceza Avukatı</li>
-                            <li>Çeşme Gayrimenkul Avukatı</li>
-                            <li>Çeşme Yabancılar ve Vatandaşlık Hukuku</li>
+                            <li>Çeşme Aile ve Boşanma Avukatı</li><li>Çeşme İş ve Sosyal Güvenlik Avukatı</li><li>Çeşme Ceza Avukatı</li><li>Çeşme İdare Avukatı</li><li>Çeşme Miras Avukatı</li><li>Çeşme Ticaret ve Şirketler Avukatı</li><li>Çeşme Sağlık Avukatı</li><li>Çeşme Yabancılar Avukatı</li><li>Çeşme Fikri ve Sınai Mülkiyet Avukatı</li><li>Çeşme Gayrimenkul Avukatı</li><li>Çeşme Bilişim Avukatı</li><li>Çeşme İcra ve İflas Avukatı</li><li>Çeşme Sigorta Avukatı</li><li>Çeşme Tüketici Avukatı</li><li>Çeşme Sözleşmeler ve Borçlar Avukatı</li><li>Çeşme Spor Avukatı</li><li>Çeşme Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Çeşme Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Çeşme Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Çiğli -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Çiğli Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Çiğli'de faaliyet gösteren hukuk büromuz, sanayi ve organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Çiğli Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Çiğli Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Çiğli Aile ve Boşanma Avukatı</li>
-                            <li>Çiğli İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Çiğli Ticaret ve Şirketler Avukatı</li>
-                            <li>Çiğli Ceza Avukatı</li>
-                            <li>Çiğli Gayrimenkul Avukatı</li>
+                            <li>Çiğli Aile ve Boşanma Avukatı</li><li>Çiğli İş ve Sosyal Güvenlik Avukatı</li><li>Çiğli Ceza Avukatı</li><li>Çiğli İdare Avukatı</li><li>Çiğli Miras Avukatı</li><li>Çiğli Ticaret ve Şirketler Avukatı</li><li>Çiğli Sağlık Avukatı</li><li>Çiğli Yabancılar Avukatı</li><li>Çiğli Fikri ve Sınai Mülkiyet Avukatı</li><li>Çiğli Gayrimenkul Avukatı</li><li>Çiğli Bilişim Avukatı</li><li>Çiğli İcra ve İflas Avukatı</li><li>Çiğli Sigorta Avukatı</li><li>Çiğli Tüketici Avukatı</li><li>Çiğli Sözleşmeler ve Borçlar Avukatı</li><li>Çiğli Spor Avukatı</li><li>Çiğli Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Çiğli Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Çiğli Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Dikili -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Dikili Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Dikili'de faaliyet gösteren hukuk büromuz, kuzey Ege bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Dikili Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Dikili Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Dikili Aile ve Boşanma Avukatı</li>
-                            <li>Dikili Miras Avukatı</li>
-                            <li>Dikili Ceza Avukatı</li>
-                            <li>Dikili Gayrimenkul Avukatı</li>
-                            <li>Dikili Turizm Hukuku</li>
+                            <li>Dikili Aile ve Boşanma Avukatı</li><li>Dikili İş ve Sosyal Güvenlik Avukatı</li><li>Dikili Ceza Avukatı</li><li>Dikili İdare Avukatı</li><li>Dikili Miras Avukatı</li><li>Dikili Ticaret ve Şirketler Avukatı</li><li>Dikili Sağlık Avukatı</li><li>Dikili Yabancılar Avukatı</li><li>Dikili Fikri ve Sınai Mülkiyet Avukatı</li><li>Dikili Gayrimenkul Avukatı</li><li>Dikili Bilişim Avukatı</li><li>Dikili İcra ve İflas Avukatı</li><li>Dikili Sigorta Avukatı</li><li>Dikili Tüketici Avukatı</li><li>Dikili Sözleşmeler ve Borçlar Avukatı</li><li>Dikili Spor Avukatı</li><li>Dikili Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Dikili Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Dikili Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Foça -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Foça Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Foça'da faaliyet gösteren hukuk büromuz, turizm ve balıkçılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Foça Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Foça Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Foça Aile ve Boşanma Avukatı</li>
-                            <li>Foça Turizm ve Otelcilik Hukuku</li>
-                            <li>Foça Ceza Avukatı</li>
-                            <li>Foça Deniz Ticareti Hukuku</li>
-                            <li>Foça Gayrimenkul Avukatı</li>
+                            <li>Foça Aile ve Boşanma Avukatı</li><li>Foça İş ve Sosyal Güvenlik Avukatı</li><li>Foça Ceza Avukatı</li><li>Foça İdare Avukatı</li><li>Foça Miras Avukatı</li><li>Foça Ticaret ve Şirketler Avukatı</li><li>Foça Sağlık Avukatı</li><li>Foça Yabancılar Avukatı</li><li>Foça Fikri ve Sınai Mülkiyet Avukatı</li><li>Foça Gayrimenkul Avukatı</li><li>Foça Bilişim Avukatı</li><li>Foça İcra ve İflas Avukatı</li><li>Foça Sigorta Avukatı</li><li>Foça Tüketici Avukatı</li><li>Foça Sözleşmeler ve Borçlar Avukatı</li><li>Foça Spor Avukatı</li><li>Foça Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Foça Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Foça Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Gaziemir -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Gaziemir Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Gaziemir'de faaliyet gösteren hukuk büromuz, sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Gaziemir Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Gaziemir Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Gaziemir Aile ve Boşanma Avukatı</li>
-                            <li>Gaziemir İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Gaziemir Ticaret ve Şirketler Avukatı</li>
-                            <li>Gaziemir Ceza Avukatı</li>
-                            <li>Gaziemir Sanayi ve Ticaret Hukuku</li>
+                            <li>Gaziemir Aile ve Boşanma Avukatı</li><li>Gaziemir İş ve Sosyal Güvenlik Avukatı</li><li>Gaziemir Ceza Avukatı</li><li>Gaziemir İdare Avukatı</li><li>Gaziemir Miras Avukatı</li><li>Gaziemir Ticaret ve Şirketler Avukatı</li><li>Gaziemir Sağlık Avukatı</li><li>Gaziemir Yabancılar Avukatı</li><li>Gaziemir Fikri ve Sınai Mülkiyet Avukatı</li><li>Gaziemir Gayrimenkul Avukatı</li><li>Gaziemir Bilişim Avukatı</li><li>Gaziemir İcra ve İflas Avukatı</li><li>Gaziemir Sigorta Avukatı</li><li>Gaziemir Tüketici Avukatı</li><li>Gaziemir Sözleşmeler ve Borçlar Avukatı</li><li>Gaziemir Spor Avukatı</li><li>Gaziemir Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Gaziemir Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Gaziemir Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Güzelbahçe -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Güzelbahçe Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Güzelbahçe'de faaliyet gösteren hukuk büromuz, sahil bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Güzelbahçe Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Güzelbahçe Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Güzelbahçe Aile ve Boşanma Avukatı</li>
-                            <li>Güzelbahçe Gayrimenkul Avukatı</li>
-                            <li>Güzelbahçe Ceza Avukatı</li>
-                            <li>Güzelbahçe Tüketici Hukuku</li>
-                            <li>Güzelbahçe İmar ve Belediye Hukuku</li>
+                            <li>Güzelbahçe Aile ve Boşanma Avukatı</li><li>Güzelbahçe İş ve Sosyal Güvenlik Avukatı</li><li>Güzelbahçe Ceza Avukatı</li><li>Güzelbahçe İdare Avukatı</li><li>Güzelbahçe Miras Avukatı</li><li>Güzelbahçe Ticaret ve Şirketler Avukatı</li><li>Güzelbahçe Sağlık Avukatı</li><li>Güzelbahçe Yabancılar Avukatı</li><li>Güzelbahçe Fikri ve Sınai Mülkiyet Avukatı</li><li>Güzelbahçe Gayrimenkul Avukatı</li><li>Güzelbahçe Bilişim Avukatı</li><li>Güzelbahçe İcra ve İflas Avukatı</li><li>Güzelbahçe Sigorta Avukatı</li><li>Güzelbahçe Tüketici Avukatı</li><li>Güzelbahçe Sözleşmeler ve Borçlar Avukatı</li><li>Güzelbahçe Spor Avukatı</li><li>Güzelbahçe Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Güzelbahçe Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Güzelbahçe Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Karabağlar -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Karabağlar Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Karabağlar'da faaliyet gösteren hukuk büromuz, İzmir'in kalabalık ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Karabağlar Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Karabağlar Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Karabağlar Aile ve Boşanma Avukatı</li>
-                            <li>Karabağlar İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Karabağlar Ceza Avukatı</li>
-                            <li>Karabağlar Gayrimenkul Avukatı</li>
-                            <li>Karabağlar Tüketici Hukuku</li>
+                            <li>Karabağlar Aile ve Boşanma Avukatı</li><li>Karabağlar İş ve Sosyal Güvenlik Avukatı</li><li>Karabağlar Ceza Avukatı</li><li>Karabağlar İdare Avukatı</li><li>Karabağlar Miras Avukatı</li><li>Karabağlar Ticaret ve Şirketler Avukatı</li><li>Karabağlar Sağlık Avukatı</li><li>Karabağlar Yabancılar Avukatı</li><li>Karabağlar Fikri ve Sınai Mülkiyet Avukatı</li><li>Karabağlar Gayrimenkul Avukatı</li><li>Karabağlar Bilişim Avukatı</li><li>Karabağlar İcra ve İflas Avukatı</li><li>Karabağlar Sigorta Avukatı</li><li>Karabağlar Tüketici Avukatı</li><li>Karabağlar Sözleşmeler ve Borçlar Avukatı</li><li>Karabağlar Spor Avukatı</li><li>Karabağlar Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Karabağlar Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Karabağlar Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Karaburun -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Karaburun Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Karaburun'da faaliyet gösteren hukuk büromuz, yarımada bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Karaburun Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Karaburun Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Karaburun Aile ve Boşanma Avukatı</li>
-                            <li>Karaburun Deniz Ticareti Hukuku</li>
-                            <li>Karaburun Ceza Avukatı</li>
-                            <li>Karaburun Tarım ve Hayvancılık Hukuku</li>
-                            <li>Karaburun Gayrimenkul Avukatı</li>
+                            <li>Karaburun Aile ve Boşanma Avukatı</li><li>Karaburun İş ve Sosyal Güvenlik Avukatı</li><li>Karaburun Ceza Avukatı</li><li>Karaburun İdare Avukatı</li><li>Karaburun Miras Avukatı</li><li>Karaburun Ticaret ve Şirketler Avukatı</li><li>Karaburun Sağlık Avukatı</li><li>Karaburun Yabancılar Avukatı</li><li>Karaburun Fikri ve Sınai Mülkiyet Avukatı</li><li>Karaburun Gayrimenkul Avukatı</li><li>Karaburun Bilişim Avukatı</li><li>Karaburun İcra ve İflas Avukatı</li><li>Karaburun Sigorta Avukatı</li><li>Karaburun Tüketici Avukatı</li><li>Karaburun Sözleşmeler ve Borçlar Avukatı</li><li>Karaburun Spor Avukatı</li><li>Karaburun Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Karaburun Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Karaburun Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Karşıyaka -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Karşıyaka Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Karşıyaka'da faaliyet gösteren hukuk büromuz, İzmir'in en merkezi ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Karşıyaka Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Karşıyaka Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Karşıyaka Aile ve Boşanma Avukatı</li>
-                            <li>Karşıyaka İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Karşıyaka Ceza Avukatı</li>
-                            <li>Karşıyaka Ticaret ve Şirketler Avukatı</li>
-                            <li>Karşıyaka Gayrimenkul Avukatı</li>
+                            <li>Karşıyaka Aile ve Boşanma Avukatı</li><li>Karşıyaka İş ve Sosyal Güvenlik Avukatı</li><li>Karşıyaka Ceza Avukatı</li><li>Karşıyaka İdare Avukatı</li><li>Karşıyaka Miras Avukatı</li><li>Karşıyaka Ticaret ve Şirketler Avukatı</li><li>Karşıyaka Sağlık Avukatı</li><li>Karşıyaka Yabancılar Avukatı</li><li>Karşıyaka Fikri ve Sınai Mülkiyet Avukatı</li><li>Karşıyaka Gayrimenkul Avukatı</li><li>Karşıyaka Bilişim Avukatı</li><li>Karşıyaka İcra ve İflas Avukatı</li><li>Karşıyaka Sigorta Avukatı</li><li>Karşıyaka Tüketici Avukatı</li><li>Karşıyaka Sözleşmeler ve Borçlar Avukatı</li><li>Karşıyaka Spor Avukatı</li><li>Karşıyaka Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Karşıyaka Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Karşıyaka Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Kemalpaşa -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Kemalpaşa Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Kemalpaşa'da faaliyet gösteren hukuk büromuz, organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Kemalpaşa Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Kemalpaşa Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Kemalpaşa Aile ve Boşanma Avukatı</li>
-                            <li>Kemalpaşa İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Kemalpaşa Sanayi ve Ticaret Hukuku</li>
-                            <li>Kemalpaşa Ceza Avukatı</li>
-                            <li>Kemalpaşa Gayrimenkul Avukatı</li>
+                            <li>Kemalpaşa Aile ve Boşanma Avukatı</li><li>Kemalpaşa İş ve Sosyal Güvenlik Avukatı</li><li>Kemalpaşa Ceza Avukatı</li><li>Kemalpaşa İdare Avukatı</li><li>Kemalpaşa Miras Avukatı</li><li>Kemalpaşa Ticaret ve Şirketler Avukatı</li><li>Kemalpaşa Sağlık Avukatı</li><li>Kemalpaşa Yabancılar Avukatı</li><li>Kemalpaşa Fikri ve Sınai Mülkiyet Avukatı</li><li>Kemalpaşa Gayrimenkul Avukatı</li><li>Kemalpaşa Bilişim Avukatı</li><li>Kemalpaşa İcra ve İflas Avukatı</li><li>Kemalpaşa Sigorta Avukatı</li><li>Kemalpaşa Tüketici Avukatı</li><li>Kemalpaşa Sözleşmeler ve Borçlar Avukatı</li><li>Kemalpaşa Spor Avukatı</li><li>Kemalpaşa Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Kemalpaşa Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Kemalpaşa Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Kınık -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Kınık Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Kınık'ta faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Kınık Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Kınık Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Kınık Aile ve Boşanma Avukatı</li>
-                            <li>Kınık Tarım ve Hayvancılık Hukuku</li>
-                            <li>Kınık Ceza Avukatı</li>
-                            <li>Kınık Miras Avukatı</li>
-                            <li>Kınık Sözleşmeler Hukuku</li>
+                            <li>Kınık Aile ve Boşanma Avukatı</li><li>Kınık İş ve Sosyal Güvenlik Avukatı</li><li>Kınık Ceza Avukatı</li><li>Kınık İdare Avukatı</li><li>Kınık Miras Avukatı</li><li>Kınık Ticaret ve Şirketler Avukatı</li><li>Kınık Sağlık Avukatı</li><li>Kınık Yabancılar Avukatı</li><li>Kınık Fikri ve Sınai Mülkiyet Avukatı</li><li>Kınık Gayrimenkul Avukatı</li><li>Kınık Bilişim Avukatı</li><li>Kınık İcra ve İflas Avukatı</li><li>Kınık Sigorta Avukatı</li><li>Kınık Tüketici Avukatı</li><li>Kınık Sözleşmeler ve Borçlar Avukatı</li><li>Kınık Spor Avukatı</li><li>Kınık Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Kınık Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Kınık Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Kiraz -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Kiraz Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Kiraz'da faaliyet gösteren hukuk büromuz, tarım bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Kiraz Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Kiraz Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Kiraz Aile ve Boşanma Avukatı</li>
-                            <li>Kiraz Tarım Hukuku</li>
-                            <li>Kiraz Ceza Avukatı</li>
-                            <li>Kiraz Miras Avukatı</li>
-                            <li>Kiraz İcra ve İflas Avukatı</li>
+                            <li>Kiraz Aile ve Boşanma Avukatı</li><li>Kiraz İş ve Sosyal Güvenlik Avukatı</li><li>Kiraz Ceza Avukatı</li><li>Kiraz İdare Avukatı</li><li>Kiraz Miras Avukatı</li><li>Kiraz Ticaret ve Şirketler Avukatı</li><li>Kiraz Sağlık Avukatı</li><li>Kiraz Yabancılar Avukatı</li><li>Kiraz Fikri ve Sınai Mülkiyet Avukatı</li><li>Kiraz Gayrimenkul Avukatı</li><li>Kiraz Bilişim Avukatı</li><li>Kiraz İcra ve İflas Avukatı</li><li>Kiraz Sigorta Avukatı</li><li>Kiraz Tüketici Avukatı</li><li>Kiraz Sözleşmeler ve Borçlar Avukatı</li><li>Kiraz Spor Avukatı</li><li>Kiraz Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Kiraz Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Kiraz Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Konak -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Konak Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Konak'ta faaliyet gösteren hukuk büromuz, İzmir'in merkezi ilçesinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Konak Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Konak Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Konak Aile ve Boşanma Avukatı</li>
-                            <li>Konak İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Konak Ceza Avukatı</li>
-                            <li>Konak İdare ve İmar Hukuku</li>
-                            <li>Konak Ticaret ve Şirketler Avukatı</li>
+                            <li>Konak Aile ve Boşanma Avukatı</li><li>Konak İş ve Sosyal Güvenlik Avukatı</li><li>Konak Ceza Avukatı</li><li>Konak İdare Avukatı</li><li>Konak Miras Avukatı</li><li>Konak Ticaret ve Şirketler Avukatı</li><li>Konak Sağlık Avukatı</li><li>Konak Yabancılar Avukatı</li><li>Konak Fikri ve Sınai Mülkiyet Avukatı</li><li>Konak Gayrimenkul Avukatı</li><li>Konak Bilişim Avukatı</li><li>Konak İcra ve İflas Avukatı</li><li>Konak Sigorta Avukatı</li><li>Konak Tüketici Avukatı</li><li>Konak Sözleşmeler ve Borçlar Avukatı</li><li>Konak Spor Avukatı</li><li>Konak Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Konak Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Konak Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Menderes -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Menderes Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Menderes'te faaliyet gösteren hukuk büromuz, tarım ve turizm bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Menderes Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Menderes Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Menderes Aile ve Boşanma Avukatı</li>
-                            <li>Menderes Turizm ve Otelcilik Hukuku</li>
-                            <li>Menderes Tarım Hukuku</li>
-                            <li>Menderes Ceza Avukatı</li>
-                            <li>Menderes Gayrimenkul Avukatı</li>
+                            <li>Menderes Aile ve Boşanma Avukatı</li><li>Menderes İş ve Sosyal Güvenlik Avukatı</li><li>Menderes Ceza Avukatı</li><li>Menderes İdare Avukatı</li><li>Menderes Miras Avukatı</li><li>Menderes Ticaret ve Şirketler Avukatı</li><li>Menderes Sağlık Avukatı</li><li>Menderes Yabancılar Avukatı</li><li>Menderes Fikri ve Sınai Mülkiyet Avukatı</li><li>Menderes Gayrimenkul Avukatı</li><li>Menderes Bilişim Avukatı</li><li>Menderes İcra ve İflas Avukatı</li><li>Menderes Sigorta Avukatı</li><li>Menderes Tüketici Avukatı</li><li>Menderes Sözleşmeler ve Borçlar Avukatı</li><li>Menderes Spor Avukatı</li><li>Menderes Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Menderes Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Menderes Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Menemen -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Menemen Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Menemen'de faaliyet gösteren hukuk büromuz, tarım ve sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Menemen Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Menemen Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Menemen Aile ve Boşanma Avukatı</li>
-                            <li>Menemen İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Menemen Tarım Hukuku</li>
-                            <li>Menemen Ceza Avukatı</li>
-                            <li>Menemen Gayrimenkul Avukatı</li>
+                            <li>Menemen Aile ve Boşanma Avukatı</li><li>Menemen İş ve Sosyal Güvenlik Avukatı</li><li>Menemen Ceza Avukatı</li><li>Menemen İdare Avukatı</li><li>Menemen Miras Avukatı</li><li>Menemen Ticaret ve Şirketler Avukatı</li><li>Menemen Sağlık Avukatı</li><li>Menemen Yabancılar Avukatı</li><li>Menemen Fikri ve Sınai Mülkiyet Avukatı</li><li>Menemen Gayrimenkul Avukatı</li><li>Menemen Bilişim Avukatı</li><li>Menemen İcra ve İflas Avukatı</li><li>Menemen Sigorta Avukatı</li><li>Menemen Tüketici Avukatı</li><li>Menemen Sözleşmeler ve Borçlar Avukatı</li><li>Menemen Spor Avukatı</li><li>Menemen Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Menemen Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Menemen Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Narlıdere -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Narlıdere Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Narlıdere'de faaliyet gösteren hukuk büromuz, İzmir'in incisi olarak bilinen ilçede müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Narlıdere Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Narlıdere Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Narlıdere Aile ve Boşanma Avukatı</li>
-                            <li>Narlıdere Eğitim Hukuku</li>
-                            <li>Narlıdere Ceza Avukatı</li>
-                            <li>Narlıdere Gayrimenkul Avukatı</li>
-                            <li>Narlıdere Tüketici Hukuku</li>
+                            <li>Narlıdere Aile ve Boşanma Avukatı</li><li>Narlıdere İş ve Sosyal Güvenlik Avukatı</li><li>Narlıdere Ceza Avukatı</li><li>Narlıdere İdare Avukatı</li><li>Narlıdere Miras Avukatı</li><li>Narlıdere Ticaret ve Şirketler Avukatı</li><li>Narlıdere Sağlık Avukatı</li><li>Narlıdere Yabancılar Avukatı</li><li>Narlıdere Fikri ve Sınai Mülkiyet Avukatı</li><li>Narlıdere Gayrimenkul Avukatı</li><li>Narlıdere Bilişim Avukatı</li><li>Narlıdere İcra ve İflas Avukatı</li><li>Narlıdere Sigorta Avukatı</li><li>Narlıdere Tüketici Avukatı</li><li>Narlıdere Sözleşmeler ve Borçlar Avukatı</li><li>Narlıdere Spor Avukatı</li><li>Narlıdere Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Narlıdere Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Narlıdere Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Ödemiş -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Ödemiş Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Ödemiş'te faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Ödemiş Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Ödemiş Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Ödemiş Aile ve Boşanma Avukatı</li>
-                            <li>Ödemiş Tarım ve Hayvancılık Hukuku</li>
-                            <li>Ödemiş Ceza Avukatı</li>
-                            <li>Ödemiş Miras Avukatı</li>
-                            <li>Ödemiş Sözleşmeler Hukuku</li>
+                            <li>Ödemiş Aile ve Boşanma Avukatı</li><li>Ödemiş İş ve Sosyal Güvenlik Avukatı</li><li>Ödemiş Ceza Avukatı</li><li>Ödemiş İdare Avukatı</li><li>Ödemiş Miras Avukatı</li><li>Ödemiş Ticaret ve Şirketler Avukatı</li><li>Ödemiş Sağlık Avukatı</li><li>Ödemiş Yabancılar Avukatı</li><li>Ödemiş Fikri ve Sınai Mülkiyet Avukatı</li><li>Ödemiş Gayrimenkul Avukatı</li><li>Ödemiş Bilişim Avukatı</li><li>Ödemiş İcra ve İflas Avukatı</li><li>Ödemiş Sigorta Avukatı</li><li>Ödemiş Tüketici Avukatı</li><li>Ödemiş Sözleşmeler ve Borçlar Avukatı</li><li>Ödemiş Spor Avukatı</li><li>Ödemiş Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Ödemiş Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Ödemiş Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Seferihisar -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Seferihisar Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Seferihisar'da faaliyet gösteren hukuk büromuz, Türkiye'nin ilk Cittaslow şehrindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Seferihisar Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Seferihisar Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Seferihisar Aile ve Boşanma Avukatı</li>
-                            <li>Seferihisar Turizm ve Otelcilik Hukuku</li>
-                            <li>Seferihisar Ceza Avukatı</li>
-                            <li>Seferihisar Tarım ve Hayvancılık Hukuku</li>
-                            <li>Seferihisar Gayrimenkul Avukatı</li>
+                            <li>Seferihisar Aile ve Boşanma Avukatı</li><li>Seferihisar İş ve Sosyal Güvenlik Avukatı</li><li>Seferihisar Ceza Avukatı</li><li>Seferihisar İdare Avukatı</li><li>Seferihisar Miras Avukatı</li><li>Seferihisar Ticaret ve Şirketler Avukatı</li><li>Seferihisar Sağlık Avukatı</li><li>Seferihisar Yabancılar Avukatı</li><li>Seferihisar Fikri ve Sınai Mülkiyet Avukatı</li><li>Seferihisar Gayrimenkul Avukatı</li><li>Seferihisar Bilişim Avukatı</li><li>Seferihisar İcra ve İflas Avukatı</li><li>Seferihisar Sigorta Avukatı</li><li>Seferihisar Tüketici Avukatı</li><li>Seferihisar Sözleşmeler ve Borçlar Avukatı</li><li>Seferihisar Spor Avukatı</li><li>Seferihisar Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Seferihisar Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Seferihisar Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Selçuk -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Selçuk Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Selçuk'ta faaliyet gösteren hukuk büromuz, tarihi ve turistik bölgedeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Selçuk Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Selçuk Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Selçuk Aile ve Boşanma Avukatı</li>
-                            <li>Selçuk Turizm ve Otelcilik Hukuku</li>
-                            <li>Selçuk Tarihi Eserler ve Kültür Varlıkları Hukuku</li>
-                            <li>Selçuk Ceza Avukatı</li>
-                            <li>Selçuk Gayrimenkul Avukatı</li>
+                            <li>Selçuk Aile ve Boşanma Avukatı</li><li>Selçuk İş ve Sosyal Güvenlik Avukatı</li><li>Selçuk Ceza Avukatı</li><li>Selçuk İdare Avukatı</li><li>Selçuk Miras Avukatı</li><li>Selçuk Ticaret ve Şirketler Avukatı</li><li>Selçuk Sağlık Avukatı</li><li>Selçuk Yabancılar Avukatı</li><li>Selçuk Fikri ve Sınai Mülkiyet Avukatı</li><li>Selçuk Gayrimenkul Avukatı</li><li>Selçuk Bilişim Avukatı</li><li>Selçuk İcra ve İflas Avukatı</li><li>Selçuk Sigorta Avukatı</li><li>Selçuk Tüketici Avukatı</li><li>Selçuk Sözleşmeler ve Borçlar Avukatı</li><li>Selçuk Spor Avukatı</li><li>Selçuk Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Selçuk Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Selçuk Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Tire -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Tire Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Tire'de faaliyet gösteren hukuk büromuz, tarım ve hayvancılık bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Tire Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Tire Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Tire Aile ve Boşanma Avukatı</li>
-                            <li>Tire Tarım ve Hayvancılık Hukuku</li>
-                            <li>Tire Ceza Avukatı</li>
-                            <li>Tire Miras Avukatı</li>
-                            <li>Tire Sözleşmeler Hukuku</li>
+                            <li>Tire Aile ve Boşanma Avukatı</li><li>Tire İş ve Sosyal Güvenlik Avukatı</li><li>Tire Ceza Avukatı</li><li>Tire İdare Avukatı</li><li>Tire Miras Avukatı</li><li>Tire Ticaret ve Şirketler Avukatı</li><li>Tire Sağlık Avukatı</li><li>Tire Yabancılar Avukatı</li><li>Tire Fikri ve Sınai Mülkiyet Avukatı</li><li>Tire Gayrimenkul Avukatı</li><li>Tire Bilişim Avukatı</li><li>Tire İcra ve İflas Avukatı</li><li>Tire Sigorta Avukatı</li><li>Tire Tüketici Avukatı</li><li>Tire Sözleşmeler ve Borçlar Avukatı</li><li>Tire Spor Avukatı</li><li>Tire Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Tire Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Tire Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Torbalı -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Torbalı Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Torbalı'da faaliyet gösteren hukuk büromuz, organize sanayi bölgesindeki müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Torbalı Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Torbalı Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Torbalı Aile ve Boşanma Avukatı</li>
-                            <li>Torbalı İş ve Sosyal Güvenlik Avukatı</li>
-                            <li>Torbalı Sanayi ve Ticaret Hukuku</li>
-                            <li>Torbalı Ceza Avukatı</li>
-                            <li>Torbalı Gayrimenkul Avukatı</li>
+                            <li>Torbalı Aile ve Boşanma Avukatı</li><li>Torbalı İş ve Sosyal Güvenlik Avukatı</li><li>Torbalı Ceza Avukatı</li><li>Torbalı İdare Avukatı</li><li>Torbalı Miras Avukatı</li><li>Torbalı Ticaret ve Şirketler Avukatı</li><li>Torbalı Sağlık Avukatı</li><li>Torbalı Yabancılar Avukatı</li><li>Torbalı Fikri ve Sınai Mülkiyet Avukatı</li><li>Torbalı Gayrimenkul Avukatı</li><li>Torbalı Bilişim Avukatı</li><li>Torbalı İcra ve İflas Avukatı</li><li>Torbalı Sigorta Avukatı</li><li>Torbalı Tüketici Avukatı</li><li>Torbalı Sözleşmeler ve Borçlar Avukatı</li><li>Torbalı Spor Avukatı</li><li>Torbalı Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Torbalı Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Torbalı Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
 
                     <!-- Urla -->
                     <div class="district-card">
-                        <h3>
-                            <span class="district-icon">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            </span>
-                            Urla Avukat ve Hukuk Bürosu
-                        </h3>
-                        <p style="color: var(--text-light); margin-bottom: 15px;">Urla'da faaliyet gösteren hukuk büromuz, İzmir'in en seçkin ilçelerinden birinde müvekkillerine kapsamlı hukuki destek sunmaktadır.</p>
+                        <h3><span class="district-icon"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg></span>Urla Avukat ve Hukuk Bürosu</h3>
+                        <p style="color: var(--text-light); margin-bottom: 15px;">Avukat Ege ÖZATA, hukuki ihtilafların çözümü hususunda faaliyet göstermektedir. Hukuk büromuz, İzmir'de faaliyetlerini sürdürmektedir. Müvekkillerin karşılaştığı hukuki uyuşmazlıklar; güncel kanunlara göre değerlendirilir ve somut uyuşmazlıkların niteliği doğrultusunda çözüme ulaşmak için hukuki yol haritası çizilerek en doğru sonuca ulaşılır.</p>
+                        <p style="color: var(--primary-color); font-weight: 600; margin: 20px 0 15px 0;">Urla Avukatlık Hizmetlerimiz</p>
+                        <p style="color: var(--text-light); margin-bottom: 15px; font-size: 0.9rem;">Aşağıdaki ana başlıklarla sınırlı olmamakla birlikte, yaşanabilecek her türlü hukuki problemde müvekkillerimize avukatlık ve hukuki danışmanlık olarak verdiğimiz hizmetler yer almaktadır:</p>
                         <ul class="services-list">
-                            <li>Urla Aile ve Boşanma Avukatı</li>
-                            <li>Urla Turizm ve Otelcilik Hukuku</li>
-                            <li>Urla Tarım ve Hayvancılık Hukuku</li>
-                            <li>Urla Ceza Avukatı</li>
-                            <li>Urla Gayrimenkul Avukatı</li>
+                            <li>Urla Aile ve Boşanma Avukatı</li><li>Urla İş ve Sosyal Güvenlik Avukatı</li><li>Urla Ceza Avukatı</li><li>Urla İdare Avukatı</li><li>Urla Miras Avukatı</li><li>Urla Ticaret ve Şirketler Avukatı</li><li>Urla Sağlık Avukatı</li><li>Urla Yabancılar Avukatı</li><li>Urla Fikri ve Sınai Mülkiyet Avukatı</li><li>Urla Gayrimenkul Avukatı</li><li>Urla Bilişim Avukatı</li><li>Urla İcra ve İflas Avukatı</li><li>Urla Sigorta Avukatı</li><li>Urla Tüketici Avukatı</li><li>Urla Sözleşmeler ve Borçlar Avukatı</li><li>Urla Spor Avukatı</li><li>Urla Vergi Avukatı</li>
                         </ul>
-                        <div class="contact-info">
-                            <p><strong>Telefon:</strong> 0 (532) 527 39 93</p>
-                            <p><strong>E-Posta:</strong> info@ozatahukuk.av.tr</p>
-                        </div>
+                        <div class="fee-section"><h4>Urla Avukatlık Ücreti</h4><p>Vekalet ücretleri, Türkiye Barolar Birliği tarafından her yıl güncellenen "Avukatlık Asgari Ücret Tarifesi" uyarınca belirlenir. Davaya bakacak avukatın ücreti bu tarifedeki alt sınırın altında olamaz. Her hukuki işlemin mahiyeti; işin kapsamı, karmaşıklığı ve sürecin uzunluğu gibi etkenlere bağlı olarak farklılık gösterdiğinden, ücretlendirme bu kriterler çerçevesinde yapılır.</p></div>
+                        <div class="notice-box"><p><strong>Önemli Açıklama:</strong> Bir avukat tüm dava işlemlerini yürütme yetkisine sahiptir. Belirli bir konumda çalışma zorunluluğu yoktur; İzmir'deki bir avukat Türkiye'nin her yerindeki davaları takip edebilir.</p></div>
+                        <div class="contact-info"><p><strong>Urla Avukat ve Hukuk Bürosu İletişim Bilgileri</strong></p><p><strong>Telefon Numarası:</strong> 0 (532) 527 39 93</p><p><strong>E-Posta Adresi:</strong> info@ozatahukuk.av.tr</p><p><strong>Mesai Saatleri:</strong> Hafta içi 09.00 – 18.00</p></div>
                     </div>
-                </div>
-
                 <div class="district-header" style="margin-top: 80px;">
                     <h2>Diğer Şehirlerdeki Hizmet Ağımız</h2>
                     <p>İzmir dışında Türkiye'nin dört bir yanındaki müvekkillerimize çözüm ortaklarımız aracılığıyla hizmet vermekteyiz.</p>
                 </div>
 
                 <div class="city-grid">
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>İstanbul</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>İstanbul genelinde hukuki destek ve danışmanlık hizmetleri</p>
-                    </div>
-
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>Ankara</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>Başkent'te idari ve hukuki süreçlerde profesyonel destek</p>
-                    </div>
-
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>Antalya</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>Akdeniz bölgesinde hukuki hizmet ve danışmanlık</p>
-                    </div>
-
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>Manisa</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>Ege bölgesinde kapsamlı hukuki destek hizmetleri</p>
-                    </div>
-
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>Uşak</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>İç Ege'de hukuki danışmanlık ve dava takibi</p>
-                    </div>
-
-                    <div class="city-card">
-                        <div class="city-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        </div>
-                        <h3>Çanakkale</h3>
-                        <p class="city-type">Çözüm Ortağı</p>
-                        <p>Marmara bölgesinde hukuki hizmet ve temsil</p>
-                    </div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>İstanbul</h3><p class="city-type">Çözüm Ortağı</p><p>İstanbul genelinde hukuki destek ve danışmanlık hizmetleri</p></div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>Ankara</h3><p class="city-type">Çözüm Ortağı</p><p>Başkent'te idari ve hukuki süreçlerde profesyonel destek</p></div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>Antalya</h3><p class="city-type">Çözüm Ortağı</p><p>Akdeniz bölgesinde hukuki hizmet ve danışmanlık</p></div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>Manisa</h3><p class="city-type">Çözüm Ortağı</p><p>Ege bölgesinde kapsamlı hukuki destek hizmetleri</p></div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>Uşak</h3><p class="city-type">Çözüm Ortağı</p><p>İç Ege'de hukuki danışmanlık ve dava takibi</p></div>
+                    <div class="city-card"><div class="city-icon"><svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg></div><h3>Çanakkale</h3><p class="city-type">Çözüm Ortağı</p><p>Marmara bölgesinde hukuki hizmet ve temsil</p></div>
                 </div>
 
                 <div class="regions-cta">
@@ -941,38 +519,16 @@
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>ÖZATA HUKUK</h4>
-                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Hızlı Bağlantılar</h4>
-                    <ul>
-                        <li><a href="index.html">Anasayfa</a></li>
-                        <li><a href="hakkimizda.html">Hakkımızda</a></li>
-                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                        <li><a href="yayinlar.html">Yayınlar</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>İletişim</h4>
-                    <ul>
-                        <li><a href="iletisim.html">İletişim Formu</a></li>
-                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
-                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
-                    </ul>
-                </div>
+                <div class="footer-col"><h4>ÖZATA HUKUK</h4><p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p></div>
+                <div class="footer-col"><h4>Hızlı Bağlantılar</h4><ul><li><a href="index.html">Anasayfa</a></li><li><a href="hakkimizda.html">Hakkımızda</a></li><li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li><li><a href="yayinlar.html">Yayınlar</a></li></ul></div>
+                <div class="footer-col"><h4>İletişim</h4><ul><li><a href="iletisim.html">İletişim Formu</a></li><li><a href="tel:+905325273993">0 (532) 527 39 93</a></li><li><a href="mailto:info@ozatahukuk.com">E-posta</a></li></ul></div>
             </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
-            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p></div>
         </div>
     </footer>
 
     <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
     </a>
 
     <script src="script.js"></script>
