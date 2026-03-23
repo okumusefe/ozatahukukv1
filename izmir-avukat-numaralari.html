@@ -14,6 +14,271 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .contact-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            padding: 100px 0 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .contact-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(201,169,97,0.1)" stroke-width="0.5"/></svg>');
+            background-size: 150px;
+            opacity: 0.3;
+        }
+        .contact-hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .contact-hero h1 {
+            color: var(--white);
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+        .contact-hero p {
+            color: rgba(255,255,255,0.9);
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .phone-showcase {
+            background: var(--white);
+            padding: 60px 0;
+            margin-top: -40px;
+            position: relative;
+            z-index: 10;
+        }
+        .phone-card {
+            background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            padding: 50px;
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+            border: 1px solid rgba(201,169,97,0.2);
+        }
+        .phone-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8956a 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            box-shadow: 0 10px 30px rgba(201,169,97,0.3);
+        }
+        .phone-icon svg {
+            width: 40px;
+            height: 40px;
+            color: var(--white);
+        }
+        .phone-card h2 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .phone-card .subtitle {
+            color: var(--text-light);
+            margin-bottom: 30px;
+        }
+        .phone-number-large {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            margin: 20px 0;
+            letter-spacing: 2px;
+        }
+        .phone-label {
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .btn-call {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8956a 100%);
+            color: var(--white);
+            padding: 18px 50px;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 10px 30px rgba(201,169,97,0.4);
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .btn-call:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(201,169,97,0.5);
+        }
+        .content-section-new {
+            padding: 80px 0;
+        }
+        .content-section-new.alt-bg {
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+        }
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        .section-header h2 {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+        }
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+        .info-card {
+            background: var(--white);
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            border-top: 4px solid var(--accent-color);
+        }
+        .info-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+        }
+        .info-card h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .info-card-icon {
+            width: 50px;
+            height: 50px;
+            background: rgba(201,169,97,0.1);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--accent-color);
+        }
+        .image-text-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin: 60px 0;
+        }
+        .image-text-section.reverse {
+            direction: rtl;
+        }
+        .image-text-section.reverse > * {
+            direction: ltr;
+        }
+        .section-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.15);
+        }
+        .section-image img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        .section-image:hover img {
+            transform: scale(1.05);
+        }
+        .section-content h3 {
+            font-size: 2rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+        }
+        .section-content p {
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        .section-content ul {
+            list-style: none;
+            padding: 0;
+        }
+        .section-content ul li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            color: var(--text-color);
+        }
+        .section-content ul li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        .quick-info {
+            background: var(--primary-color);
+            padding: 60px 0;
+        }
+        .quick-info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+        }
+        .quick-info-item {
+            text-align: center;
+            color: var(--white);
+        }
+        .quick-info-item .number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            display: block;
+            margin-bottom: 10px;
+        }
+        .quick-info-item .label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        @media (max-width: 768px) {
+            .contact-hero h1 {
+                font-size: 2rem;
+            }
+            .phone-card {
+                padding: 30px 20px;
+            }
+            .phone-number-large {
+                font-size: 1.8rem;
+            }
+            .image-text-section,
+            .quick-info-grid {
+                grid-template-columns: 1fr;
+            }
+            .image-text-section.reverse {
+                direction: ltr;
+            }
+        }
+    </style>
 </head>
 <body>
     <header class="header">
@@ -38,63 +303,168 @@
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="page-hero-content">
+        <!-- Hero Section -->
+        <section class="contact-hero">
+            <div class="contact-hero-content">
                 <h1>İzmir Avukat Numaraları</h1>
-                <p>Profesyonel hukuki danışmanlık için İzmir avukat telefon numaraları</p>
+                <p>Profesyonel hukuki danışmanlık için doğru adres. 7/24 ulaşılabilir, deneyimli avukat kadrosuyla hizmetinizdeyiz.</p>
             </div>
         </section>
 
-        <section class="content-section">
+        <!-- Telefon Kartı -->
+        <section class="phone-showcase">
             <div class="container">
-                <div class="content-wrapper">
-                    <article class="main-content">
-                        <h2>İzmir Avukat Numaraları</h2>
-                        <div class="content-image">
-                            <img src="images/avukat-iletisim.jpg" alt="Avukat iletişim - telefon ve not alma" loading="lazy">
-                        </div>
-                        <p>Yargı önünde gerçek ya da tüzel kişilerin haklarını savunan ve hukuk ve yasa işlerinde yol gösterici nitelik taşıyan kişiye avukat mesleki unvanı verilir. Avukat, hukuk fakültesi mezunu, hukuk stajını tamamlamış veya serbest veya kurumsal olarak avukatlık yapan kişidir. İzmir Barosu veya Türkiye Barolar Birliği web sitelerinden İzmir avukat cep numaralarını öğrenebilirsiniz. Özata Hukuk ve Danışmanlık şirketi, İzmir ilinde bulunmaktadır.</p>
+                <div class="phone-card">
+                    <div class="phone-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                    </div>
+                    <span class="phone-label">7/24 Ulaşılabilir</span>
+                    <h2>Özata Hukuk İletişim</h2>
+                    <p class="subtitle">Avukat Ege Özata ve ekibiyle hemen görüşün</p>
+                    <div class="phone-number-large">0 532 527 39 93</div>
+                    <a href="tel:+905325273993" class="btn-call">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                        </svg>
+                        Hemen Ara
+                    </a>
+                </div>
+            </div>
+        </section>
 
-                        <div class="highlight-box">
-                            <h3>İzmir Avukat Cep Numaraları</h3>
-                            <p class="phone-number">0 532 527 39 93</p>
-                            <h4>Özata Hukuk İzmir Avukat Telefon Numaraları</h4>
-                            <p class="phone-number">0 532 527 39 93</p>
-                            <a href="tel:+905325273993" class="btn btn-primary">Hemen Arayın</a>
-                        </div>
-
-                        <h2>İçerikte Neler Var?</h2>
-                        <ul class="content-list">
-                            <li>İzmir Avukat Cep Numaraları</li>
-                            <li>Özata Hukuk Avukat Telefon Numaraları</li>
-                            <li>İzmir Avukat Numaralarını Nereden Bulabilirim?</li>
-                            <li>Özata Hukuk ve Danışmanlık Faaliyet Alanları</li>
-                            <li>Avukat Numarası Nasıl Bulunur?</li>
-                        </ul>
-
-                        <h2>En İyi Avukat Numaraları</h2>
-                        <p>İzmir Avukat Numaraları, İzmir'de çok sayıda hukuki uyuşmazlık bulunmasına rağmen, izmir boşanma avukatı, özel ve ceza hukuku alanlarında bireysel ve kurumsal hizmet veren birçok avukat ve avukatlık bürosu vardır. Bir avukat veya bir avukatlık bürosu ile çalışmaya karar verildiği takdirde dikkat edilmesi gereken en önemli konu, hizmet verecek avukatların hangi alanda uzman ve deneyimli olduklarını öğrenmektir. Çok çeşitli alanlarda uzman olan birçok avukattan oluşan kurumsal avukatlık ofisleri, arzu ettiğiniz her konuda dava açmanıza veya hukuki yardım almanıza yardımcı olacaktır.</p>
-
-                        <h2>İzmir Avukat Cep Numaraları</h2>
-                        <div class="content-image">
-                            <img src="images/vintage-telefon.jpg" alt="Klasik telefon - iletişim sembolü" loading="lazy">
-                        </div>
-                        <p>İzmir Avukat Numaraları, Avukatların yargı faaliyetlerine esas aldığı ve bürolarının ve esas faaliyetlerini icra ettikleri illerdeki barolara kayıt olmaları zorunludur. Ayrıca, hukuki danışmanlık ve avukatlık hizmeti almak isteyen avukatın adı soyadı veya sicil numarası, avukatın bağlı bulunduğu baro sayfasında bulunabilir.</p>
-                        <p>Baro sayfaları, her ildeki avukatların isimlerini, soy isimlerini, sicil numaralarını ve adreslerini içerir. Baro sayfalarındaki iletişim bilgileri kısmında, adı veya sicil numarası bilinen ancak adresi bilinmeyen avukatların faaliyet yürüttükleri yerleri de yer almaktadır. Avukatlık hizmeti almak isteyen kişilerin avukatlarla iletişim kurmasını kolaylaştırır.</p>
-                        <p>İzmir Baro Levhası, İzmir'de hizmet veren avukatların telefon numaralarını sunar. Birçok hukuki sorunu çözmek için avukatlarla iletişime geçmek çok önemlidir. Telefon numarası, gerek hukuki bir hizmet alabilmek için gerekse de tarafı olduğunuz dosyaların karşı taraf vekilleriyle iletişim kurmak için çok önemlidir. İzmir Baro Levhası bu telefon numaralarını sağlar.</p>
-
-                        <h2>Özata Hukuk Avukat Telefon Numaraları</h2>
-                        <p>Özata Hukuk ve Danışmanlık, İzmir Avukat Numaraları, müvekkillerine hukuki yardım sağlamak için öncelikle tarafsız olmak gerektiğini ve aksi davranışın müvekkillere fayda yerine zarar vereceğini düşünüyor. Bu nedenle, öncelikle müvekkillerimize hukuk çerçevesinde başvurabilecekleri yolların neler olduğunu açıkça açıklamayı ilke olarak kabul etmektedir.</p>
-                        <p>Özata Hukuk ve Danışmanlık ekibimizi resmi internet sitesinden inceleyebilir, hukuki yardım almak için tarafımızla iletişime geçebilir ve avukatlarımızla bir randevu alabilirsiniz.</p>
-                        <p>İzmir'de avukatlık ve hukuki danışmanlık hizmeti sunan hukuk büromuz sadece İzmir'de değil, tüm ülkede faaliyet göstermektedir. İzmir'de bir avukat olarak, Özata Hukuk ve Danışmanlık olarak çeşitli hukuk alanlarında hizmet vermekteyiz. İdare Hukuku, Ceza Hukuku ve Memur Hukuku bunlardan bazılarıdır.</p>
-                        <p>İzmir ilinde faaliyet gösteren Özata Hukuk ve Danışmanlık;</p>
+        <!-- İçerik Bölümü 1 - Resimli -->
+        <section class="content-section-new">
+            <div class="container">
+                <div class="image-text-section">
+                    <div class="section-image">
+                        <img src="images/avukat-iletisim.jpg" alt="Avukat iletişim - profesyonel danışmanlık">
+                    </div>
+                    <div class="section-content">
+                        <h3>İzmir Avukat Numaraları</h3>
+                        <p>Yargı önünde gerçek ya da tüzel kişilerin haklarını savunan ve hukuk ve yasa işlerinde yol gösterici nitelik taşıyan kişiye avukat mesleki unvanı verilir. Avukat, hukuk fakültesi mezunu, hukuk stajını tamamlamış veya serbest veya kurumsal olarak avukatlık yapan kişidir.</p>
+                        <p>İzmir Barosu veya Türkiye Barolar Birliği web sitelerinden İzmir avukat cep numaralarını öğrenebilirsiniz. Özata Hukuk ve Danışmanlık şirketi, İzmir ilinde bulunmaktadır.</p>
                         <ul>
-                            <li><strong>İzmir Avukat Cep Numaraları olarak:</strong> 0 532 527 39 93</li>
-                            <li><strong>Özata Hukuk İzmir Avukat Telefon Numaraları:</strong> 0 532 527 39 93</li>
+                            <li>7/24 Telefon Desteği</li>
+                            <li>Profesyonel Avukat Kadrosu</li>
+                            <li>Ücretsiz İlk Görüşme</li>
+                            <li>Online Danışmanlık</li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                        <h2>İzmir Avukat Numaralarını Nereden Bulabilirim?</h2>
-                        <p>Özata Hukuk Avukatlarının Telefon Numaraları İzmir'deki avukatların telefon numaralarını, kurumsal hukuki yardım ve danışmanlık hizmeti sunan uzman avukat bürolarının internet sitelerinden kolayca elde edebilirsiniz. Hukuk konularında size yardımcı olacak kurumsal ve kapsamlı avukatlık ofisleri olmalıdır.</p>
+        <!-- İstatistikler -->
+        <section class="quick-info">
+            <div class="container">
+                <div class="quick-info-grid">
+                    <div class="quick-info-item">
+                        <span class="number">15+</span>
+                        <span class="label">Yıllık Deneyim</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <span class="number">1000+</span>
+                        <span class="label">Başarılı Dava</span>
+                    </div>
+                    <div class="quick-info-item">
+                        <span class="number">7/24</span>
+                        <span class="label">Hizmet</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Bilgi Kartları -->
+        <section class="content-section-new alt-bg">
+            <div class="container">
+                <div class="section-header">
+                    <h2>İzmir Avukat Cep Numaraları</h2>
+                    <p>Baro sayfaları, her ildeki avukatların isimlerini, soy isimlerini, sicil numaralarını ve adreslerini içerir.</p>
+                </div>
+                
+                <div class="info-grid">
+                    <div class="info-card">
+                        <h3>
+                            <span class="info-card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                </svg>
+                            </span>
+                            İzmir Baro Levhası
+                        </h3>
+                        <p>İzmir'de hizmet veren avukatların telefon numaralarını sunar. Birçok hukuki sorunu çözmek için avukatlarla iletişime geçmek çok önemlidir. Telefon numarası, gerek hukuki bir hizmet alabilmek için gerekse de tarafı olduğunuz dosyaların karşı taraf vekilleriyle iletişim kurmak için kritik öneme sahiptir.</p>
+                    </div>
+                    
+                    <div class="info-card">
+                        <h3>
+                            <span class="info-card-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                </svg>
+                            </span>
+                            Özata Hukuk Telefon
+                        </h3>
+                        <p><strong>İzmir Avukat Cep Numaraları:</strong> 0 532 527 39 93<br><br>Özata Hukuk ve Danışmanlık, müvekkillerine hukuki yardım sağlamak için öncelikle tarafsız olmak gerektiğini ilke olarak kabul eder. Hukuk çerçevesinde başvurabileceğiniz yolları açıkça açıklıyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İçerik Bölümü 2 - Resimli (Ters) -->
+        <section class="content-section-new">
+            <div class="container">
+                <div class="image-text-section reverse">
+                    <div class="section-image">
+                        <img src="images/vintage-telefon.jpg" alt="Klasik iletişim - hukuki danışmanlık">
+                    </div>
+                    <div class="section-content">
+                        <h3>Avukat Numarası Nasıl Bulunur?</h3>
+                        <p>Veri tabanına kayıtlı olan avukatların cep telefon numaraları, ofis telefon numaraları ve kişisel e-posta adresleri, İzmir Barosu avukat numaralarının bir parçasıdır.</p>
+                        <p>İzmir Barosu'nun yenilenen internet sitesinde avukatlara ait güncel bilgiler vatandaşların erişimine açıktır. Bu nedenle, bir avukatın adını soyadını bilen kişiler, baronun web sitesi üzerinden avukat arama işlemlerini gerçekleştirebilirler.</p>
+                        <p>Avukat sorgulama hizmeti tamamen ücretsizdir ve tüm Türkiye'deki barolar tarafından sunulmaktadır.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- İçerik Bölümü 3 -->
+        <section class="content-section-new alt-bg">
+            <div class="container">
+                <div class="image-text-section">
+                    <div class="section-image">
+                        <img src="images/avukat-mobil.jpg" alt="Profesyonel avukat - mobil iletişim">
+                    </div>
+                    <div class="section-content">
+                        <h3>En İyi Avukat Numaraları</h3>
+                        <p>İzmir'de çok sayıda hukuki uyuşmazlık bulunmasına rağmen, boşanma avukatı, özel ve ceza hukuku alanlarında bireysel ve kurumsal hizmet veren birçok avukat ve avukatlık bürosu vardır.</p>
+                        <p>Bir avukat veya avukatlık bürosu ile çalışmaya karar verildiğinde dikkat edilmesi gereken en önemli konu, hizmet verecek avukatların hangi alanda uzman ve deneyimli olduklarını öğrenmektir.</p>
+                        <ul>
+                            <li>İdare Hukuku</li>
+                            <li>Ceza Hukuku</li>
+                            <li>Memur Hukuku</li>
+                            <li>Aile Hukuku</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alt CTA -->
+        <section class="content-section-new" style="text-align: center; padding-bottom: 100px;">
+            <div class="container">
+                <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 30px;">Hukuki Danışmanlık İçin Bizi Arayın</h2>
+                <p style="color: var(--text-light); margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">İzmir avukat numaraları üzerinden hemen iletişime geçin. Profesyonel ekibimiz size yardımcı olmaya hazır.</p>
+                <a href="tel:+905325273993" class="btn-call" style="font-size: 1.5rem; padding: 20px 60px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                    </svg>
+                    0 532 527 39 93
+                </a>
+            </div>
+        </section>
+    </main>
                         <p><strong>İzmir Baro Levhası:</strong> İzmir'de hizmet veren avukatların telefon numaralarını içerir. Birçok hukuki sorunu çözmek için avukatlarla iletişime geçmek çok önemlidir. Telefon numarası, gerek hukuki bir hizmet alabilmek için gerekse de tarafı olduğunuz dosyaların karşı taraf vekilleriyle iletişim kurmak için çok önemlidir. İzmir Baro Levhası veya Barolar Birliği web sitesi bu telefon numaralarını sunar.</p>
                         <p>Danışmanlık veya avukatlık hizmeti almak isterseniz telefon numaralarımızdan bizlere ulaşabilirsiniz.</p>
 
