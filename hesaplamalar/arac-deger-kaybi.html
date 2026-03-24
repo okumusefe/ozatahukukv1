@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Araç Değer Kaybı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .form-row-3 {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        .result-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .result-card h4 {
+            color: var(--primary-color);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .result-card .value {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        .breakdown-section {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 1.5rem;
+        }
+        .breakdown-section h4 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .breakdown-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        .damage-type-card {
+            background: var(--white);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 2px solid #e0e0e0;
+            margin-bottom: 1rem;
+            transition: all 0.3s ease;
+        }
+        .damage-type-card:hover {
+            border-color: var(--accent-color);
+        }
+        .damage-type-card label {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 500;
+            cursor: pointer;
+        }
+        .damage-type-card input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--accent-color);
+        }
+        .damage-type-card .damage-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-top: 5px;
+            margin-left: 30px;
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .form-row, .form-row-3 { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Araç Değer Kaybı Hesaplama</h1>
+            <p>Hasarlı araç değer kaybı ve kaza sonrası değer düşüşü hesaplama aracı</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>🚗 Araç Değer Kaybı Hesaplama</h2>
+                    <p>Trafik kazası sonrası aracın değer kaybını Yargıtay kararlarına göre hesaplayın</p>
+                    
+                    <div class="form-row-3">
+                        <div class="form-group">
+                            <label for="arac-marka">Araç Markası</label>
+                            <select id="arac-marka">
+                                <option value="">Seçiniz...</option>
+                                <option value="premium">Premium (BMW, Mercedes, Audi, Volvo)</option>
+                                <option value="orta">Orta Segment (VW, Toyota, Honda, Hyundai)</option>
+                                <option value="ekonomik">Ekonomik (Fiat, Renault, Dacia)</option>
+                                <option value="luks">Lüks (Porsche, Jaguar, Land Rover)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="arac-yil">Model Yılı</label>
+                            <select id="arac-yil">
+                                <option value="">Seçiniz...</option>
+                                <option value="2025">2025</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                                <option value="2022">2022</option>
+                                <option value="2021">2021</option>
+                                <option value="2020">2020</option>
+                                <option value="2019">2019</option>
+                                <option value="2018">2018</option>
+                                <option value="2017">2017</option>
+                                <option value="2016">2016</option>
+                                <option value="2015">2015 ve öncesi</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="arac-km">Kilometre</label>
+                            <input type="number" id="arac-km" placeholder="Örn: 50000" min="0">
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="arac-deger">Araç Piyasa Değeri (TL)</label>
+                            <input type="number" id="arac-deger" placeholder="Örn: 500000" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="arac-kaza-tarih">Kaza Tarihi</label>
+                            <input type="date" id="arac-kaza-tarih">
+                        </div>
+                    </div>
+
+                    <h3 style="margin: 2rem 0 1rem; color: var(--primary-color);">🔧 Hasar Bilgileri</h3>
+                    
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-yapisal">
+                            <span>Yapısal Hasar (A, B, C Sütun, Şasi)</span>
+                        </label>
+                        <div class="damage-desc">Araç ana gövdesindeki hasarlar - en yüksek değer kaybı</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-mekanik">
+                            <span>Mekanik Hasar (Motor, Şanzıman, Diferansiyel)</span>
+                        </label>
+                        <div class="damage-desc">Araç mekanik sistemlerindeki hasarlar</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-kaporta">
+                            <span>Kaporta Hasarı (Kaput, Bagaj, Kapılar, Çamurluk)</span>
+                        </label>
+                        <div class="damage-desc">Dış kaporta parçalarındaki boya/düzeltme işlemleri</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-airbag">
+                            <span>Airbag Açılması</span>
+                        </label>
+                        <div class="damage-desc">Airbag patlaması - ciddi değer kaybı</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-total">
+                            <span>Total Loss (Ekonomik Total)</span>
+                        </label>
+                        <div class="damage-desc">Hasar bedelinin araç değerine yakın/üzerinde olması</div>
+                    </div>
+
+                    <div class="form-group" style="margin-top: 1.5rem;">
+                        <label for="tamir-bedel">Tamir/Tadilat Bedeli (TL)</label>
+                        <input type="number" id="tamir-bedel" placeholder="Örn: 75000" min="0">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="arac-rapor">Ekspertiz Raporu Var mı?</label>
+                        <select id="arac-rapor">
+                            <option value="hayir">Hayır</option>
+                            <option value="evet">Evet - Hasarlı görünüyor</option>
+                            <option value="temiz">Evet - Temiz görünüyor ama hasarlı</option>
+                        </select>
+                    </div>
+
+                    <button class="calculate-btn" onclick="hesaplaDegerKaybi()">Hesapla</button>
+                    
+                    <div class="result-box" id="sonuc-box">
+                        <h3>📊 Hesaplama Sonuçları</h3>
+                        
+                        <div class="result-grid">
+                            <div class="result-card">
+                                <h4>Araç Değeri</h4>
+                                <div class="value" id="sonuc-deger">-</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Yaş/Km Faktörü</h4>
+                                <div class="value" id="sonuc-yas-faktor">-</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Hasar Oranı</h4>
+                                <div class="value" id="sonuc-hasar-oran">-</div>
+                            </div>
+                            <div class="result-card">
+                                <h4>Değer Kaybı</h4>
+                                <div class="value" id="sonuc-kayip">-</div>
+                            </div>
+                        </div>
+
+                        <div class="breakdown-section">
+                            <h4>📝 Hesaplama Detayları</h4>
+                            <div id="hesaplama-detay"></div>
+                        </div>
+
+                        <div class="formula-info">
+                            <strong>⚖️ Yasal Dayanak:</strong><br>
+                            • Yargıtay 15. Hukuk Dairesi 2017/779 E., 2018/281 K.<br>
+                            • Yargıtay 15. HD 2020/1643 E., 2021/1547 K.<br>
+                            • Yargıtay 15. HD 2022/389 E., 2022/2156 K.<br><br>
+                            <strong>📌 Hesaplama Yöntemi:</strong><br>
+                            Değer kaybı = Araç Değeri × Yaş/Km Faktörü × Hasar Ağırlığı<br><br>
+                            <strong>⚠️ Not:</strong> Hesaplanan tutar yaklaşık değerdir. Kesin değer için uzman ekspertiz raporu alınmalıdır.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaDegerKaybi() {
+            // Form değerlerini al
+            const marka = document.getElementById('arac-marka').value;
+            const yil = parseInt(document.getElementById('arac-yil').value) || 0;
+            const km = parseInt(document.getElementById('arac-km').value) || 0;
+            const deger = parseFloat(document.getElementById('arac-deger').value) || 0;
+            const kazaTarih = document.getElementById('arac-kaza-tarih').value;
+            const tamirBedel = parseFloat(document.getElementById('tamir-bedel').value) || 0;
+            const raporDurum = document.getElementById('arac-rapor').value;
+
+            // Hasar türleri
+            const hasarYapisal = document.getElementById('hasar-yapisal').checked;
+            const hasarMekanik = document.getElementById('hasar-mekanik').checked;
+            const hasarKaporta = document.getElementById('hasar-kaporta').checked;
+            const hasarAirbag = document.getElementById('hasar-airbag').checked;
+            const hasarTotal = document.getElementById('hasar-total').checked;
+
+            // Validasyon
+            if (!marka || !yil || !deger || !kazaTarih) {
+                alert('Lütfen araç markası, model yılı, değeri ve kaza tarihini giriniz.');
+                return;
+            }
+
+            // Mevcut yılı hesapla
+            const mevcutYil = new Date().getFullYear();
+            const aracYasi = mevcutYil - yil;
+
+            // Yaş/Km faktörü hesapla (Yargıtay kriterleri)
+            let yasFaktor = 1;
+            
+            // Yaş bazlı faktör
+            if (aracYasi <= 1) {
+                yasFaktor = 1.0; // 0-1 yaş: Tam değer
+            } else if (aracYasi <= 3) {
+                yasFaktor = 0.9; // 1-3 yaş: %10 düşüş
+            } else if (aracYasi <= 5) {
+                yasFaktor = 0.8; // 3-5 yaş: %20 düşüş
+            } else if (aracYasi <= 7) {
+                yasFaktor = 0.7; // 5-7 yaş: %30 düşüş
+            } else if (aracYasi <= 10) {
+                yasFaktor = 0.6; // 7-10 yaş: %40 düşüş
+            } else {
+                yasFaktor = 0.5; // 10+ yaş: %50 düşüş
+            }
+
+            // Kilometre bazlı ek düzeltme
+            if (km > 100000) {
+                yasFaktor *= 0.9; // 100.000+ km: ek %10 düşüş
+            } else if (km > 50000) {
+                yasFaktor *= 0.95; // 50.000-100.000 km: ek %5 düşüş
+            }
+
+            // Marka katsayısı
+            const markaKatsayi = {
+                'premium': 1.1,
+                'orta': 1.0,
+                'ekonomik': 0.9,
+                'luks': 1.2
+            }[marka] || 1.0;
+
+            // Hasar ağırlığı hesapla (%)
+            let hasarAgirligi = 0;
+            let hasarAciklamalar = [];
+
+            if (hasarTotal) {
+                hasarAgirligi = 35; // Total loss: %35 değer kaybı
+                hasarAciklamalar.push('Total loss hasarı: %35');
+            } else {
+                if (hasarYapisal) {
+                    hasarAgirligi += 20;
+                    hasarAciklamalar.push('Yapısal hasar: %20');
+                }
+                if (hasarMekanik) {
+                    hasarAgirligi += 15;
+                    hasarAciklamalar.push('Mekanik hasar: %15');
+                }
+                if (hasarAirbag) {
+                    hasarAgirligi += 10;
+                    hasarAciklamalar.push('Airbag açılması: %10');
+                }
+                if (hasarKaporta) {
+                    // Kaporta hasarı tamir bedeline göre değişir
+                    if (tamirBedel > 0 && deger > 0) {
+                        const tamirOrani = (tamirBedel / deger) * 100;
+                        if (tamirOrani > 10) {
+                            hasarAgirligi += 8;
+                            hasarAciklamalar.push('Ağır kaporta hasarı: %8');
+                        } else if (tamirOrani > 5) {
+                            hasarAgirligi += 5;
+                            hasarAciklamalar.push('Orta kaporta hasarı: %5');
+                        } else {
+                            hasarAgirligi += 2;
+                            hasarAciklamalar.push('Hafif kaporta hasarı: %2');
+                        }
+                    } else {
+                        hasarAgirligi += 3;
+                        hasarAciklamalar.push('Kaporta hasarı: %3');
+                    }
+                }
+            }
+
+            // Rapor durumu düzeltmesi
+            if (raporDurum === 'temiz') {
+                hasarAgirligi *= 1.2; // Gizli hasar daha büyük risk
+                hasarAciklamalar.push('Gizli hasar riski: +%20');
+            }
+
+            // Maksimum %35 sınırlaması (Yargıtay kriteri)
+            hasarAgirligi = Math.min(hasarAgirligi, 35);
+
+            // Değer kaybı hesapla
+            const degerKaybi = deger * yasFaktor * (hasarAgirligi / 100) * markaKatsayi;
+            const degerKaybiYuzde = (degerKaybi / deger) * 100;
+
+            // Sonuçları göster
+            document.getElementById('sonuc-deger').textContent = deger.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('sonuc-yas-faktor').textContent = '%' + Math.round((1 - yasFaktor) * 100);
+            document.getElementById('sonuc-hasar-oran').textContent = '%' + hasarAgirligi.toFixed(1);
+            document.getElementById('sonuc-kayip').textContent = Math.round(degerKaybi).toLocaleString('tr-TR') + ' TL';
+
+            // Detayları oluştur
+            const detayHTML = `
+                <div class="breakdown-item">
+                    <span>Araç Yaşı:</span>
+                    <span>${aracYasi} yıl</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Kilometre:</span>
+                    <span>${km.toLocaleString('tr-TR')} km</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Yaş/Km Faktörü:</span>
+                    <span>%${Math.round((1 - yasFaktor) * 100)}</span>
+                </div>
+                <div class="breakdown-item">
+                    <span>Marka Katsayısı:</span>
+                    <span>${markaKatsayi.toFixed(1)}x</span>
+                </div>
+                ${hasarAciklamalar.map(aciklama => `
+                <div class="breakdown-item">
+                    <span>Hasar Kalem:</span>
+                    <span>${aciklama}</span>
+                </div>
+                `).join('')}
+                <div class="breakdown-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 10px; font-weight: 600;">
+                    <span>Toplam Değer Kaybı:</span>
+                    <span>${degerKaybiYuzde.toFixed(2)}% (${Math.round(degerKaybi).toLocaleString('tr-TR')} TL)</span>
+                </div>
+            `;
+
+            document.getElementById('hesaplama-detay').innerHTML = detayHTML;
+            document.getElementById('sonuc-box').classList.add('show');
+        }
+    </script>
+</body>
+</html>
