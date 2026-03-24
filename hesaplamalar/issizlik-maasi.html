@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İşsizlik Maaşı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item.highlight {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .kosul-box {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #4caf50;
+        }
+        .kosul-box h4 {
+            color: #4caf50;
+            margin-bottom: 0.5rem;
+        }
+        .kosul-box ul {
+            margin: 0;
+            padding-left: 1.2rem;
+            font-size: 0.9rem;
+        }
+        .kosul-box li {
+            margin: 0.3rem 0;
+        }
+        .uyari-box {
+            background: rgba(255, 152, 0, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #ff9800;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>İşsizlik Maaşı Hesaplama</h1>
+            <p>İşsizlik Sigortası'ndan yararlanma süresi ve ödeme hesaplama (İşsizlik Sigortası Kanunu)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>İşsizlik Maaşı Hesaplama</h2>
+                    <p>Son 4 yıldaki prime esas kazançlarınıza göre işsizlik maaşı hesaplama</p>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="issizlik-brut">Son 4 Yıl Ortalama Aylık Brüt Ücret (TL)</label>
+                            <input type="number" id="issizlik-brut" placeholder="Örn: 25000" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Son 4 yıldaki prime esas kazanç ortalaması</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="issizlik-sure">Son 3 Yıldaki Çalışılan Gün</label>
+                            <input type="number" id="issizlik-sure" placeholder="Örn: 900" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Son 3 yılda en az 600 gün prim ödenmiş olmalı</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="issizlik-yas">Yaş</label>
+                            <input type="number" id="issizlik-yas" placeholder="Örn: 35" min="18">
+                        </div>
+                        <div class="form-group">
+                            <label for="issizlik-ayrilma">İşten Ayrılma Nedeni</label>
+                            <select id="issizlik-ayrilma">
+                                <option value="hakli">Haksız fesih (İşveren tarafından)</option>
+                                <option value="mazeret">Mazeretli ayrılma (Evlilik, ölüm vb.)</option>
+                                <option value="kendi">Kendi isteği (Belli şartlarla)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="kosul-box">
+                        <h4>✅ İşsizlik Maaşı Alma Şartları</h4>
+                        <ul>
+                            <li>Son 3 yılda en az 600 gün prim ödenmiş olması</li>
+                            <li>Son 120 gün kesintisiz çalışmış olması</li>
+                            <li>Haksız fesih veya mazeretli ayrılma</li>
+                            <li>İşsiz kalmasına rağmen çalışmaya hazır ve istekli olması</li>
+                            <li>30 gün içinde İŞKUR'a kayıt yaptırması</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaIssizlik()">Hesapla</button>
+                    
+                    <div class="result-box" id="issizlik-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        
+                        <div id="issizlik-uyari" class="uyari-box" style="display: none;">
+                            <strong>⚠️ Uyarı:</strong> <span id="issizlik-uyari-text"></span>
+                        </div>
+                        
+                        <div class="result-item">
+                            <span>Prime Esas Kazanç:</span>
+                            <span id="issizlik-prim"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Günlük Kazanç:</span>
+                            <span id="issizlik-gunluk"></span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span>Günlük İşsizlik Ödeneği:</span>
+                            <span id="issizlik-gunluk-odeme" style="color: var(--accent-color); font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span>Aylık İşsizlik Maaşı:</span>
+                            <span id="issizlik-aylik" style="color: var(--accent-color); font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Ödeme Süresi:</span>
+                            <span id="issizlik-odeme-suresi"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Alınacak Tutar (Tahmini):</span>
+                            <span id="issizlik-toplam"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>Hesaplama Formülü (İşsizlik Sigortası Kanunu Md. 49-51):</strong><br>
+                            • Günlük işsizlik ödeneği = Son 4 yılın prime esas kazançlarının günlük ortalamasının %40'ı<br>
+                            • Alt limit: Günlük asgari ücretin %35'i<br>
+                            • Üst limit: Günlük asgari ücretin %80'i<br><br>
+                            <strong>Ödeme Süreleri:</strong><br>
+                            • 600-899 gün prim ödemeli: 180 gün (6 ay)<br>
+                            • 900-1199 gün prim ödemeli: 240 gün (8 ay)<br>
+                            • 1200+ gün prim ödemeli: 300 gün (10 ay)<br><br>
+                            <strong>Önemli:</strong> İşsizlik maaşı ödemeleri brüt tutar üzerinden yapılır, herhangi bir kesinti uygulanmaz.<br>
+                            <strong>Başvuru:</strong> İşten çıkarıldıktan sonra 30 gün içinde İŞKUR'a başvuru yapılmalıdır.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 2025 Asgari Ücret verileri (güncel tutarlar)
+        const ASGARI_UCRET_2025 = 26055; // Aylık
+        const ASGARI_UCRET_GUNLUK_2025 = ASGARI_UCRET_2025 / 30; // Günlük
+        
+        function hesaplaIssizlik() {
+            const brut = parseFloat(document.getElementById('issizlik-brut').value) || 0;
+            const gun = parseInt(document.getElementById('issizlik-sure').value) || 0;
+            const yas = parseInt(document.getElementById('issizlik-yas').value) || 0;
+            
+            if (brut === 0 || gun === 0) {
+                alert('Lütfen geçerli ücret ve çalışma günü giriniz.');
+                return;
+            }
+            
+            // Şart kontrolü
+            let uyariHtml = '';
+            const uyariDiv = document.getElementById('issizlik-uyari');
+            const uyariText = document.getElementById('issizlik-uyari-text');
+            
+            if (gun < 600) {
+                uyariHtml += 'Son 3 yılda en az 600 gün prim ödenmiş olması gerekir. ';
+            }
+            if (yas > 0 && yas < 18) {
+                uyariHtml += '18 yaş altı işçiler işsizlik maaşı alamaz. ';
+            }
+            
+            if (uyariHtml) {
+                uyariDiv.style.display = 'block';
+                uyariText.textContent = uyariHtml + 'Hesaplama teorik olarak yapılmıştır.';
+            } else {
+                uyariDiv.style.display = 'none';
+            }
+            
+            // Hesaplama
+            const gunlukKazanc = brut / 30;
+            let gunlukOdeme = gunlukKazanc * 0.40; // %40
+            
+            // Alt ve üst limit kontrolü
+            const altLimit = ASGARI_UCRET_GUNLUK_2025 * 0.35;
+            const ustLimit = ASGARI_UCRET_GUNLUK_2025 * 0.80;
+            
+            let limitNotu = '';
+            if (gunlukOdeme < altLimit) {
+                gunlukOdeme = altLimit;
+                limitNotu = ' (Alt limit uygulandı)';
+            } else if (gunlukOdeme > ustLimit) {
+                gunlukOdeme = ustLimit;
+                limitNotu = ' (Üst limit uygulandı)';
+            }
+            
+            const aylikOdeme = gunlukOdeme * 30;
+            
+            // Ödeme süresi
+            let odemeSuresi = 0;
+            let odemeSuresiText = '';
+            if (gun >= 1200) {
+                odemeSuresi = 300;
+                odemeSuresiText = '300 gün (10 ay)';
+            } else if (gun >= 900) {
+                odemeSuresi = 240;
+                odemeSuresiText = '240 gün (8 ay)';
+            } else if (gun >= 600) {
+                odemeSuresi = 180;
+                odemeSuresiText = '180 gün (6 ay)';
+            } else {
+                odemeSuresi = 0;
+                odemeSuresiText = 'Yetersiz prim günü (en az 600 gün gerekli)';
+            }
+            
+            const toplamTutar = gunlukOdeme * odemeSuresi;
+            
+            document.getElementById('issizlik-prim').textContent = brut.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL/ay';
+            document.getElementById('issizlik-gunluk').textContent = gunlukKazanc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('issizlik-gunluk-odeme').textContent = gunlukOdeme.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' + limitNotu;
+            document.getElementById('issizlik-aylik').textContent = aylikOdeme.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL/ay';
+            document.getElementById('issizlik-odeme-suresi').textContent = odemeSuresiText;
+            document.getElementById('issizlik-toplam').textContent = toplamTutar > 0 ? toplamTutar.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' : 'Hesaplanamadı';
+            
+            document.getElementById('issizlik-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
