@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Destekten Yoksun Kalma Tazminatı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item.highlight {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 5px 0;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .bilgi-kutusu {
+            background: rgba(76, 175, 80, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            border-left: 3px solid #4caf50;
+        }
+        .bilgi-kutusu h4 {
+            color: #4caf50;
+            margin-bottom: 0.5rem;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Destekten Yoksun Kalma Tazminatı</h1>
+            <p>Ölüm veya sürekli iş görmezlik durumlarında destekten yoksun kalma tazminatı hesaplama</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Destekten Yoksun Kalma Tazminatı Hesaplama</h2>
+                    <p>Yargıtay hesap tarzına göre aktüeryal hesaplama</p>
+                    
+                    <div class="bilgi-kutusu">
+                        <h4>ℹ️ Bu Hesaplama Aracı Hakkında</h4>
+                        <p style="font-size: 0.9rem; margin: 0;">Bu hesap makinesi, Yargıtay'ın yaygın olarak kullandığı basitleştirilmiş hesap yöntemiyle destekten yoksun kalma tazminatı hesaplar. Kesin hesaplama için bilirkişi raporu gereklidir.</p>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tazminat-yas">Mağdur Yaşı</label>
+                            <input type="number" id="tazminat-yas" placeholder="Örn: 35" min="0" max="100">
+                        </div>
+                        <div class="form-group">
+                            <label for="tazminat-yillik">Yıllık Gelir (TL)</label>
+                            <input type="number" id="tazminat-yillik" placeholder="Örn: 500000" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Mevcut yıllık kazanç</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tazminat-olum">Olay Tarihi</label>
+                            <input type="date" id="tazminat-olum">
+                        </div>
+                        <div class="form-group">
+                            <label for="tazminat-hak">Yararlanan Kişi Sayısı</label>
+                            <input type="number" id="tazminat-hak" value="1" min="1">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Eş, çocuk, anne, baba</small>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tazminat-ozurluk">Sürekli İş Görmezlik Oranı (%)</label>
+                            <input type="number" id="tazminat-ozurluk" value="0" min="0" max="100">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Ölüm halinde %100</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tazminat-indirim">İndirim Oranı (%)</label>
+                            <select id="tazminat-indirim">
+                                <option value="25">%25 (Standart - harcamalardan tasarruf)</option>
+                                <option value="30">%30 (Geniş aile)</option>
+                                <option value="20">%20 (Dar aile)</option>
+                                <option value="0">%0 (İndirim yok)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaTazminat()">Hesapla</button>
+                    
+                    <div class="result-box" id="tazminat-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Yıllık Gelir:</span>
+                            <span id="tazminat-yillik-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>İş Görmezlik Oranı:</span>
+                            <span id="tazminat-ozurluk-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kayıp Kazanç (Yıllık):</span>
+                            <span id="tazminat-kayip"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Harcamalardan Tasarruf İndirimi:</span>
+                            <span id="tazminat-indirim-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Yararlanan Kişi Başına:</span>
+                            <span id="tazminat-kisi-basi"></span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span>Geçmiş Dönem (Olay Tarihinden Bugüne):</span>
+                            <span id="tazminat-gecmis" style="color: var(--accent-color); font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item highlight">
+                            <span>Gelecek Dönem (Aktüerya Hesabı):</span>
+                            <span id="tazminat-gelecek" style="color: var(--accent-color); font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 15px;">
+                            <span>Toplam Destekten Yoksun Kalma Tazminatı:</span>
+                            <span id="tazminat-toplam" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>Hesaplama Yöntemi (Yargıtay Tarzı):</strong><br>
+                            1. <strong>Kayıp Kazanç:</strong> Yıllık Gelir × İş Görmezlik Oranı<br>
+                            2. <strong>İndirim:</strong> Harcamalardan tasarruf (%25-30 genellikle)<br>
+                            3. <strong>Geçmiş Dönem:</strong> Olay tarihinden dava tarihine kadar basit hesap<br>
+                            4. <strong>Gelecek Dönem:</strong> Aktüeryal hesap (yaşam tablosu ve indirim oranı)<br><br>
+                            <strong>Önemli Notlar:</strong><br>
+                            • Bu hesaplama yaklaşık bir değerdir<br>
+                            • Kesin hesaplama için bilirkişi raporu gerekir<br>
+                            • Aktüeryal hesaplamada TMÖ (Teknik Manevi Ölüm) oranları kullanılır<br>
+                            • Asgari ücret düzenlemeleri ve enflasyon farkları dikkate alınmalıdır<br>
+                            • Yargıtay'ın son dönem kararları ve tarzları değişebilir
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaTazminat() {
+            const yas = parseInt(document.getElementById('tazminat-yas').value) || 0;
+            const yillikGelir = parseFloat(document.getElementById('tazminat-yillik').value) || 0;
+            const olumTarihi = document.getElementById('tazminat-olum').value;
+            const hakSahibi = parseInt(document.getElementById('tazminat-hak').value) || 1;
+            const ozurlukOrani = parseInt(document.getElementById('tazminat-ozurluk').value) || 0;
+            const indirimOrani = parseInt(document.getElementById('tazminat-indirim').value) || 25;
+
+            if (yillikGelir === 0 || yas === 0) {
+                alert('Lütfen yaş ve yıllık gelir bilgilerini giriniz.');
+                return;
+            }
+
+            // Ölüm durumunda %100 iş görmezlik
+            const isGormezlik = ozurlukOrani > 0 ? ozurlukOrani : 100;
+            
+            // Yıllık kayıp kazanç
+            const kayipKazanc = yillikGelir * (isGormezlik / 100);
+            
+            // Harcamalardan tasarruf indirimi
+            const indirimTutari = kayipKazanc * (indirimOrani / 100);
+            const netKazanc = kayipKazanc - indirimTutari;
+            
+            // Kişi başına düşen
+            const kisiBasi = netKazanc / hakSahibi;
+            
+            // Geçmiş dönem hesaplama (olay tarihinden bugüne)
+            let gecmisYil = 0;
+            if (olumTarihi) {
+                const olum = new Date(olumTarihi);
+                const simdi = new Date();
+                const farkMs = simdi - olum;
+                gecmisYil = farkMs / (1000 * 60 * 60 * 24 * 365.25);
+            }
+            
+            // Geçmiş dönem tazminatı (basit hesap - faiz uygulanabilir)
+            const gecmisTazminat = kisiBasi * Math.max(0, gecmisYil);
+            
+            // Gelecek dönem hesabı (aktüerya - basitleştirilmiş)
+            // Kalan yaşam süresi tahmini (basit hesap)
+            const ortalamaOmur = yas < 30 ? 75 : (yas < 50 ? 75 - (yas - 30) * 0.5 : 65);
+            const kalanYil = Math.max(0, ortalamaOmur - yas);
+            
+            // İskonto oranı (yıllık %10 standart)
+            const iskontoOrani = 0.10;
+            
+            // Aktüeryal hesap (sadeleştirilmiş - geometrik seri toplamı)
+            // Formül: K × [1 - (1+i)^-n] / i
+            // Burada: K = kisiBasi, i = iskontoOrani, n = kalanYil
+            let gelecekTazminat = 0;
+            if (kalanYil > 0 && iskontoOrani > 0) {
+                gelecekTazminat = kisiBasi * (1 - Math.pow(1 + iskontoOrani, -kalanYil)) / iskontoOrani;
+            } else {
+                gelecekTazminat = kisiBasi * kalanYil;
+            }
+            
+            const toplamTazminat = gecmisTazminat + gelecekTazminat;
+            
+            // Uyarı
+            let uyari = '';
+            if (gecmisYil < 0) {
+                uyari = '<br><strong style="color: #d32f2f;">⚠️ Olay tarihi gelecekte olamaz!</strong>';
+            }
+
+            document.getElementById('tazminat-yillik-text').textContent = yillikGelir.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('tazminat-ozurluk-text').textContent = isGormezlik + '%';
+            document.getElementById('tazminat-kayip').textContent = kayipKazanc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('tazminat-indirim-text').textContent = indirimOrani + '% (' + indirimTutari.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL)';
+            document.getElementById('tazminat-kisi-basi').textContent = kisiBasi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL/yıl';
+            document.getElementById('tazminat-gecmis').textContent = gecmisTazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL (' + gecmisYil.toFixed(1) + ' yıl)';
+            document.getElementById('tazminat-gelecek').textContent = gelecekTazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL (' + kalanYil.toFixed(1) + ' yıl kalan)';
+            document.getElementById('tazminat-toplam').innerHTML = toplamTazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' + uyari;
+            
+            document.getElementById('tazminat-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
