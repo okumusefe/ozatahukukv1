@@ -59,6 +59,105 @@
         .read-more-btn::after { content: '▼'; font-size: 0.7rem; transition: transform 0.3s ease; }
         .read-more-btn.expanded::after { transform: rotate(180deg); }
         @media (max-width: 768px) { .district-grid, .city-grid { grid-template-columns: 1fr; } .district-header h2 { font-size: 2rem; } }
+
+        /* Modal Styles */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(8px);
+            -webkit-backdrop-filter: blur(8px);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        .modal-overlay.active {
+            display: flex;
+        }
+        .modal-content {
+            background: var(--white);
+            border-radius: 20px;
+            max-width: 900px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 40px;
+            box-shadow: 0 25px 80px rgba(0,0,0,0.3);
+            position: relative;
+            animation: modalSlideIn 0.3s ease;
+        }
+        @keyframes modalSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px) scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        .modal-close:hover {
+            transform: rotate(90deg);
+            box-shadow: 0 5px 15px rgba(201, 169, 97, 0.4);
+        }
+        .modal-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-right: 50px;
+        }
+        .modal-body .services-list {
+            list-style: none;
+            padding: 0;
+            margin: 20px 0;
+        }
+        .modal-body .services-list li {
+            padding: 8px 0;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-color);
+            font-size: 0.95rem;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        .modal-body .services-list li:last-child { border-bottom: none; }
+        .modal-body .services-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .modal-content {
+                padding: 25px;
+                max-height: 90vh;
+            }
+            .modal-title {
+                font-size: 1.4rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -638,6 +737,15 @@
         </section>
     </main>
 
+    <!-- Modal for District Content -->
+    <div class="modal-overlay" id="districtModal" onclick="closeModal(event)">
+        <div class="modal-content" onclick="event.stopPropagation()">
+            <button class="modal-close" onclick="closeModal()">&times;</button>
+            <h3 class="modal-title" id="modalTitle"></h3>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
@@ -671,23 +779,95 @@
 
     <script src="script.js"></script>
     <script src="publications.js"></script>
-</body>
-</html>
+
+    <script>
+        // Modal functionality for district cards
+        function openModal(districtName, description, services) {
+            const modal = document.getElementById('districtModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalTitle.textContent = districtName;
+            
+            // Create horizontal content layout
+            modalBody.innerHTML = `
+                <p style="color: var(--text-color); font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">${description}</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px;">Hizmet Alanları</h4>
+                        <ul class="services-list">
+                            ${services.map(s => `<li>${s}</li>`).join('')}
+                        </ul>
+                    </div>
+                    <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 12px;">
+                        <h4 style="color: var(--primary-color); font-size: 1.1rem; margin-bottom: 15px;">İletişim</h4>
+                        <p style="font-size: 0.95rem; color: var(--text-color); line-height: 1.6; margin-bottom: 15px;">
+                            <strong>Telefon:</strong> <a href="tel:+905325273993" style="color: var(--accent-color);">0 (532) 527 39 93</a><br>
+                            <strong>E-posta:</strong> <a href="mailto:info@ozatahukuk.com" style="color: var(--accent-color);">info@ozatahukuk.com</a>
+                        </p>
+                        <a href="iletisim.html" style="display: inline-block; background: var(--accent-color); color: white; padding: 10px 20px; border-radius: 25px; text-decoration: none; font-weight: 500; transition: all 0.3s;">Randevu Al</a>
+                    </div>
+                </div>
+            `;
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(event) {
+            if (!event || event.target.id === 'districtModal' || event.target.closest('.modal-close')) {
+                const modal = document.getElementById('districtModal');
+                modal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        }
 
         function toggleDistrict(btn) {
             const card = btn.closest('.district-card');
             const fullContent = card.querySelector('.district-full-content');
             
-            if (fullContent.classList.contains('expanded')) {
-                fullContent.classList.remove('expanded');
-                btn.classList.remove('expanded');
-                btn.innerHTML = 'Devamını oku <span style="margin-left: 5px;">▼</span>';
-            } else {
-                fullContent.classList.add('expanded');
-                btn.classList.add('expanded');
-                btn.innerHTML = 'Daha az göster <span style="margin-left: 5px;">▲</span>';
+            // Get district data
+            const districtName = card.querySelector('h3').textContent;
+            const description = fullContent.querySelector('p')?.textContent || '';
+            
+            // Extract services from the list
+            const servicesList = fullContent.querySelectorAll('.services-list li');
+            const services = [];
+            servicesList.forEach(li => services.push(li.textContent));
+            
+            // Also get services from any text content that contains service items
+            const allText = fullContent.textContent;
+            if (services.length === 0 && allText.includes('✓')) {
+                // Parse services marked with checkmarks
+                const lines = allText.split('\n');
+                lines.forEach(line => {
+                    if (line.includes('✓') || line.includes('-') || line.trim().startsWith('•')) {
+                        const service = line.replace(/[✓\-•]/g, '').trim();
+                        if (service) services.push(service);
+                    }
+                });
             }
+            
+            // If no services found, provide defaults based on district
+            if (services.length === 0) {
+                services.push(
+                    'Boşanma ve Aile Hukuku Davaları',
+                    'Miras Hukuku Danışmanlığı',
+                    'İcra ve İflas Takibi',
+                    'İş Hukuku Uyuşmazlıkları',
+                    'Ceza Hukuku Savunma'
+                );
+            }
+            
+            openModal(districtName, description, services);
         }
+
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            }
+        });
     </script>
 </body>
 </html>
