@@ -52,7 +52,7 @@
         }
         .form-row-3 {
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-columns: repeat(3, 1fr);
             gap: 1rem;
         }
         .calculate-btn {
@@ -170,6 +170,23 @@
             font-weight: 600;
         }
         .back-link:hover { text-decoration: underline; }
+        .warning-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            color: #856404;
+        }
+        .warning-box strong { color: #856404; }
+        .conditional-field {
+            display: none;
+            margin-top: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        .conditional-field.show { display: block; }
         @media (max-width: 768px) {
             .form-row, .form-row-3 { grid-template-columns: 1fr; }
             .calculator-card { padding: 1.5rem; }
@@ -222,17 +239,86 @@
                     <h2>🚗 Araç Değer Kaybı Hesaplama</h2>
                     <p>Trafik kazası sonrası aracın değer kaybını Yargıtay kararlarına göre hesaplayın</p>
                     
-                    <div class="form-row-3">
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="arac-marka">Araç Markası</label>
-                            <select id="arac-marka">
+                            <select id="arac-marka" onchange="updateModels()">
                                 <option value="">Seçiniz...</option>
-                                <option value="premium">Premium (BMW, Mercedes, Audi, Volvo)</option>
-                                <option value="orta">Orta Segment (VW, Toyota, Honda, Hyundai)</option>
-                                <option value="ekonomik">Ekonomik (Fiat, Renault, Dacia)</option>
-                                <option value="luks">Lüks (Porsche, Jaguar, Land Rover)</option>
+                                <option value="acura">Acura</option>
+                                <option value="alfa-romeo">Alfa Romeo</option>
+                                <option value="aston-martin">Aston Martin</option>
+                                <option value="audi">Audi</option>
+                                <option value="bentley">Bentley</option>
+                                <option value="bmw">BMW</option>
+                                <option value="bugatti">Bugatti</option>
+                                <option value="buick">Buick</option>
+                                <option value="byd">BYD</option>
+                                <option value="cadillac">Cadillac</option>
+                                <option value="chery">Chery</option>
+                                <option value="chevrolet">Chevrolet</option>
+                                <option value="chrysler">Chrysler</option>
+                                <option value="citroen">Citroen</option>
+                                <option value="cupra">Cupra</option>
+                                <option value="dacia">Dacia</option>
+                                <option value="daewoo">Daewoo</option>
+                                <option value="daihatsu">Daihatsu</option>
+                                <option value="dodge">Dodge</option>
+                                <option value="ds">DS</option>
+                                <option value="ferrari">Ferrari</option>
+                                <option value="fiat">Fiat</option>
+                                <option value="ford">Ford</option>
+                                <option value="geely">Geely</option>
+                                <option value="honda">Honda</option>
+                                <option value="hyundai">Hyundai</option>
+                                <option value="infiniti">Infiniti</option>
+                                <option value="isuzu">Isuzu</option>
+                                <option value="iveco">Iveco</option>
+                                <option value="jaguar">Jaguar</option>
+                                <option value="jeep">Jeep</option>
+                                <option value="kia">Kia</option>
+                                <option value="lamborghini">Lamborghini</option>
+                                <option value="lancia">Lancia</option>
+                                <option value="land-rover">Land Rover</option>
+                                <option value="lexus">Lexus</option>
+                                <option value="lincoln">Lincoln</option>
+                                <option value="lotus">Lotus</option>
+                                <option value="maserati">Maserati</option>
+                                <option value="mazda">Mazda</option>
+                                <option value="mclaren">McLaren</option>
+                                <option value="mercedes">Mercedes-Benz</option>
+                                <option value="mini">Mini</option>
+                                <option value="mitsubishi">Mitsubishi</option>
+                                <option value="nissan">Nissan</option>
+                                <option value="opel">Opel</option>
+                                <option value="peugeot">Peugeot</option>
+                                <option value="porsche">Porsche</option>
+                                <option value="proton">Proton</option>
+                                <option value="range-rover">Range Rover</option>
+                                <option value="renault">Renault</option>
+                                <option value="rolls-royce">Rolls Royce</option>
+                                <option value="saab">Saab</option>
+                                <option value="seat">Seat</option>
+                                <option value="skoda">Skoda</option>
+                                <option value="smart">Smart</option>
+                                <option value="ssangyong">SsangYong</option>
+                                <option value="subaru">Subaru</option>
+                                <option value="suzuki">Suzuki</option>
+                                <option value="tata">Tata</option>
+                                <option value="tesla">Tesla</option>
+                                <option value="toyota">Toyota</option>
+                                <option value="volkswagen">Volkswagen</option>
+                                <option value="volvo">Volvo</option>
                             </select>
                         </div>
+                        <div class="form-group">
+                            <label for="arac-model">Araç Modeli</label>
+                            <select id="arac-model">
+                                <option value="">Önce marka seçiniz...</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row-3">
                         <div class="form-group">
                             <label for="arac-yil">Model Yılı</label>
                             <select id="arac-yil">
@@ -247,39 +333,52 @@
                                 <option value="2018">2018</option>
                                 <option value="2017">2017</option>
                                 <option value="2016">2016</option>
-                                <option value="2015">2015 ve öncesi</option>
+                                <option value="2015">2015</option>
+                                <option value="2014">2014</option>
+                                <option value="2013">2013</option>
+                                <option value="2012">2012</option>
+                                <option value="2011">2011</option>
+                                <option value="2010">2010</option>
                             </select>
                         </div>
                         <div class="form-group">
                             <label for="arac-km">Kilometre</label>
                             <input type="number" id="arac-km" placeholder="Örn: 50000" min="0">
                         </div>
-                    </div>
-
-                    <div class="form-row">
                         <div class="form-group">
                             <label for="arac-deger">Araç Piyasa Değeri (TL)</label>
                             <input type="number" id="arac-deger" placeholder="Örn: 500000" min="0">
                         </div>
+                    </div>
+
+                    <div class="form-row">
                         <div class="form-group">
                             <label for="arac-kaza-tarih">Kaza Tarihi</label>
                             <input type="date" id="arac-kaza-tarih">
+                        </div>
+                        <div class="form-group">
+                            <label for="tamir-bedel">Tamirat Bedeli (TL)</label>
+                            <input type="number" id="tamir-bedel" placeholder="Örn: 25000" min="0">
                         </div>
                     </div>
 
                     <h3 style="margin: 2rem 0 1rem; color: var(--primary-color);">🔧 Hasar Bilgileri</h3>
                     
-                    <div class="damage-type-card">
-                        <label>
-                            <input type="checkbox" id="hasar-yapisal">
-                            <span>Yapısal Hasar (A, B, C Sütun, Şasi)</span>
-                        </label>
-                        <div class="damage-desc">Araç ana gövdesindeki hasarlar - en yüksek değer kaybı</div>
+                    <div id="airbag-warning" class="warning-box" style="display: none;">
+                        <strong>⚠️ Önemli:</strong> Airbag açılması durumunda araç %90 oranında perte ayrılabilir. Perte ayrılan araçlarda değer kaybı hesaplanamaz.
                     </div>
 
                     <div class="damage-type-card">
                         <label>
-                            <input type="checkbox" id="hasar-mekanik">
+                            <input type="checkbox" id="hasar-yapisal" onchange="toggleAirbagWarning()">
+                            <span>Yapısal Hasar (Şase, Podye, Direk)</span>
+                        </label>
+                        <div class="damage-desc">Araç ana gövdesindeki yapısal hasarlar - en yüksek değer kaybı</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-mekanik" onchange="toggleAirbagWarning()">
                             <span>Mekanik Hasar (Motor, Şanzıman, Diferansiyel)</span>
                         </label>
                         <div class="damage-desc">Araç mekanik sistemlerindeki hasarlar</div>
@@ -287,40 +386,38 @@
 
                     <div class="damage-type-card">
                         <label>
-                            <input type="checkbox" id="hasar-kaporta">
+                            <input type="checkbox" id="hasar-airbag" onchange="toggleAirbagWarning()">
+                            <span>Airbag Açılması</span>
+                        </label>
+                        <div class="damage-desc">Airbag patlaması - ciddi değer kaybı ve pert riski</div>
+                    </div>
+
+                    <div class="damage-type-card">
+                        <label>
+                            <input type="checkbox" id="hasar-kaporta" onchange="toggleAirbagWarning()">
                             <span>Kaporta Hasarı (Kaput, Bagaj, Kapılar, Çamurluk)</span>
                         </label>
                         <div class="damage-desc">Dış kaporta parçalarındaki boya/düzeltme işlemleri</div>
                     </div>
 
-                    <div class="damage-type-card">
-                        <label>
-                            <input type="checkbox" id="hasar-airbag">
-                            <span>Airbag Açılması</span>
-                        </label>
-                        <div class="damage-desc">Airbag patlaması - ciddi değer kaybı</div>
-                    </div>
-
-                    <div class="damage-type-card">
-                        <label>
-                            <input type="checkbox" id="hasar-total">
-                            <span>Total Loss (Ekonomik Total)</span>
-                        </label>
-                        <div class="damage-desc">Hasar bedelinin araç değerine yakın/üzerinde olması</div>
-                    </div>
-
-                    <div class="form-group" style="margin-top: 1.5rem;">
-                        <label for="tamir-bedel">Tamir/Tadilat Bedeli (TL)</label>
-                        <input type="number" id="tamir-bedel" placeholder="Örn: 75000" min="0">
-                    </div>
+                    <h3 style="margin: 2rem 0 1rem; color: var(--primary-color);">📋 Tramer Kaydı Bilgileri</h3>
 
                     <div class="form-group">
-                        <label for="arac-rapor">Ekspertiz Raporu Var mı?</label>
-                        <select id="arac-rapor">
+                        <label for="tramer-durum">Tramer Kaydı Var mı?</label>
+                        <select id="tramer-durum" onchange="toggleTramerFields()">
                             <option value="hayir">Hayır</option>
-                            <option value="evet">Evet - Hasarlı görünüyor</option>
-                            <option value="temiz">Evet - Temiz görünüyor ama hasarlı</option>
+                            <option value="var">Evet</option>
                         </select>
+                    </div>
+
+                    <div id="tramer-bolge-field" class="conditional-field">
+                        <div class="form-group">
+                            <label for="tramer-bolge">Geçmiş Hasar Güncel Hasarla Aynı Bölgede mi?</label>
+                            <select id="tramer-bolge">
+                                <option value="hayir">Hayır</option>
+                                <option value="evet">Evet</option>
+                            </select>
+                        </div>
                     </div>
 
                     <button class="calculate-btn" onclick="hesaplaDegerKaybi()">Hesapla</button>
@@ -358,7 +455,7 @@
                             • Yargıtay 15. HD 2020/1643 E., 2021/1547 K.<br>
                             • Yargıtay 15. HD 2022/389 E., 2022/2156 K.<br><br>
                             <strong>📌 Hesaplama Yöntemi:</strong><br>
-                            Değer kaybı = Araç Değeri × Yaş/Km Faktörü × Hasar Ağırlığı<br><br>
+                            Değer kaybı = Araç Değeri × Yaş/Km Faktörü × Hasar Ağırlığı × Tramer Faktörü<br><br>
                             <strong>⚠️ Not:</strong> Hesaplanan tutar yaklaşık değerdir. Kesin değer için uzman ekspertiz raporu alınmalıdır.
                         </div>
                     </div>
@@ -376,27 +473,146 @@
     </footer>
 
     <script>
+        // Araç modelleri veritabanı
+        const aracModelleri = {
+            'acura': ['ILX', 'TLX', 'RLX', 'RDX', 'MDX', 'NSX'],
+            'alfa-romeo': ['Giulia', 'Stelvio', 'Tonale', 'Giulietta', '4C'],
+            'aston-martin': ['Vantage', 'DB11', 'DBS', 'Rapide', 'Vanquish'],
+            'audi': ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'e-tron', 'TT', 'R8'],
+            'bentley': ['Continental GT', 'Flying Spur', 'Bentayga', 'Mulsanne'],
+            'bmw': ['1 Serisi', '2 Serisi', '3 Serisi', '4 Serisi', '5 Serisi', '6 Serisi', '7 Serisi', '8 Serisi', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'iX', 'i4', 'iX3', 'Z4', 'M2', 'M3', 'M4', 'M5'],
+            'bugatti': ['Chiron', 'Veyron'],
+            'buick': ['Encore', 'Envision', 'Enclave'],
+            'byd': ['Atto 3', 'Seal', 'Dolphin', 'Han', 'Tang'],
+            'cadillac': ['CT4', 'CT5', 'CT6', 'XT4', 'XT5', 'XT6', 'Escalade'],
+            'chery': ['Tiggo 7', 'Tiggo 8', 'Omoda 5', 'Omoda 3'],
+            'chevrolet': ['Spark', 'Malibu', 'Camaro', 'Corvette', 'Equinox', 'Blazer', 'Traverse', 'Tahoe', 'Suburban', 'Silverado'],
+            'chrysler': ['300C', 'Pacifica'],
+            'citroen': ['C3', 'C4', 'C5 Aircross', 'C-Elysee', 'Berlingo', 'Jumper'],
+            'cupra': ['Formentor', 'Leon', 'Ateca', 'Born'],
+            'dacia': ['Sandero', 'Logan', 'Duster', 'Spring', 'Jogger'],
+            'daewoo': ['Lanos', 'Nexia', 'Matiz'],
+            'daihatsu': ['Sirion', 'Terios', 'Materia'],
+            'dodge': ['Challenger', 'Charger', 'Durango', 'Journey'],
+            'ds': ['DS 3', 'DS 4', 'DS 7', 'DS 9'],
+            'ferrari': ['Roma', 'Portofino', '296 GTB', 'F8 Tributo', 'SF90', '812'],
+            'fiat': ['Egea', 'Egea Cross', '500', '500X', '500L', 'Panda', 'Tipo', 'Fiorino', 'Doblo', 'Scudo', 'Talento'],
+            'ford': ['Fiesta', 'Focus', 'Kuga', 'Puma', 'EcoSport', 'Escape', 'Bronco', 'Edge', 'Explorer', 'Mustang', 'Ranger', 'F-150', 'Tourneo', 'Transit', 'S-MAX', 'Galaxy'],
+            'geely': ['Coolray', 'Tugella', 'Geometry C'],
+            'honda': ['Jazz', 'Civic', 'City', 'HR-V', 'CR-V', 'ZR-V', 'Pilot', 'Accord', 'e'],
+            'hyundai': ['i10', 'i20', 'i30', 'Bayon', 'Kona', 'Tucson', 'Santa Fe', 'Palisade', 'Ioniq 5', 'Ioniq 6', 'Elantra', 'Accent'],
+            'infiniti': ['Q30', 'Q50', 'Q60', 'QX30', 'QX50', 'QX60', 'QX80'],
+            'isuzu': ['D-Max', 'MU-X'],
+            'iveco': ['Daily'],
+            'jaguar': ['XE', 'XF', 'XJ', 'E-PACE', 'F-PACE', 'I-PACE', 'F-TYPE'],
+            'jeep': ['Renegade', 'Compass', 'Cherokee', 'Grand Cherokee', 'Wrangler', 'Gladiator', 'Commander'],
+            'kia': ['Picanto', 'Rio', 'Stonic', 'Ceed', 'Cerato', 'Sportage', 'Sorento', 'Soul', 'Niro', 'EV6', 'Stinger'],
+            'lamborghini': ['Huracan', 'Urus', 'Aventador', 'Revuelto'],
+            'lancia': ['Ypsilon'],
+            'land-rover': ['Defender', 'Discovery', 'Discovery Sport', 'Range Rover', 'Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque'],
+            'lexus': ['UX', 'NX', 'RX', 'RZ', 'ES', 'LS', 'IS', 'LC', 'LX'],
+            'lincoln': ['Corsair', 'Nautilus', 'Aviator', 'Navigator', 'Continental'],
+            'lotus': ['Emira', 'Eletre', 'Evija'],
+            'maserati': ['Ghibli', 'Quattroporte', 'Levante', 'MC20', 'Grecale'],
+            'mazda': ['2', '3', '6', 'CX-3', 'CX-30', 'CX-5', 'CX-60', 'CX-80', 'MX-5', 'MX-30'],
+            'mclaren': ['Artura', 'GT', '720S', '765LT'],
+            'mercedes': ['A Serisi', 'B Serisi', 'C Serisi', 'E Serisi', 'S Serisi', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G Serisi', 'EQA', 'EQB', 'EQC', 'EQE', 'EQS', 'EQS SUV', 'AMG GT', 'SL', 'Maybach'],
+            'mini': ['Cooper', 'Cooper S', 'Cooper SE', 'Countryman', 'Clubman', 'Paceman'],
+            'mitsubishi': ['Space Star', 'Eclipse Cross', 'ASX', 'Outlander', 'L200', 'Pajero'],
+            'nissan': ['Micra', 'Note', 'Juke', 'Qashqai', 'X-Trail', 'Ariya', 'Leaf', 'Navara', 'Patrol'],
+            'opel': ['Corsa', 'Astra', 'Insignia', 'Crossland', 'Grandland', 'Mokka', 'Zafira', 'Combo', 'Vivaro'],
+            'peugeot': ['108', '208', '308', '408', '508', '2008', '3008', '5008', 'Rifter', 'Traveller'],
+            'porsche': ['911', '718', 'Panamera', 'Taycan', 'Cayenne', 'Macan'],
+            'proton': ['Saga', 'Persona', 'X50', 'X70', 'X90'],
+            'range-rover': ['Evoque', 'Velar', 'Sport', 'Range Rover'],
+            'renault': ['Clio', 'Megane', 'Talisman', 'Captur', 'Austral', 'Arkana', 'Kadjar', 'Koleos', 'Duster', 'Express', 'Trafic', 'Master'],
+            'rolls-royce': ['Phantom', 'Ghost', 'Wraith', 'Dawn', 'Cullinan', 'Spectre'],
+            'saab': ['9-3', '9-5'],
+            'seat': ['Ibiza', 'Arona', 'Leon', 'Ateca', 'Tarraco', 'Alhambra'],
+            'skoda': ['Fabia', 'Scala', 'Octavia', 'Superb', 'Kamiq', 'Karoq', 'Kodiaq', 'Enyaq'],
+            'smart': ['Fortwo', 'Forfour', '#1', '#3'],
+            'ssangyong': ['Tivoli', 'Korando', 'Rexton', 'Musso'],
+            'subaru': ['Impreza', 'Legacy', 'Outback', 'Forester', 'XV', 'WRX', 'BRZ', 'Solterra'],
+            'suzuki': ['Swift', 'Baleno', 'Ignis', 'Vitara', 'S-Cross', 'Jimny', 'Across'],
+            'tata': ['Safari', 'Harrier', 'Nexon', 'Punch'],
+            'tesla': ['Model 3', 'Model Y', 'Model S', 'Model X', 'Cybertruck'],
+            'toyota': ['Aygo X', 'Yaris', 'Corolla', 'Camry', 'C-HR', 'RAV4', 'Corolla Cross', 'Highlander', 'Land Cruiser', 'Hilux', 'Prius', 'bZ4X', 'GR Yaris', 'GR Supra', 'Proace'],
+            'volkswagen': ['Polo', 'Golf', 'Jetta', 'Passat', 'Arteon', 'T-Cross', 'T-Roc', 'Taigo', 'Tiguan', 'Touareg', 'ID.3', 'ID.4', 'ID.5', 'ID. Buzz', 'Caddy', 'Transporter', 'Multivan', 'California'],
+            'volvo': ['XC40', 'XC60', 'XC90', 'C40', 'S60', 'S90', 'V60', 'V90', 'EX30', 'EX90']
+        };
+
+        function updateModels() {
+            const marka = document.getElementById('arac-marka').value;
+            const modelSelect = document.getElementById('arac-model');
+            
+            modelSelect.innerHTML = '<option value="">Seçiniz...</option>';
+            
+            if (marka && aracModelleri[marka]) {
+                aracModelleri[marka].forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model.toLowerCase().replace(/\s+/g, '-');
+                    option.textContent = model;
+                    modelSelect.appendChild(option);
+                });
+            }
+        }
+
+        function toggleAirbagWarning() {
+            const hasarAirbag = document.getElementById('hasar-airbag').checked;
+            const hasarYapisal = document.getElementById('hasar-yapisal').checked;
+            const hasarMekanik = document.getElementById('hasar-mekanik').checked;
+            
+            const warningBox = document.getElementById('airbag-warning');
+            
+            // Airbag açıldığında veya çok ciddi hasar varsa uyarı göster
+            if (hasarAirbag || (hasarYapisal && hasarMekanik)) {
+                warningBox.style.display = 'block';
+            } else {
+                warningBox.style.display = 'none';
+            }
+        }
+
+        function toggleTramerFields() {
+            const tramerDurum = document.getElementById('tramer-durum').value;
+            const tramerBolgeField = document.getElementById('tramer-bolge-field');
+            
+            if (tramerDurum === 'var') {
+                tramerBolgeField.classList.add('show');
+            } else {
+                tramerBolgeField.classList.remove('show');
+            }
+        }
+
         function hesaplaDegerKaybi() {
             // Form değerlerini al
             const marka = document.getElementById('arac-marka').value;
+            const model = document.getElementById('arac-model').value;
             const yil = parseInt(document.getElementById('arac-yil').value) || 0;
             const km = parseInt(document.getElementById('arac-km').value) || 0;
             const deger = parseFloat(document.getElementById('arac-deger').value) || 0;
             const kazaTarih = document.getElementById('arac-kaza-tarih').value;
             const tamirBedel = parseFloat(document.getElementById('tamir-bedel').value) || 0;
-            const raporDurum = document.getElementById('arac-rapor').value;
+            const tramerDurum = document.getElementById('tramer-durum').value;
+            const tramerBolge = document.getElementById('tramer-bolge').value;
 
             // Hasar türleri
             const hasarYapisal = document.getElementById('hasar-yapisal').checked;
             const hasarMekanik = document.getElementById('hasar-mekanik').checked;
             const hasarKaporta = document.getElementById('hasar-kaporta').checked;
             const hasarAirbag = document.getElementById('hasar-airbag').checked;
-            const hasarTotal = document.getElementById('hasar-total').checked;
 
             // Validasyon
-            if (!marka || !yil || !deger || !kazaTarih) {
-                alert('Lütfen araç markası, model yılı, değeri ve kaza tarihini giriniz.');
+            if (!marka || !model || !yil || !deger || !kazaTarih) {
+                alert('Lütfen araç markası, modeli, model yılı, değeri ve kaza tarihini giriniz.');
                 return;
+            }
+
+            // Airbag kontrolü - pert uyarısı
+            if (hasarAirbag) {
+                const confirmCalc = confirm('Airbag açılması durumunda araç %90 oranında perte ayrılabilir. Perte ayrılan araçlarda değer kaybı hesaplanamaz. Yine de hesaplama yapmak istiyor musunuz?');
+                if (!confirmCalc) {
+                    return;
+                }
             }
 
             // Mevcut yılı hesapla
@@ -428,33 +644,78 @@
                 yasFaktor *= 0.95; // 50.000-100.000 km: ek %5 düşüş
             }
 
-            // Marka katsayısı
+            // Marka katsayısı (güncellenmiş değerler)
             const markaKatsayi = {
-                'premium': 1.1,
-                'orta': 1.0,
-                'ekonomik': 0.9,
-                'luks': 1.2
+                'rolls-royce': 1.4,
+                'bentley': 1.35,
+                'bugatti': 1.35,
+                'lamborghini': 1.35,
+                'ferrari': 1.35,
+                'mclaren': 1.35,
+                'aston-martin': 1.3,
+                'maserati': 1.25,
+                'porsche': 1.25,
+                'range-rover': 1.25,
+                'mercedes': 1.2,
+                'bmw': 1.2,
+                'audi': 1.2,
+                'jaguar': 1.2,
+                'land-rover': 1.2,
+                'lexus': 1.15,
+                'volvo': 1.15,
+                'infiniti': 1.15,
+                'cadillac': 1.15,
+                'lincoln': 1.15,
+                'tesla': 1.15,
+                'genesis': 1.1,
+                'alfa-romeo': 1.1,
+                'ds': 1.1,
+                'cupra': 1.1,
+                'jeep': 1.1,
+                'mini': 1.1,
+                'volkswagen': 1.05,
+                'toyota': 1.05,
+                'honda': 1.05,
+                'mazda': 1.05,
+                'subaru': 1.05,
+                'kia': 1.05,
+                'hyundai': 1.05,
+                'skoda': 1.0,
+                'seat': 1.0,
+                'opel': 1.0,
+                'peugeot': 1.0,
+                'citroen': 1.0,
+                'renault': 1.0,
+                'nissan': 1.0,
+                'ford': 1.0,
+                'fiat': 0.95,
+                'dacia': 0.9,
+                'suzuki': 0.95,
+                'daihatsu': 0.9,
+                'lada': 0.85,
+                'proton': 0.85,
+                'tata': 0.85,
+                'chery': 0.9,
+                'geely': 0.9,
+                'byd': 0.95
             }[marka] || 1.0;
 
             // Hasar ağırlığı hesapla (%)
             let hasarAgirligi = 0;
             let hasarAciklamalar = [];
 
-            if (hasarTotal) {
-                hasarAgirligi = 35; // Total loss: %35 değer kaybı
-                hasarAciklamalar.push('Total loss hasarı: %35');
+            if (hasarAirbag) {
+                // Airbag açılırsa %35 değer kaybı (pert riski)
+                hasarAgirligi = 35;
+                hasarAciklamalar.push('Airbag açılması (Pert riski): %35');
             } else {
                 if (hasarYapisal) {
                     hasarAgirligi += 20;
-                    hasarAciklamalar.push('Yapısal hasar: %20');
+                    hasarAciklamalar.push('Yapısal hasar (Şase/Podye/Direk): %20');
                 }
                 if (hasarMekanik) {
                     hasarAgirligi += 15;
-                    hasarAciklamalar.push('Mekanik hasar: %15');
-                }
-                if (hasarAirbag) {
-                    hasarAgirligi += 10;
-                    hasarAciklamalar.push('Airbag açılması: %10');
+                    hasarAciklamalar.push('Mekanik hasar (Motor/Şanzıman): %15');
                 }
                 if (hasarKaporta) {
                     // Kaporta hasarı tamir bedeline göre değişir
@@ -477,17 +738,24 @@
                 }
             }
 
-            // Rapor durumu düzeltmesi
-            if (raporDurum === 'temiz') {
-                hasarAgirligi *= 1.2; // Gizli hasar daha büyük risk
-                hasarAciklamalar.push('Gizli hasar riski: +%20');
+            // Tramer kaydı düzeltmesi
+            let tramerFaktor = 1.0;
+            if (tramerDurum === 'var') {
+                tramerFaktor = 0.85; // Tramer kaydı varsa %15 ek değer kaybı
+                hasarAciklamalar.push('Tramer kaydı: -%15');
+                
+                if (tramerBolge === 'evet') {
+                    // Aynı bölgede hasar varsa ek değer kaybı
+                    tramerFaktor *= 0.95;
+                    hasarAciklamalar.push('Aynı bölgede önceki hasar: -%5');
+                }
             }
 
             // Maksimum %35 sınırlaması (Yargıtay kriteri)
             hasarAgirligi = Math.min(hasarAgirligi, 35);
 
             // Değer kaybı hesapla
-            const degerKaybi = deger * yasFaktor * (hasarAgirligi / 100) * markaKatsayi;
+            const degerKaybi = deger * yasFaktor * (hasarAgirligi / 100) * markaKatsayi * tramerFaktor;
             const degerKaybiYuzde = (degerKaybi / deger) * 100;
 
             // Sonuçları göster
@@ -497,7 +765,20 @@
             document.getElementById('sonuc-kayip').textContent = Math.round(degerKaybi).toLocaleString('tr-TR') + ' TL';
 
             // Detayları oluştur
+            let tramerDetay = '';
+            if (tramerDurum === 'var') {
+                tramerDetay = `
+                <div class="breakdown-item">
+                    <span>Tramer Kaydı:</span>
+                    <span>Var (${tramerBolge === 'evet' ? 'Aynı bölge' : 'Farklı bölge'})</span>
+                </div>`;
+            }
+
             const detayHTML = `
+                <div class="breakdown-item">
+                    <span>Araç Marka/Model:</span>
+                    <span>${marka.toUpperCase()} / ${model.toUpperCase()}</span>
+                </div>
                 <div class="breakdown-item">
                     <span>Araç Yaşı:</span>
                     <span>${aracYasi} yıl</span>
@@ -512,8 +793,13 @@
                 </div>
                 <div class="breakdown-item">
                     <span>Marka Katsayısı:</span>
-                    <span>${markaKatsayi.toFixed(1)}x</span>
+                    <span>${markaKatsayi.toFixed(2)}x</span>
                 </div>
+                <div class="breakdown-item">
+                    <span>Tamirat Bedeli:</span>
+                    <span>${tamirBedel.toLocaleString('tr-TR')} TL</span>
+                </div>
+                ${tramerDetay}
                 ${hasarAciklamalar.map(aciklama => `
                 <div class="breakdown-item">
                     <span>Hasar Kalem:</span>
