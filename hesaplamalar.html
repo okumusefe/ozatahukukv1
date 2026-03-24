@@ -216,7 +216,7 @@
         <div class="nav-container">
             <div class="logo">
                 <a href="index.html">
-                    <img src="logo.svg" alt="Özata Hukuk" height="40">
+                    <img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
                 </a>
             </div>
             <nav>
@@ -264,6 +264,7 @@
                     <button class="tab-btn" data-tab="yillikizin">Yıllık İzin</button>
                     <button class="tab-btn" data-tab="yevmiye">Günlük Yevmiye</button>
                     <button class="tab-btn" data-tab="cezazamanasimi">Ceza Zamanaşımı</button>
+                    <button class="tab-btn" data-tab="infaz">Hükümlü İnfaz</button>
                     <button class="tab-btn" data-tab="mahkemeharci">Mahkeme Harcı</button>
                     <button class="tab-btn" data-tab="icraharci">İcra Harcı</button>
                     <button class="tab-btn" data-tab="vekalet">Vekalet Ücreti</button>
@@ -581,6 +582,96 @@
                                 • 1 - 4 yıl hapis: 15 yıl<br>
                                 • 4 yıldan fazla: 20 yıl<br>
                                 <strong>Zorlayıcı nedenler:</strong> Zamanaşımı durur ve kesilir.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hükümlü İnfaz Hesaplayıcı -->
+                    <div class="calculator-card" id="infaz">
+                        <h2>Hükümlü İnfaz Hesaplama</h2>
+                        <p>5275 sayılı Ceza İnfaz Kanunu'na göre cezaevinde kalma süresi, şartlı tahliye ve denetimli serbestlik hesaplama</p>
+                        
+                        <div class="form-group">
+                            <label for="infaz-ceza">Verilen Ceza (Ay/Yıl olarak)</label>
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="infaz-yil">Yıl</label>
+                                    <input type="number" id="infaz-yil" placeholder="Örn: 3" min="0">
+                                </div>
+                                <div class="form-group">
+                                    <label for="infaz-ay">Ay</label>
+                                    <input type="number" id="infaz-ay" placeholder="Örn: 6" min="0" max="11">
+                                </div>
+                                <div class="form-group">
+                                    <label for="infaz-gun">Gün</label>
+                                    <input type="number" id="infaz-gun" placeholder="Örn: 0" min="0" max="29">
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="infaz-tur">Suç Türü</label>
+                            <select id="infaz-tur">
+                                <option value="">Seçiniz...</option>
+                                <option value="normal">Genel Suçlar (3/4 infaz)</option>
+                                <option value="aggravated">Ağırlaştırılmış Suçlar (2/3 infaz)</option>
+                                <option value="terrorist">Terör Suçları (Özel)</option>
+                                <option value="kasten">Kasten Adam Öldürme</option>
+                                <option value="cinsel">Cinsel Suçlar (Çocuk)</option>
+                                <option value="uyusturucu">Uyuşturucu Ticareti</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="infaz-tutukluluk">Tutukluluk Süresi (Gün) - Varsa</label>
+                            <input type="number" id="infaz-tutukluluk" placeholder="Örn: 180" min="0">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="infaz-hukum">Hüküm Tarihi</label>
+                            <input type="date" id="infaz-hukum">
+                        </div>
+                        
+                        <button class="calculate-btn" onclick="hesaplaInfaz()">Hesapla</button>
+                        
+                        <div class="result-box" id="infaz-sonuc">
+                            <h3>Hesaplama Sonucu</h3>
+                            <div class="result-item">
+                                <span>Toplam Ceza Süresi:</span>
+                                <span id="infaz-toplam"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>İnfaz Oranı:</span>
+                                <span id="infaz-oran"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>Cezaevinde Kalınacak Süre:</span>
+                                <span id="infaz-yatar"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>Mahsup Edilen Tutukluluk:</span>
+                                <span id="infaz-mahsup"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>Kalan Cezaevinde Kalma:</span>
+                                <span id="infaz-kalan"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>Şartlı Tahliye Tarihi:</span>
+                                <span id="infaz-tahliye"></span>
+                            </div>
+                            <div class="result-item">
+                                <span>Denetimli Serbestlik Süresi:</span>
+                                <span id="infaz-denetim"></span>
+                            </div>
+                            <div class="formula-info">
+                                <strong>İnfaz Oranları (5275 sayılı Kanun):</strong><br>
+                                • Genel suçlar: Cezanın 3/4'ü (Md. 10)<br>
+                                • Ağırlaştırılmış suçlar: Cezanın 2/3'ü (Md. 11)<br>
+                                • Kasten öldürme: Cezanın 3/4'ü<br>
+                                • Terör suçları: Değişken oranlar<br>
+                                • Tutukluluk süresi: Cezaevinde kalınacak süreden mahsup edilir.<br>
+                                <strong>Not:</strong> Hesaplamalar bilgilendirme amaçlıdır.
                             </div>
                         </div>
                     </div>
@@ -994,6 +1085,99 @@
             document.getElementById('ceza-kalan').textContent = kalan > 0 ? kalan + ' gün' : 'Zamanaşımı dolmuş';
             
             document.getElementById('ceza-sonuc').classList.add('show');
+        }
+
+        // Hükümlü İnfaz Hesaplama (5275 sayılı Kanun)
+        function hesaplaInfaz() {
+            const yil = parseInt(document.getElementById('infaz-yil').value) || 0;
+            const ay = parseInt(document.getElementById('infaz-ay').value) || 0;
+            const gun = parseInt(document.getElementById('infaz-gun').value) || 0;
+            const tur = document.getElementById('infaz-tur').value;
+            const tutukluluk = parseInt(document.getElementById('infaz-tutukluluk').value) || 0;
+            const hukumTarihi = document.getElementById('infaz-hukum').value;
+
+            if (!tur || yil + ay + gun === 0) {
+                alert('Lütfen ceza süresi ve suç türü seçiniz.');
+                return;
+            }
+
+            // Toplam ceza süresini güne çevir
+            const toplamGun = (yil * 365) + (ay * 30) + gun;
+            const toplamAy = (yil * 12) + ay;
+            
+            // İnfaz oranı belirle
+            let infazOrani = 0.75; // 3/4 genel kural
+            let oranText = '3/4 (%75)';
+            
+            switch(tur) {
+                case 'normal':
+                    infazOrani = 0.75;
+                    oranText = '3/4 (%75)';
+                    break;
+                case 'aggravated':
+                    infazOrani = 0.6667; // 2/3
+                    oranText = '2/3 (%66.7)';
+                    break;
+                case 'terrorist':
+                    infazOrani = 0.6667;
+                    oranText = '2/3 (%66.7) - Terör';
+                    break;
+                case 'kasten':
+                    infazOrani = 0.75;
+                    oranText = '3/4 (%75)';
+                    break;
+                case 'cinsel':
+                    infazOrani = 0.6667;
+                    oranText = '2/3 (%66.7)';
+                    break;
+                case 'uyusturucu':
+                    infazOrani = 0.6667;
+                    oranText = '2/3 (%66.7)';
+                    break;
+            }
+
+            // Cezaevinde kalınacak süre
+            const yatarGun = Math.ceil(toplamGun * infazOrani);
+            const kalanYatar = Math.max(0, yatarGun - tutukluluk);
+            
+            // Denetimli serbestlik süresi (kalan 1/4 veya 1/3)
+            const denetimGun = toplamGun - yatarGun;
+            
+            // Şartlı tahliye tarihi hesapla
+            let tahliyeTarihi = 'Belirlenemedi';
+            if (hukumTarihi) {
+                const hukum = new Date(hukumTarihi);
+                const tahliye = new Date(hukum);
+                tahliye.setDate(tahliye.getDate() + kalanYatar);
+                tahliyeTarihi = tahliye.toLocaleDateString('tr-TR');
+            }
+
+            // Formatlamalar
+            const yilText = yil > 0 ? yil + ' yıl ' : '';
+            const ayText = ay > 0 ? ay + ' ay ' : '';
+            const gunText = gun > 0 ? gun + ' gün' : '';
+            
+            const yatarYil = Math.floor(yatarGun / 365);
+            const yatarAy = Math.floor((yatarGun % 365) / 30);
+            const yatarGunKalan = (yatarGun % 365) % 30;
+            
+            const kalanYil = Math.floor(kalanYatar / 365);
+            const kalanAy = Math.floor((kalanYatar % 365) / 30);
+            const kalanGunKalan = (kalanYatar % 365) % 30;
+            
+            const denetimYil = Math.floor(denetimGun / 365);
+            const denetimAy = Math.floor((denetimGun % 365) / 30);
+            const denetimGunKalan = (denetimGun % 365) % 30;
+
+            document.getElementById('infaz-toplam').textContent = yilText + ayText + gunText + ` (${toplamGun} gün)`;
+            document.getElementById('infaz-oran').textContent = oranText;
+            document.getElementById('infaz-yatar').textContent = `${yatarYil} yıl ${yatarAy} ay ${yatarGunKalan} gün (${yatarGun} gün)`;
+            document.getElementById('infaz-mahsup').textContent = tutukluluk + ' gün';
+            document.getElementById('infaz-kalan').textContent = `${kalanYil} yıl ${kalanAy} ay ${kalanGunKalan} gün (${kalanYatar} gün)`;
+            document.getElementById('infaz-tahliye').textContent = tahliyeTarihi;
+            document.getElementById('infaz-denetim').textContent = `${denetimYil} yıl ${denetimAy} ay ${denetimGunKalan} gün (${denetimGun} gün)`;
+            
+            document.getElementById('infaz-sonuc').classList.add('show');
         }
 
         // Ozel ceza seçimi göster/gizle
