@@ -63,6 +63,7 @@ body {
     display: flex;
     list-style: none;
     gap: 2rem;
+    font-size: 1rem;
 }
 
 .nav-menu a {
