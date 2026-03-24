@@ -800,11 +800,11 @@
             // Create horizontal content layout
             modalBody.innerHTML = `
                 <p style="color: var(--text-color); font-size: 1.05rem; line-height: 1.8; margin-bottom: 25px;">${description}</p>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
                     <div>
                         <h4 style="color: var(--accent-color); font-size: 1.1rem; margin-bottom: 15px;">Hizmet Alanları</h4>
-                        <ul class="services-list">
-                            ${services.map(s => `<li>${s}</li>`).join('')}
+                        <ul class="services-list" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px 15px; list-style: none; padding: 0; margin: 0;">
+                            ${services.map(s => `<li style="padding: 4px 0; padding-left: 20px; position: relative; font-size: 0.85rem; color: var(--text-color);"><span style="position: absolute; left: 0; color: var(--accent-color); font-weight: bold;">✓</span>${s}</li>`).join('')}
                         </ul>
                     </div>
                     <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 12px;">
