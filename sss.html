@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Özata Hukuk - Sıkça Sorulan Sorular. Hukuki süreçler hakkında bilgi alın.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Sıkça Sorulan Sorular | Özata Hukuk</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .sss-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f3d 100%);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        .sss-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .sss-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .faq-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .faq-categories {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 50px;
+            flex-wrap: wrap;
+        }
+        .faq-category {
+            padding: 12px 25px;
+            background: white;
+            border: 2px solid var(--accent-color);
+            border-radius: 30px;
+            color: var(--accent-color);
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .faq-category:hover, .faq-category.active {
+            background: var(--accent-color);
+            color: white;
+        }
+        .faq-list {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: white;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+        .faq-question {
+            padding: 25px 30px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            background: rgba(201,169,97,0.05);
+        }
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-color);
+            transition: all 0.3s ease;
+        }
+        .faq-item.active .faq-question::after {
+            content: '−';
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: all 0.4s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-answer-content {
+            padding: 0 30px 25px;
+            color: var(--text-light);
+            line-height: 1.8;
+        }
+        .faq-answer-content p {
+            margin-bottom: 15px;
+        }
+        .faq-answer-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+        .faq-answer-content li {
+            margin-bottom: 8px;
+        }
+        .contact-cta {
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8945f 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .contact-cta h2 {
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        .contact-cta p {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        .contact-cta .btn {
+            background: white;
+            color: var(--primary-color);
+            padding: 15px 40px;
+            border-radius: 30px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s ease;
+        }
+        .contact-cta .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        @media (max-width: 768px) {
+            .sss-hero h1 {
+                font-size: 2rem;
+            }
+            .faq-question {
+                font-size: 1rem;
+                padding: 20px;
+            }
+            .faq-answer-content {
+                padding: 0 20px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="logo.svg" alt="Özata Hukuk Logo" width="50" height="32" style="display: block;">
+                    <span>ÖZATA HUKUK</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="sss.html" class="active">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="sss-hero">
+            <div class="container">
+                <h1>Sıkça Sorulan Sorular</h1>
+                <p>Hukuki süreçler hakkında merak ettiğiniz soruların cevapları</p>
+            </div>
+        </section>
+
+        <section class="faq-section">
+            <div class="container">
+                <div class="faq-categories">
+                    <div class="faq-category active" data-category="all">Tümü</div>
+                    <div class="faq-category" data-category="aile">Aile Hukuku</div>
+                    <div class="faq-category" data-category="ceza">Ceza Hukuku</div>
+                    <div class="faq-category" data-category="is">İş Hukuku</div>
+                    <div class="faq-category" data-category="gayrimenkul">Gayrimenkul</div>
+                    <div class="faq-category" data-category="genel">Genel</div>
+                </div>
+
+                <div class="faq-list">
+                    <div class="faq-item" data-category="genel">
+                        <div class="faq-question">Avukat tutmak zorunlu mudur?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Hayır, Türkiye'de avukat tutmak zorunlu değildir. Ancak hukuki süreçlerin karmaşıklığı göz önüne alındığında, özellikle aile hukuku, ceza hukuku, iş hukuku gibi alanlarda profesyonel destek almanız haklarınızın korunması açısından önemlidir.</p>
+                                <p>Avukatlar, hukuki prosedürleri bilir, süreçleri doğru yönetir ve müvekkillerinin haklarını en etkili şekilde savunur.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="aile">
+                        <div class="faq-question">Boşanma davası ne kadar sürer?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Boşanma davasının süresi, davanın çekişmeli mi anlaşmalı mı olduğuna bağlı olarak değişir:</p>
+                                <ul>
+                                    <li><strong>Anlaşmalı Boşanma:</strong> Eşler arasında tüm konularda anlaşma varsa, duruşma gününde karar çıkabilir. Ortalama 1-3 ay sürer.</li>
+                                    <li><strong>Çekişmeli Boşanma:</strong> Taraflar anlaşamıyorsa, dava 1-2 yıl veya daha uzun sürebilir.</li>
+                                </ul>
+                                <p>Süre, mahkemenin yoğunluğu, dosyanın karmaşıklığı ve taraf sayısı gibi faktörlere de bağlıdır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="aile">
+                        <div class="faq-question">Nafaka ne kadardır ve ne kadar süreyle ödenir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Nafaka miktarı ve süresi duruma göre değişir:</p>
+                                <ul>
+                                    <li><strong>Tedbir Nafakası:</strong> Boşanma davası süresince, eşin ihtiyacına göre belirlenir. Geçim standardına uygun olmalıdır.</li>
+                                    <li><strong>Geçim Nafakası:</strong> Yoksulluğa düşecek olan eşe, kusur durumuna göre belirlenir. Süresiz veya sınırlı olabilir.</li>
+                                    <li><strong>İştirak Nafakası (Çocuk İçin):</strong> Çocuğın ihtiyaçlarına göre belirlenir ve reşit olana kadar veya öğrenim hayatı boyunca ödenir.</li>
+                                </ul>
+                                <p>Nafaka miktarı, asgari ücretin 1/4'ünden az olamaz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="is">
+                        <div class="faq-question">İşten çıkarıldım, ne yapmalıyım?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Haksız işten çıkarma durumunda yapmanız gerekenler:</p>
+                                <ul>
+                                    <li>İşten çıkarılma nedenini öğrenin ve yazılı belge isteyin</li>
+                                    <li>30 gün içinde arabulucuya başvurun (zorunlu)</li>
+                                    <li>Arabuluculuk başarısız olursa, dava açabilirsiniz</li>
+                                    <li>İşe iade davası veya tazminat davası açma hakkınız vardır</li>
+                                </ul>
+                                <p>Haksız fesih durumunda kıdem tazminatı, ihbar tazminatı, yıllık izin ücretleri ve diğer alacaklarınızı talep edebilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="is">
+                        <div class="faq-question">Kıdem tazminatı nasıl hesaplanır?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Kıdem tazminatı hesaplama formülü:</p>
+                                <ul>
+                                    <li>30 günlük brüt ücret × çalışılan yıl</li>
+                                    <li>6 aydan fazla süreler 1 yıl sayılır</li>
+                                    <li>Asgari ücretin 6 aylık brüt tutarından fazla olamaz (üst sınır)</li>
+                                </ul>
+                                <p>Örnek: 5.000 TL brüt maaşla 3 yıl çalışan bir işçi: 5.000 × 3 = 15.000 TL kıdem tazminatı alır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="ceza">
+                        <div class="faq-question">Gözaltına alındım, avukat hakkım nedir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Gözaltında bulunan herkesin aşağıdaki hakları vardır:</p>
+                                <ul>
+                                    <li>Derhal avukatla görüşme hakkı</li>
+                                    <li>Savunma yapma ve susma hakkı</li>
+                                    <li>Ücretsiz CMK avukatı talep etme hakkı</li>
+                                    <li>Yakınlarına haber verilmesini isteme hakkı</li>
+                                    <li>Doktor muayenesi hakkı</li>
+                                </ul>
+                                <p>Gözaltı süresi en fazla 24 saattir, terör suçlarında 4 güne kadar uzatılabilir. Avukat tutmadan ifade vermeyin.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="ceza">
+                        <div class="faq-question">Ceza davasında şikayet süresi ne kadardır?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Suç türüne göre şikayet süreleri değişir:</p>
+                                <ul>
+                                    <li><strong>Kişiye karşı işlenen suçlar:</strong> 6 ay</li>
+                                    <li><strong>Haksız filmler:</strong> 4 ay</li>
+                                    <li><strong>İftira:</strong> 3 ay</li>
+                                    <li><strong>Zina:</strong> 6 ay</li>
+                                    <li><strong>Basit yaralama:</strong> 6 ay</li>
+                                </ul>
+                                <p>Kamu davası gerektiren suçlarda (cinayet, hırsızlık vb.) şikayet süresi yoktur, her zaman dava açılabilir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="gayrimenkul">
+                        <div class="faq-question">Kira sözleşmesi nasıl feshedilir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Kira sözleşmesinin feshi yolları:</p>
+                                <ul>
+                                    <li><strong>Kiracı tarafından:</strong> Genel kural olarak bildirimli olarak fesih mümkündür. Süreler: 1 yıl ve daha az ise 15 gün önceden, 1 yıldan fazla ise 1 ay önceden bildirim gerekir.</li>
+                                    <li><strong>Ev sahibi tarafından:</strong> Geçerli sebepler (kira borcu, zorunlu ihtiyaç, inşa/yağma) olmalıdır. Tahliye davası açılabilir.</li>
+                                </ul>
+                                <p>Sözleşmede fesih şartları özel olarak düzenlenmişse, bunlara uyulmalıdır.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="gayrimenkul">
+                        <div class="faq-question">Tapu devri için gerekli belgeler nelerdir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Tapu devri için gerekli belgeler:</p>
+                                <ul>
+                                    <li>Nüfus cüzdanı (alıcı ve satıcı için)</li>
+                                    <li>Tapu belgesi / tapu fotokopisi</li>
+                                    <li>İmar durumu belgesi (belediyeden)</li>
+                                    <li>Vergi kimlik numarası</li>
+                                    <li>Dask (Zorunlu Deprem Sigortası) poliçesi</li>
+                                    <li>Noterden onaylı vekaletname (vekaleten işlem yapılıyorsa)</li>
+                                </ul>
+                                <p>Yabancı uyruklu alıcılar için ek belgeler gerekebilir.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="genel">
+                        <div class="faq-question">İlk görüşme ücretli midir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Özata Hukuk Bürosu olarak, ilk görüşmelerimiz ücretsizdir. Bu görüşmede:</p>
+                                <ul>
+                                    <li>Hukuki sorununuzu dinliyoruz</li>
+                                    <li>Olası çözüm yollarını değerlendiriyoruz</li>
+                                    <li>Süreç ve maliyet hakkında bilgi veriyoruz</li>
+                                    <li>Size en uygun stratejiyi belirliyoruz</li>
+                                </ul>
+                                <p>Ücretsiz ilk görüşme için iletişim formumuzu doldurabilir veya telefon numaramızdan bize ulaşabilirsiniz.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="faq-item" data-category="genel">
+                        <div class="faq-question">Dava masrafları nelerdir?</div>
+                        <div class="faq-answer">
+                            <div class="faq-answer-content">
+                                <p>Dava masrafları şunları içerir:</p>
+                                <ul>
+                                    <li><strong>Harçlar:</strong> Mahkeme harçları, icra harçları vb. (resmi tarifeye göre)</li>
+                                    <li><strong>Avukat ücreti:</strong> Türkiye Barolar Birliği Asgari Ücret Tarifesi'ne göre belirlenir</li>
+                                    <li><strong>Diğer giderler:</strong> Bilirkişi ücreti, tebligat giderleri, yol masrafları vb.</li>
+                                </ul>
+                                <p>Her dava için masraflar farklılık gösterir. İlk görüşmede size özel bir maliyet analizi sunuyoruz.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-cta">
+            <div class="container">
+                <h2>Sorunuz Cevaplanmadı mı?</h2>
+                <p>Size özel danışmanlık için hemen iletişime geçin.</p>
+                <a href="iletisim.html" class="btn">İletişime Geçin</a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="kurumsal.html">Kurumsal</a></li>
+                        <li><a href="ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                        <li><a href="sss.html">SSS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ Accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                // Close all items
+                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
+                
+                // Open clicked item if it wasn't active
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // Category filter
+        document.querySelectorAll('.faq-category').forEach(category => {
+            category.addEventListener('click', () => {
+                // Update active category
+                document.querySelectorAll('.faq-category').forEach(c => c.classList.remove('active'));
+                category.classList.add('active');
+                
+                const selectedCategory = category.dataset.category;
+                
+                document.querySelectorAll('.faq-item').forEach(item => {
+                    if (selectedCategory === 'all' || item.dataset.category === selectedCategory) {
+                        item.style.display = 'block';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
