@@ -154,26 +154,57 @@
                         <label for="dava-tur">Dava Türü</label>
                         <select id="dava-tur">
                             <option value="">Seçiniz...</option>
-                            <option value="kirasarti">Kira Sartı Davaları</option>
-                            <option value="alacak">Alacak Davaları</option>
-                            <option value="tazminat">Tazminat Davaları</option>
-                            <option value="bosanma">Boşanma Davaları</option>
+                            <option value="alacak">Alacak Davası (Para)</option>
+                            <option value="tazminat">Tazminat Davası</option>
+                            <option value="bosanma">Boşanma Davası</option>
+                            <option value="kira">Kira Sartı / Tahliye</option>
+                            <option value="tapu">Tapu İptali - Tescil</option>
+                            <option value="esya">Eşya Paylaşımı</option>
+                            <option value="miras">Mirasçılık Belgesi</option>
                             <option value="icrayakoyma">İcraya Koyma</option>
                             <option value="tenfiz">Tenfiz</option>
                             <option value="itiraz">İcra İtirazı</option>
+                            <option value="iptal">Dava Açılmadan İcra Takibi İptali</option>
                         </select>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="dava-deger">Dava Değeri (TL) - İstenen alacak/tazminat</label>
-                        <input type="number" id="dava-deger" placeholder="Örn: 100000" min="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dava-deger">Dava Değeri (TL)</label>
+                            <input type="number" id="dava-deger" placeholder="Örn: 100000" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">İstenen alacak veya tazminat tutarı</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="dava-asama">Dava Aşaması</label>
+                            <select id="dava-asama">
+                                <option value="birinci">Birinci Derece Mahkemesi</option>
+                                <option value="istinaf">İstinaf (Bölge Adliye)</option>
+                                <option value="temyiz">Temyiz (Yargıtay)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="dava-davali">Davalı Sayısı</label>
+                            <input type="number" id="dava-davali" value="1" min="1">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Her davalı için tebligat gideri ayrı hesaplanır</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="dava-vekil">Vekil Durumu</label>
+                            <select id="dava-vekil">
+                                <option value="yok">Vekil Yok (Kendi adına)</option>
+                                <option value="var">Vekil Var (Avukatlık)</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <div class="form-group">
-                        <label for="dava-vekil">Vekil Durumu</label>
-                        <select id="dava-vekil">
-                            <option value="yok">Vekil Yok</option>
-                            <option value="var">Vekil Var</option>
+                        <label for="dava-vezne">Vezne Giderleri</label>
+                        <select id="dava-vezne">
+                            <option value="hepsi">Tüm Vezne Giderleri (Posta + Tebligat + Diğer)</option>
+                            <option value="posta">Sadece Posta Giderleri</option>
+                            <option value="yok">Vezne Giderleri Hariç</option>
                         </select>
                     </div>
                     
@@ -182,12 +213,32 @@
                     <div class="result-box" id="mahkeme-sonuc">
                         <h3>Hesaplama Sonucu</h3>
                         <div class="result-item">
+                            <span>Dava Türü:</span>
+                            <span id="mahkeme-tur-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Dava Aşaması:</span>
+                            <span id="mahkeme-asama-text"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Harçlar:</strong></span>
+                            <span></span>
+                        </div>
+                        <div class="result-item">
                             <span>Basit Harç:</span>
                             <span id="mahkeme-basit"></span>
                         </div>
                         <div class="result-item">
                             <span>Nispi Harç:</span>
                             <span id="mahkeme-nispi"></span>
+                        </div>
+                        <div class="result-item" id="mahkeme-vekil-harc-row" style="display: none;">
+                            <span>Vekalet Harcı:</span>
+                            <span id="mahkeme-vekil-harc"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.05); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Vezne Giderleri:</strong></span>
+                            <span></span>
                         </div>
                         <div class="result-item">
                             <span>Tebligat Giderleri:</span>
@@ -198,20 +249,31 @@
                             <span id="mahkeme-posta"></span>
                         </div>
                         <div class="result-item">
-                            <span>Vekalet Harcı:</span>
-                            <span id="mahkeme-vekil"></span>
+                            <span>Sahte Masraf:</span>
+                            <span id="mahkeme-sahte"></span>
                         </div>
                         <div class="result-item">
+                            <span>Dosya Masrafı:</span>
+                            <span id="mahkeme-dosya"></span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 15px;">
                             <span>Toplam Harç ve Giderler:</span>
-                            <span id="mahkeme-toplam"></span>
+                            <span id="mahkeme-toplam" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
                         </div>
                         <div class="formula-info">
-                            <strong>2025 Harç Tarifesi:</strong><br>
-                            • Basit harç: 4.925 TL<br>
-                            • Nispi harç: Alacağın %1.5'i (alt limit 92.250 TL, üst limit 2.309.350 TL)<br>
-                            • Tebligat gideri: Davalı başına 150 TL<br>
+                            <strong>2025 Mahkeme Harç Tarifesi (HUMK Md. 14, 492 Sayılı Harçlar Kanunu):</strong><br>
+                            • <strong>Basit harç:</strong> 4.925 TL (her dava için sabit)<br>
+                            • <strong>Nispi harç:</strong> Dava konusu bedelin %1.5'i<br>
+                              - Alt limit: 92.250 TL<br>
+                              - Üst limit: 2.309.350 TL<br>
+                            • <strong>Vekalet harcı:</strong> Değerin %9'u (alt limit 12.300 TL, üst limit 1.231.500 TL)<br>
+                            • <strong>İstinaf/Temyiz nispi harç:</strong> Birinci derecenin %50'si<br><br>
+                            <strong>Vezne Giderleri:</strong><br>
+                            • Tebligat: 150 TL (davalı başına)<br>
                             • Posta giderleri: 100 TL<br>
-                            • Vekalet harcı: Değerin %9'u (alt limit 12.300 TL, üst limit 1.231.500 TL)
+                            • Sahte masraf: 41 TL<br>
+                            • Dosya masrafı: 41 TL<br><br>
+                            <strong>Not:</strong> Boşanma davalarında dava değeri tarafların üzerine anlaşamadığı malvarlığı değeri üzerinden hesaplanır.
                         </div>
                     </div>
                 </div>
@@ -231,24 +293,61 @@
         function hesaplaMahkemeHarci() {
             const tur = document.getElementById('dava-tur').value;
             const deger = parseFloat(document.getElementById('dava-deger').value) || 0;
+            const asama = document.getElementById('dava-asama').value;
+            const davali = parseInt(document.getElementById('dava-davali').value) || 1;
             const vekil = document.getElementById('dava-vekil').value;
+            const vezne = document.getElementById('dava-vezne').value;
 
             if (!tur) {
                 alert('Lütfen dava türü seçiniz.');
                 return;
             }
 
+            // Dava türü isimleri
+            const turIsimleri = {
+                'alacak': 'Alacak Davası (Para)',
+                'tazminat': 'Tazminat Davası',
+                'bosanma': 'Boşanma Davası',
+                'kira': 'Kira Sartı / Tahliye',
+                'tapu': 'Tapu İptali - Tescil',
+                'esya': 'Eşya Paylaşımı',
+                'miras': 'Mirasçılık Belgesi',
+                'icrayakoyma': 'İcraya Koyma',
+                'tenfiz': 'Tenfiz',
+                'itiraz': 'İcra İtirazı',
+                'iptal': 'İcra Takibi İptali'
+            };
+            
+            // Aşama isimleri
+            const asamaIsimleri = {
+                'birinci': 'Birinci Derece Mahkemesi',
+                'istinaf': 'İstinaf (Bölge Adliye Mahkemesi)',
+                'temyiz': 'Temyiz (Yargıtay)'
+            };
+
+            // 2025 Harç Tarifesi
             const basitHarç = 4925;
             const nispiOran = 0.015;
             const nispiMin = 92250;
             const nispiMax = 2309350;
-            const tebligat = 150;
+            
+            // Vezne giderleri
+            const tebligat = 150 * davali;
             const posta = 100;
+            const sahteMasraf = 41;
+            const dosyaMasraf = 41;
 
+            // Nispi harç hesaplama
             let nispi = deger * nispiOran;
             if (nispi < nispiMin) nispi = nispiMin;
             if (nispi > nispiMax) nispi = nispiMax;
+            
+            // İstinaf/Temyiz için %50 nispi harç
+            if (asama !== 'birinci') {
+                nispi = nispi * 0.5;
+            }
 
+            // Vekalet harcı
             let vekilHarci = 0;
             if (vekil === 'var' && deger > 0) {
                 const vekilOran = 0.09;
@@ -257,15 +356,38 @@
                 vekilHarci = deger * vekilOran;
                 if (vekilHarci < vekilMin) vekilHarci = vekilMin;
                 if (vekilHarci > vekilMax) vekilHarci = vekilMax;
+                
+                // İstinaf/Temyiz için vekalet harcı aynı
+            }
+            
+            // Vekalet harcı satırını göster/gizle
+            const vekilRow = document.getElementById('mahkeme-vekil-harc-row');
+            if (vekil === 'var') {
+                vekilRow.style.display = 'flex';
+            } else {
+                vekilRow.style.display = 'none';
             }
 
-            const toplam = basitHarç + nispi + tebligat + posta + vekilHarci;
+            // Vezne giderleri hesaplama
+            let vezneToplam = 0;
+            if (vezne === 'hepsi') {
+                vezneToplam = tebligat + posta + sahteMasraf + dosyaMasraf;
+            } else if (vezne === 'posta') {
+                vezneToplam = posta;
+            }
 
+            const toplam = basitHarç + nispi + vekilHarci + vezneToplam;
+
+            // Sonuçları göster
+            document.getElementById('mahkeme-tur-text').textContent = turIsimleri[tur] || tur;
+            document.getElementById('mahkeme-asama-text').textContent = asamaIsimleri[asama] || asama;
             document.getElementById('mahkeme-basit').textContent = basitHarç.toLocaleString('tr-TR') + ' TL';
             document.getElementById('mahkeme-nispi').textContent = nispi.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('mahkeme-tebligat').textContent = tebligat.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('mahkeme-posta').textContent = posta.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('mahkeme-vekil').textContent = vekilHarci > 0 ? vekilHarci.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('mahkeme-vekil-harc').textContent = vekilHarci > 0 ? vekilHarci.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('mahkeme-tebligat').textContent = vezne === 'hepsi' || vezne === 'posta' ? tebligat.toLocaleString('tr-TR') + ' TL (' + davali + ' davalı)' : '0 TL';
+            document.getElementById('mahkeme-posta').textContent = vezne === 'hepsi' || vezne === 'posta' ? posta.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('mahkeme-sahte').textContent = vezne === 'hepsi' ? sahteMasraf.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('mahkeme-dosya').textContent = vezne === 'hepsi' ? dosyaMasraf.toLocaleString('tr-TR') + ' TL' : '0 TL';
             document.getElementById('mahkeme-toplam').textContent = toplam.toLocaleString('tr-TR') + ' TL';
             
             document.getElementById('mahkeme-sonuc').classList.add('show');
