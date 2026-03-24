@@ -1959,6 +1959,13 @@ body {
     height: 100%;
 }
 
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: stretch;
+}
+
 .team-info {
     flex: 1;
     display: flex;
