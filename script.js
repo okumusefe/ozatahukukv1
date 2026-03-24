@@ -92,3 +92,18 @@ function toggleArticle(articleId) {
         button.textContent = 'Devamını Oku →';
     }
 }
+
+// Toggle district cards (for calisma-bolgeleri.html)
+function toggleDistrict(btn) {
+    const card = btn.closest('.district-card');
+    const fullContent = card.querySelector('.district-full-content');
+    const span = btn.querySelector('span');
+    
+    if (fullContent.classList.contains('show')) {
+        fullContent.classList.remove('show');
+        btn.innerHTML = 'Devamını oku <span style="margin-left: 5px;">▼</span>';
+    } else {
+        fullContent.classList.add('show');
+        btn.innerHTML = 'Daha az göster <span style="margin-left: 5px;">▲</span>';
+    }
+}
