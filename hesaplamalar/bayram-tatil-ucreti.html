@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bayram/Resmi Tatil Ücreti Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        .tatil-list {
+            background: rgba(201, 169, 97, 0.05);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+        }
+        .tatil-list h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        .tatil-list ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .tatil-list li {
+            padding: 0.3rem 0;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Bayram/Resmi Tatil Ücreti Hesaplama</h1>
+            <p>Ulusal bayram ve genel tatil günlerinde çalışma ücreti hesaplama (İş Kanunu Md. 44)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Bayram/Resmi Tatil Ücreti Hesaplama</h2>
+                    <p>Ulusal bayram ve genel tatillerde çalışan işçilerin hak ettiği ücret hesaplama</p>
+                    
+                    <div class="form-group">
+                        <label for="tatil-brut">Aylık Brüt Ücret (TL)</label>
+                        <input type="number" id="tatil-brut" placeholder="Örn: 30000" min="0">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tatil-tur">Tatil Türü</label>
+                            <select id="tatil-tur">
+                                <option value="2">Gündüz Çalışması (1 günlük izin + 2x ücret)</option>
+                                <option value="2.5">Gündüz Çalışması (İzin kullanılmazsa 2.5x)</option>
+                                <option value="3">Gece Çalışması (20:00-06:00) (3x)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tatil-gun">Çalışılan Gün (Ayda)</label>
+                            <input type="number" id="tatil-gun" value="22" min="1" max="31">
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="tatil-saat">Çalışılan Saat</label>
+                            <input type="number" id="tatil-saat" placeholder="Örn: 7.5" min="0" max="24">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Tam gün = 7.5 saat</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="tatil-izin">İzin Kullanılacak mı?</label>
+                            <select id="tatil-izin">
+                                <option value="evet">Evet (1 gün izin hakkı)</option>
+                                <option value="hayir">Hayır (Sadece ücret)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="tatil-list">
+                        <h4>📅 Resmi Tatil Günleri (2025)</h4>
+                        <ul>
+                            <li>1 Ocak - Yılbaşı</li>
+                            <li>23 Nisan - Ulusal Egemenlik ve Çocuk Bayramı</li>
+                            <li>1 Mayıs - Emek ve Dayanışma Günü</li>
+                            <li>19 Mayıs - Atatürk'ü Anma, Gençlik ve Spor Bayramı</li>
+                            <li>15 Temmuz - Demokrasi ve Milli Birlik Günü</li>
+                            <li>30 Ağustos - Zafer Bayramı</li>
+                            <li>29 Ekim - Cumhuriyet Bayramı</li>
+                            <li>Ramazan Bayramı (3 gün) ve Kurban Bayramı (4 gün)</li>
+                        </ul>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaTatil()">Hesapla</button>
+                    
+                    <div class="result-box" id="tatil-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Günlük Ücret:</span>
+                            <span id="tatil-gunluk"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Saatlik Ücret:</span>
+                            <span id="tatil-saatlik"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Tatil Ücret Katsayısı:</span>
+                            <span id="tatil-katsayi"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Tatil Ücreti (Saatlik):</span>
+                            <span id="tatil-ucret-saat"></span>
+                        </div>
+                        <div class="result-item" id="tatil-izin-row" style="background: rgba(76,175,80,0.1); padding: 10px; border-radius: 5px;">
+                            <span>İzin Hakkı:</span>
+                            <span id="tatil-izin-hakki" style="color: #4caf50; font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 15px;">
+                            <span>Toplam Tatil Ücreti:</span>
+                            <span id="tatil-tutar" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>Hesaplama Formülü (İş Kanunu Md. 44):</strong><br>
+                            • Ulusal bayram ve genel tatillerde çalışan işçi: 1 gün izin + normal ücret<br>
+                            • İzin kullanılmazsa: Saatlik ücret × 2 (gündüz) veya × 3 (gece)<br>
+                            • Gece çalışması (20:00-06:00): Ek %50 zam (toplam 3x)<br><br>
+                            <strong>Resmi Tatiller:</strong> Yılbaşı, 23 Nisan, 1 Mayıs, 19 Mayıs, 15 Temmuz, 30 Ağustos, 29 Ekim, Dini Bayramlar<br>
+                            <strong>Hafta Tatili:</strong> Haftalık 45 saat çalışan işçiye 1 gün ücretli izin verilir (Md. 46)<br>
+                            <strong>Not:</strong> 16 yaş altı işçiler bayram ve ulusal tatil günlerinde çalıştırılamaz (Md. 71)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaTatil() {
+            const brut = parseFloat(document.getElementById('tatil-brut').value) || 0;
+            const katsayi = parseFloat(document.getElementById('tatil-tur').value) || 2;
+            const gun = parseInt(document.getElementById('tatil-gun').value) || 22;
+            const saat = parseFloat(document.getElementById('tatil-saat').value) || 7.5;
+            const izinKullan = document.getElementById('tatil-izin').value === 'evet';
+            
+            if (brut === 0 || saat === 0) {
+                alert('Lütfen geçerli ücret ve çalışma saati giriniz.');
+                return;
+            }
+            
+            const gunluk = brut / gun;
+            const saatlik = gunluk / 7.5;
+            
+            // İzin kullanılacaksa: 1 gün izin + normal saat ücreti
+            // İzin kullanılmayacaksa: Katsayılı ücret
+            let tatilSaatlik;
+            let toplamTutar;
+            let izinHakki = '';
+            
+            if (izinKullan) {
+                // 1 gün izin + normal çalışma ücreti
+                tatilSaatlik = saatlik; // Normal ücret
+                toplamTutar = (saatlik * saat) + gunluk; // Çalışma + 1 günlük izin ücreti
+                izinHakki = '1 günlük ücretli izin hakkı tanınmıştır';
+            } else {
+                // Sadece katsayılı ücret
+                tatilSaatlik = saatlik * katsayi;
+                toplamTutar = tatilSaatlik * saat;
+                izinHakki = 'İzin hakkı kullanılmayacak (sadece ücret ödemesi)';
+            }
+            
+            document.getElementById('tatil-gunluk').textContent = gunluk.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('tatil-saatlik').textContent = saatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('tatil-katsayi').textContent = izinKullan ? '1x (Normal) + İzin' : katsayi + 'x';
+            document.getElementById('tatil-ucret-saat').textContent = tatilSaatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('tatil-izin-hakki').textContent = izinHakki;
+            document.getElementById('tatil-tutar').textContent = toplamTutar.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            
+            document.getElementById('tatil-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
