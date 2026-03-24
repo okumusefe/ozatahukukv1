@@ -154,21 +154,47 @@
                         <label for="icra-tur">İcra Türü</label>
                         <select id="icra-tur">
                             <option value="">Seçiniz...</option>
-                            <option value="para">Para Alacağı</option>
-                            <option value="teslim">Teslim</option>
-                            <option value="men">Men</option>
-                            <option value="kira">Kira</option>
+                            <option value="para">Para Alacağı (İİK 41)</option>
+                            <option value="teslim">Teslim (İİK 41)</option>
+                            <option value="men">Men (İİK 41)</option>
+                            <option value="yapma">Yapma (İİK 41)</option>
+                            <option value="kira">Kira Alacağı (İİK 41)</option>
+                            <option value="tazminat">Tazminat Alacağı</option>
+                            <option value="tahliye">Tahliye (İİK 261)</option>
+                            <option value="bosanma">Boşanma ve Mal Rejimi</option>
                         </select>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="icra-tutar">Alacak Tutarı (TL)</label>
-                        <input type="number" id="icra-tutar" placeholder="Örn: 50000" min="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="icra-tutar">Alacak Tutarı (TL)</label>
+                            <input type="number" id="icra-tutar" placeholder="Örn: 50000" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Ana alacak + faiz + masraf</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="icra-borclu">Borçlu Sayısı</label>
+                            <input type="number" id="icra-borclu" value="1" min="1">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Her borçlu için tebligat ayrı</small>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="icra-borclu">Borçlu Sayısı</label>
-                        <input type="number" id="icra-borclu" value="1" min="1">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="icra-asama">İcra Aşaması</label>
+                            <select id="icra-asama">
+                                <option value="takip">Yeni İcra Takibi (Harçlı)</option>
+                                <option value="takipsiz">Harçsız İcra (Senet vb.)</option>
+                                <option value="itiraz">İtirazın İptali</option>
+                                <option value="kaldırma">İtirazın Kaldırılması</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="icra-vekil">Vekil Harcı</label>
+                            <select id="icra-vekil">
+                                <option value="yok">Vekil Harcı Yok</option>
+                                <option value="var">Vekil Harcı Var (%9)</option>
+                            </select>
+                        </div>
                     </div>
                     
                     <button class="calculate-btn" onclick="hesaplaIcraHarci()">Hesapla</button>
@@ -176,12 +202,32 @@
                     <div class="result-box" id="icra-sonuc">
                         <h3>Hesaplama Sonucu</h3>
                         <div class="result-item">
+                            <span>İcra Türü:</span>
+                            <span id="icra-tur-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Aşama:</span>
+                            <span id="icra-asama-text"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Harçlar:</strong></span>
+                            <span></span>
+                        </div>
+                        <div class="result-item">
                             <span>Basit Harç:</span>
                             <span id="icra-basit"></span>
                         </div>
                         <div class="result-item">
                             <span>Nispi Harç:</span>
                             <span id="icra-nispi"></span>
+                        </div>
+                        <div class="result-item" id="icra-vekil-harc-row" style="display: none;">
+                            <span>Vekalet Harcı:</span>
+                            <span id="icra-vekil-harc"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.05); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Vezne Giderleri:</strong></span>
+                            <span></span>
                         </div>
                         <div class="result-item">
                             <span>Tebligat Giderleri:</span>
@@ -196,16 +242,27 @@
                             <span id="icra-takip"></span>
                         </div>
                         <div class="result-item">
+                            <span>Diğer Giderler:</span>
+                            <span id="icra-diger"></span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 15px;">
                             <span>Toplam İcra Giderleri:</span>
-                            <span id="icra-toplam"></span>
+                            <span id="icra-toplam" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
                         </div>
                         <div class="formula-info">
-                            <strong>2025 İcra Harç Tarifesi:</strong><br>
-                            • Basit harç: 2.620 TL<br>
-                            • Nispi harç: Alacağın %1'i (alt limit 49.250 TL, üst limit 1.231.500 TL)<br>
-                            • Tebligat gideri: Borçlu başına 150 TL<br>
+                            <strong>2025 İcra Harç Tarifesi (İİK ve 492 Sayılı Harçlar Kanunu):</strong><br>
+                            • <strong>Basit harç:</strong> 2.620 TL (İİK Md. 29)<br>
+                            • <strong>Nispi harç:</strong> Alacağın %1'i (İİK Md. 28)<br>
+                              - Alt limit: 49.250 TL<br>
+                              - Üst limit: 1.231.500 TL<br>
+                            • <strong>Vekalet harcı:</strong> Değerin %9'u (alt limit 12.300 TL, üst limit 1.231.500 TL)<br>
+                            • <strong>Harçsız icra:</strong> Senet veya kambiyo senetleri ile takipler<br><br>
+                            <strong>Vezne Giderleri:</strong><br>
+                            • Tebligat: 150 TL (borçlu başına)<br>
                             • Posta giderleri: 100 TL<br>
-                            • Takip giderleri: 500 TL
+                            • Takip giderleri: 500 TL<br>
+                            • Diğer giderler: 100 TL (kayıt, masraf vb.)<br><br>
+                            <strong>Önemli:</strong> İtirazın iptali veya kaldırılması davalarında ayrıca mahkeme harcı ödenir.
                         </div>
                     </div>
                 </div>
@@ -226,32 +283,94 @@
             const tur = document.getElementById('icra-tur').value;
             const tutar = parseFloat(document.getElementById('icra-tutar').value) || 0;
             const borclu = parseInt(document.getElementById('icra-borclu').value) || 1;
+            const asama = document.getElementById('icra-asama').value;
+            const vekil = document.getElementById('icra-vekil').value;
 
             if (!tur) {
                 alert('Lütfen icra türü seçiniz.');
                 return;
             }
 
+            // İcra türü isimleri
+            const turIsimleri = {
+                'para': 'Para Alacağı (İİK Md. 41)',
+                'teslim': 'Teslim (İİK Md. 41)',
+                'men': 'Men (İİK Md. 41)',
+                'yapma': 'Yapma (İİK Md. 41)',
+                'kira': 'Kira Alacağı (İİK Md. 41)',
+                'tazminat': 'Tazminat Alacağı',
+                'tahliye': 'Tahliye (İİK Md. 261)',
+                'bosanma': 'Boşanma ve Mal Rejimi'
+            };
+            
+            // Aşama isimleri
+            const asamaIsimleri = {
+                'takip': 'Yeni İcra Takibi (Harçlı)',
+                'takipsiz': 'Harçsız İcra (Senet vb.)',
+                'itiraz': 'İtirazın İptali',
+                'kaldırma': 'İtirazın Kaldırılması'
+            };
+
+            // 2025 İcra Harç Tarifesi
             const basitHarç = 2620;
             const nispiOran = 0.01;
             const nispiMin = 49250;
             const nispiMax = 1231500;
+            
+            // Vezne giderleri
             const tebligat = 150 * borclu;
             const posta = 100;
             const takip = 500;
+            const diger = 100;
 
-            let nispi = tutar * nispiOran;
-            if (nispi < nispiMin) nispi = nispiMin;
-            if (nispi > nispiMax) nispi = nispiMax;
+            // Harçsız icra kontrolü
+            let harcsizIcra = (asama === 'takipsiz');
+            let uyariMesaji = '';
+            
+            if (asama === 'itiraz' || asama === 'kaldırma') {
+                uyariMesaji = '<br><strong style="color: #ff9800;">⚠️ İtirazın iptali/kaldırılması davalarında ayrıca mahkeme harcı ödenir. Bu hesaplama sadece icra takip giderlerini gösterir.</strong>';
+            }
 
-            const toplam = basitHarç + nispi + tebligat + posta + takip;
+            // Nispi harç hesaplama
+            let nispi = 0;
+            if (!harcsizIcra) {
+                nispi = tutar * nispiOran;
+                if (nispi < nispiMin) nispi = nispiMin;
+                if (nispi > nispiMax) nispi = nispiMax;
+            }
 
-            document.getElementById('icra-basit').textContent = basitHarç.toLocaleString('tr-TR') + ' TL';
+            // Vekalet harcı
+            let vekilHarci = 0;
+            if (vekil === 'var' && tutar > 0) {
+                const vekilOran = 0.09;
+                const vekilMin = 12300;
+                const vekilMax = 1231500;
+                vekilHarci = tutar * vekilOran;
+                if (vekilHarci < vekilMin) vekilHarci = vekilMin;
+                if (vekilHarci > vekilMax) vekilHarci = vekilMax;
+            }
+            
+            // Vekalet harcı satırını göster/gizle
+            const vekilRow = document.getElementById('icra-vekil-harc-row');
+            if (vekil === 'var') {
+                vekilRow.style.display = 'flex';
+            } else {
+                vekilRow.style.display = 'none';
+            }
+
+            const toplam = (harcsizIcra ? 0 : basitHarç) + nispi + vekilHarci + tebligat + posta + takip + diger;
+
+            // Sonuçları göster
+            document.getElementById('icra-tur-text').textContent = turIsimleri[tur] || tur;
+            document.getElementById('icra-asama-text').textContent = asamaIsimleri[asama] || asama;
+            document.getElementById('icra-basit').textContent = harcsizIcra ? '0 TL (Harçsız)' : basitHarç.toLocaleString('tr-TR') + ' TL';
             document.getElementById('icra-nispi').textContent = nispi.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('icra-tebligat').textContent = tebligat.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('icra-vekil-harc').textContent = vekilHarci > 0 ? vekilHarci.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('icra-tebligat').textContent = tebligat.toLocaleString('tr-TR') + ' TL (' + borclu + ' borçlu)';
             document.getElementById('icra-posta').textContent = posta.toLocaleString('tr-TR') + ' TL';
             document.getElementById('icra-takip').textContent = takip.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('icra-toplam').textContent = toplam.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('icra-diger').textContent = diger.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('icra-toplam').innerHTML = toplam.toLocaleString('tr-TR') + ' TL' + uyariMesaji;
             
             document.getElementById('icra-sonuc').classList.add('show');
         }
