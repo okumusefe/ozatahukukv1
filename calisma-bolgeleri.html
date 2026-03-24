@@ -80,12 +80,10 @@
             display: flex;
         }
         .modal-content {
-            background: var(--white);
+            background: white;
             border-radius: 20px;
-            max-width: 900px;
-            width: 100%;
-            max-height: 85vh;
-            overflow-y: auto;
+            max-width: 1200px;
+            width: 90%;
             padding: 40px;
             box-shadow: 0 25px 80px rgba(0,0,0,0.3);
             position: relative;
@@ -132,16 +130,18 @@
             list-style: none;
             padding: 0;
             margin: 20px 0;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px 20px;
         }
         .modal-body .services-list li {
-            padding: 8px 0;
+            padding: 6px 0;
             padding-left: 25px;
             position: relative;
             color: var(--text-color);
-            font-size: 0.95rem;
-            border-bottom: 1px solid #f0f0f0;
+            font-size: 0.9rem;
+            border-bottom: none;
         }
-        .modal-body .services-list li:last-child { border-bottom: none; }
         .modal-body .services-list li::before {
             content: '✓';
             position: absolute;
@@ -149,13 +149,21 @@
             color: var(--accent-color);
             font-weight: bold;
         }
+        @media (max-width: 992px) {
+            .modal-body .services-list {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
         @media (max-width: 768px) {
             .modal-content {
                 padding: 25px;
-                max-height: 90vh;
+                width: 95%;
             }
             .modal-title {
                 font-size: 1.4rem;
+            }
+            .modal-body .services-list {
+                grid-template-columns: 1fr;
             }
         }
     </style>
