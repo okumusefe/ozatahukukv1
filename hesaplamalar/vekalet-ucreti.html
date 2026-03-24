@@ -154,34 +154,78 @@
                         <label for="vekil-tur">Dava Türü</label>
                         <select id="vekil-tur">
                             <option value="">Seçiniz...</option>
-                            <option value="para">Para Alacağı</option>
-                            <option value="tazminat">Tazminat</option>
-                            <option value="bosanma">Boşanma</option>
-                            <option value="kira">Kira</option>
-                            <option value="icra">İcra Takip</option>
-                            <option value="ceza">Ceza</option>
-                            <option value="idare">İdare</option>
+                            <option value="para">Para Alacağı Davaları</option>
+                            <option value="tazminat">Tazminat Davaları (Maddi/Manevi)</option>
+                            <option value="bosanma">Boşanma ve Mal Rejimi</option>
+                            <option value="kira">Kira - Tahliye Davaları</option>
+                            <option value="tapu">Tapu İptali - Tescil</option>
+                            <option value="icra">İcra Takip İşlemleri</option>
+                            <option value="ceza">Ceza Davaları</option>
+                            <option value="idare">İdari Dava - İptal</option>
+                            <option value="is">İş Davaları (Kıdem, İhbar vb.)</option>
+                            <option value="miras">Mirasçılık Belgesi</option>
                         </select>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="vekil-deger">Dava / Alacak Değeri (TL)</label>
-                        <input type="number" id="vekil-deger" placeholder="Örn: 100000" min="0">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vekil-deger">Dava / Alacak Değeri (TL)</label>
+                            <input type="number" id="vekil-deger" placeholder="Örn: 100000" min="0">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">İstenen alacak veya değer biçilen konu</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="vekil-asama">Dava Aşaması</label>
+                            <select id="vekil-asama">
+                                <option value="birinci">Birinci Derece Mahkemesi</option>
+                                <option value="istinaf">İstinaf (Bölge Adliye)</option>
+                                <option value="temyiz">Temyiz (Yargıtay)</option>
+                                <option value="tumu">Birinci Derece + İstinaf + Temyiz</option>
+                            </select>
+                        </div>
                     </div>
                     
-                    <div class="form-group">
-                        <label for="vekil-asama">Dava Aşaması</label>
-                        <select id="vekil-asama">
-                            <option value="birinci">Birinci Derece Mahkemesi</option>
-                            <option value="istinaf">İstinaf</option>
-                            <option value="temyiz">Temyiz</option>
-                        </select>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="vekil-tarife">Tarife Yılı</label>
+                            <select id="vekil-tarife">
+                                <option value="2025">2025 (Güncel)</option>
+                                <option value="2024">2024</option>
+                                <option value="2023">2023</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="vekil-indirim">Muvaffakat/İndirim (%)</label>
+                            <select id="vekil-indirim">
+                                <option value="0">İndirim Yok</option>
+                                <option value="10">%10 İndirim</option>
+                                <option value="20">%20 İndirim</option>
+                                <option value="30">%30 İndirim</option>
+                                <option value="50">%50 İndirim (Muvaffakat)</option>
+                            </select>
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Taraflar arasında anlaşma sağlanırsa</small>
+                        </div>
                     </div>
                     
                     <button class="calculate-btn" onclick="hesaplaVekalet()">Hesapla</button>
                     
                     <div class="result-box" id="vekil-sonuc">
                         <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Dava Türü:</span>
+                            <span id="vekil-tur-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Dava Aşaması:</span>
+                            <span id="vekil-asama-text"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.1); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Ücret Hesaplama:</strong></span>
+                            <span></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Değer:</span>
+                            <span id="vekil-deger-text"></span>
+                        </div>
                         <div class="result-item">
                             <span>Temel Vekalet Ücreti:</span>
                             <span id="vekil-temel"></span>
@@ -190,22 +234,41 @@
                             <span>Aşama Artışı:</span>
                             <span id="vekil-asama-artis"></span>
                         </div>
+                        <div class="result-item" id="vekil-indirim-row" style="display: none;">
+                            <span>İndirim/Muvaffakat:</span>
+                            <span id="vekil-indirim-tutar" style="color: #4caf50;"></span>
+                        </div>
+                        <div class="result-item" style="background: rgba(201,169,97,0.05); padding: 10px; border-radius: 5px; margin-top: 10px;">
+                            <span><strong>Vergiler:</strong></span>
+                            <span></span>
+                        </div>
                         <div class="result-item">
                             <span>KDV (%18):</span>
                             <span id="vekil-kdv"></span>
                         </div>
                         <div class="result-item">
+                            <span>Damga Vergisi (Binde 9.48):</span>
+                            <span id="vekil-damga"></span>
+                        </div>
+                        <div class="result-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 15px;">
                             <span>Toplam Vekalet Ücreti:</span>
-                            <span id="vekil-toplam"></span>
+                            <span id="vekil-toplam" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
                         </div>
                         <div class="formula-info">
                             <strong>2025 Vekalet Ücreti Tarifesi (İzmir Barosu):</strong><br>
-                            • 0 - 10.000 TL: 9.220 TL<br>
-                            • 10.000 - 50.000 TL: %9 + 4.920 TL<br>
-                            • 50.000 - 100.000 TL: %7 + 9.620 TL<br>
-                            • 100.000 TL üzeri: %5 + 19.620 TL<br>
-                            • Üst limit: 616.600 TL<br>
-                            • İstinaf/Temyiz: %50 artış
+                            • <strong>0 - 10.000 TL:</strong> 9.220 TL (sabit)<br>
+                            • <strong>10.000 - 50.000 TL:</strong> Değerin %9'u + 4.920 TL<br>
+                            • <strong>50.000 - 100.000 TL:</strong> Değerin %7'si + 9.620 TL<br>
+                            • <strong>100.000 TL üzeri:</strong> Değerin %5'i + 19.620 TL<br>
+                            • <strong>Üst limit:</strong> 616.600 TL<br><br>
+                            <strong>Aşama Artışları:</strong><br>
+                            • İstinaf: %50 artış<br>
+                            • Temyiz: %50 artış (birinci derece üzerinden)<br>
+                            • Tüm aşamalar: Birinci derece + İstinaf + Temyiz<br><br>
+                            <strong>Vergiler:</strong><br>
+                            • KDV: %18<br>
+                            • Damga Vergisi: Binde 9.48<br><br>
+                            <strong>Not:</strong> Taraflar arasında anlaşma (muvaffakat) sağlanırsa ücrette indirim yapılabilir. Boşanma ve ceza davalarında farklı tarifeler uygulanabilir.
                         </div>
                     </div>
                 </div>
@@ -226,17 +289,49 @@
             const tur = document.getElementById('vekil-tur').value;
             const deger = parseFloat(document.getElementById('vekil-deger').value) || 0;
             const asama = document.getElementById('vekil-asama').value;
+            const tarife = document.getElementById('vekil-tarife').value;
+            const indirim = parseInt(document.getElementById('vekil-indirim').value) || 0;
 
             if (!tur) {
                 alert('Lütfen dava türü seçiniz.');
                 return;
             }
 
-            let temel = 0;
-            const asamaCarpan = asama === 'birinci' ? 1 : 1.5;
+            // Dava türü isimleri
+            const turIsimleri = {
+                'para': 'Para Alacağı Davaları',
+                'tazminat': 'Tazminat Davaları (Maddi/Manevi)',
+                'bosanma': 'Boşanma ve Mal Rejimi',
+                'kira': 'Kira - Tahliye Davaları',
+                'tapu': 'Tapu İptali - Tescil',
+                'icra': 'İcra Takip İşlemleri',
+                'ceza': 'Ceza Davaları',
+                'idare': 'İdari Dava - İptal',
+                'is': 'İş Davaları (Kıdem, İhbar vb.)',
+                'miras': 'Mirasçılık Belgesi'
+            };
 
+            // Aşama isimleri
+            const asamaIsimleri = {
+                'birinci': 'Birinci Derece Mahkemesi',
+                'istinaf': 'İstinaf (Bölge Adliye)',
+                'temyiz': 'Temyiz (Yargıtay)',
+                'tumu': 'Birinci Derece + İstinaf + Temyiz'
+            };
+
+            // Tarife katsayıları (2025 baz, önceki yıllar için indirim uygula)
+            let tarifeKatsayi = 1;
+            if (tarife === '2024') tarifeKatsayi = 0.85;
+            if (tarife === '2023') tarifeKatsayi = 0.70;
+
+            // 2025 Tarife tutarları
+            const sabitUcret = 9220;
+            const maxUcret = 616600;
+
+            // Temel ücret hesaplama
+            let temel = 0;
             if (deger <= 10000) {
-                temel = 9220;
+                temel = sabitUcret;
             } else if (deger <= 50000) {
                 temel = (deger * 0.09) + 4920;
             } else if (deger <= 100000) {
@@ -245,18 +340,64 @@
                 temel = (deger * 0.05) + 19620;
             }
 
-            const maxUcret = 616600;
+            // Üst limit kontrolü
             if (temel > maxUcret) temel = maxUcret;
 
-            const asamaArtis = temel * (asamaCarpan - 1);
-            const toplamTemel = temel * asamaCarpan;
-            const kdv = toplamTemel * 0.18;
-            const toplam = toplamTemel + kdv;
+            // Tarife yılına göre ayarlama
+            temel = temel * tarifeKatsayi;
 
-            document.getElementById('vekil-temel').textContent = temel.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('vekil-asama-artis').textContent = asamaArtis > 0 ? asamaArtis.toLocaleString('tr-TR') + ' TL' : '0 TL';
-            document.getElementById('vekil-kdv').textContent = kdv.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('vekil-toplam').textContent = toplam.toLocaleString('tr-TR') + ' TL';
+            // Aşama artışı hesaplama
+            let asamaCarpan = 1;
+            let asamaArtis = 0;
+            
+            if (asama === 'birinci') {
+                asamaCarpan = 1;
+            } else if (asama === 'istinaf') {
+                asamaCarpan = 1.5;
+                asamaArtis = temel * 0.5;
+            } else if (asama === 'temyiz') {
+                asamaCarpan = 1.5;
+                asamaArtis = temel * 0.5;
+            } else if (asama === 'tumu') {
+                // Birinci derece + İstinaf + Temyiz = 1 + 0.5 + 0.5 = 2x
+                asamaCarpan = 2;
+                asamaArtis = temel; // %100 artış (ekstra birinci derece kadar)
+            }
+
+            const toplamTemel = temel * asamaCarpan;
+
+            // İndirim/muvaffakat uygulama
+            let indirimTutar = 0;
+            if (indirim > 0) {
+                indirimTutar = toplamTemel * (indirim / 100);
+            }
+
+            const indirimliUcret = toplamTemel - indirimTutar;
+
+            // Vergiler
+            const kdv = indirimliUcret * 0.18;
+            const damga = indirimliUcret * 0.00948; // Binde 9.48
+
+            const toplam = indirimliUcret + kdv + damga;
+
+            // İndirim satırını göster/gizle
+            const indirimRow = document.getElementById('vekil-indirim-row');
+            if (indirim > 0) {
+                indirimRow.style.display = 'flex';
+                document.getElementById('vekil-indirim-tutar').textContent = indirim + '% (' + indirimTutar.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL)';
+            } else {
+                indirimRow.style.display = 'none';
+            }
+
+            // Sonuçları göster
+            document.getElementById('vekil-tur-text').textContent = turIsimleri[tur] || tur;
+            document.getElementById('vekil-asama-text').textContent = asamaIsimleri[asama] || asama;
+            document.getElementById('vekil-deger-text').textContent = deger.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('vekil-temel').textContent = temel.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('vekil-asama-artis').textContent = asamaArtis > 0 ? asamaArtis.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' : '0 TL';
+            document.getElementById('vekil-kdv').textContent = kdv.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('vekil-damga').textContent = damga.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('vekil-toplam').textContent = toplam.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
             
             document.getElementById('vekil-sonuc').classList.add('show');
         }
