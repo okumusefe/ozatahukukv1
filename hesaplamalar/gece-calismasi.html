@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gece Çalışması Ücreti Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Gece Çalışması Ücreti Hesaplama</h1>
+            <p>20:00 - 06:00 saatleri arası gece çalışması ücreti hesaplama (İş Kanunu Md. 41)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Gece Çalışması Ücreti Hesaplama</h2>
+                    <p>Gece çalışmalarında uygulanan %50 zamlı ücret hesaplama (saatlik ücret × 2)</p>
+                    
+                    <div class="form-group">
+                        <label for="gece-brut">Aylık Brüt Ücret (TL)</label>
+                        <input type="number" id="gece-brut" placeholder="Örn: 30000" min="0">
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="gece-saat">Gece Çalışma Saati</label>
+                            <input type="number" id="gece-saat" placeholder="Örn: 8" min="0" max="10">
+                            <small style="color: #666; font-size: 0.85rem; display: block; margin-top: 5px;">Gece çalışması en fazla 7.5 saat/şerh olabilir</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="gece-gun">Çalışılan Gün (Ayda)</label>
+                            <input type="number" id="gece-gun" value="22" min="1" max="31">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="gece-hafta">Haftalık Çalışma Saati</label>
+                        <select id="gece-hafta">
+                            <option value="45">45 saat (Normal)</option>
+                            <option value="40">40 saat (Kısa çalışma)</option>
+                            <option value="36">36 saat (Azaltılmış)</option>
+                        </select>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaGece()">Hesapla</button>
+                    
+                    <div class="result-box" id="gece-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Günlük Ücret:</span>
+                            <span id="gece-gunluk"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Saatlik Ücret (Normal):</span>
+                            <span id="gece-saatlik"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Gece Çalışma Ücreti (2x):</span>
+                            <span id="gece-saatlik-zamli" style="color: var(--accent-color); font-weight: 600;"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Gece Çalışması Ücreti:</span>
+                            <span id="gece-tutar" style="color: var(--accent-color); font-size: 1.2rem; font-weight: 700;"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>Hesaplama Formülü (İş Kanunu Md. 41):</strong><br>
+                            • Gece çalışması: 20:00 - 06:00 saatleri arası<br>
+                            • Saatlik ücret = (Brüt ücret / çalışılan gün) / günlük çalışma saati<br>
+                            • Gece çalışması ücreti = Saatlik ücret × 2 × çalışma saati<br><br>
+                            <strong>Önemli:</strong> Gece çalışması 7.5 saati aşamaz (İş Kanunu Md. 41/3)<br>
+                            <strong>Süre:</strong> Gece çalışması yapan işçilerin gündüz dinlenme süresi en az 8 saat olmalıdır<br>
+                            <strong>Yaş Sınırı:</strong> 18 yaş altı ve 50 yaş üstü işçiler gece çalıştırılamaz (Md. 71, 72)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaGece() {
+            const brut = parseFloat(document.getElementById('gece-brut').value) || 0;
+            const saat = parseFloat(document.getElementById('gece-saat').value) || 0;
+            const gun = parseInt(document.getElementById('gece-gun').value) || 22;
+            const haftalikSaat = parseInt(document.getElementById('gece-hafta').value) || 45;
+            
+            if (brut === 0 || saat === 0) {
+                alert('Lütfen geçerli ücret ve çalışma saati giriniz.');
+                return;
+            }
+            
+            // Gece çalışması limit kontrolü
+            let limitUyari = '';
+            if (saat > 7.5) {
+                limitUyari = '<br><strong style="color: #d32f2f;">⚠️ Gece çalışması en fazla 7.5 saat olabilir!</strong>';
+            }
+            
+            const gunluk = brut / gun;
+            const gunlukSaat = haftalikSaat / 6; // 6 gün çalışma varsayımı
+            const saatlik = gunluk / gunlukSaat;
+            const geceSaatlik = saatlik * 2; // %100 zam (%50 artırımlı = 1.5x değil, 2x olur)
+            const tutar = geceSaatlik * saat;
+            
+            document.getElementById('gece-gunluk').textContent = gunluk.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('gece-saatlik').textContent = saatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('gece-saatlik-zamli').textContent = geceSaatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
+            document.getElementById('gece-tutar').innerHTML = tutar.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' + limitUyari;
+            
+            document.getElementById('gece-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
