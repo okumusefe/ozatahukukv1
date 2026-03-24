@@ -415,6 +415,9 @@
             const isBefore2025_06 = hukumTarihi < new Date('2025-06-04');
             const isBefore2025_12 = hukumTarihi < new Date('2025-12-25');
             
+            // isBefore2014 definition for backward compatibility
+            const isBefore2014 = hukumTarihi < new Date('2014-01-01');
+            
             // Koşullu salıverilme oranını belirle
             let kosulluSalivermeOrani = getKosulluSalivermeOrani(tur, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12);
             
