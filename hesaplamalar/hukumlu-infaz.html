@@ -197,7 +197,15 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="infaz-hukum">Suç/Hüküm Tarihi</label>
+                        <label for="infaz-suc-tarihi">Suç Tarihi (İşlendiği Tarih)</label>
+                        <input type="date" id="infaz-suc-tarihi">
+                        <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">
+                            11. Yargı Paketi kapsamına girmesi için suçun 31 Temmuz 2023 ve öncesi işlenmiş olması gerekir
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="infaz-hukum">Hüküm Tarihi (Mahkeme Karar Tarihi)</label>
                         <input type="date" id="infaz-hukum" required>
                         <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">
                             Koşullu salıverilme oranı ve denetimli serbestlik süresi bu tarihe göre belirlenir
@@ -249,6 +257,10 @@
                             <label style="font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 8px;">
                                 <input type="checkbox" id="infaz-saglik" style="width: auto;">
                                 <span>Ağır Hastalık/Engellilik</span>
+                            </label>
+                            <label style="font-weight: 400; cursor: pointer; display: flex; align-items: flex-start; gap: 8px;">
+                                <input type="checkbox" id="infaz-11yargi" style="width: auto; margin-top: 3px;">
+                                <span>31 Temmuz 2023 ve öncesi işlenen suç<br><small style="color: #666;">(11. Yargı Paketi - 3+3 erken tahliye kapsamı)</small></span>
                             </label>
                         </div>
                     </div>
@@ -397,6 +409,15 @@
             const isMukerrer = document.getElementById('infaz-mukerrer').checked;
             const isCocuk = document.getElementById('infaz-cocuk').checked;
             const isSaglik = document.getElementById('infaz-saglik').checked;
+            
+            // 11. Yargı Paketi otomatik kontrol - Suç tarihi 31 Temmuz 2023 ve öncesi mi?
+            const sucTarihiStr = document.getElementById('infaz-suc-tarihi').value;
+            let is11Yargi = false;
+            if (sucTarihiStr) {
+                const sucTarihi = new Date(sucTarihiStr);
+                // 31 Temmuz 2023 ve öncesi (31.07.2023 dahil)
+                is11Yargi = sucTarihi <= new Date('2023-07-31');
+            }
 
             if (!tur || yil + ay + gun === 0 || !hukumTarihiStr) {
                 alert('Lütfen ceza süresi, suç türü ve suç/hüküm tarihini giriniz.');
@@ -463,6 +484,26 @@
             const denetimYili = getDenetimliSerbestlikYili(tur, isBefore2020, isBefore2024_11);
             const denetimGun = denetimYili * 365;
             
+            // 11. Yargı Paketi (25.12.2025 - 7571 sayılı Kanun) 3+3 hesaplama
+            // 31 Temmuz 2023 ve öncesi işlenen suçlarda: 3 yıl erken açık cezaevi + 3 yıl erken denetimli serbestlik
+            const yargiPaketi11_istisnaSuclar = ['teror', 'orgut', 'cinselSaldiri'];
+            const kastenOldurme_istisna = tur === 'kastenOldurme'; // Kasten öldürmede belirli haller istisna
+            
+            let yargiPaketi11_faydalanabilir = is11Yargi && !yargiPaketi11_istisnaSuclar.includes(tur);
+            let yargiPaketi11_acikErkenGun = 0;
+            let yargiPaketi11_denetimErkenGun = 0;
+            let yargiPaketi11_aciklama = '';
+            
+            if (yargiPaketi11_faydalanabilir) {
+                // 3 yıl = 1095 gün erken açık cezaevine geçiş
+                yargiPaketi11_acikErkenGun = 3 * 365; // 1095 gün
+                // 3 yıl = 1095 gün erken denetimli serbestlik
+                yargiPaketi11_denetimErkenGun = 3 * 365; // 1095 gün
+                yargiPaketi11_aciklama = '<br><strong>✅ 11. Yargı Paketi (7571 SK - 25.12.2025):</strong> 31 Temmuz 2023 ve öncesi suç nedeniyle 3 yıl erken açık cezaevine geçiş ve 3 yıl erken denetimli serbestlik hakkı tanınmıştır.<br>';
+            } else if (is11Yargi && yargiPaketi11_istisnaSuclar.includes(tur)) {
+                yargiPaketi11_aciklama = '<br><strong>⚠️ 11. Yargı Paketi Kapsamı Dışı:</strong> Terör, örgüt veya cinsel dokunulmazlığa karşı suçlar 11. Yargı Paketi infaz düzenlemesinden yararlanamaz.<br>';
+            }
+            
             // Tahliye tarihi hesapla
             let tahliyeTarihi;
             if (tutukluluk > 0) {
@@ -522,6 +563,7 @@
 ${isMukerrer ? '<strong>⚠️ Not:</strong> Mükerrir durumunda koşullu salıverilme oranı 2/3 olarak sabitlenmiştir.<br>' : ''}
 ${isCocuk ? '<strong>👶 Not:</strong> 0-6 yaş çocuğu olan hükümlülere özel hükümler uygulanabilir.<br>' : ''}
 ${isSaglik ? '<strong>🏥 Not:</strong> Ağır hastalık durumunda infazın ertelenmesi veya tedavi kurumuna sevk mümkündür.<br>' : ''}
+${yargiPaketi11_aciklama}
             `;
             
             document.querySelector('.formula-info').innerHTML = detayliBilgi;
