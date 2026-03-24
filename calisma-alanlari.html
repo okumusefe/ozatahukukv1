@@ -37,11 +37,42 @@
     </header>
 
     <main>
-        <section class="page-hero">
-            <div class="container">
+        <section class="page-hero" style="position: relative; overflow: visible; cursor: pointer;">
+            <div class="container" style="position: relative; z-index: 100;">
                 <h1>Çalışma Alanlarımız</h1>
                 <p>Uzman olduğumuz hukuk dallarında profesyonel hizmet sunuyoruz</p>
+                <div class="practice-areas-dropdown" style="max-height: 0; overflow: hidden; transition: all 0.4s ease; opacity: 0; margin-top: 0;">
+                    <div style="background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f3d 100%); border-radius: 15px; margin-top: 30px; padding: 30px; box-shadow: 0 20px 50px rgba(0,0,0,0.3);">
+                        <ul style="list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; text-align: left;">
+                            <li><a href="#aile-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">Aile Hukuku</a></li>
+                            <li><a href="#ceza-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(201,169,97,0.9); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid white;">Ceza Hukuku</a></li>
+                            <li><a href="#miras-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">Miras Hukuku</a></li>
+                            <li><a href="#is-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">İş Hukuku</a></li>
+                            <li><a href="#idare-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">İdare Hukuku</a></li>
+                            <li><a href="#icra-iflas-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">İcra İflas Hukuku</a></li>
+                            <li><a href="#gayrimenkul-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">Gayrimenkul Hukuku</a></li>
+                            <li><a href="#yabancilar-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">Yabancılar Hukuku</a></li>
+                            <li><a href="#tuketici-hukuku" style="color: white; text-decoration: none; display: block; padding: 12px 20px; background: rgba(255,255,255,0.1); border-radius: 8px; transition: all 0.3s ease; border-left: 3px solid var(--accent-color);">Tüketici Hukuku</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
+            <style>
+                .page-hero:hover .practice-areas-dropdown {
+                    max-height: 600px !important;
+                    opacity: 1 !important;
+                    margin-top: 20px !important;
+                }
+                .practice-areas-dropdown a:hover {
+                    background: rgba(201,169,97,0.9) !important;
+                    transform: translateX(5px);
+                }
+                @media (max-width: 768px) {
+                    .practice-areas-dropdown ul {
+                        grid-template-columns: 1fr !important;
+                    }
+                }
+            </style>
         </section>
 
         <section class="practice-areas-detail">
