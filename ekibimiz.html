@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Özata Hukuk - Ekibimiz. Avukat Ege Özata ve uzman kadromuz.">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Ekibimiz | Özata Hukuk</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .team-hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f3d 100%);
+            color: white;
+            padding: 100px 0 60px;
+            text-align: center;
+        }
+        .team-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        .team-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        .team-section {
+            padding: 80px 0;
+            background: var(--bg-light);
+        }
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+        .team-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+            transition: all 0.4s ease;
+        }
+        .team-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+        }
+        .team-image {
+            height: 300px;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #b8945f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        .team-image svg {
+            width: 120px;
+            height: 120px;
+            color: white;
+            opacity: 0.8;
+        }
+        .team-info {
+            padding: 30px;
+        }
+        .team-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+        .team-role {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .team-info p {
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+        .team-contact {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .team-contact p {
+            margin: 5px 0;
+            font-size: 0.9rem;
+        }
+        .team-contact a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .team-contact a:hover {
+            text-decoration: underline;
+        }
+        .team-expertise {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 15px;
+        }
+        .expertise-tag {
+            background: rgba(201,169,97,0.15);
+            color: var(--accent-color);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        .team-values {
+            padding: 80px 0;
+            background: white;
+        }
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+            margin-top: 50px;
+        }
+        .value-card {
+            text-align: center;
+            padding: 30px;
+        }
+        .value-icon {
+            width: 70px;
+            height: 70px;
+            background: rgba(201,169,97,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--accent-color);
+        }
+        .value-card h4 {
+            font-size: 1.1rem;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        .value-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        @media (max-width: 768px) {
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .team-hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="logo.svg" alt="Özata Hukuk Logo" width="50" height="32" style="display: block;">
+                    <span>ÖZATA HUKUK</span>
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="ekibimiz.html" class="active">Ekibimiz</a></li>
+                        <li><a href="sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="yayinlar.html">Yayınlar</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="team-hero">
+            <div class="container">
+                <h1>Ekibimiz</h1>
+                <p>Profesyonel ve deneyimli kadromuzla hizmetinizdeyiz</p>
+            </div>
+        </section>
+
+        <section class="team-section">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center;">Avukatlarımız</h2>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                            </svg>
+                        </div>
+                        <div class="team-info">
+                            <h3>Av. Ege Özata</h3>
+                            <div class="team-role">Kurucu Ortak</div>
+                            <p>İstanbul Üniversitesi Hukuk Fakültesi mezunu olan Av. Ege Özata, 2022 yılında Özata Hukuk Bürosu'nu kurarak İzmir'de faaliyet göstermeye başlamıştır.</p>
+                            <p>Aile hukuku, ceza hukuku, iş hukuku ve gayrimenkul hukuku alanlarında uzmanlaşmış olup, yerli ve yabancı müvekkillere kapsamlı hukuki danışmanlık hizmeti sunmaktadır.</p>
+                            <div class="team-expertise">
+                                <span class="expertise-tag">Aile Hukuku</span>
+                                <span class="expertise-tag">Ceza Hukuku</span>
+                                <span class="expertise-tag">İş Hukuku</span>
+                                <span class="expertise-tag">Gayrimenkul</span>
+                            </div>
+                            <div class="team-contact">
+                                <p><strong>E-posta:</strong> <a href="mailto:ege.ozata@ozatahukuk.av.tr">ege.ozata@ozatahukuk.av.tr</a></p>
+                                <p><strong>Telefon:</strong> <a href="tel:+905325273993">0 (532) 527 39 93</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="team-values">
+            <div class="container">
+                <h2 class="section-title" style="text-align: center;">Ekibimizin Güçlü Yönleri</h2>
+                
+                <div class="values-grid">
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4>Uzmanlık</h4>
+                        <p>Her alanda uzmanlaşmış kadromuzla profesyonel hizmet sunuyoruz.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </div>
+                        <h4>Hızlı Çözüm</h4>
+                        <p>Hukuki süreçleri en hızlı ve etkili şekilde yönetiyoruz.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                            </svg>
+                        </div>
+                        <h4>Koordinasyon</h4>
+                        <p>Ekibimiz müvekkillerimizle sürekli iletişim halinde çalışır.</p>
+                    </div>
+                    <div class="value-card">
+                        <div class="value-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                            </svg>
+                        </div>
+                        <h4>Yenilikçilik</h4>
+                        <p>Güncel mevzuat ve yargı kararlarını takip ederek en doğru çözümleri üretiyoruz.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Ekibimizle Tanışın</h2>
+                    <p>Hukuki danışmanlık için hemen iletişime geçin.</p>
+                    <a href="iletisim.html" class="btn btn-primary btn-large">İletişim</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="hakkimizda.html">Kurumsal</a></li>
+                        <li><a href="ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                        <li><a href="sss.html">SSS</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
