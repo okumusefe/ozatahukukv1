@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hükümlü İnfaz Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Hükümlü İnfaz Hesaplama</h1>
+            <p>5275 sayılı Ceza İnfaz Kanunu'na göre cezaevinde kalma süresi hesaplama</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Hükümlü İnfaz Hesaplama</h2>
+                    <p>5275 sayılı Ceza İnfaz Kanunu'na göre cezaevinde kalma süresi, şartlı tahliye ve denetimli serbestlik hesaplama</p>
+                    
+                    <div class="form-group">
+                        <label>Verilen Ceza (Yıl/Ay/Gün)</label>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="infaz-yil" style="font-weight: 400;">Yıl</label>
+                                <input type="number" id="infaz-yil" placeholder="Örn: 3" min="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="infaz-ay" style="font-weight: 400;">Ay</label>
+                                <input type="number" id="infaz-ay" placeholder="Örn: 6" min="0" max="11">
+                            </div>
+                            <div class="form-group">
+                                <label for="infaz-gun" style="font-weight: 400;">Gün</label>
+                                <input type="number" id="infaz-gun" placeholder="Örn: 0" min="0" max="29">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="infaz-tur">Suç Türü</label>
+                        <select id="infaz-tur" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="genel">Genel Suçlar (5275 SK Md. 10)</option>
+                            <option value="kastenOldurme">Kasten Öldürme (TCK 81, 82, 83)</option>
+                            <option value="nitelikliYaralama">Nitelikli Yaralama (TCK 87/2-d)</option>
+                            <option value="cinselSaldiri">Cinsel Dokunulmazlığa Karşı Suçlar (TCK 102-105)</option>
+                            <option value="uyusturucu">Uyuşturucu Madde Ticareti (TCK 188)</option>
+                            <option value="teror">Terör Suçları (TMK 3713)</option>
+                            <option value="iskence">İşkence (TCK 94, 95)</option>
+                            <option value="eziyet">Eziyet (TCK 96)</option>
+                            <option value="ozelHayat">Özel Hayata Karşı Suçlar (TCK 132-138)</option>
+                            <option value="orgut">Suç İşlemek İçin Örgüt Kurma</option>
+                        </select>
+                        <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">
+                            📅 7242 Sayılı Kanun (30.03.2020), 11. Yargı Paketi (01.07.2023), 12. Yargı Paketi (20.02.2024), 13. Yargı Paketi (15.01.2025) ve 14. Yargı Paketi (25.12.2025) dahil edildi
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="infaz-tutukluluk">Tutukluluk Süresi (Gün) - Varsa</label>
+                        <input type="number" id="infaz-tutukluluk" placeholder="Örn: 180" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="infaz-hukum">Suç/Hüküm Tarihi</label>
+                        <input type="date" id="infaz-hukum" required>
+                        <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">
+                            Koşullu salıverilme oranı ve denetimli serbestlik süresi bu tarihe göre belirlenir
+                        </small>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="infaz-indirim-etkin">Etkin Pişmanlık İndirimi</label>
+                        <select id="infaz-indirim-etkin">
+                            <option value="0">Yok</option>
+                            <option value="16">1/6 İndirim</option>
+                            <option value="25">1/4 İndirim</option>
+                            <option value="33">1/3 İndirim</option>
+                            <option value="50">1/2 İndirim</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="infaz-indirim-iyi">İyi Hal İndirimi</label>
+                        <select id="infaz-indirim-iyi">
+                            <option value="0">Yok</option>
+                            <option value="16">1/6 İndirim</option>
+                            <option value="25">1/4 İndirim</option>
+                            <option value="33">1/3 İndirim</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="infaz-indirim-yargilama">Yargılama Süresi İndirimi</label>
+                        <select id="infaz-indirim-yargilama">
+                            <option value="0">İndirim Yok</option>
+                            <option value="1">1 Yıl İndirim</option>
+                            <option value="2">2 Yıl İndirim</option>
+                            <option value="3">3 Yıl İndirim</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Diğer Durumlar</label>
+                        <div style="display: flex; flex-direction: column; gap: 10px; margin-top: 10px;">
+                            <label style="font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" id="infaz-mukerrer" style="width: auto;">
+                                <span>Mükerrir (Tekrarlayan Suç)</span>
+                            </label>
+                            <label style="font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" id="infaz-cocuk" style="width: auto;">
+                                <span>0-6 Yaş Grubu Çocuğu Var</span>
+                            </label>
+                            <label style="font-weight: 400; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                                <input type="checkbox" id="infaz-saglik" style="width: auto;">
+                                <span>Ağır Hastalık/Engellilik</span>
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaInfaz()">Hesapla</button>
+                    
+                    <div class="result-box" id="infaz-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Toplam Ceza Süresi:</span>
+                            <span id="infaz-toplam"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>İnfaz Oranı:</span>
+                            <span id="infaz-oran"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Cezaevinde Kalınacak Süre:</span>
+                            <span id="infaz-yatar"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Mahsup Edilen Tutukluluk:</span>
+                            <span id="infaz-mahsup"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kalan Cezaevinde Kalma:</span>
+                            <span id="infaz-kalan"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Şartlı Tahliye Tarihi:</span>
+                            <span id="infaz-tahliye"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Denetimli Serbestlik Süresi:</span>
+                            <span id="infaz-denetim"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>İnfaz Oranları (5275 sayılı Kanun):</strong><br>
+                            • Genel suçlar: Cezanın 3/4'ü (Md. 10)<br>
+                            • Ağırlaştırılmış suçlar: Cezanın 2/3'ü (Md. 11)<br>
+                            • Kasten öldürme: Cezanın 3/4'ü<br>
+                            • Terör suçları: Değişken oranlar<br>
+                            • Tutukluluk süresi: Cezaevinde kalınacak süreden mahsup edilir.<br>
+                            <strong>Not:</strong> Hesaplamalar bilgilendirme amaçlıdır.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Koşullu salıverilme oranını belirle - Yargı Paketleri tarihlerine göre
+        function getKosulluSalivermeOrani(crimeType, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12) {
+            const ratios = {
+                // Genel suçlar - 11. Yargı Paketi ile değişen oranlar
+                genel: isBefore2020 ? 0.5 : (isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.66 : 0.5))))),
+                
+                // Kasten öldürme - 11. Yargı Paketi değişikliği
+                kastenOldurme: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // Nitelikli yaralama
+                nitelikliYaralama: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // Cinsel dokunulmazlığa karşı suçlar
+                cinselSaldiri: isBefore2014 ? 0.66 : (isBefore2023 ? 0.75 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66))))),
+                
+                // Uyuşturucu suçları
+                uyusturucu: isBefore2023 ? 0.75 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // Terör suçları
+                teror: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // İşkence ve eziyet
+                iskence: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                eziyet: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // Özel hayata karşı suçlar
+                ozelHayat: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
+                
+                // Örgüt suçları
+                orgut: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66))))
+            };
+            
+            return ratios[crimeType] || 0.66;
+        }
+
+        // Denetimli serbestlik süresini belirle (yıl cinsinden)
+        function getDenetimliSerbestlikYili(crimeType, isBefore2020, isBefore2024_11) {
+            const exceptionCrimes = ['kastenOldurme', 'nitelikliYaralama', 'cinselSaldiri', 'uyusturucu', 'teror', 'iskence', 'eziyet', 'ozelHayat', 'orgut'];
+            
+            if (exceptionCrimes.includes(crimeType)) {
+                // İstisna suçlar: 2024-11 öncesi 1 yıl, sonrası 6 ay (0.5 yıl)
+                return isBefore2024_11 ? 1 : 0.5;
+            } else {
+                // Genel suçlar: 2020 öncesi 3 yıl, 2020-2024 arası 1 yıl, 2024-11 sonrası 6 ay
+                if (isBefore2020) return 3;
+                else if (isBefore2024_11) return 1;
+                else return 0.5;
+            }
+        }
+
+        // Tarihi formatla
+        function formatTarih(date) {
+            if (!date || isNaN(date.getTime())) return 'Belirlenemedi';
+            return date.toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        // Süreyi yıl/ay/gün formatında göster
+        function formatSure(gun) {
+            if (gun <= 0) return '0 gün';
+            const yil = Math.floor(gun / 365);
+            const kalanGun = gun % 365;
+            const ay = Math.floor(kalanGun / 30);
+            const sonGun = kalanGun % 30;
+            
+            let sonuc = '';
+            if (yil > 0) sonuc += yil + ' yıl ';
+            if (ay > 0) sonuc += ay + ' ay ';
+            if (sonGun > 0 || sonuc === '') sonuc += sonGun + ' gün';
+            return sonuc.trim() + ' (' + gun + ' gün)';
+        }
+
+        function hesaplaInfaz() {
+            const yil = parseInt(document.getElementById('infaz-yil').value) || 0;
+            const ay = parseInt(document.getElementById('infaz-ay').value) || 0;
+            const gun = parseInt(document.getElementById('infaz-gun').value) || 0;
+            const tur = document.getElementById('infaz-tur').value;
+            const tutukluluk = parseInt(document.getElementById('infaz-tutukluluk').value) || 0;
+            const hukumTarihiStr = document.getElementById('infaz-hukum').value;
+            
+            // İndirim değerleri
+            const etkinIndirim = parseInt(document.getElementById('infaz-indirim-etkin').value) || 0;
+            const iyiIndirim = parseInt(document.getElementById('infaz-indirim-iyi').value) || 0;
+            const yargilamaIndirim = parseInt(document.getElementById('infaz-indirim-yargilama').value) || 0;
+            
+            // Checkbox durumları
+            const isMukerrer = document.getElementById('infaz-mukerrer').checked;
+            const isCocuk = document.getElementById('infaz-cocuk').checked;
+            const isSaglik = document.getElementById('infaz-saglik').checked;
+
+            if (!tur || yil + ay + gun === 0 || !hukumTarihiStr) {
+                alert('Lütfen ceza süresi, suç türü ve suç/hüküm tarihini giriniz.');
+                return;
+            }
+
+            const toplamGun = (yil * 365) + (ay * 30) + gun;
+            const hukumTarihi = new Date(hukumTarihiStr);
+            const hesaplamaTarihi = new Date();
+            
+            // Yargı Paketi tarihleri
+            const isBefore2020 = hukumTarihi < new Date('2020-03-30');
+            const isBefore2023 = hukumTarihi < new Date('2023-07-01');
+            const isBefore2024_03 = hukumTarihi < new Date('2024-03-12');
+            const isBefore2024_11 = hukumTarihi < new Date('2024-11-14');
+            const isBefore2025_06 = hukumTarihi < new Date('2025-06-04');
+            const isBefore2025_12 = hukumTarihi < new Date('2025-12-25');
+            
+            // Koşullu salıverilme oranını belirle
+            let kosulluSalivermeOrani = getKosulluSalivermeOrani(tur, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12);
+            
+            // Mükerrir kontrolü
+            if (isMukerrer) {
+                kosulluSalivermeOrani = 0.66; // 2/3
+            }
+            
+            // İndirim hesaplamaları
+            let indirimGun = 0;
+            let indirimAciklama = [];
+            
+            // Etkin pişmanlık
+            if (etkinIndirim > 0) {
+                const etkinGun = Math.floor(toplamGun * (etkinIndirim / 100));
+                indirimGun += etkinGun;
+                indirimAciklama.push(`Etkin pişmanlık: ${formatSure(etkinGun)}`);
+            }
+            
+            // İyi hal
+            if (iyiIndirim > 0) {
+                const iyiGun = Math.floor(toplamGun * (iyiIndirim / 100));
+                indirimGun += iyiGun;
+                indirimAciklama.push(`İyi hal: ${formatSure(iyiGun)}`);
+            }
+            
+            // Yargılama süresi (yıl olarak, direkt ceza süresinden düşülür)
+            const yargilamaGun = yargilamaIndirim * 365;
+            const indirimliCezaGun = Math.max(0, toplamGun - indirimGun - yargilamaGun);
+            
+            if (yargilamaIndirim > 0) {
+                indirimAciklama.push(`Yargılama süresi: ${yargilamaIndirim} yıl`);
+            }
+            
+            // Cezaevinde kalacak süre (koşullu salıverilme oranı uygulanmış)
+            const cezaeviSuresi = Math.floor(indirimliCezaGun * kosulluSalivermeOrani);
+            
+            // Kapalı ve açık cezaevi ayrımı (genel kural: %80 kapalı, %20 açık)
+            const kapaliCezaevi = Math.floor(cezaeviSuresi * 0.8);
+            const acikCezaevi = cezaeviSuresi - kapaliCezaevi;
+            
+            // Denetimli serbestlik süresi
+            const denetimYili = getDenetimliSerbestlikYili(tur, isBefore2020, isBefore2024_11);
+            const denetimGun = denetimYili * 365;
+            
+            // Tahliye tarihi hesapla
+            let tahliyeTarihi;
+            if (tutukluluk > 0) {
+                const kalanCezaevi = Math.max(0, cezaeviSuresi - tutukluluk);
+                tahliyeTarihi = new Date(hesaplamaTarihi);
+                tahliyeTarihi.setDate(tahliyeTarihi.getDate() + kalanCezaevi);
+            } else {
+                tahliyeTarihi = new Date(hesaplamaTarihi);
+                tahliyeTarihi.setDate(tahliyeTarihi.getDate() + cezaeviSuresi);
+            }
+            
+            // Oran metni
+            const oranText = kosulluSalivermeOrani === 0.5 ? '1/2 (%50)' : 
+                            kosulluSalivermeOrani === 0.66 ? '2/3 (%66)' : 
+                            kosulluSalivermeOrani === 0.75 ? '3/4 (%75)' : 
+                            `%${Math.round(kosulluSalivermeOrani * 100)}`;
+            
+            // Yasal dayanak belirle
+            let yasalDayanak = '';
+            if (!isBefore2025_12) {
+                yasalDayanak = ' (14. Yargı Paketi sonrası)';
+            } else if (!isBefore2025_06) {
+                yasalDayanak = ' (13. Yargı Paketi sonrası)';
+            } else if (!isBefore2024_11) {
+                yasalDayanak = ' (12. Yargı Paketi sonrası)';
+            } else if (!isBefore2024_03) {
+                yasalDayanak = ' (11. Yargı Paketi sonrası)';
+            } else if (!isBefore2023) {
+                yasalDayanak = ' (10. Yargı Paketi sonrası)';
+            } else if (!isBefore2020) {
+                yasalDayanak = ' (7242 Sayılı Kanun sonrası)';
+            } else {
+                yasalDayanak = ' (7242 Sayılı Kanun öncesi)';
+            }
+
+            document.getElementById('infaz-toplam').textContent = formatSure(toplamGun);
+            document.getElementById('infaz-oran').textContent = oranText + yasalDayanak;
+            document.getElementById('infaz-yatar').textContent = formatSure(cezaeviSuresi);
+            document.getElementById('infaz-mahsup').textContent = tutukluluk > 0 ? formatSure(tutukluluk) : 'Yok';
+            document.getElementById('infaz-kalan').textContent = formatSure(cezaeviSuresi - tutukluluk);
+            document.getElementById('infaz-tahliye').textContent = formatTarih(tahliyeTarihi);
+            document.getElementById('infaz-denetim').textContent = formatSure(denetimGun) + ` (${denetimYili} yıl)`;
+            
+            // Detaylı bilgi güncelle
+            const detayliBilgi = `
+<strong>📊 İnfaz Hesaplama Detayları:</strong><br><br>
+<strong>Temel Ceza:</strong> ${formatSure(toplamGun)}<br>
+<strong>İndirimler:</strong><br>${indirimAciklama.length > 0 ? indirimAciklama.map(x => '• ' + x).join('<br>') : '• İndirim uygulanmadı'}<br><br>
+<strong>İndirimli Ceza:</strong> ${formatSure(indirimliCezaGun)}<br>
+<strong>Koşullu Salıverilme Oranı:</strong> ${oranText}${yasalDayanak}<br><br>
+<strong>🏢 Cezaevinde Kalma Süresi:</strong><br>
+• Kapalı Cezaevi: ${formatSure(kapaliCezaevi)}<br>
+• Açık Cezaevi: ${formatSure(acikCezaevi)}<br>
+• Toplam: ${formatSure(cezaeviSuresi)}<br><br>
+<strong>🔓 Denetimli Serbestlik:</strong> ${formatSure(denetimGun)}<br>
+<strong>📅 Tahliye Tarihi:</strong> ${formatTarih(tahliyeTarihi)}<br><br>
+${isMukerrer ? '<strong>⚠️ Not:</strong> Mükerrir durumunda koşullu salıverilme oranı 2/3 olarak sabitlenmiştir.<br>' : ''}
+${isCocuk ? '<strong>👶 Not:</strong> 0-6 yaş çocuğu olan hükümlülere özel hükümler uygulanabilir.<br>' : ''}
+${isSaglik ? '<strong>🏥 Not:</strong> Ağır hastalık durumunda infazın ertelenmesi veya tedavi kurumuna sevk mümkündür.<br>' : ''}
+            `;
+            
+            document.querySelector('.formula-info').innerHTML = detayliBilgi;
+            document.getElementById('infaz-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

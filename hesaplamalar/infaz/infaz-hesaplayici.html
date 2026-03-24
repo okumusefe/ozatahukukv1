@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İnfaz Süresi Hesaplayıcı</title>
+    <link rel="stylesheet" href="infaz-style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🇹🇷 İnfaz Süresi Hesaplayıcı</h1>
+            <p class="subtitle">Türk Ceza Hukuku'na göre mahkûmiyet süresi hesaplama aracı (2026 güncel)</p>
+        </header>
+
+        <main>
+            <form id="calculator-form" class="calculator-form">
+                <!-- Temel Bilgiler -->
+                <div class="form-section">
+                    <h3>📋 Temel Bilgiler</h3>
+                    
+                    <div class="form-group">
+                        <label for="crime-date">Suç Tarihi:</label>
+                        <input type="date" id="crime-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sentence-years">Ceza Süresi (Yıl):</label>
+                        <input type="number" id="sentence-years" min="0" max="50" step="1" placeholder="Örn: 5" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sentence-months">Ceza Süresi (Ay):</label>
+                        <input type="number" id="sentence-months" min="0" max="11" step="1" placeholder="Opsiyonel">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="crime-type">Suç Türü:</label>
+                        <select id="crime-type" required>
+                            <option value="">Seçiniz...</option>
+                            <option value="genel">Genel Suçlar</option>
+                            <option value="kastenOldurme">Kasten Öldürme (TCK 81,82,83)</option>
+                            <option value="nitelikliYaralama">Nitelikli Yaralama (TCK 87/2-d)</option>
+                            <option value="cinselSaldiri">Cinsel Dokunulmazlığa Karşı Suçlar (TCK 102,103,104,105)</option>
+                            <option value="uyusturucu">Uyuşturucu Madde Ticareti (TCK 188)</option>
+                            <option value="teror">Terör Suçları (TMK 3713)</option>
+                            <option value="iskence">İşkence (TCK 94,95)</option>
+                            <option value="eziyet">Eziyet (TCK 96)</option>
+                            <option value="ozelHayat">Özel Hayata Karşı Suçlar (TCK 132-138)</option>
+                            <option value="orgut">Suç İşlemek İçin Örgüt Kurma</option>
+                        </select>
+                        <small style="color: #666; font-size: 0.85rem; margin-top: 5px; display: block;">
+                            📅 7242 Sayılı Kanun (30.03.2020), 11. Yargı Paketi (01.07.2023), 12. Yargı Paketi (20.02.2024), 13. Yargı Paketi (15.01.2025) ve 14. Yargı Paketi (25.12.2025) dahil edildi
+                        </small>
+                    </div>
+                </div>
+
+                <!-- Kişisel Bilgiler -->
+                <div class="form-section">
+                    <h3>� Kişisel Bilgiler</h3>
+                    
+                    <div class="form-group">
+                        <label for="age">Yaş:</label>
+                        <select id="age">
+                            <option value="adult">18-65 Yaş Arası</option>
+                            <option value="under18">18 Yaş Altı</option>
+                            <option value="over65">65 Yaş Üstü</option>
+                            <option value="over70">70 Yaş Üstü</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="gender">Cinsiyet:</label>
+                        <select id="gender">
+                            <option value="erkek">Erkek</option>
+                            <option value="kadin">Kadın</option>
+                        </select>
+                    </div>
+
+                    <div class="checkbox-group">
+                        <label>
+                            <input type="checkbox" id="child-0-6"> 0-6 Yaş Grubu Çocuğu Var
+                        </label>
+                        <label>
+                            <input type="checkbox" id="health-issue"> Ağır Hastalık/Engellilik
+                        </label>
+                        <label>
+                            <input type="checkbox" id="recidivist"> Mükerrir (Tekrarlayan Suç)
+                        </label>
+                    </div>
+                </div>
+
+                <!-- İndirimler -->
+                <div class="form-section">
+                    <h3>📉 İndirimler</h3>
+                    
+                    <div class="form-group">
+                        <label for="effective-remorse">Etkin Pişmanlık:</label>
+                        <select id="effective-remorse">
+                            <option value="0">Yok</option>
+                            <option value="16">1/6 İndirim</option>
+                            <option value="33">1/3 İndirim</option>
+                            <option value="50">1/2 İndirim</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="good-behavior">İyi Hal:</label>
+                        <select id="good-behavior">
+                            <option value="0">Yok</option>
+                            <option value="16">1/6 İndirim</option>
+                            <option value="33">1/3 İndirim</option>
+                            <option value="50">1/2 İndirim</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="trial-duration">Yargılama Süresi:</label>
+                        <select id="trial-duration">
+                            <option value="0">İndirim Yok</option>
+                            <option value="1">1 Yıl İndirim</option>
+                            <option value="2">2 Yıl İndirim</option>
+                            <option value="3">3 Yıl İndirim</option>
+                        </select>
+                    </div>
+                </div>
+
+                <button type="submit" class="calculate-btn">📊 Hesapla</button>
+            </form>
+
+            <!-- Sonuçlar -->
+            <div id="results" class="results-section" style="display: none;">
+                <h3>📊 İnfaz Hesaplama Sonuçları</h3>
+                
+                <div class="result-grid">
+                    <div class="result-card">
+                        <h4>🏛️ Temel Ceza</h4>
+                        <p id="base-sentence">-</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>📉 İndirimli Ceza</h4>
+                        <p id="reduced-sentence">-</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>🏢 Kapalı Cezaevi</h4>
+                        <p id="closed-prison">-</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>🏠 Açık Cezaevi</h4>
+                        <p id="open-prison">-</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>🔓 Denetimli Serbestlik</h4>
+                        <p id="probation">-</p>
+                    </div>
+                    
+                    <div class="result-card">
+                        <h4>📅 Tahliye Tarihi</h4>
+                        <p id="release-date">-</p>
+                    </div>
+                </div>
+
+                <div class="detailed-breakdown">
+                    <h4>📋 Detaylı Hesaplama Tablosu</h4>
+                    <div id="breakdown-details"></div>
+                </div>
+
+                <div class="action-buttons">
+                    <button id="export-btn" class="export-btn">📥 Sonuçları İndir</button>
+                    <button id="reset-btn" class="reset-btn">🔄 Yeni Hesaplama</button>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>⚠️ Bu hesaplayıcı sadece bilgilendirme amaçlıdır. Yasal sonuçlar için bir avukata danışın.</p>
+            <p>© 2026 İnfaz Süresi Hesaplayıcı - Türk Ceza Hukuku</p>
+        </footer>
+    </div>
+
+    <script src="infaz-script.js"></script>
+</body>
+</html>

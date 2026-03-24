@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vekalet Ücreti Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Vekalet Ücreti Hesaplama</h1>
+            <p>Dava değerine göre vekalet ücreti hesaplama (2025 Baro Tarifesi)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Vekalet Ücreti Hesaplama</h2>
+                    <p>Dava değerine göre vekalet ücreti hesaplama (2025 Baro Tarifesi)</p>
+                    
+                    <div class="form-group">
+                        <label for="vekil-tur">Dava Türü</label>
+                        <select id="vekil-tur">
+                            <option value="">Seçiniz...</option>
+                            <option value="para">Para Alacağı</option>
+                            <option value="tazminat">Tazminat</option>
+                            <option value="bosanma">Boşanma</option>
+                            <option value="kira">Kira</option>
+                            <option value="icra">İcra Takip</option>
+                            <option value="ceza">Ceza</option>
+                            <option value="idare">İdare</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vekil-deger">Dava / Alacak Değeri (TL)</label>
+                        <input type="number" id="vekil-deger" placeholder="Örn: 100000" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="vekil-asama">Dava Aşaması</label>
+                        <select id="vekil-asama">
+                            <option value="birinci">Birinci Derece Mahkemesi</option>
+                            <option value="istinaf">İstinaf</option>
+                            <option value="temyiz">Temyiz</option>
+                        </select>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaVekalet()">Hesapla</button>
+                    
+                    <div class="result-box" id="vekil-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Temel Vekalet Ücreti:</span>
+                            <span id="vekil-temel"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Aşama Artışı:</span>
+                            <span id="vekil-asama-artis"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>KDV (%18):</span>
+                            <span id="vekil-kdv"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Vekalet Ücreti:</span>
+                            <span id="vekil-toplam"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>2025 Vekalet Ücreti Tarifesi (İzmir Barosu):</strong><br>
+                            • 0 - 10.000 TL: 9.220 TL<br>
+                            • 10.000 - 50.000 TL: %9 + 4.920 TL<br>
+                            • 50.000 - 100.000 TL: %7 + 9.620 TL<br>
+                            • 100.000 TL üzeri: %5 + 19.620 TL<br>
+                            • Üst limit: 616.600 TL<br>
+                            • İstinaf/Temyiz: %50 artış
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaVekalet() {
+            const tur = document.getElementById('vekil-tur').value;
+            const deger = parseFloat(document.getElementById('vekil-deger').value) || 0;
+            const asama = document.getElementById('vekil-asama').value;
+
+            if (!tur) {
+                alert('Lütfen dava türü seçiniz.');
+                return;
+            }
+
+            let temel = 0;
+            const asamaCarpan = asama === 'birinci' ? 1 : 1.5;
+
+            if (deger <= 10000) {
+                temel = 9220;
+            } else if (deger <= 50000) {
+                temel = (deger * 0.09) + 4920;
+            } else if (deger <= 100000) {
+                temel = (deger * 0.07) + 9620;
+            } else {
+                temel = (deger * 0.05) + 19620;
+            }
+
+            const maxUcret = 616600;
+            if (temel > maxUcret) temel = maxUcret;
+
+            const asamaArtis = temel * (asamaCarpan - 1);
+            const toplamTemel = temel * asamaCarpan;
+            const kdv = toplamTemel * 0.18;
+            const toplam = toplamTemel + kdv;
+
+            document.getElementById('vekil-temel').textContent = temel.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('vekil-asama-artis').textContent = asamaArtis > 0 ? asamaArtis.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('vekil-kdv').textContent = kdv.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('vekil-toplam').textContent = toplam.toLocaleString('tr-TR') + ' TL';
+            
+            document.getElementById('vekil-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

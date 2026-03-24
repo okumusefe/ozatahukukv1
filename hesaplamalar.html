@@ -3,874 +3,206 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hesaplamalar - Özata Hukuk</title>
+    <title>Hesaplama Araçları - Özata Hukuk</title>
     <link rel="stylesheet" href="styles.css">
     <style>
-        .calculators-section {
+        .calculators-list-section {
             padding: 5rem 0;
             background: var(--white);
         }
-
         .calculators-header {
             text-align: center;
             max-width: 900px;
             margin: 0 auto 4rem;
         }
-
         .calculators-header h1 {
             font-size: 2.5rem;
             color: var(--primary-color);
             margin-bottom: 1.5rem;
         }
-
         .calculators-header p {
             font-size: 1.15rem;
             color: var(--text-light);
             line-height: 1.8;
         }
-
-        .calculator-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--bg-light);
-            padding-bottom: 1rem;
-        }
-
-        .tab-btn {
-            background: transparent;
-            border: 2px solid var(--accent-color);
-            color: var(--accent-color);
-            padding: 0.75rem 1.5rem;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            font-size: 0.9rem;
-        }
-
-        .tab-btn:hover,
-        .tab-btn.active {
-            background: var(--accent-color);
-            color: var(--white);
-        }
-
-        .calculator-container {
-            max-width: 800px;
+        .calculator-categories {
+            max-width: 1200px;
             margin: 0 auto;
         }
-
-        .calculator-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-            display: none;
+        .category-section {
+            margin-bottom: 3rem;
         }
-
-        .calculator-card.active {
-            display: block;
-            animation: fadeIn 0.4s ease;
-        }
-
-        .calculator-card h2 {
-            font-size: 1.8rem;
+        .category-title {
+            font-size: 1.5rem;
             color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .calculator-card > p {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-
-        .form-group {
             margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
         }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-
-        .form-group input:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-
-        .form-row {
+        .calculators-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 1.5rem;
         }
-
-        .calculate-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
-        }
-
-        .result-box {
-            background: var(--white);
-            padding: 2rem;
+        .calculator-link-card {
+            background: var(--bg-light);
+            padding: 1.5rem;
             border-radius: 15px;
-            margin-top: 2rem;
-            border-left: 5px solid var(--accent-color);
-            display: none;
-        }
-
-        .result-box.show {
-            display: block;
-            animation: slideUp 0.4s ease;
-        }
-
-        .result-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-
-        .result-item {
+            box-shadow: var(--shadow-md);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
             display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
+            flex-direction: column;
+            height: 100%;
         }
-
-        .result-item:last-child {
-            border-bottom: none;
-            font-weight: 700;
-            color: var(--accent-color);
+        .calculator-link-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+            background: var(--white);
+        }
+        .calculator-link-card h3 {
             font-size: 1.2rem;
-            margin-top: 0.5rem;
-            padding-top: 1rem;
-            border-top: 2px solid var(--accent-color);
-        }
-
-        .formula-info {
-            background: rgba(201, 169, 97, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-
-        .formula-info strong {
             color: var(--primary-color);
+            margin-bottom: 0.75rem;
         }
-
+        .calculator-link-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+        .calculator-link-card .arrow {
+            display: inline-block;
+            margin-top: 1rem;
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
         @media (max-width: 768px) {
-            .form-row {
+            .calculators-grid {
                 grid-template-columns: 1fr;
             }
-
-            .calculator-tabs {
-                gap: 0.3rem;
-            }
-
-            .tab-btn {
-                padding: 0.6rem 1rem;
-                font-size: 0.8rem;
-            }
-
-            .calculator-card {
-                padding: 1.5rem;
+            .calculators-header h1 {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
     <header class="header">
-        <div class="nav-container">
+        <nav class="nav-container">
             <div class="logo">
                 <a href="index.html">
                     <img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
                 </a>
             </div>
-            <nav>
-                <button class="mobile-menu-toggle" aria-label="Menüyü Aç/Kapat">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-                <ul class="nav-menu">
-                    <li><a href="index.html">Anasayfa</a></li>
-                    <li class="dropdown">
-                        <a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="kurumsal.html">Hakkımızda</a></li>
-                            <li><a href="ekibimiz.html">Ekibimiz</a></li>
-                            <li><a href="sss.html">Sıkça Sorulan Sorular</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                    <li><a href="calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
-                    <li><a href="yayinlar.html">Yayınlar</a></li>
-                    <li><a href="iletisim.html">İletişim</a></li>
-                </ul>
-            </nav>
-        </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="yayinlar.html">Yayınlar</a></li>
+                <li><a href="iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
     </header>
 
     <main>
         <section class="page-hero">
-            <h1>Hesaplamalar</h1>
-            <p>Güncel mevzuata uygun hukuki hesaplamar için kullanabileceğiniz ücretsiz hesaplama araçları</p>
+            <h1>Hesaplama Araçları</h1>
+            <p>Güncel mevzuata uygun hukuki hesaplamalar için kullanabileceğiniz ücretsiz hesaplama araçları</p>
         </section>
 
-        <section class="calculators-section">
+        <section class="calculators-list-section">
             <div class="container">
                 <div class="calculators-header">
                     <h1>Hukuki Hesaplama Araçları</h1>
                     <p>İş Hukuku, Ceza Hukuku ve diğer alanlarda güncel yasalara uygun hesaplamalar yapabilirsiniz. Tüm hesaplamalar bilgilendirme amaçlıdır ve kesin sonuçlar için profesyonel hukuki destek almanız önerilir.</p>
                 </div>
 
-                <div class="calculator-tabs">
-                    <button class="tab-btn active" data-tab="kidem">Kıdem Tazminatı</button>
-                    <button class="tab-btn" data-tab="ihbar">İhbar Tazminatı</button>
-                    <button class="tab-btn" data-tab="fazlamesai">Fazla Mesai</button>
-                    <button class="tab-btn" data-tab="yillikizin">Yıllık İzin</button>
-                    <button class="tab-btn" data-tab="yevmiye">Günlük Yevmiye</button>
-                    <button class="tab-btn" data-tab="cezazamanasimi">Ceza Zamanaşımı</button>
-                    <button class="tab-btn" data-tab="infaz">Hükümlü İnfaz</button>
-                    <button class="tab-btn" data-tab="mahkemeharci">Mahkeme Harcı</button>
-                    <button class="tab-btn" data-tab="icraharci">İcra Harcı</button>
-                    <button class="tab-btn" data-tab="vekalet">Vekalet Ücreti</button>
-                </div>
-
-                <div class="calculator-container">
-                    <!-- Kıdem Tazminatı Hesaplayıcı -->
-                    <div class="calculator-card active" id="kidem">
-                        <h2>Kıdem Tazminatı Hesaplama</h2>
-                        <p>İş Kanunu'na göre kıdem tazminatı hesaplama (30 günlük brüt ücret × çalışılan yıl)</p>
-                        
-                        <div class="form-group">
-                            <label for="kidem-brut">Aylık Brüt Ücret (TL)</label>
-                            <input type="number" id="kidem-brut" placeholder="Örn: 30000" min="0">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="kidem-yil">Çalışılan Yıl</label>
-                                <input type="number" id="kidem-yil" placeholder="Yıl" min="0">
-                            </div>
-                            <div class="form-group">
-                                <label for="kidem-ay">Ay</label>
-                                <input type="number" id="kidem-ay" placeholder="Ay" min="0" max="11">
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="kidem-gun">Gün</label>
-                            <input type="number" id="kidem-gun" placeholder="Gün" min="0" max="29">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaKidem()">Hesapla</button>
-                        
-                        <div class="result-box" id="kidem-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Toplam Çalışılan Süre:</span>
-                                <span id="kidem-sure"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Günlük Brüt Ücret:</span>
-                                <span id="kidem-gunluk"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Kıdem Tazminatı (Brüt):</span>
-                                <span id="kidem-tutar"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>Hesaplama Formülü:</strong> 30 günlük ücret × çalışılan yıl<br>
-                                <strong>Damga Vergisi:</strong> Binde 7.59 (işveren tarafından ödenir)<br>
-                                <strong>KDV:</strong> %18 (işveren tarafından ödenir)
-                            </div>
+                <div class="calculator-categories">
+                    <!-- İş Hukuku -->
+                    <div class="category-section">
+                        <h2 class="category-title">İş Hukuku Hesaplamaları</h2>
+                        <div class="calculators-grid">
+                            <a href="hesaplamalar/kidem-tazminati.html" class="calculator-link-card">
+                                <h3>Kıdem Tazminatı</h3>
+                                <p>İş Kanunu'na göre kıdem tazminatı hesaplama (30 günlük brüt ücret × çalışılan yıl)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/ihbar-tazminati.html" class="calculator-link-card">
+                                <h3>İhbar Tazminatı</h3>
+                                <p>İşten ayrılma veya işten çıkarılma durumlarında ihbar süresine göre tazminat hesaplama</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/fazla-mesai.html" class="calculator-link-card">
+                                <h3>Fazla Mesai Ücreti</h3>
+                                <p>Haftalık 45 saati aşan çalışmalara ödenen fazla mesai ücreti hesaplama</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/yillik-izin.html" class="calculator-link-card">
+                                <h3>Yıllık İzin</h3>
+                                <p>Çalışılan süreye göre yıllık izin hakkı hesaplama (İş Kanunu Md. 53)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/gunluk-yevmiye.html" class="calculator-link-card">
+                                <h3>Günlük Yevmiye</h3>
+                                <p>Aylık brüt ücretten günlük yevmiye hesaplama</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- İhbar Tazminatı Hesaplayıcı -->
-                    <div class="calculator-card" id="ihbar">
-                        <h2>İhbar Tazminatı Hesaplama</h2>
-                        <p>İşten ayrılma veya işten çıkarılma durumlarında ihbar süresine göre tazminat hesaplama</p>
-                        
-                        <div class="form-group">
-                            <label for="ihbar-brut">Aylık Brüt Ücret (TL)</label>
-                            <input type="number" id="ihbar-brut" placeholder="Örn: 30000" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="ihbar-sure">Çalışılan Süre</label>
-                            <select id="ihbar-sure">
-                                <option value="">Seçiniz...</option>
-                                <option value="0.5">6 aydan az</option>
-                                <option value="1">6 ay - 1.5 yıl</option>
-                                <option value="2">1.5 - 3 yıl</option>
-                                <option value="3">3 - 5 yıl</option>
-                                <option value="4">5 yıldan fazla</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="ihbar-bildirim">Bildirim Yapılmayan Süre (Hafta)</label>
-                            <input type="number" id="ihbar-bildirim" placeholder="Örn: 2" min="0">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaIhbar()">Hesapla</button>
-                        
-                        <div class="result-box" id="ihbar-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>İhbar Süresi:</span>
-                                <span id="ihbar-sure-text"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Günlük Brüt Ücret:</span>
-                                <span id="ihbar-gunluk"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>İhbar Tazminatı:</span>
-                                <span id="ihbar-tutar"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>İhbar Süreleri:</strong><br>
-                                • 6 aydan az: 2 hafta<br>
-                                • 6 ay - 1.5 yıl: 4 hafta<br>
-                                • 1.5 - 3 yıl: 6 hafta<br>
-                                • 3 - 5 yıl: 8 hafta<br>
-                                • 5 yıldan fazla: 8 hafta
-                            </div>
+                    <!-- Ceza Hukuku -->
+                    <div class="category-section">
+                        <h2 class="category-title">Ceza Hukuku Hesaplamaları</h2>
+                        <div class="calculators-grid">
+                            <a href="hesaplamalar/ceza-zamanasimi.html" class="calculator-link-card">
+                                <h3>Ceza Zamanaşımı</h3>
+                                <p>Suç türüne göre zamanaşımı süresi hesaplama (TCK Md. 66-73)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/hukumlu-infaz.html" class="calculator-link-card">
+                                <h3>Hükümlü İnfaz</h3>
+                                <p>5275 sayılı Ceza İnfaz Kanunu'na göre cezaevinde kalma süresi, şartlı tahliye ve denetimli serbestlik hesaplama</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
                         </div>
                     </div>
 
-                    <!-- Fazla Mesai Hesaplayıcı -->
-                    <div class="calculator-card" id="fazlamesai">
-                        <h2>Fazla Mesai Ücreti Hesaplama</h2>
-                        <p>Haftalık 45 saati aşan çalışmalara ödenen fazla mesai ücreti hesaplama (saatlik ücret × 1.5)</p>
-                        
-                        <div class="form-group">
-                            <label for="fm-brut">Aylık Brüt Ücret (TL)</label>
-                            <input type="number" id="fm-brut" placeholder="Örn: 30000" min="0">
-                        </div>
-                        
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="fm-saat">Fazla Mesai Saati</label>
-                                <input type="number" id="fm-saat" placeholder="Örn: 10" min="0">
-                            </div>
-                            <div class="form-group">
-                                <label for="fm-gun">Çalışılan Gün (Ayda)</label>
-                                <input type="number" id="fm-gun" value="22" min="1" max="31">
-                            </div>
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaFazlaMesai()">Hesapla</button>
-                        
-                        <div class="result-box" id="fm-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Günlük Ücret:</span>
-                                <span id="fm-gunluk"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Saatlik Ücret:</span>
-                                <span id="fm-saatlik"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Fazla Mesai Saat Ücreti (1.5x):</span>
-                                <span id="fm-saatlik-fm"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Toplam Fazla Mesai Ücreti:</span>
-                                <span id="fm-tutar"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>Hesaplama Formülü:</strong> Saatlik ücret = (Brüt ücret / çalışılan gün) / 7.5 saat<br>
-                                Fazla mesai ücreti = Saatlik ücret × 1.5 × fazla mesai saati<br>
-                                <strong>Yıllık Fazla Mesai Limiti:</strong> 270 saat
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Yıllık İzin Hesaplayıcı -->
-                    <div class="calculator-card" id="yillikizin">
-                        <h2>Yıllık İzin Hesaplama</h2>
-                        <p>Çalışılan süreye göre yıllık izin hakkı hesaplama (İş Kanunu Md. 53)</p>
-                        
-                        <div class="form-group">
-                            <label for="izin-sure">Çalışılan Süre</label>
-                            <select id="izin-sure">
-                                <option value="">Seçiniz...</option>
-                                <option value="14">1 - 5 yıl (14 gün)</option>
-                                <option value="20">5 - 15 yıl (20 gün)</option>
-                                <option value="26">15 yıl ve üzeri (26 gün)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="izin-kullanilan">Kullanılan İzin (Gün)</label>
-                            <input type="number" id="izin-kullanilan" placeholder="Örn: 5" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="izin-brumesai">Günlük Çalışma Saati</label>
-                            <input type="number" id="izin-brumesai" value="7.5" min="1" max="24">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaIzin()">Hesapla</button>
-                        
-                        <div class="result-box" id="izin-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Toplam Yıllık İzin Hakkı:</span>
-                                <span id="izin-toplam"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Kullanılan İzin:</span>
-                                <span id="izin-kullanilan-text"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Kalan İzin Hakkı:</span>
-                                <span id="izin-kalan"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>İzin Ücreti (Saatlik):</span>
-                                <span id="izin-ucret"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>Yıllık İzin Hakları:</strong><br>
-                                • 1-5 yıl: 14 gün<br>
-                                • 5-15 yıl: 20 gün<br>
-                                • 15+ yıl: 26 gün<br>
-                                <strong>Not:</strong> İzin ücreti, işçinin günlük ortalama ücreti üzerinden ödenir.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Günlük Yevmiye Hesaplayıcı -->
-                    <div class="calculator-card" id="yevmiye">
-                        <h2>Günlük Yevmiye Hesaplama</h2>
-                        <p>Aylık brüt ücretten günlük yevmiye hesaplama</p>
-                        
-                        <div class="form-group">
-                            <label for="yev-brut">Aylık Brüt Ücret (TL)</label>
-                            <input type="number" id="yev-brut" placeholder="Örn: 30000" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="yev-gun">Ay Gün Sayısı</label>
-                            <select id="yev-gun">
-                                <option value="30">30 gün</option>
-                                <option value="30.44">30.44 gün (yıllık ortalama)</option>
-                                <option value="31">31 gün</option>
-                                <option value="28">28 gün (Şubat)</option>
-                                <option value="29">29 gün (Artık yıl Şubat)</option>
-                            </select>
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaYevmiye()">Hesapla</button>
-                        
-                        <div class="result-box" id="yev-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Günlük Yevmiye (Brüt):</span>
-                                <span id="yev-gunluk"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Saatlik Ücret (7.5 saat):</span>
-                                <span id="yev-saatlik"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>Hesaplama Formülü:</strong> Günlük yevmiye = Brüt ücret / Ay gün sayısı<br>
-                                <strong>Saatlik ücret:</strong> Günlük yevmiye / Günlük çalışma saati<br>
-                                <strong>Kıdem Tazminatı İçin:</strong> 30 günlük ücret kullanılır
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Ceza Zamanaşımı Hesaplayıcı -->
-                    <div class="calculator-card" id="cezazamanasimi">
-                        <h2>Ceza Zamanaşımı Hesaplama</h2>
-                        <p>Suç türüne göre zamanaşımı süresi hesaplama (TCK Md. 66-73)</p>
-                        
-                        <div class="form-group">
-                            <label for="ceza-tur">Suç Türü / Hapis Cezası Üst Sınırı</label>
-                            <select id="ceza-tur">
-                                <option value="">Seçiniz...</option>
-                                <option value="8">6 aydan az hapis (8 yıl)</option>
-                                <option value="12">6 ay - 1 yıl hapis (12 yıl)</option>
-                                <option value="15">1 - 4 yıl hapis (15 yıl)</option>
-                                <option value="20">4 yıldan fazla hapis (20 yıl)</option>
-                                <option value="special">Özel zamanaşımı süreleri</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group" id="ozel-ceza-group" style="display:none;">
-                            <label for="ozel-ceza">Özel Suç Türü</label>
-                            <select id="ozel-ceza">
-                                <option value="20">İşkence, eziyet (20 yıl)</option>
-                                <option value="20">Cinsel istismar (20 yıl)</option>
-                                <option value="15">Dolandırıcılık (15 yıl)</option>
-                                <option value="15">Hırsızlık (15 yıl)</option>
-                                <option value="8">Basit yaralama (8 yıl)</option>
-                                <option value="8">Hakaret (8 yıl)</option>
-                                <option value="12">Trafik suçları (12 yıl)</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="ceza-tarih">Suç Tarihi</label>
-                            <input type="date" id="ceza-tarih">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaCezaZamanaşımı()">Hesapla</button>
-                        
-                        <div class="result-box" id="ceza-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Zamanaşımı Süresi:</span>
-                                <span id="ceza-sure"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Suç Tarihi:</span>
-                                <span id="ceza-baslama"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Zamanaşımı Bitiş Tarihi:</span>
-                                <span id="ceza-bitis"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Kalan Süre:</span>
-                                <span id="ceza-kalan"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>Zamanaşımı Süreleri (TCK Md. 66):</strong><br>
-                                • 6 aydan az hapis: 8 yıl<br>
-                                • 6 ay - 1 yıl hapis: 12 yıl<br>
-                                • 1 - 4 yıl hapis: 15 yıl<br>
-                                • 4 yıldan fazla: 20 yıl<br>
-                                <strong>Zorlayıcı nedenler:</strong> Zamanaşımı durur ve kesilir.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Hükümlü İnfaz Hesaplayıcı -->
-                    <div class="calculator-card" id="infaz">
-                        <h2>Hükümlü İnfaz Hesaplama</h2>
-                        <p>5275 sayılı Ceza İnfaz Kanunu'na göre cezaevinde kalma süresi, şartlı tahliye ve denetimli serbestlik hesaplama</p>
-                        
-                        <div class="form-group">
-                            <label for="infaz-ceza">Verilen Ceza (Ay/Yıl olarak)</label>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="infaz-yil">Yıl</label>
-                                    <input type="number" id="infaz-yil" placeholder="Örn: 3" min="0">
-                                </div>
-                                <div class="form-group">
-                                    <label for="infaz-ay">Ay</label>
-                                    <input type="number" id="infaz-ay" placeholder="Örn: 6" min="0" max="11">
-                                </div>
-                                <div class="form-group">
-                                    <label for="infaz-gun">Gün</label>
-                                    <input type="number" id="infaz-gun" placeholder="Örn: 0" min="0" max="29">
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="infaz-tur">Suç Türü</label>
-                            <select id="infaz-tur">
-                                <option value="">Seçiniz...</option>
-                                <option value="normal">Genel Suçlar (3/4 infaz)</option>
-                                <option value="aggravated">Ağırlaştırılmış Suçlar (2/3 infaz)</option>
-                                <option value="terrorist">Terör Suçları (Özel)</option>
-                                <option value="kasten">Kasten Adam Öldürme</option>
-                                <option value="cinsel">Cinsel Suçlar (Çocuk)</option>
-                                <option value="uyusturucu">Uyuşturucu Ticareti</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="infaz-tutukluluk">Tutukluluk Süresi (Gün) - Varsa</label>
-                            <input type="number" id="infaz-tutukluluk" placeholder="Örn: 180" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="infaz-hukum">Hüküm Tarihi</label>
-                            <input type="date" id="infaz-hukum">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaInfaz()">Hesapla</button>
-                        
-                        <div class="result-box" id="infaz-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Toplam Ceza Süresi:</span>
-                                <span id="infaz-toplam"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>İnfaz Oranı:</span>
-                                <span id="infaz-oran"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Cezaevinde Kalınacak Süre:</span>
-                                <span id="infaz-yatar"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Mahsup Edilen Tutukluluk:</span>
-                                <span id="infaz-mahsup"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Kalan Cezaevinde Kalma:</span>
-                                <span id="infaz-kalan"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Şartlı Tahliye Tarihi:</span>
-                                <span id="infaz-tahliye"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Denetimli Serbestlik Süresi:</span>
-                                <span id="infaz-denetim"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>İnfaz Oranları (5275 sayılı Kanun):</strong><br>
-                                • Genel suçlar: Cezanın 3/4'ü (Md. 10)<br>
-                                • Ağırlaştırılmış suçlar: Cezanın 2/3'ü (Md. 11)<br>
-                                • Kasten öldürme: Cezanın 3/4'ü<br>
-                                • Terör suçları: Değişken oranlar<br>
-                                • Tutukluluk süresi: Cezaevinde kalınacak süreden mahsup edilir.<br>
-                                <strong>Not:</strong> Hesaplamalar bilgilendirme amaçlıdır.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Mahkeme Harcı Hesaplayıcı -->
-                    <div class="calculator-card" id="mahkemeharci">
-                        <h2>Mahkeme Harç ve Giderleri Hesaplama</h2>
-                        <p>Dava türüne göre harç ve gider hesaplama (2025 güncel tarifeler)</p>
-                        
-                        <div class="form-group">
-                            <label for="dava-tur">Dava Türü</label>
-                            <select id="dava-tur">
-                                <option value="">Seçiniz...</option>
-                                <option value="kirasarti">Kira Sartı Davaları</option>
-                                <option value="alacak">Alacak Davaları</option>
-                                <option value="tazminat">Tazminat Davaları</option>
-                                <option value="bosanma">Boşanma Davaları</option>
-                                <option value="icrayakoyma">İcraya Koyma</option>
-                                <option value="tenfiz">Tenfiz</option>
-                                <option value="itiraz">İcra İtirazı</option>
-                                <option value="men">Men Davaları</option>
-                                <option value="ihtiyati">İhtiyati Haciz/Tedbir</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="dava-deger">Dava Konusu Değer (TL) - Varsa</label>
-                            <input type="number" id="dava-deger" placeholder="Örn: 100000" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="dava-vekil">Avukatlık Ücreti Dahil mi?</label>
-                            <select id="dava-vekil">
-                                <option value="hayir">Hayır</option>
-                                <option value="evet">Evet</option>
-                            </select>
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaMahkemeHarci()">Hesapla</button>
-                        
-                        <div class="result-box" id="mahkeme-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Basvuru Harcı:</span>
-                                <span id="mahkeme-basvuru"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Posta ve Tebligat Gideri:</span>
-                                <span id="mahkeme-posta"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Seçimlik Harç (varsa):</span>
-                                <span id="mahkeme-secimlik"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Avukatlık Ücreti (min):</span>
-                                <span id="mahkeme-vekil"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Toplam Gider:</span>
-                                <span id="mahkeme-toplam"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>2025 Harç Tarifeleri:</strong><br>
-                                • Alacak/şart davası: 202,60 TL + %4,83‰ (üst sınır 40.520 TL)<br>
-                                • İcraya koyma: 405,20 TL<br>
-                                • Tenfiz: 405,20 TL<br>
-                                • İcra itirazı: 202,60 TL<br>
-                                • Boşanma: 810,40 TL<br>
-                                Tarifeler yıllık olarak güncellenir.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- İcra Harcı Hesaplayıcı -->
-                    <div class="calculator-card" id="icraharci">
-                        <h2>İcra Takip Harçları Hesaplama</h2>
-                        <p>İcra takibi başlatma ve ilamlı takip harçları (2025 güncel tarifeler)</p>
-                        
-                        <div class="form-group">
-                            <label for="icra-tur">Takip Türü</label>
-                            <select id="icra-tur">
-                                <option value="">Seçiniz...</option>
-                                <option value="ilamsiz">İlamsız Takip (Sözlü talep)</option>
-                                <option value="ilamli">İlamlı Takip (İlamsız)</option>
-                                <option value="cep">Cep Telefonu Haczi</option>
-                                <option value="arac">Araç Haczi</option>
-                                <option value="konut">Konut Haczi</option>
-                                <option value="maas">Maaş Haczi</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="icra-tutar">Takip Edilen Alacak (TL)</label>
-                            <input type="number" id="icra-tutar" placeholder="Örn: 50000" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="icra-kisi">Taraf Sayısı</label>
-                            <input type="number" id="icra-kisi" value="1" min="1">
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaIcraHarci()">Hesapla</button>
-                        
-                        <div class="result-box" id="icra-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Takip Talep Harcı:</span>
-                                <span id="icra-talep"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Peşin Harç (Taraf başına):</span>
-                                <span id="icra-pesin"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Tebligat Giderleri:</span>
-                                <span id="icra-tebligat"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Celp/Haciz Giderleri:</span>
-                                <span id="icra-celp"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Toplam Harç ve Gider:</span>
-                                <span id="icra-toplam"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>2025 İcra Harçları:</strong><br>
-                                • İlamsız takip: 121,56 TL<br>
-                                • İlamlı takip: 243,12 TL<br>
-                                • Peşin harç: 51,96 TL (taraf başına)<br>
-                                • Tebligat: ~60-100 TL<br>
-                                • Celp: ~100-200 TL<br>
-                                <strong>Not:</strong> Harçlar yıllık olarak değişebilir.
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Vekalet Ücreti Hesaplayıcı -->
-                    <div class="calculator-card" id="vekalet">
-                        <h2>Vekalet Ücreti Hesaplama</h2>
-                        <p>Dava türüne ve değere göre avukatlık ücreti hesaplama (2025 Baro Tarifesi)</p>
-                        
-                        <div class="form-group">
-                            <label for="vekalet-tur">Dava Türü</label>
-                            <select id="vekalet-tur">
-                                <option value="">Seçiniz...</option>
-                                <option value="icra">İcra Takibi</option>
-                                <option value="alacak">Alacak Davası</option>
-                                <option value="tazminat">Tazminat Davası</option>
-                                <option value="bosanma">Boşanma Davası</option>
-                                <option value="kira">Kira Sartı Davası</option>
-                                <option value="icrayitiraz">İcraya İtiraz</option>
-                                <option value="tenfiz">Tenfiz</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="vekalet-deger">Dava/Daire Değeri (TL) - Varsa</label>
-                            <input type="number" id="vekalet-deger" placeholder="Örn: 100000" min="0">
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="vekalet-asama">Dava Aşaması</label>
-                            <select id="vekalet-asama">
-                                <option value="bir">Bir derece mahkeme</option>
-                                <option value="tam">Tamamlama (tüm dereceler)</option>
-                                <option value="danisma">Hukuki Danışma</option>
-                            </select>
-                        </div>
-                        
-                        <button class="calculate-btn" onclick="hesaplaVekalet()">Hesapla</button>
-                        
-                        <div class="result-box" id="vekalet-sonuc">
-                            <h3>Hesaplama Sonucu</h3>
-                            <div class="result-item">
-                                <span>Dava Türü:</span>
-                                <span id="vekalet-tur-text"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Asgari Ücret:</span>
-                                <span id="vekalet-asgari"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Değere Göre Ücret:</span>
-                                <span id="vekalet-deger-ucret"></span>
-                            </div>
-                            <div class="result-item">
-                                <span>Tahmini Vekalet Ücreti:</span>
-                                <span id="vekalet-toplam"></span>
-                            </div>
-                            <div class="formula-info">
-                                <strong>2025 İzmir Barosu Ücret Tarifesi:</strong><br>
-                                • İcra takibi: 8.000 - 15.000 TL<br>
-                                • Alacak davası: 10.000 - 25.000 TL<br>
-                                • Boşanma: 15.000 - 50.000 TL<br>
-                                • Tazminat: Değerin %5-15'i<br>
-                                <strong>Not:</strong> Ücretler taraflar arasında serbestçe kararlaştırılabilir.
-                            </div>
+                    <!-- Masraflar ve Ücretler -->
+                    <div class="category-section">
+                        <h2 class="category-title">Masraflar ve Ücret Hesaplamaları</h2>
+                        <div class="calculators-grid">
+                            <a href="hesaplamalar/mahkeme-harci.html" class="calculator-link-card">
+                                <h3>Mahkeme Harcı</h3>
+                                <p>Dava türüne göre harç ve gider hesaplama (2025 güncel tarifeler)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/icra-harci.html" class="calculator-link-card">
+                                <h3>İcra Harcı</h3>
+                                <p>İcra takip harçları ve gider hesaplama (2025 güncel tarifeler)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
+                            <a href="hesaplamalar/vekalet-ucreti.html" class="calculator-link-card">
+                                <h3>Vekalet Ücreti</h3>
+                                <p>Dava değerine göre vekalet ücreti hesaplama (2025 Baro Tarifesi)</p>
+                                <span class="arrow">Hesapla →</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -880,492 +212,12 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h4>ÖZATA HUKUK</h4>
-                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
-                    <h4 style="margin-top: 25px; font-size: 1rem;">Bilgilendirme</h4>
-                    <p style="font-size: 0.85rem; line-height: 1.6; margin-top: 10px;">Bu internet sitesinde yer alan bilgiler potansiyel avukat-müvekkil ilişkisi yaratılması amacına yönelik değildir.</p>
-                </div>
-                <div class="footer-col">
-                    <h4>Hızlı Bağlantılar</h4>
-                    <ul>
-                        <li><a href="index.html">Anasayfa</a></li>
-                        <li><a href="kurumsal.html">Kurumsal</a></li>
-                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                        <li><a href="calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
-                        <li><a href="yayinlar.html">Yayınlar</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>İletişim</h4>
-                    <ul>
-                        <li><a href="iletisim.html">İletişim Formu</a></li>
-                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
-                        <li><a href="mailto:info@ozatahukuk.av.tr">E-posta</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Son Eklenen Yayınlar</h4>
-                    <div class="latest-publications-list"></div>
-                </div>
-            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
-
     <script src="script.js"></script>
-    <script src="publications.js"></script>
-    <script>
-        // Tab switching
-        document.querySelectorAll('.tab-btn').forEach(button => {
-            button.addEventListener('click', () => {
-                document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-                document.querySelectorAll('.calculator-card').forEach(card => card.classList.remove('active'));
-                
-                button.classList.add('active');
-                document.getElementById(button.dataset.tab).classList.add('active');
-            });
-        });
-
-        // Kıdem Tazminatı Hesaplama
-        function hesaplaKidem() {
-            const brut = parseFloat(document.getElementById('kidem-brut').value) || 0;
-            const yil = parseInt(document.getElementById('kidem-yil').value) || 0;
-            const ay = parseInt(document.getElementById('kidem-ay').value) || 0;
-            const gun = parseInt(document.getElementById('kidem-gun').value) || 0;
-
-            if (brut <= 0) {
-                alert('Lütfen geçerli bir brüt ücret giriniz.');
-                return;
-            }
-
-            const toplamGun = (yil * 365) + (ay * 30) + gun;
-            const yilDecimal = toplamGun / 365;
-            const gunlukBrut = brut / 30;
-            const tazminat = gunlukBrut * 30 * yilDecimal;
-
-            document.getElementById('kidem-sure').textContent = `${yil} yıl ${ay} ay ${gun} gün (${toplamGun} gün)`;
-            document.getElementById('kidem-gunluk').textContent = gunlukBrut.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('kidem-tutar').textContent = tazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('kidem-sonuc').classList.add('show');
-        }
-
-        // İhbar Tazminatı Hesaplama
-        function hesaplaIhbar() {
-            const brut = parseFloat(document.getElementById('ihbar-brut').value) || 0;
-            const sure = parseFloat(document.getElementById('ihbar-sure').value) || 0;
-            const bildirim = parseFloat(document.getElementById('ihbar-bildirim').value) || 0;
-
-            if (brut <= 0 || sure <= 0) {
-                alert('Lütfen geçerli değerler giriniz.');
-                return;
-            }
-
-            const sureText = {
-                '0.5': '2 hafta',
-                '1': '4 hafta',
-                '2': '6 hafta',
-                '3': '8 hafta',
-                '4': '8 hafta'
-            };
-
-            const haftaSayisi = sure;
-            const gunlukBrut = brut / 30;
-            const tazminat = gunlukBrut * (haftaSayisi * 7) * (bildirim / haftaSayisi || 1);
-
-            document.getElementById('ihbar-sure-text').textContent = sureText[sure] || sure + ' hafta';
-            document.getElementById('ihbar-gunluk').textContent = gunlukBrut.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('ihbar-tutar').textContent = tazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('ihbar-sonuc').classList.add('show');
-        }
-
-        // Fazla Mesai Hesaplama
-        function hesaplaFazlaMesai() {
-            const brut = parseFloat(document.getElementById('fm-brut').value) || 0;
-            const saat = parseFloat(document.getElementById('fm-saat').value) || 0;
-            const gun = parseFloat(document.getElementById('fm-gun').value) || 22;
-
-            if (brut <= 0 || saat <= 0) {
-                alert('Lütfen geçerli değerler giriniz.');
-                return;
-            }
-
-            const gunlukUcret = brut / gun;
-            const saatlikUcret = gunlukUcret / 7.5;
-            const fmSaatlik = saatlikUcret * 1.5;
-            const toplam = fmSaatlik * saat;
-
-            document.getElementById('fm-gunluk').textContent = gunlukUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('fm-saatlik').textContent = saatlikUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('fm-saatlik-fm').textContent = fmSaatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('fm-tutar').textContent = toplam.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('fm-sonuc').classList.add('show');
-        }
-
-        // Yıllık İzin Hesaplama
-        function hesaplaIzin() {
-            const sure = document.getElementById('izin-sure').value;
-            const kullanilan = parseInt(document.getElementById('izin-kullanilan').value) || 0;
-            const mesai = parseFloat(document.getElementById('izin-brumesai').value) || 7.5;
-
-            if (!sure) {
-                alert('Lütfen çalışılan süreyi seçiniz.');
-                return;
-            }
-
-            const toplamIzin = parseInt(sure);
-            const kalan = toplamIzin - kullanilan;
-            const saatlikUcret = 500 / mesai; // Örnek hesaplama
-
-            document.getElementById('izin-toplam').textContent = toplamIzin + ' gün';
-            document.getElementById('izin-kullanilan-text').textContent = kullanilan + ' gün';
-            document.getElementById('izin-kalan').textContent = Math.max(0, kalan) + ' gün';
-            document.getElementById('izin-ucret').textContent = saatlikUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('izin-sonuc').classList.add('show');
-        }
-
-        // Günlük Yevmiye Hesaplama
-        function hesaplaYevmiye() {
-            const brut = parseFloat(document.getElementById('yev-brut').value) || 0;
-            const gun = parseFloat(document.getElementById('yev-gun').value) || 30;
-
-            if (brut <= 0) {
-                alert('Lütfen geçerli bir brüt ücret giriniz.');
-                return;
-            }
-
-            const gunluk = brut / gun;
-            const saatlik = gunluk / 7.5;
-
-            document.getElementById('yev-gunluk').textContent = gunluk.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('yev-saatlik').textContent = saatlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('yev-sonuc').classList.add('show');
-        }
-
-        // Ceza Zamanaşımı Hesaplama
-        function hesaplaCezaZamanaşımı() {
-            const tur = document.getElementById('ceza-tur').value;
-            const ozel = document.getElementById('ozel-ceza').value;
-            const tarih = document.getElementById('ceza-tarih').value;
-
-            if (!tur || !tarih) {
-                alert('Lütfen tüm alanları doldurunuz.');
-                return;
-            }
-
-            let yil = parseInt(tur);
-            if (tur === 'special' && ozel) {
-                yil = parseInt(ozel);
-            }
-
-            const baslama = new Date(tarih);
-            const bitis = new Date(baslama);
-            bitis.setFullYear(bitis.getFullYear() + yil);
-
-            const bugun = new Date();
-            const kalan = Math.ceil((bitis - bugun) / (1000 * 60 * 60 * 24));
-
-            document.getElementById('ceza-sure').textContent = yil + ' yıl';
-            document.getElementById('ceza-baslama').textContent = baslama.toLocaleDateString('tr-TR');
-            document.getElementById('ceza-bitis').textContent = bitis.toLocaleDateString('tr-TR');
-            document.getElementById('ceza-kalan').textContent = kalan > 0 ? kalan + ' gün' : 'Zamanaşımı dolmuş';
-            
-            document.getElementById('ceza-sonuc').classList.add('show');
-        }
-
-        // Hükümlü İnfaz Hesaplama (5275 sayılı Kanun)
-        function hesaplaInfaz() {
-            const yil = parseInt(document.getElementById('infaz-yil').value) || 0;
-            const ay = parseInt(document.getElementById('infaz-ay').value) || 0;
-            const gun = parseInt(document.getElementById('infaz-gun').value) || 0;
-            const tur = document.getElementById('infaz-tur').value;
-            const tutukluluk = parseInt(document.getElementById('infaz-tutukluluk').value) || 0;
-            const hukumTarihi = document.getElementById('infaz-hukum').value;
-
-            if (!tur || yil + ay + gun === 0) {
-                alert('Lütfen ceza süresi ve suç türü seçiniz.');
-                return;
-            }
-
-            // Toplam ceza süresini güne çevir
-            const toplamGun = (yil * 365) + (ay * 30) + gun;
-            const toplamAy = (yil * 12) + ay;
-            
-            // İnfaz oranı belirle
-            let infazOrani = 0.75; // 3/4 genel kural
-            let oranText = '3/4 (%75)';
-            
-            switch(tur) {
-                case 'normal':
-                    infazOrani = 0.75;
-                    oranText = '3/4 (%75)';
-                    break;
-                case 'aggravated':
-                    infazOrani = 0.6667; // 2/3
-                    oranText = '2/3 (%66.7)';
-                    break;
-                case 'terrorist':
-                    infazOrani = 0.6667;
-                    oranText = '2/3 (%66.7) - Terör';
-                    break;
-                case 'kasten':
-                    infazOrani = 0.75;
-                    oranText = '3/4 (%75)';
-                    break;
-                case 'cinsel':
-                    infazOrani = 0.6667;
-                    oranText = '2/3 (%66.7)';
-                    break;
-                case 'uyusturucu':
-                    infazOrani = 0.6667;
-                    oranText = '2/3 (%66.7)';
-                    break;
-            }
-
-            // Cezaevinde kalınacak süre
-            const yatarGun = Math.ceil(toplamGun * infazOrani);
-            const kalanYatar = Math.max(0, yatarGun - tutukluluk);
-            
-            // Denetimli serbestlik süresi (kalan 1/4 veya 1/3)
-            const denetimGun = toplamGun - yatarGun;
-            
-            // Şartlı tahliye tarihi hesapla
-            let tahliyeTarihi = 'Belirlenemedi';
-            if (hukumTarihi) {
-                const hukum = new Date(hukumTarihi);
-                const tahliye = new Date(hukum);
-                tahliye.setDate(tahliye.getDate() + kalanYatar);
-                tahliyeTarihi = tahliye.toLocaleDateString('tr-TR');
-            }
-
-            // Formatlamalar
-            const yilText = yil > 0 ? yil + ' yıl ' : '';
-            const ayText = ay > 0 ? ay + ' ay ' : '';
-            const gunText = gun > 0 ? gun + ' gün' : '';
-            
-            const yatarYil = Math.floor(yatarGun / 365);
-            const yatarAy = Math.floor((yatarGun % 365) / 30);
-            const yatarGunKalan = (yatarGun % 365) % 30;
-            
-            const kalanYil = Math.floor(kalanYatar / 365);
-            const kalanAy = Math.floor((kalanYatar % 365) / 30);
-            const kalanGunKalan = (kalanYatar % 365) % 30;
-            
-            const denetimYil = Math.floor(denetimGun / 365);
-            const denetimAy = Math.floor((denetimGun % 365) / 30);
-            const denetimGunKalan = (denetimGun % 365) % 30;
-
-            document.getElementById('infaz-toplam').textContent = yilText + ayText + gunText + ` (${toplamGun} gün)`;
-            document.getElementById('infaz-oran').textContent = oranText;
-            document.getElementById('infaz-yatar').textContent = `${yatarYil} yıl ${yatarAy} ay ${yatarGunKalan} gün (${yatarGun} gün)`;
-            document.getElementById('infaz-mahsup').textContent = tutukluluk + ' gün';
-            document.getElementById('infaz-kalan').textContent = `${kalanYil} yıl ${kalanAy} ay ${kalanGunKalan} gün (${kalanYatar} gün)`;
-            document.getElementById('infaz-tahliye').textContent = tahliyeTarihi;
-            document.getElementById('infaz-denetim').textContent = `${denetimYil} yıl ${denetimAy} ay ${denetimGunKalan} gün (${denetimGun} gün)`;
-            
-            document.getElementById('infaz-sonuc').classList.add('show');
-        }
-
-        // Ozel ceza seçimi göster/gizle
-        document.getElementById('ceza-tur').addEventListener('change', function() {
-            document.getElementById('ozel-ceza-group').style.display = this.value === 'special' ? 'block' : 'none';
-        });
-
-        // Mahkeme Harcı Hesaplama
-        function hesaplaMahkemeHarci() {
-            const tur = document.getElementById('dava-tur').value;
-            const deger = parseFloat(document.getElementById('dava-deger').value) || 0;
-            const vekil = document.getElementById('dava-vekil').value;
-
-            if (!tur) {
-                alert('Lütfen dava türünü seçiniz.');
-                return;
-            }
-
-            let basvuru = 0;
-            let posta = 250;
-            let secimlik = 0;
-            let vekilUcret = 0;
-
-            switch(tur) {
-                case 'kirasarti':
-                case 'alacak':
-                    basvuru = 202.60 + (deger * 0.00483);
-                    if (basvuru > 40520) basvuru = 40520;
-                    break;
-                case 'tazminat':
-                    basvuru = 202.60 + (deger * 0.00483);
-                    if (basvuru > 40520) basvuru = 40520;
-                    break;
-                case 'bosanma':
-                    basvuru = 810.40;
-                    break;
-                case 'icrayakoyma':
-                    basvuru = 405.20;
-                    break;
-                case 'tenfiz':
-                    basvuru = 405.20;
-                    break;
-                case 'itiraz':
-                    basvuru = 202.60;
-                    break;
-                case 'men':
-                    basvuru = 405.20;
-                    break;
-                case 'ihtiyati':
-                    basvuru = 405.20;
-                    break;
-            }
-
-            if (vekil === 'evet') {
-                vekilUcret = deger > 0 ? deger * 0.10 : 10000;
-                if (vekilUcret < 8000) vekilUcret = 8000;
-                if (vekilUcret > 50000) vekilUcret = 50000;
-            }
-
-            document.getElementById('mahkeme-basvuru').textContent = basvuru.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('mahkeme-posta').textContent = posta.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('mahkeme-secimlik').textContent = secimlik > 0 ? secimlik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' : 'Yok';
-            document.getElementById('mahkeme-vekil').textContent = vekilUcret > 0 ? vekilUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL' : 'Dahil değil';
-            document.getElementById('mahkeme-toplam').textContent = (basvuru + posta + secimlik + vekilUcret).toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('mahkeme-sonuc').classList.add('show');
-        }
-
-        // İcra Harcı Hesaplama
-        function hesaplaIcraHarci() {
-            const tur = document.getElementById('icra-tur').value;
-            const tutar = parseFloat(document.getElementById('icra-tutar').value) || 0;
-            const kisi = parseInt(document.getElementById('icra-kisi').value) || 1;
-
-            if (!tur) {
-                alert('Lütfen takip türünü seçiniz.');
-                return;
-            }
-
-            let talep = 0;
-            let pesin = 51.96 * kisi;
-            let tebligat = 200;
-            let celp = 0;
-
-            switch(tur) {
-                case 'ilamsiz':
-                    talep = 121.56;
-                    break;
-                case 'ilamli':
-                    talep = 243.12;
-                    break;
-                case 'cep':
-                    talep = 243.12;
-                    celp = 100;
-                    break;
-                case 'arac':
-                    talep = 243.12;
-                    celp = 200;
-                    break;
-                case 'konut':
-                    talep = 243.12;
-                    celp = 300;
-                    break;
-                case 'maas':
-                    talep = 243.12;
-                    celp = 150;
-                    break;
-            }
-
-            document.getElementById('icra-talep').textContent = talep.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('icra-pesin').textContent = pesin.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('icra-tebligat').textContent = tebligat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('icra-celp').textContent = celp.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('icra-toplam').textContent = (talep + pesin + tebligat + celp).toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('icra-sonuc').classList.add('show');
-        }
-
-        // Vekalet Ücreti Hesaplama
-        function hesaplaVekalet() {
-            const tur = document.getElementById('vekalet-tur').value;
-            const deger = parseFloat(document.getElementById('vekalet-deger').value) || 0;
-            const asama = document.getElementById('vekalet-asama').value;
-
-            if (!tur) {
-                alert('Lütfen dava türünü seçiniz.');
-                return;
-            }
-
-            const turText = {
-                'icra': 'İcra Takibi',
-                'alacak': 'Alacak Davası',
-                'tazminat': 'Tazminat Davası',
-                'bosanma': 'Boşanma Davası',
-                'kira': 'Kira Sartı Davası',
-                'icrayitiraz': 'İcraya İtiraz',
-                'tenfiz': 'Tenfiz'
-            };
-
-            let asgari = 0;
-            let degerUcret = 0;
-
-            switch(tur) {
-                case 'icra':
-                    asgari = 8000;
-                    degerUcret = deger > 0 ? deger * 0.08 : 0;
-                    break;
-                case 'alacak':
-                    asgari = 10000;
-                    degerUcret = deger > 0 ? deger * 0.10 : 0;
-                    break;
-                case 'tazminat':
-                    asgari = 12000;
-                    degerUcret = deger > 0 ? deger * 0.12 : 0;
-                    break;
-                case 'bosanma':
-                    asgari = 15000;
-                    degerUcret = deger > 0 ? deger * 0.15 : 0;
-                    break;
-                case 'kira':
-                    asgari = 8000;
-                    degerUcret = deger > 0 ? deger * 0.08 : 0;
-                    break;
-                case 'icrayitiraz':
-                    asgari = 8000;
-                    degerUcret = deger > 0 ? deger * 0.08 : 0;
-                    break;
-                case 'tenfiz':
-                    asgari = 6000;
-                    degerUcret = deger > 0 ? deger * 0.06 : 0;
-                    break;
-            }
-
-            if (degerUcret < asgari) degerUcret = asgari;
-            
-            if (asama === 'tam') {
-                degerUcret *= 1.5;
-            } else if (asama === 'danisma') {
-                degerUcret = asgari * 0.3;
-            }
-
-            document.getElementById('vekalet-tur-text').textContent = turText[tur];
-            document.getElementById('vekalet-asgari').textContent = asgari.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('vekalet-deger-ucret').textContent = degerUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            document.getElementById('vekalet-toplam').textContent = degerUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2}) + ' TL';
-            
-            document.getElementById('vekalet-sonuc').classList.add('show');
-        }
-    </script>
 </body>
 </html>

@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yıllık İzin Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Yıllık İzin Hesaplama</h1>
+            <p>Çalışılan süreye göre yıllık izin hakkı hesaplama (İş Kanunu Md. 53)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Yıllık İzin Hesaplama</h2>
+                    <p>Çalışılan süreye göre yıllık izin hakkı hesaplama (İş Kanunu Md. 53)</p>
+                    
+                    <div class="form-group">
+                        <label for="izin-sure">Çalışılan Süre</label>
+                        <select id="izin-sure">
+                            <option value="">Seçiniz...</option>
+                            <option value="14">1 - 5 yıl (14 gün)</option>
+                            <option value="20">5 - 15 yıl (20 gün)</option>
+                            <option value="26">15 yıl ve üzeri (26 gün)</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="izin-kullanilan">Kullanılan İzin (Gün)</label>
+                        <input type="number" id="izin-kullanilan" placeholder="Örn: 5" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="izin-brumesai">Günlük Çalışma Saati</label>
+                        <input type="number" id="izin-brumesai" value="7.5" min="1" max="24">
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaIzin()">Hesapla</button>
+                    
+                    <div class="result-box" id="izin-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Toplam Yıllık İzin Hakkı:</span>
+                            <span id="izin-toplam"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kullanılan İzin:</span>
+                            <span id="izin-kullanilan-text"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Kalan İzin Hakkı:</span>
+                            <span id="izin-kalan"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>İzin Ücreti (Saatlik):</span>
+                            <span id="izin-ucret"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>Yıllık İzin Hakları:</strong><br>
+                            • 1-5 yıl: 14 gün<br>
+                            • 5-15 yıl: 20 gün<br>
+                            • 15+ yıl: 26 gün<br>
+                            <strong>Not:</strong> İzin ücreti, işçinin günlük ortalama ücreti üzerinden ödenir.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaIzin() {
+            const sure = parseInt(document.getElementById('izin-sure').value) || 0;
+            const kullanilan = parseInt(document.getElementById('izin-kullanilan').value) || 0;
+            
+            if (sure === 0) {
+                alert('Lütfen çalışılan süreyi seçiniz.');
+                return;
+            }
+            
+            const kalan = Math.max(0, sure - kullanilan);
+            
+            document.getElementById('izin-toplam').textContent = sure + ' gün';
+            document.getElementById('izin-kullanilan-text').textContent = kullanilan + ' gün';
+            document.getElementById('izin-kalan').textContent = kalan + ' gün';
+            document.getElementById('izin-ucret').textContent = 'Günlük ortalama ücret üzerinden';
+            
+            document.getElementById('izin-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mahkeme Harcı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 800px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .formula-info {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-light);
+        }
+        .formula-info strong { color: var(--primary-color); }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent-color);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .back-link:hover { text-decoration: underline; }
+        @media (max-width: 768px) {
+            .calculator-card { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <h1>Mahkeme Harcı Hesaplama</h1>
+            <p>Dava türüne göre harç ve gider hesaplama (2025 güncel tarifeler)</p>
+        </section>
+
+        <section class="calculator-section">
+            <div class="calculator-container">
+                <a href="../hesaplamalar.html" class="back-link">← Tüm Hesaplamalar</a>
+                
+                <div class="calculator-card">
+                    <h2>Mahkeme Harç ve Giderleri Hesaplama</h2>
+                    <p>Dava türüne göre harç ve gider hesaplama (2025 güncel tarifeler)</p>
+                    
+                    <div class="form-group">
+                        <label for="dava-tur">Dava Türü</label>
+                        <select id="dava-tur">
+                            <option value="">Seçiniz...</option>
+                            <option value="kirasarti">Kira Sartı Davaları</option>
+                            <option value="alacak">Alacak Davaları</option>
+                            <option value="tazminat">Tazminat Davaları</option>
+                            <option value="bosanma">Boşanma Davaları</option>
+                            <option value="icrayakoyma">İcraya Koyma</option>
+                            <option value="tenfiz">Tenfiz</option>
+                            <option value="itiraz">İcra İtirazı</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dava-deger">Dava Değeri (TL) - İstenen alacak/tazminat</label>
+                        <input type="number" id="dava-deger" placeholder="Örn: 100000" min="0">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="dava-vekil">Vekil Durumu</label>
+                        <select id="dava-vekil">
+                            <option value="yok">Vekil Yok</option>
+                            <option value="var">Vekil Var</option>
+                        </select>
+                    </div>
+                    
+                    <button class="calculate-btn" onclick="hesaplaMahkemeHarci()">Hesapla</button>
+                    
+                    <div class="result-box" id="mahkeme-sonuc">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div class="result-item">
+                            <span>Basit Harç:</span>
+                            <span id="mahkeme-basit"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Nispi Harç:</span>
+                            <span id="mahkeme-nispi"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Tebligat Giderleri:</span>
+                            <span id="mahkeme-tebligat"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Posta Giderleri:</span>
+                            <span id="mahkeme-posta"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Vekalet Harcı:</span>
+                            <span id="mahkeme-vekil"></span>
+                        </div>
+                        <div class="result-item">
+                            <span>Toplam Harç ve Giderler:</span>
+                            <span id="mahkeme-toplam"></span>
+                        </div>
+                        <div class="formula-info">
+                            <strong>2025 Harç Tarifesi:</strong><br>
+                            • Basit harç: 4.925 TL<br>
+                            • Nispi harç: Alacağın %1.5'i (alt limit 92.250 TL, üst limit 2.309.350 TL)<br>
+                            • Tebligat gideri: Davalı başına 150 TL<br>
+                            • Posta giderleri: 100 TL<br>
+                            • Vekalet harcı: Değerin %9'u (alt limit 12.300 TL, üst limit 1.231.500 TL)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaMahkemeHarci() {
+            const tur = document.getElementById('dava-tur').value;
+            const deger = parseFloat(document.getElementById('dava-deger').value) || 0;
+            const vekil = document.getElementById('dava-vekil').value;
+
+            if (!tur) {
+                alert('Lütfen dava türü seçiniz.');
+                return;
+            }
+
+            const basitHarç = 4925;
+            const nispiOran = 0.015;
+            const nispiMin = 92250;
+            const nispiMax = 2309350;
+            const tebligat = 150;
+            const posta = 100;
+
+            let nispi = deger * nispiOran;
+            if (nispi < nispiMin) nispi = nispiMin;
+            if (nispi > nispiMax) nispi = nispiMax;
+
+            let vekilHarci = 0;
+            if (vekil === 'var' && deger > 0) {
+                const vekilOran = 0.09;
+                const vekilMin = 12300;
+                const vekilMax = 1231500;
+                vekilHarci = deger * vekilOran;
+                if (vekilHarci < vekilMin) vekilHarci = vekilMin;
+                if (vekilHarci > vekilMax) vekilHarci = vekilMax;
+            }
+
+            const toplam = basitHarç + nispi + tebligat + posta + vekilHarci;
+
+            document.getElementById('mahkeme-basit').textContent = basitHarç.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('mahkeme-nispi').textContent = nispi.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('mahkeme-tebligat').textContent = tebligat.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('mahkeme-posta').textContent = posta.toLocaleString('tr-TR') + ' TL';
+            document.getElementById('mahkeme-vekil').textContent = vekilHarci > 0 ? vekilHarci.toLocaleString('tr-TR') + ' TL' : '0 TL';
+            document.getElementById('mahkeme-toplam').textContent = toplam.toLocaleString('tr-TR') + ' TL';
+            
+            document.getElementById('mahkeme-sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
