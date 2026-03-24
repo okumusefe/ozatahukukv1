@@ -1,0 +1,8 @@
+[build]
+  publish = "."
+  command = ""
+
+[[redirects]]
+  from = "/hakkimizda.html"
+  to = "/kurumsal.html"
+  status = 301
