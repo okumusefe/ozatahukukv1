@@ -310,7 +310,7 @@
 
     <script>
         // Koşullu salıverilme oranını belirle - Yargı Paketleri tarihlerine göre
-        function getKosulluSalivermeOrani(crimeType, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12) {
+        function getKosulluSalivermeOrani(crimeType, isBefore2014, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12) {
             const ratios = {
                 // Genel suçlar - 11. Yargı Paketi ile değişen oranlar
                 genel: isBefore2020 ? 0.5 : (isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.66 : 0.5))))),
@@ -419,7 +419,7 @@
             const isBefore2014 = hukumTarihi < new Date('2014-01-01');
             
             // Koşullu salıverilme oranını belirle
-            let kosulluSalivermeOrani = getKosulluSalivermeOrani(tur, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12);
+            let kosulluSalivermeOrani = getKosulluSalivermeOrani(tur, isBefore2014, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12);
             
             // Mükerrir kontrolü
             if (isMukerrer) {
