@@ -33,8 +33,8 @@
         .fee-section { background: linear-gradient(135deg, var(--bg-light) 0%, #ffffff 100%); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid var(--accent-color); }
         .fee-section h4 { color: var(--primary-color); margin-bottom: 10px; }
         .notice-box { background: rgba(201,169,97,0.1); padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid var(--accent-color); }
-        .city-section-wrapper { display: flex; gap: 30px; align-items: stretch; margin-top: 30px; }
-        .city-grid { display: grid; grid-template-columns: repeat(3, 1fr); grid-template-rows: repeat(2, auto); gap: 20px; flex: 1; }
+        .city-section-wrapper { display: flex; gap: 30px; align-items: stretch; }
+        .city-grid { display: grid; grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, 1fr); gap: 20px; flex: 1; }
         .city-card { background: linear-gradient(145deg, #ffffff 0%, #f8f9fa 100%); border-radius: 16px; padding: 25px 20px; text-align: center; box-shadow: 0 8px 32px rgba(0,0,0,0.08); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); display: flex; flex-direction: column; height: 100%; border: 1px solid rgba(201,169,97,0.1); position: relative; overflow: hidden; }
         .city-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px; background: linear-gradient(90deg, var(--accent-color) 0%, #d4b896 100%); }
         .city-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(201,169,97,0.2); border-color: rgba(201,169,97,0.3); }
@@ -46,9 +46,10 @@
         .city-icon svg { stroke-width: 1.5; width: 24px; height: 24px; }
         .city-card h3 { font-size: 1.1rem; color: var(--primary-color); margin-bottom: 5px; font-weight: 700; }
         .city-type { color: var(--accent-color); font-weight: 600; font-size: 0.7rem; margin-bottom: 3px; text-transform: uppercase; letter-spacing: 1px; }
-        .regions-cta { background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f3d 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; width: 320px; display: flex; flex-direction: column; justify-content: center; }
-        @media (max-width: 1200px) { .city-section-wrapper { flex-direction: column; } .regions-cta { width: 100%; } .city-grid { grid-template-columns: repeat(2, 1fr); } }
-        @media (max-width: 768px) { .city-grid { grid-template-columns: 1fr; } .district-grid, .city-grid { grid-template-columns: 1fr; } .district-header h2 { font-size: 2rem; } }
+        .regions-cta { background: linear-gradient(135deg, var(--primary-color) 0%, #1a1f3d 100%); color: white; padding: 30px; border-radius: 15px; text-align: center; width: 320px; display: flex; flex-direction: column; justify-content: center; align-self: stretch; }
+        .city-header-wide { text-align: center; margin: 60px 0 30px 0; }
+        @media (max-width: 1200px) { .city-section-wrapper { flex-direction: column; } .regions-cta { width: 100%; } .city-grid { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(3, auto); } }
+        @media (max-width: 768px) { .city-grid { grid-template-columns: 1fr; grid-template-rows: auto; } .district-grid, .city-grid { grid-template-columns: 1fr; } .district-header h2 { font-size: 2rem; } }
         .district-summary { color: var(--text-light); margin-bottom: 15px; font-size: 0.95rem; line-height: 1.6; min-height: 75px; }
         .district-full-content { display: none; flex-grow: 1; }
         .district-full-content.expanded { display: block; animation: fadeIn 0.3s ease; }
@@ -551,7 +552,8 @@
                         </div>
                         <button class="read-more-btn" onclick="toggleDistrict(this)">Devamını oku <span>▼</span></button>
                     </div>
-                <div class="district-header" style="margin-top: 60px;">
+
+                <div class="city-header-wide" style="margin-top: 60px; text-align: center; margin-bottom: 30px;">
                     <h2>Diğer Şehirlerdeki Hizmet Ağımız</h2>
                     <p>İzmir dışında Türkiye'nin dört bir yanındaki müvekkillerimize çözüm ortaklarımız aracılığıyla hizmet vermekteyiz.</p>
                 </div>
