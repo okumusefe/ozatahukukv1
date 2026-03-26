@@ -1548,6 +1548,60 @@
 
     <script src="script.js"></script>
     <script src="publications.js"></script>
+    
+    <!-- Sort articles by date (newest first) -->
+    <script>
+        (function() {
+            // Parse Turkish date format (e.g., "27 Mart 2026") to Date object
+            function parseTurkishDate(dateStr) {
+                const monthMap = {
+                    'Ocak': 0, 'Şubat': 1, 'Mart': 2, 'Nisan': 3, 'Mayıs': 4, 'Haziran': 5,
+                    'Temmuz': 6, 'Ağustos': 7, 'Eylül': 8, 'Ekim': 9, 'Kasım': 10, 'Aralık': 11
+                };
+                
+                const parts = dateStr.trim().split(' ');
+                if (parts.length === 3) {
+                    const day = parseInt(parts[0], 10);
+                    const month = monthMap[parts[1]];
+                    const year = parseInt(parts[2], 10);
+                    
+                    if (!isNaN(day) && month !== undefined && !isNaN(year)) {
+                        return new Date(year, month, day);
+                    }
+                }
+                return new Date(0);
+            }
+            
+            // Sort articles when page loads
+            function sortArticles() {
+                const grid = document.querySelector('.articles-grid');
+                if (!grid) return;
+                
+                const articles = Array.from(grid.querySelectorAll('.article-card'));
+                
+                articles.sort((a, b) => {
+                    const dateA = a.querySelector('.article-date');
+                    const dateB = b.querySelector('.article-date');
+                    
+                    if (!dateA || !dateB) return 0;
+                    
+                    const dateObjA = parseTurkishDate(dateA.textContent);
+                    const dateObjB = parseTurkishDate(dateB.textContent);
+                    
+                    return dateObjB - dateObjA; // Newest first
+                });
+                
+                // Re-append articles in sorted order
+                articles.forEach(article => grid.appendChild(article));
+            }
+            
+            // Run sorting when DOM is ready
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', sortArticles);
+            } else {
+                sortArticles();
+            }
+        })();
+    </script>
 </body>
 </html>
-
