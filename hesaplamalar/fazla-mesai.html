@@ -120,8 +120,8 @@
     </style>
 </head>
 <body>
-    <!-- Preloader -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease;">
+    <!-- Preloader - only shows if loading takes longer than 800ms -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
         <div class="preloader-logo" style="animation: spin 2s linear infinite;">
             <img src="../logo.svg" alt="Özata Hukuk" width="100" height="64" style="display: block;">
         </div>
@@ -137,20 +137,35 @@
             0%, 100% { opacity: 0.6; }
             50% { opacity: 1; }
         }
-        #preloader.hidden {
-            opacity: 0;
-            visibility: hidden;
-            pointer-events: none;
+        #preloader.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
         }
     </style>
     
     <script>
-        window.addEventListener('load', function() {
+        (function() {
             const preloader = document.getElementById('preloader');
-            setTimeout(function() {
-                preloader.classList.add('hidden');
+            let preloaderShown = false;
+            let pageLoaded = false;
+            
+            // Show preloader only if loading takes longer than 800ms
+            const showTimeout = setTimeout(function() {
+                if (!pageLoaded) {
+                    preloader.classList.add('visible');
+                    preloaderShown = true;
+                }
             }, 800);
-        });
+            
+            window.addEventListener('load', function() {
+                pageLoaded = true;
+                clearTimeout(showTimeout);
+                if (preloaderShown) {
+                    preloader.classList.remove('visible');
+                }
+            });
+        })();
     </script>
     <header class="header">
         <nav class="nav-container">
