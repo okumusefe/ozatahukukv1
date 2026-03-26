@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -15,6 +15,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Preloader - only shows if loading takes longer than 800ms -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
+        <div class="preloader-logo" style="animation: spin 2s linear infinite;">
+            <img src="logo.svg" alt="Özata Hukuk" width="100" height="64" style="display: block;">
+        </div>
+        <div class="preloader-text" style="margin-top: 20px; color: rgba(201,169,97,0.9); font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; animation: pulse 1.5s ease-in-out infinite;">YÜKLENİYOR...</div>
+    </div>
+    
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        #preloader.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+    
+    <script>
+        (function() {
+            const preloader = document.getElementById('preloader');
+            let preloaderShown = false;
+            let pageLoaded = false;
+            
+            // Show preloader only if loading takes longer than 800ms
+            const showTimeout = setTimeout(function() {
+                if (!pageLoaded) {
+                    preloader.classList.add('visible');
+                    preloaderShown = true;
+                }
+            }, 800);
+            
+            window.addEventListener('load', function() {
+                pageLoaded = true;
+                clearTimeout(showTimeout);
+                if (preloaderShown) {
+                    preloader.classList.remove('visible');
+                }
+            });
+        })();
+    </script>
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
@@ -120,6 +167,357 @@
                                 Avukat Ege Özata<br>
                                 Özata Hukuk Bürosu<br>
                                 <em>25 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">Enerji Piyasası Mevzuatı</span>
+                            <span class="article-date">26 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Şarj Hizmeti Yönetmeliği'nde Değişiklik Yapılmasına Dair Yönetmelik</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Resmî Gazete:</strong> 23 Mart 2026, Sayı: 33202</p>
+                            <p>Akıllı şarj sistemleri, mobil şarj istasyonları, ortak dolaşım (roaming) sözleşmeleri, otoyollarda doğrudan ödeme imkanı ve bilgi güvenliği standartları gibi önemli düzenlemeleri içeren kapsamlı bir yönetmelik değişikliği yayınlanmıştır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-sarj')">Devamını Oku →</button>
+                        <div id="article-sarj" class="article-full-content" style="display: none;">
+                            <h3>Konu: Elektrikli Araç Şarj Altyapısında Yeni Düzenlemeler</h3>
+                            
+                            <h4>YÖNETMELİĞİN ÖZETİ</h4>
+                            <p>23 Mart 2026 tarihli ve 33202 sayılı Resmî Gazete'de yayımlanan Yönetmelik ile 2/4/2022 tarihli ve 31797 sayılı Resmî Gazete'de yayınlanan Şarj Hizmeti Yönetmeliği'nde önemli değişiklikler yapılmıştır. Düzenleme; şarj üniteleri ve istasyonlarının kurulması, mobil şarj istasyonlarının işletilmesi, şarj ağının oluşturulması, şarj ağı işletmecilerinin lisanslandırılması ve faaliyetlerinin düzenlenmesi konularını kapsamaktadır.</p>
+                            
+                            <h4>TEMEL DEĞİŞİKLİKLER</h4>
+                            
+                            <p><strong>1. Akıllı Şarj Sistemleri</strong></p>
+                            <p>Yönetmelikte yeni eklenen tanıma göre akıllı şarj sistemleri; elektrikli araçtan veya elektrik şebekesinden elektronik iletişim yoluyla şarj istasyonuna iletilen bilgilere dayanarak, şarj ünitesinden elektrikli araca aktarılan enerji miktarının gerçek zamanlı olarak izlenmesine, kontrol edilmesine ve ayarlanmasına olanak veren sistemleri ifade eder.</p>
+                            <p>Şarj istasyonlarında toplam gücün verimli ve etkin kullanımı amacıyla akıllı şarj sistemleri uygulaması yapılabilir. Bu uygulamada anlık güce ilişkin bilgilendirmeler, ilgili şarj ağı işletmecisi tarafından kullanıcılara sağlanır.</p>
+                            
+                            <p><strong>2. Mobil Şarj İstasyonları</strong></p>
+                            <p>Yönetmeliğe eklenen yeni tanıma göre mobil şarj istasyonu; sabit bir elektrik tesisatına bağlı olmayan şarj istasyonunu ifade eder. Şarj ağı işletmecisi mobil şarj istasyonu işletmek istemesi halinde EPDK'ya belirlenen formatta bildirimde bulunur. Mobil şarj istasyonlarında yer alan şarj noktaları, şarj ağının asgari oluşma yükümlülükleri kapsamında değerlendirilir.</p>
+                            
+                            <p><strong>3. Ortak Dolaşım (Roaming) Sözleşmeleri</strong></p>
+                            <p>Yönetmelikte yer alan yeni tanıma göre ortak dolaşım (roaming) sözleşmesi; şarj ağı işletmecilerinin birbirlerinin kullanıcılarına doğrudan hizmet sağlaması amacıyla birbirleriyle yaptıkları, veri ve ödeme alışverişini de kapsayan sözleşmelerdir.</p>
+                            <ul>
+                                <li>Şarj ağı işletmecileri ortak dolaşım sözleşmesi yapabilme yetkisine sahiptir</li>
+                                <li>Yapılan sözleşmelerin imzalanmasını müteakip 30 gün içerisinde Kuruma bildirilmesi zorunludur</li>
+                                <li>Kurum, ortak dolaşım sözleşmeleri kapsamında yürütülen faaliyetlere ilişkin usul ve esaslar ile gerekli protokolleri belirleyebilir</li>
+                            </ul>
+                            
+                            <p><strong>4. Otoyollarda Doğrudan Ödeme İmkanı</strong></p>
+                            <p>Karayolları Genel Müdürlüğü'nün sorumluluğu altında bulunan otoyollarda şarj ağına yeni eklenen şarj istasyonlarında bulunan DC 50 kW ve üzeri güçteki şarj ünitelerinden en az bir tanesi için banka/kredi kartı okuyucuları veya temassız ödeme yapılabilen dijital cihazlar aracılığıyla doğrudan ödeme imkanı sağlanır. <strong>Bu ödeme yöntemleri için kullanıcıdan ilave bedel, komisyon veya fark talep edilemez.</strong></p>
+                            
+                            <p><strong>5. Bilgi Güvenliği Standartları</strong></p>
+                            <p>Şarj ağı işletmecisi tarafından şarj hizmeti sunulması kapsamında kullanılan yazılım sistemlerinin, şarj cihazları ve bu sistemlere uzaktan erişimlere ilişkin süreçlere ait bilişim sistemleri altyapısının <strong>TS ISO/IEC 27001 standardının güncel sürümüne uygun olması gerekir.</strong></p>
+                            <ul>
+                                <li>Yetkisiz erişimlerin önlenmesi</li>
+                                <li>Güvenli iletişim kanallarının kullanılması</li>
+                                <li>Kimlik doğrulama ve erişim yetkilendirmesi</li>
+                                <li>Bulut bilişim güvenliğine ilişkin tedbirlerin alınması</li>
+                                <li>Bilgi Güvenliği Rehberi'nin referans kaynak olarak dikkate alınması</li>
+                            </ul>
+                            
+                            <p><strong>6. Fiyatlandırma ve Faturalama</strong></p>
+                            <ul>
+                                <li>Şarj hizmeti fiyatı serbestçe belirlenir ve birim enerji fiyatı (TL/kWh) cinsinden uygulanır</li>
+                                <li>Faturada araca aktarılan enerji miktarına ayrıca yer verilir</li>
+                                <li>Bağlanma bedeli, işlem başlatma bedeli, şarj ekipmanı kullanımı bedeli gibi her ne ad altında olursa olsun ayrı bir bedel talep edilemez</li>
+                                <li>Fiyatlar internet sayfası, dijital mecralar ve şarj istasyonlarından erişilebilecek şekilde eş zamanlı olarak ilan edilir</li>
+                            </ul>
+                            
+                            <p><strong>7. Şarj İstasyonu Devir İşlemleri</strong></p>
+                            <p>Şarj ağı işletmecisi, şarj ağından bir şarj istasyonunu başka bir şarj ağı işletmecisine devrettiğinde; devreden ve devralan şarj ağı işletmecileri bu devir işlemini EPDK tarafından belirlenen formatta elektronik ortamda Kuruma bildirirler. Kurum tarafından bildirimlerin onaylanması sonrasında şarj istasyonunu devreden ile devralan şarj ağı işletmecileri tarafından ilgili şebeke işletmecisine bildirimde bulunulur.</p>
+                            
+                            <p><strong>8. Çift Marka Kullanımı</strong></p>
+                            <p>Şarj istasyonunda şarj ağı işletmecisinin markası ile birlikte olmak koşuluyla şarj istasyonu işletmecisi tarafından kendi markası da ilave olarak kullanılabilir.</p>
+                            
+                            <h4>YENİ TANIMLAR</h4>
+                            <ul>
+                                <li><strong>Akıllı şarj sistemleri:</strong> Elektrikli araçtan veya elektrik şebekesinden elektronik iletişim yoluyla şarj istasyonuna iletilen bilgilere dayanarak şarj ünitesinden elektrikli araca aktarılan enerji miktarının gerçek zamanlı olarak izlenmesine, kontrol edilmesine ve ayarlanmasına olanak veren sistemler</li>
+                                <li><strong>EPDAŞ:</strong> Enerji Piyasaları İşletme Anonim Şirketi</li>
+                                <li><strong>Mobil şarj istasyonu:</strong> Sabit bir elektrik tesisatına bağlı olmayan şarj istasyonu</li>
+                                <li><strong>Ortak dolaşım (roaming) sözleşmesi:</strong> Şarj ağı işletmecilerinin birbirlerinin kullanıcılarına doğrudan hizmet sağlaması amacıyla birbirleriyle yaptıkları veri ve ödeme alışverişini de kapsayan sözleşmeler</li>
+                                <li><strong>Şarj noktası (soketi):</strong> Şarj ünitesinden elektrikli araca enerji aktarımını sağlamak üzere bir şarj kablosuyla tümleşik olan veya bu kablonun bağlanması amaçlanan şarj ünitesinde bir veya birden fazla bulunabilen bağlantı ekipmanı</li>
+                            </ul>
+                            
+                            <h4>SİSTEM KULLANIM ve BAĞLANTI HAKLARI</h4>
+                            <p>Her ne ad altında veya yöntemle olursa olsun ticari faaliyet göstermeyen özel şarj istasyonlarının ve kullanıcıların yalnızca kendi ihtiyacı için kurduğu ya da kurdurduğu şarj ünitelerinin bir şarj ağına bağlanmaları zorunlu değildir.</p>
+                            <p>Şarj istasyonları için yapılan dağıtım sistemine bağlantı talepleri tüketim tesisi kapsamında değerlendirilerek karşılanır ve bağlantı talepleri hakkında Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliği ile Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmelikte sayılan durumlar hariç ilgili şebeke işletmecisi tarafından olumsuz görüş verilemez.</p>
+                            
+                            <h4>SONUÇ VE DEĞERLENDİRME</h4>
+                            <p>Bu Yönetmelik ile elektrikli araç şarj altyapısında önemli düzenlemeler yapılmış, kullanıcı hakları güçlendirilmiş ve sektörün gelişimini destekleyen yenilikler getirilmiştir. Özellikle akıllı şarj sistemleri, mobil şarj istasyonları ve ortak dolaşım sözleşmelerinin düzenlenmesi, elektrikli araç kullanımının artırılması ve şarj altyapısının yaygınlaştırılması açısından önemli adımlardır.</p>
+                            <p>Otoyollarda temassız ödeme imkanının zorunlu hale getirilmesi ve bu hizmet için ilave ücret talep edilememesi, kullanıcıların en temel haklarından biridir. Ayrıca bilgi güvenliği standartlarının ISO 27001 ile belirlenmesi, kullanıcı verilerinin korunması açısından önemli bir düzenlemedir.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Bilgi Notu:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>26 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">Kişisel Verilerin Korunması - KVKK Kararı</span>
+                            <span class="article-date">24 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">KVKK İlke Kararı: Açık Rıza Metni ile Aydınlatma Metninin Ayrı Ayrı Düzenlenmesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Karar No:</strong> 2026/347 | <strong>Karar Tarihi:</strong> 18.02.2026 | <strong>Resmî Gazete:</strong> 24.03.2026</p>
+                            <p>Kişisel Verileri Koruma Kurulu tarafından alınan İlke Kararı ile açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde sunulmasının hukuka aykırılık teşkil ettiği, ayrı ayrı düzenlenmesi ve ayrı beyan alınması gerektiği kamuoyuna duyurulmuştur.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-kvkk')">Devamını Oku →</button>
+                        <div id="article-kvkk" class="article-full-content" style="display: none;">
+                            <h3>Konu: Veri Sorumluları Tarafından Açık Rıza ve Aydınlatma Metinlerinin Ayrı Ayrı Düzenlenmesi</h3>
+                            
+                            <h4>KARARIN ÖZETİ</h4>
+                            <p>Açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde ilgili kişilere sunulması, Kişisel Verileri Koruma Kurumuna intikal eden ihbar ve şikâyetlerde en çok karşılaşılan hukuka aykırılıklardan biri olarak görülmektedir. 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesinde düzenlenen aydınlatma yükümlülüğü, kişisel verileri işlenen ilgili kişilerin bilgilendirilmesi anlamına gelmektedir. Açık rıza ise kişisel verilerin hukuka uygun olarak işlenebilmesi için Kanun'da öngörülen işleme şartlarından biridir.</p>
+                            
+                            <h4>HUKUKİ DAYANAKLAR</h4>
+                            <p><strong>Anayasa m.20/3:</strong> Kişisel verilerin, ancak kanunda öngörülen hallerde veya kişinin açık rızasıyla işlenebileceği hüküm altına alınmıştır.</p>
+                            <p><strong>KVKK m.3:</strong> Açık rıza, "belirli bir konuya ilişkin, bilgilendirilmeye dayanan ve özgür iradeyle açıklanan rıza" şeklinde tanımlanmıştır.</p>
+                            <p><strong>KVKK m.10:</strong> Veri sorumlusu, kişisel verilerin elde edilmesi sırasında ilgili kişilere; veri sorumlusunun kimliği, kişisel verilerin hangi amaçla işleneceği, kimlere aktarılabileceği, toplamanın yöntemi ve hukuki sebebi, ve Kanun'un 11. maddesinde sayılan haklar konusunda bilgi vermekle yükümlüdür.</p>
+                            
+                            <h4>AYDINLATMA YÜKÜMLÜLÜĞÜNDE UYULACAK USUL</h4>
+                            <p>Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ'in 5. maddesinin birinci fıkrasının (t) bendi hükme göre: Kişisel veri işleme faaliyetinin açık rıza şartına dayalı olarak gerçekleştirilmesi halinde, aydınlatma yükümlülüğü ve açık rızanın alınması işlemlerinin ayrı ayrı yerine getirilmesi gerekmektedir.</p>
+                            
+                            <h4>KARARIN ESASLARI</h4>
+                            
+                            <p><strong>1. Zorunlu Ayrım</strong></p>
+                            <ul>
+                                <li><strong>Aydınlatma yükümlülüğü</strong> ilgili kişinin talebine veya onayına bağlı olmayan, her durumda kişisel veri işlemeye başlamadan önce yerine getirilmesi gereken bir yükümlülükttür.</li>
+                                <li><strong>Açık rıza</strong> ise sadece açık rıza şartına dayalı işleme faaliyetlerinde alınması gereken, özgür iradeyle verilen konuya özel izindir.</li>
+                            </ul>
+                            
+                            <p><strong>2. Ayrı Metin Olarak Düzenleme</strong></p>
+                            <ul>
+                                <li>Kişisel veri işleme faaliyetinin açık rıza şartına dayalı olarak gerçekleştirilmesi halinde, aydınlatma metni ile açık rıza metni <strong>farklı başlıklar altında ayrı ayrı metinler</strong> olarak düzenlenmelidir.</li>
+                                <li>Metinler aynı sayfada bulunacaksa, <strong>alt alta gelecek şekilde</strong> ve <strong>her iki metin için ayrı beyan alınacak</strong> biçimde sunulmalıdır.</li>
+                            </ul>
+                            
+                            <p><strong>3. Doğru Beyan Formatı</strong></p>
+                            <ul>
+                                <li><strong>Yanlış:</strong> "Okudum ve kabul ediyorum", "Okudum ve açık rıza veriyorum", "Okudum ve onaylıyorum"</li>
+                                <li><strong>Doğru:</strong> "Okudum ve anladım" (aydınlatma metni için)</li>
+                            </ul>
+                            <p>Aydınlatma metinleri sözleşme niteliği taşımadığından, metin sonunda onay/rıza ifadeleri yer almamalıdır.</p>
+                            
+                            <p><strong>4. Hukuka Uygunluk Şartları</strong></p>
+                            <ul>
+                                <li>Metinler her veri sorumlusu tarafından <strong>kendi faaliyetlerine uygun şekilde hazırlanmalı</strong>, başka veri sorumlusunun metni birebir kullanılmamalıdır.</li>
+                                <li>Açık, anlaşılır ve <strong>sade bir dil</strong> kullanılmalıdır.</li>
+                                <li>Yanıltıcı, genel, eksik veya yanlış ifadelere yer verilmemelidir.</li>
+                                <li>Gereksiz ölçüde <strong>uzun ve karmaşık metinlerden kaçınılmalıdır</strong>.</li>
+                                <li>İşlenen kişisel veriler, kategorileri, amaç ve hukuki sebep <strong>açık ve net bir biçimde</strong> ifade edilmelidir.</li>
+                            </ul>
+                            
+                            <h4>YAYGIN HUKUKA AYKIRILIKLAR</h4>
+                            <p>Kurul tarafından sıkça tespit edilen hukuka aykırılıklar şunlardır:</p>
+                            <ul>
+                                <li>Açık rıza ve aydınlatma metinlerinin iç içe geçmiş şekilde tek bir metin halinde sunulması</li>
+                                <li>Aydınlatma yapıldığına dair ilgili kişilerden onay/rıza talep edilmesi</li>
+                                <li>Başka bir veri sorumlusu tarafından düzenlenen metinlerin birebir aynısının kullanılması</li>
+                                <li>"Kişisel verileriniz Kanun'un 5 ve 6'ncı maddesinde belirtilen işleme şartları kapsamında işlenmektedir" gibi muğlak ifadelere yer verilmesi</li>
+                                <li>Yurt dışına aktarım yapılıyorken yurt dışına aktarım yapılmadığı izlenimi uyandıran ifadeler kullanılması</li>
+                                <li>Kanun'un 11. maddesinin tamamına yer verilerek metnin uzaması</li>
+                            </ul>
+                            
+                            <h4>SONUÇ VE DEĞERLENDİRME</h4>
+                            <p>Bu İlke Kararı ile KVKK, aydınlatma yükümlülüğü ve açık rızanın birbirine karıştırılmaması gerektiğini, her ikisinin de farklı hukuki nitelikte olduğunu ve bu nedenle ayrı ayrı düzenlenmesi gerektiğini kamuoyuna duyurmuştur. Veri sorumlularının bu karara uygun hareket etmemesi halinde Kanun'un 18. maddesi hükümleri gereği işlem tesis edileceği açıklanmıştır.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Karar Özeti:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>24 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">Mevzuat - Kanun</span>
+                            <span class="article-date">23 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">7576 Sayılı Milli Parklar Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Kanun No:</strong> 7576 | <strong>Kabul Tarihi:</strong> 11.03.2026 | <strong>Resmî Gazete:</strong> 19.03.2026</p>
+                            <p>Av ve yaban hayatı yönetimi, avlanma planları, milli parklarda yapılan düzenlemeler ve ekolojik dengeyi bozan fiillere yönelik cezai yaptırımları içeren kapsamlı bir kanun değişikliği yayınlanmıştır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-milli-park')">Devamını Oku →</button>
+                        <div id="article-milli-park" class="article-full-content" style="display: none;">
+                            <h3>Konu: Milli Parklar ve Çevre Mevzuatında Önemli Değişiklikler</h3>
+                            
+                            <h4>KANUNUN ÖZETİ</h4>
+                            <p>7576 sayılı Kanun ile 2872 sayılı Çevre Kanunu, 2873 sayılı Milli Parklar Kanunu, 4915 sayılı Kara Avcılığı Kanunu ve 375 sayılı Kanun Hükmünde Kararname'de önemli değişiklikler yapılmıştır. Kanun, 19 Mart 2026 tarihli Resmî Gazete'de yayınlanarak yürürlüğe girmiştir.</p>
+                            
+                            <h4>TEMEL DEĞİŞİKLİKLER</h4>
+                            
+                            <p><strong>1. Av ve Yaban Hayatı Yönetimi</strong></p>
+                            <ul>
+                                <li>Avlanma planlarına göre yapılacak avlanmalar için av hayvanlarının türlerine ve ağırlıklarına göre alınacak avlama ve avlanma izin ücretleri Doğa Koruma ve Milli Parklar Genel Müdürlüğünce tespit edilecektir.</li>
+                                <li>Genel Müdürlükçe talep edilmesi halinde ithalatçı, imalatçı ve toptancılar tarafından perakendecilere yapılan satışa ilişkin bilgi ve belgeler gecikmeksizin Genel Müdürlüğe iletilecektir.</li>
+                            </ul>
+                            
+                            <p><strong>2. Milli Parklarda Yapılan Düzenlemeler</strong></p>
+                            <ul>
+                                <li>Milli parklar ve tabiat parklarında inşa edilen yapıların kiralama süresi 99 yılı geçmeyecektir.</li>
+                                <li>Doğa Koruma ve Milli Parklar Genel Müdürlüğü, ihtiyaç duyduğu hallerde görev ve hizmetleriyle ilgili döner sermayeli işletmeler kurabilecektir.</li>
+                            </ul>
+                            
+                            <p><strong>3. Ekolojik Dengeyi Bozan Fiillere Cezai Yaptırımlar</strong></p>
+                            <p>Milli parklarda ekolojik dengeleri bozanlara 1 yıldan 3 yıla kadar hapis ve 5 bin güne kadar adli para cezası verilecektir.</p>
+                            
+                            <p><strong>4. Çevre Kanunu'nda Değişiklik</strong></p>
+                            <p>2872 sayılı Çevre Kanunu'nun 12. maddesine eklenen hükümle, 9. maddenin birinci fıkrasının (a), (e) ve (f) bentleri bakımından denetleme yetkisi Doğa Koruma ve Milli Parklar Genel Müdürlüğüne verilmiştir.</p>
+                            
+                            <h4>YENİ TANIMLAR</h4>
+                            <p>2873 sayılı Milli Parklar Kanunu'na eklenen yeni tanımlar:</p>
+                            <ul>
+                                <li><strong>Alan kılavuzu:</strong> Korunan alanlarda ziyaretçi yönetimi için, alan sınırları dahilinde ve yakın çevresinde yaşayan yöre insanları arasından Genel Müdürlükçe verilen eğitimi tamamlayarak kimlik almaya hak kazanmış kişi.</li>
+                                <li><strong>Av ve doğa koruma memuru:</strong> Mevzuata aykırılık oluşturan fiillerin takibi, biyolojik çeşitliliğin korunması, av ve yaban hayvanlarının bakımı, gözlenmesi ve sayımına yönelik işleri yapmak üzere görevlendirilen personel.</li>
+                            </ul>
+                            
+                            <h4>İDARİ YAPTIRIMLAR</h4>
+                            <p>Çevre Kanunu'nun 24. maddesinin yedinci fıkrası değiştirilerek, biyolojik çeşitliliği tahrip edenler ile sulak alanlar için yönetmelikle belirlenen koruma ve kullanım usul ve esaslarına aykırı davrananlara Doğa Koruma ve Milli Parklar Genel Müdürlüğü tarafından idari yaptırım uygulanması hükme bağlanmıştır.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Kanun Özeti:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>23 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">İş Hukuku - Haftanın Kararı</span>
+                            <span class="article-date">18 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Yargıtay 9. Hukuk Dairesi: İhtiyari Arabuluculuk Görüşmesinin Şantiyede Telekonferans ile Yapılması</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Esas No:</strong> 2025/5152 | <strong>Karar No:</strong> 2025/8447 | <strong>Karar Tarihi:</strong> 04.11.2025</p>
+                            <p>İşçinin işverenin şantiyesinde bulunduğu sırada ihtiyari arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesi, tek başına irade sakatlığı için yeterli olmayıp tutanağın iptalini gerektirmez.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-arabuluculuk')">Devamını Oku →</button>
+                        <div id="article-arabuluculuk" class="article-full-content" style="display: none;">
+                            <h3>Konu: İhtiyari Arabuluculuk Tutanağına Yönelik İrade Fesadı İddiası</h3>
+                            
+                            <h4>KARARIN ÖZETİ</h4>
+                            <p>Somut uyuşmazlıkta davacı vekili tarafından, müvekkilinin iş sözleşmesinin feshedilmesinden sonra baskı ve zorlama ile ihtiyari arabuluculuk anlaşma tutanağı imzalatıldığı, iradesinin fesada uğratıldığı iddia edilmiş; davalı taraf ise davacının serbest iradesi ile tutanakları imzaladığını savunmuştur.</p>
+                            
+                            <p>Dosya kapsamında dinlenilen davacı tanıkları soyut ve genel nitelikte beyanlarda bulunmuş olup, davacının arabuluculuk görüşmelerine, sürece ve irade fesadı iddialarına ilişkin somut tanık anlatımı bulunmamaktadır. Davacının ihtiyari arabuluculuk tutanağına yönelik irade fesadı iddiasını usulüne uygun olarak ispat edemediği anlaşılmıştır.</p>
+                            
+                            <h4>ARABULUCULUK SÜRECİNDE BİLGİLENDİRME</h4>
+                            <p>Ayrıca davacının arabuluculuk faaliyeti sırasında arabuluculuğun esasları, süreci ve hukuki sonuçları konusunda bilgilendirildiği, dosyada mevcut arabuluculuk ilk oturum açılış tutanağı, anlaşma tutanağı ve arabuluculuk son tutanağından anlaşılmaktadır. Bu durumun aksi de davacı tarafından ispat edilememiştir.</p>
+                            
+                            <h4>TELEKONFERANS YÖNTEMİNİN DEĞERLENDİRİLMESİ</h4>
+                            <p>Mahkemece, işçinin işverenin şantiyesinde bulunduğu sırada arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesinin tek başına irade sakatlığı için yeterli olmadığı sonucuna varılmıştır. Görüşmenin yapıldığı yerin tek başına anlaşma tutanağının iptali için yeterli bir sebep teşkil etmediği belirtilmiştir.</p>
+                            
+                            <h4>HUKUKİ DEĞERLENDİRME</h4>
+                            <p>İlk Derece Mahkemesince ihtiyari arabuluculuk tutanağı geçerli kabul edilerek bu tutanağın iptaline ve talep edilen alacakların tahsiline yönelik davanın reddi yerine yanılgılı değerlendirme ile ihtiyari arabuluculuk tutanağının iptaline ve dava konusu alacakların kısmen kabulüne karar verilmesi hatalı olup bozmayı gerektirmiştir.</p>
+                            
+                            <h4>SONUÇ</h4>
+                            <p>Bölge Adliye Mahkemesi kararı davalı vekili tarafından temyiz edilmiş; Yargıtay 9. Hukuk Dairesi tarafından yapılan inceleme sonucunda İlk Derece Mahkemesi kararının kaldırılarak yerine reddi gerektiği sonucuna varılmıştır.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Karar Özeti:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>18 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">Kira Hukuku - Haftanın Kararı</span>
+                            <span class="article-date">11 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">İstanbul Bölge Adliye Mahkemesi: Konut İhtiyacı Tahliye Davasında Reşit Kişinin Ayrı Meskende Oturma Hakkı</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Esas No:</strong> 2024/289 | <strong>Karar No:</strong> 2025/2257 | <strong>Karar Tarihi:</strong> 02.10.2025</p>
+                            <p>Reşit olan davacının ayrı meskende oturması yasal hakkı olduğundan, anne veya babası ile birlikte oturmaya zorlanamaz.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-tahliye')">Devamını Oku →</button>
+                        <div id="article-tahliye" class="article-full-content" style="display: none;">
+                            <h3>Konu: Kiraya Verenin Konut İhtiyacı Sebebiyle Kiralananın Tahliyesi</h3>
+                            
+                            <h4>KARARIN ÖZETİ</h4>
+                            <p>Davacının annesiyle birlikte oturuyor olması başlı başına ihtiyacın varlığı için yeterlidir. Davalı, davacıya ait başka taşınmazların olduğunu beyan etmekte ise de bu taşınmazların boş olduğunu iddia ve ispat edememiştir. Bu bakımdan mahkemece kiralananın tahliyesine karar verilmesi gerekirken yazılı gerekçelerle davanın reddine karar verilmesi doğru değildir ve hüküm bu nedenle bozulmalıdır.</p>
+                            
+                            <h4>SOMUT OLAY</h4>
+                            <p>Davacı 61 yaşında, babası ile birlikte ikamet ettiği evin küçük olduğunu, yaşların ilerlemesinden ötürü aile fertlerinin uzun süredir sorunlar yaşadığını, birbirleri ile anlaşamadıklarını, ayrı yaşamak istemesinden dolayı konutu kullanma zorunluluğu doğduğunu belirterek kira sözleşmesinin sona ermesi üzerine tahliye davası açmıştır.</p>
+                            
+                            <h4>İHTİYACIN DEĞERLENDİRİLMESİ</h4>
+                            <p>Mahkemece, mülkiyet hakkına üstünlük tanınarak, ihtiyacın samimi ve zorunlu olduğunun kabulü ile kiralananın başkasına kiraya verilmesi halinde davacıdan Türk Borçlar Kanunu 355. maddesi gereğince tazminat talep edilebileceği hususları dikkate alınmıştır.</p>
+                            <p>Davacının mecura ihtiyacı bulunduğu, ihtiyacının gerçek, samimi, sürekli ve zorunlu olduğu kabul edilerek davacının istinaf talebinin kabulüne karar verilmiştir.</p>
+                            
+                            <h4>HUKUKİ DEĞERLENDİRME</h4>
+                            <p><strong>Reşit bir kişinin ayrı meskende oturması yasal hakkı olup anne veya babası ile birlikte oturmaya zorlanamaz.</strong> Bu ilke, yetişkin çocukların aileleri ile birlikte ikamete zorlanamayacağı Yargıtay içtihadlarıyla da desteklenmektedir.</p>
+                            <p>Tanık dinletmekten vazgeçmenin ihtiyacın samimi, gerçek ve zorunlu olmadığı anlamına gelmeyeceği hususu da mahkemece dikkate alınmıştır.</p>
+                            
+                            <h4>SONUÇ</h4>
+                            <p>İstanbul Bölge Adliye Mahkemesi 54. Hukuk Dairesi, ilk derece mahkemesi kararını bozarak davacının istinaf talebinin kabulüne ve kiralananın tahliyesine karar verilmesi gerektiğine hükmetmiştir.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Karar Özeti:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>11 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card">
+                        <div class="article-header">
+                            <span class="article-category">Anayasa Hukuku - İptal Kararı</span>
+                            <span class="article-date">10 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Anayasa Mahkemesi: Sağlık Kuruluşlarında Belirli Sürenin Üzerinde Tutulan Nöbetler İçin Ücret Ödenmemesi Kuralının İptali</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Esas No:</strong> 2025/89 | <strong>Karar No:</strong> 2025/243 | <strong>Karar Tarihi:</strong> 26.11.2025</p>
+                            <p>Anayasa Mahkemesi, çeşitli sağlık kuruluşlarında belirli sürelerin üzerinde tutulan nöbetler için ücret ödenmemesini öngören 657 sayılı Devlet Memurları Kanunu Ek 33. maddesinin üçüncü cümlesinin Anayasa'ya aykırı olduğuna ve iptaline karar verdi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-nobet')">Devamını Oku →</button>
+                        <div id="article-nobet" class="article-full-content" style="display: none;">
+                            <h3>Konu: 657 Sayılı Devlet Memurları Kanunu Ek 33. Maddesinin İptali</h3>
+                            
+                            <h4>KARARIN ÖZETİ</h4>
+                            <p>14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanunu'nun 21/1/2010 tarihli ve 5947 sayılı Kanun'un 10. maddesiyle değiştirilen ek 33. maddesinin birinci fıkrasının üçüncü cümlesinin Anayasa'nın 2., 18. ve 35. maddelerine aykırı olduğu ve iptali hakkında Anayasa Mahkemesi karar vermiştir.</p>
+                            
+                            <h4>İPTAL EDİLEN HÜKÜM</h4>
+                            <p>İptal edilen hüküm şöyledir:</p>
+                            <blockquote>
+                                "Ancak ayda aile sağlığı ve toplum sağlığı merkezlerinde 60 saatten, diğer yerlerde ve hiçbir şekilde 130 saatten fazlası için ödeme yapılmaz."
+                            </blockquote>
+                            
+                            <h4>KARARIN DAYANAKLARI</h4>
+                            <p><strong>Anayasa m.2:</strong> Türkiye Cumhuriyeti, sosyal hukuk devletidir.</p>
+                            <p><strong>Anayasa m.18:</strong> Herkes, yaşama, maddi ve manevi varlığını koruma ve geliştirme hakkına sahiptir.</p>
+                            <p><strong>Anayasa m.35:</strong> Herkes, mal varlığı ve miras hakları üzerinde mülkiyet hakkına sahiptir.</p>
+                            
+                            <h4>OLAY</h4>
+                            <p>Nöbet ücretinin ödenmesi talebiyle yapılan başvurunun reddine ilişkin işlemin iptali talebiyle açılan davada itiraz konusu kuralın Anayasa'ya aykırı olduğu kanısına varan Çanakkale 2. İdare Mahkemesi, iptali için Anayasa Mahkemesi'ne başvurmuştur.</p>
+                            
+                            <h4>MEVCUT DÜZENLEME</h4>
+                            <p>Ek 33. madde uyarınca, yataklı tedavi kurumları, seyyar hastaneler, ağız ve diş sağlığı merkezleri, aile sağlığı merkezleri, toplum sağlığı merkezleri ve 112 acil sağlık hizmetlerinde haftalık çalışma süresi dışında nöbet tutan personele izin suretiyle karşılanamayan her bir nöbet saati için nöbet ücreti ödenmektedir.</p>
+                            <p>İptal edilen hükümle bu ödeme, aile sağlığı ve toplum sağlığı merkezlerinde ayda 60 saatten, diğer yerlerde 130 saatten fazlası için yapılmamaktaydı.</p>
+                            
+                            <h4>HUKUKİ DEĞERLENDİRME</h4>
+                            <p>Anayasa Mahkemesi, söz konusu ücret sınırlamasının Anayasa'nın 2., 18. ve 35. maddelerine aykırı olduğunu tespit etmiştir. Karar, 10 Mart 2026 tarihli Resmî Gazete'de (Sayı: 33192) yayınlanmıştır.</p>
+                            
+                            <h4>SONUÇ</h4>
+                            <p>İptal edilen hüküm uyarınca nöbet ücreti ödemesi yapılmayan sağlık çalışanları için yeni hak doğumları söz konusu olabilecektir. Kamu kurumları bu karar doğrultusunda nöbet ücreti ödemelerini gözden geçirmek zorundadır.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Karar Özeti:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>10 Mart 2026</em></p>
                             </div>
                         </div>
                     </article>
@@ -699,3 +1097,4 @@
     <script src="publications.js"></script>
 </body>
 </html>
+
