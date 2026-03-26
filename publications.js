@@ -1,6 +1,26 @@
 // Dynamic Publications Loader - Fetches latest publications from yayinlar.html
 // This script automatically extracts the 3 most recent publications from yayinlar.html
 
+// Parse Turkish date format (e.g., "27 Mart 2026") to Date object
+function parseTurkishDate(dateStr) {
+    const monthMap = {
+        'Ocak': 0, 'Şubat': 1, 'Mart': 2, 'Nisan': 3, 'Mayıs': 4, 'Haziran': 5,
+        'Temmuz': 6, 'Ağustos': 7, 'Eylül': 8, 'Ekim': 9, 'Kasım': 10, 'Aralık': 11
+    };
+    
+    const parts = dateStr.trim().split(' ');
+    if (parts.length === 3) {
+        const day = parseInt(parts[0], 10);
+        const month = monthMap[parts[1]];
+        const year = parseInt(parts[2], 10);
+        
+        if (!isNaN(day) && month !== undefined && !isNaN(year)) {
+            return new Date(year, month, day);
+        }
+    }
+    return new Date(0); // Return epoch if parsing fails
+}
+
 async function fetchAndParsePublications() {
     try {
         // Fetch yayinlar.html
@@ -18,12 +38,10 @@ async function fetchAndParsePublications() {
         // Find all article cards
         const articles = doc.querySelectorAll('.article-card');
         
-        // Extract data from the 3 most recent articles
+        // Extract data from all articles
         const publications = [];
         
-        articles.forEach((article, index) => {
-            if (index >= 3) return; // Only get first 3
-            
+        articles.forEach((article) => {
             const titleEl = article.querySelector('.article-title');
             const dateEl = article.querySelector('.article-date');
             const categoryEl = article.querySelector('.article-category');
@@ -44,17 +62,24 @@ async function fetchAndParsePublications() {
                 let fullTitle = titleEl.textContent.trim();
                 let shortTitle = fullTitle.length > 50 ? fullTitle.substring(0, 50) + '...' : fullTitle;
                 
+                const dateStr = dateEl.textContent.trim();
+                
                 publications.push({
                     title: fullTitle,
                     shortTitle: shortTitle,
-                    date: dateEl.textContent.trim(),
+                    date: dateStr,
+                    dateObj: parseTurkishDate(dateStr),
                     category: categoryEl ? categoryEl.textContent.trim() : 'Yayınlar',
                     url: articleId ? `yayinlar.html#${articleId}` : 'yayinlar.html'
                 });
             }
         });
         
-        return publications;
+        // Sort by date (newest first)
+        publications.sort((a, b) => b.dateObj - a.dateObj);
+        
+        // Return only the 3 most recent
+        return publications.slice(0, 3);
     } catch (error) {
         console.error('Error fetching publications:', error);
         return [];
@@ -98,25 +123,25 @@ async function renderLatestPublications() {
 function getFallbackPublications() {
     return [
         {
-            title: "Yargıtay 12. Hukuk Dairesi: İş Merkezi Bina Görevlisi Komşu Olarak Değerlendirilemeyeceğinden Tebligat Usulsüzdür",
-            shortTitle: "Tebligat Usulsüzlüğü - Bina Görevlisi",
-            date: "25 Mart 2026",
-            category: "İcra İflas Hukuku",
-            url: "yayinlar.html#article-yargitay"
+            title: "Kasten Öldürme Suçunda İnfaz ve Haksız Tahrik: Yargıtay'ın Güncel İçtihatları",
+            shortTitle: "Kasten Öldürme - İnfaz ve Haksız Tahrik",
+            date: "27 Mart 2026",
+            category: "Ceza Hukuku - Kasten Öldürme",
+            url: "yayinlar.html#article-kasten-oldurme"
         },
         {
-            title: "KVKK İlke Kararı: Açık Rıza Metni ile Aydınlatma Metninin Ayrı Ayrı Düzenlenmesi",
-            shortTitle: "KVKK Açık Rıza ve Aydınlatma Kararı",
-            date: "24 Mart 2026",
-            category: "Kişisel Verilerin Korunması",
-            url: "yayinlar.html#article-kvkk"
+            title: "Nitelikli Yaralama Suçunda Hayati Tehlike ve İnfaz: Yargıtay Emsal Kararları",
+            shortTitle: "Nitelikli Yaralama - Hayati Tehlike",
+            date: "27 Mart 2026",
+            category: "Ceza Hukuku - Nitelikli Yaralama",
+            url: "yayinlar.html#article-yaralama"
         },
         {
-            title: "7576 Sayılı Milli Parklar Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun",
-            shortTitle: "7576 Sayılı Milli Parklar Kanunu",
-            date: "23 Mart 2026",
-            category: "Mevzuat",
-            url: "yayinlar.html#article-milli-park"
+            title: "Cinsel Dokunulmazlığa Karşı Suçlarda İnfaz ve Mağdur Psikolojisi: Yargıtay ve AİHM İçtihatları",
+            shortTitle: "Cinsel Suçlarda İnfaz ve Mağdur Psikolojisi",
+            date: "27 Mart 2026",
+            category: "Ceza Hukuku - Cinsel Suçlar",
+            url: "yayinlar.html#article-cinsel"
         }
     ];
 }
