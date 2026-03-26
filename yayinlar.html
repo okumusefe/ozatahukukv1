@@ -37,6 +37,170 @@
             visibility: visible;
             pointer-events: auto;
         }
+
+        /* New Card-Based Publications Layout */
+        .articles-section {
+            background: #f5f3f0;
+            padding: 60px 0;
+        }
+        
+        .articles-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+        
+        @media (max-width: 1200px) {
+            .articles-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        
+        @media (max-width: 900px) {
+            .articles-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 600px) {
+            .articles-grid { grid-template-columns: 1fr; }
+        }
+        
+        .article-card {
+            background: #fff;
+            border-radius: 0;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .article-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        
+        .article-image-wrapper {
+            position: relative;
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .article-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+        
+        .article-card:hover .article-image {
+            transform: scale(1.05);
+        }
+        
+        .article-tag {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(45, 53, 97, 0.9);
+            color: #c9a961;
+            padding: 6px 12px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .article-content {
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .article-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            line-height: 1.5;
+            color: #1a1f3d;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+        
+        .article-excerpt {
+            font-size: 0.85rem;
+            line-height: 1.7;
+            color: #666;
+            flex-grow: 1;
+        }
+        
+        .article-excerpt p {
+            margin: 0 0 10px 0;
+        }
+        
+        .article-footer {
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 1px solid #e0e0e0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .article-date {
+            font-size: 0.75rem;
+            color: #999;
+        }
+        
+        .article-read-btn {
+            background: none;
+            border: 1px solid #c9a961;
+            color: #c9a961;
+            padding: 8px 16px;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .article-read-btn:hover {
+            background: #c9a961;
+            color: #fff;
+        }
+        
+        .article-full-content {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px 20px;
+        }
+        
+        .article-full-content.active {
+            display: block;
+        }
+        
+        .article-modal {
+            background: #fff;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px;
+            position: relative;
+        }
+        
+        .article-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
     </style>
     
     <script>
@@ -125,414 +289,372 @@
             <div class="container">
                 <div class="articles-grid">
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">İcra İflas Hukuku - Haftanın Kararı</span>
-                            <span class="article-date">25 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Yargıtay Kararı" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">Yargıtay 12. Hukuk Dairesi: İş Merkezi Bina Görevlisi Komşu Olarak Değerlendirilemeyeceğinden Tebligat Usulsüzdür</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Esas No:</strong> 2025/3197 | <strong>Karar No:</strong> 2025/4761 | <strong>Karar Tarihi:</strong> 23.06.2025</p>
-                            <p>Yargıtay uygulamalarında Tebligat Kanunu'nun ilgili maddesinin tüm koşullarının sıkı bir şekilde uygulanmayacağı belirtilmiş olmakla beraber bunun haber verme yükümlülüğünü ortadan kaldırmayacağı; haber verilen kişinin isminin ve sıfatının usulüne uygun bir şekilde tutanağa geçirilmesi gerektiği kabul edilmektedir.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">YARGITAY 12. HUKUK DAİRESİ: İŞ MERKEZİ BİNA GÖREVLİSİ KOMŞU OLARAK DEĞERLENDİRİLEMEYECEĞİNDEN TEBLİGAT USULSÜZDÜR</h2>
+                            <div class="article-excerpt">
+                                <p>Yargıtay uygulamalarında Tebligat Kanunu'nun ilgili maddesinin tüm koşullarının sıkı bir şekilde uygulanmayacağı belirtilmiş olmakla beraber bunun haber verme yükümlülüğünü ortadan kaldırmayacağı kabul edilmektedir.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">25 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-yargitay')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-yargitay')">Devamını Oku →</button>
                         <div id="article-yargitay" class="article-full-content" style="display: none;">
-                            <h3>Konu: Usulsüz Tebligat - İş Merkezi Bina Görevlisinin Komşu Olarak Değerlendirilemezliği</h3>
-                            
-                            <h4>ÖZET</h4>
-                            <p>Yargıtay uygulamalarında Tebligat Kanunu'nun ilgili maddesinin tüm koşullarının sıkı bir şekilde uygulanmayacağı belirtilmiş olmakla beraber bunun haber verme yükümlülüğünü ortadan kaldırmayacağı, tebligatın sıhhatinin değerlendirilmesi yönünden ise, haber verilen kişinin isminin ve sıfatının usulüne uygun bir şekilde tutanağa geçirilmesi gerektiğinin kabulü gerektiği; buna göre anılı tebligatta haber verilen kişinin ismi en yakın komşu olarak yazılmış ise de bu kişinin fazlaca bağımsız bölümün olduğu iş hanının bina görevlisi olduğunun anlaşıldığı, iş merkezi bina görevlisinin ise komşu olarak değerlendirilemeyeceği, tebligatların bu hali ile usulsüz olduğu sonucuna varılmıştır.</p>
-                            
-                            <h4>KARARIN HUKUKİ DAYANAKLARI</h4>
-                            <p><strong>7201 Sayılı Tebligat Kanunu m.12:</strong> Hükmi şahıslara tebligat selahiyetli mümessillerine, bunlar birden fazla ise yalnız birine yapılır.</p>
-                            
-                            <p><strong>7201 Sayılı Tebligat Kanunu m.13:</strong> Tebliğ yapılacak kişiler, herhangi bir sebeple mutat iş saatlerinde işyerinde bulunmadıkları veya o sırada evrakı bizzat alamayacak bir halde oldukları takdirde, tebliğ orada hazır bulunan memur ve müstahdemlerinden birine yapılır.</p>
-                            
-                            <p><strong>7201 Sayılı Tebligat Kanunu m.21/1:</strong> Kendisine tebligat yapılacak kimse veya tebligat yapılabilecek kimselerden hiçbiri gösterilen adreste bulunmaz veya tebellüğden imtina ederse, tebliğ memuru tebliğ olunacak evrakı, o yerin muhtar veya ihtiyar heyeti azasından birine veyahut zabıta amir ve memuruna imza mukabilinde teslim eder ve tesellüm edenin adresini ihtiva eden ihbarnameyi gösterilen adresteki binanın kapısına yapıştırmakla beraber, adreste bulunmama halinde tebliğ olunacak şahsa keyfiyetin haber verilmesini de mümkün oldukça en yakın komşularından birine, varsa yönetici veya kapıcıya da bildirir.</p>
-                            
-                            <h4>HUKUK GENEL KURULU KARARI</h4>
-                            <p>Hukuk Genel Kurulunun 12.07.2023 tarih ve 2023/294 E.-2023/749 K. sayılı kararında da işaret edildiği üzere, tebligat ile ilgili Kanun ve Yönetmelik hükümleri tamamen şeklidir. Değinilen işlemler, bilgilendirme yanında belgelendirme özelliği de bulunan bir usul işlemi olmakla, gerek tebliğ işlemi ve gerekse tebliğ tarihi ancak Kanun ve Yönetmelikte emredilen şekillerle tevsik ve dolayısıyla ispat olunabilir. Bu sebeple tebligatın usul yasaları ile ilişkisi de daima göz önünde tutulmalıdır.</p>
-                            
-                            <h4>SOMUT OLAY</h4>
-                            <p>Somut olayda, şikayet eden şirkete gönderilen İİK 89/3 haciz ihbarnamesinin tebliğ mazbatasında "... muhatabın çarşıda olduğu bilgisinin komşu ...'nin imzalı beyanından öğrenildiği, evrakın mahalle muhtarına teslim edildiği, haber kağıdının kapısına yapıştırıldığı, en yakın komşusu ...'ye haber verildi," şerhi ile tebliğ edildiği anlaşılmıştır.</p>
-                            
-                            <p>Haber verilen kişinin ismi en yakın komşu olarak yazılmış ise de bu kişinin fazlaca bağımsız bölümün olduğu iş hanının bina görevlisi olduğu anlaşılmış; iş merkezi bina görevlisinin ise komşu olarak değerlendirilemeyeceği sonucuna varılmıştır.</p>
-                            
-                            <h4>SUÇ VE CEZA</h4>
-                            <p>Bölge Adliye Mahkemesince istinafın esastan reddine karar verilmesi gerekirken, belirtilen şekilde karar verilmesi bozmayı gerektirmiştir. İzmir Bölge Adliye Mahkemesi 8. Hukuk Dairesi'nin 28/03/2025 tarih ve 2025/386 Esas - 2025/580 Karar sayılı kararının, 5311 sayılı Kanun ile değişik İİK'nun 364/2. maddesi göndermesiyle uygulanması gereken 6100 sayılı HMK'nun 373/2. maddeleri uyarınca BOZULMASINA karar verilmiştir.</p>
-                            
-                            <h4>HUKUKİ DEĞERLENDİRME VE ÖNEMİ</h4>
-                            <p>Bu karar, tebligat usulünün sıkı bir şekilde uygulanması gerektiğini, özellikle haber verme yükümlülüğünün yerine getirilmesinde haber verilen kişinin sıfatının doğru belirtilmesi gerektiğini açıkça ortaya koymaktadır. İş merkezi ve iş hanlarında görev yapan bina görevlilerinin, bu sıfatlarıyla "en yakın komşu" olarak kabul edilemeyeceği ve tebligatların usulsüz sayılacağı hususunda önemli bir emsal teşkil etmektedir.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Karar Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>25 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-yargitay')">&times;</span>
+                                <h3>Konu: Usulsüz Tebligat - İş Merkezi Bina Görevlisinin Komşu Olarak Değerlendirilemezliği</h3>
+                                
+                                <h4>ÖZET</h4>
+                                <p>Yargıtay uygulamalarında Tebligat Kanunu'nun ilgili maddesinin tüm koşullarının sıkı bir şekilde uygulanmayacağı belirtilmiş olmakla beraber bunun haber verme yükümlülüğünü ortadan kaldırmayacağı, tebligatın sıhhatinin değerlendirilmesi yönünden ise, haber verilen kişinin isminin ve sıfatının usulüne uygun bir şekilde tutanağa geçirilmesi gerektiğinin kabulü gerektiği; buna göre anılı tebligatta haber verilen kişinin ismi en yakın komşu olarak yazılmış ise de bu kişinin fazlaca bağımsız bölümün olduğu iş hanının bina görevlisi olduğunun anlaşıldığı, iş merkezi bina görevlisinin ise komşu olarak değerlendirilemeyeceği, tebligatların bu hali ile usulsüz olduğu sonucuna varılmıştır.</p>
+                                
+                                <h4>KARARIN HUKUKİ DAYANAKLARI</h4>
+                                <p><strong>7201 Sayılı Tebligat Kanunu m.12:</strong> Hükmi şahıslara tebligat selahiyetli mümessillerine, bunlar birden fazla ise yalnız birine yapılır.</p>
+                                
+                                <p><strong>7201 Sayılı Tebligat Kanunu m.13:</strong> Tebliğ yapılacak kişiler, herhangi bir sebeple mutat iş saatlerinde işyerinde bulunmadıkları veya o sırada evrakı bizzat alamayacak bir halde oldukları takdirde, tebliğ orada hazır bulunan memur ve müstahdemlerinden birine yapılır.</p>
+                                
+                                <p><strong>7201 Sayılı Tebligat Kanunu m.21/1:</strong> Kendisine tebligat yapılacak kimse veya tebligat yapılabilecek kimselerden hiçbiri gösterilen adreste bulunmaz veya tebellüğden imtina ederse, tebliğ memuru tebliğ olunacak evrakı, o yerin muhtar veya ihtiyar heyeti azasından birine veyahut zabıta amir ve memuruna imza mukabilinde teslim eder ve tesellüm edenin adresini ihtiva eden ihbarnameyi gösterilen adresteki binanın kapısına yapıştırmakla beraber, adreste bulunmama halinde tebliğ olunacak şahsa keyfiyetin haber verilmesini de mümkün oldukça en yakın komşularından birine, varsa yönetici veya kapıcıya da bildirir.</p>
+                                
+                                <h4>HUKUK GENEL KURULU KARARI</h4>
+                                <p>Hukuk Genel Kurulunun 12.07.2023 tarih ve 2023/294 E.-2023/749 K. sayılı kararında da işaret edildiği üzere, tebligat ile ilgili Kanun ve Yönetmelik hükümleri tamamen şeklidir. Değinilen işlemler, bilgilendirme yanında belgelendirme özelliği de bulunan bir usul işlemi olmakla, gerek tebliğ işlemi ve gerekse tebliğ tarihi ancak Kanun ve Yönetmelikte emredilen şekillerle tevsik ve dolayısıyla ispat olunabilir. Bu sebeple tebligatın usul yasaları ile ilişkisi de daima göz önünde tutulmalıdır.</p>
+                                
+                                <h4>SOMUT OLAY</h4>
+                                <p>Somut olayda, şikayet eden şirkete gönderilen İİK 89/3 haciz ihbarnamesinin tebliğ mazbatasında "... muhatabın çarşıda olduğu bilgisinin komşu ...'nin imzalı beyanından öğrenildiği, evrakın mahalle muhtarına teslim edildiği, haber kağıdının kapısına yapıştırıldığı, en yakın komşusu ...'ye haber verildi," şerhi ile tebliğ edildiği anlaşılmıştır.</p>
+                                
+                                <p>Haber verilen kişinin ismi en yakın komşu olarak yazılmış ise de bu kişinin fazlaca bağımsız bölümün olduğu iş hanının bina görevlisi olduğu anlaşılmış; iş merkezi bina görevlisinin ise komşu olarak değerlendirilemeyeceği sonucuna varılmıştır.</p>
+                                
+                                <h4>SUÇ VE CEZA</h4>
+                                <p>Bölge Adliye Mahkemesince istinafın esastan reddine karar verilmesi gerekirken, belirtilen şekilde karar verilmesi bozmayı gerektirmiştir. İzmir Bölge Adliye Mahkemesi 8. Hukuk Dairesi'nin 28/03/2025 tarih ve 2025/386 Esas - 2025/580 Karar sayılı kararının, 5311 sayılı Kanun ile değişik İİK'nun 364/2. maddesi göndermesiyle uygulanması gereken 6100 sayılı HMK'nun 373/2. maddeleri uyarınca BOZULMASINA karar verilmiştir.</p>
+                                
+                                <h4>HUKUKİ DEĞERLENDİRME VE ÖNEMİ</h4>
+                                <p>Bu karar, tebligat usulünün sıkı bir şekilde uygulanması gerektiğini, özellikle haber verme yükümlülüğünün yerine getirilmesinde haber verilen kişinin sıfatının doğru belirtilmesi gerektiğini açıkça ortaya koymaktadır. İş merkezi ve iş hanlarında görev yapan bina görevlilerinin, bu sıfatlarıyla "en yakın komşu" olarak kabul edilemeyeceği ve tebligatların usulsüz sayılacağı hususunda önemli bir emsal teşkil etmektedir.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Karar Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>25 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Enerji Piyasası Mevzuatı</span>
-                            <span class="article-date">26 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Şarj Hizmeti Yönetmeliği" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">Şarj Hizmeti Yönetmeliği'nde Değişiklik Yapılmasına Dair Yönetmelik</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Resmî Gazete:</strong> 23 Mart 2026, Sayı: 33202</p>
-                            <p>Akıllı şarj sistemleri, mobil şarj istasyonları, ortak dolaşım (roaming) sözleşmeleri, otoyollarda doğrudan ödeme imkanı ve bilgi güvenliği standartları gibi önemli düzenlemeleri içeren kapsamlı bir yönetmelik değişikliği yayınlanmıştır.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">ŞARJ HİZMETİ YÖNETMELİĞİ'NDE DEĞİŞİKLİK YAPILMASINA DAİR YÖNETMELİK</h2>
+                            <div class="article-excerpt">
+                                <p>Akıllı şarj sistemleri, mobil şarj istasyonları, ortak dolaşım (roaming) sözleşmeleri, otoyollarda doğrudan ödeme imkanı ve bilgi güvenliği standartları gibi önemli düzenlemeler.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">26 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-sarj')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-sarj')">Devamını Oku →</button>
                         <div id="article-sarj" class="article-full-content" style="display: none;">
-                            <h3>Konu: Elektrikli Araç Şarj Altyapısında Yeni Düzenlemeler</h3>
-                            
-                            <h4>YÖNETMELİĞİN ÖZETİ</h4>
-                            <p>23 Mart 2026 tarihli ve 33202 sayılı Resmî Gazete'de yayımlanan Yönetmelik ile 2/4/2022 tarihli ve 31797 sayılı Resmî Gazete'de yayınlanan Şarj Hizmeti Yönetmeliği'nde önemli değişiklikler yapılmıştır. Düzenleme; şarj üniteleri ve istasyonlarının kurulması, mobil şarj istasyonlarının işletilmesi, şarj ağının oluşturulması, şarj ağı işletmecilerinin lisanslandırılması ve faaliyetlerinin düzenlenmesi konularını kapsamaktadır.</p>
-                            
-                            <h4>TEMEL DEĞİŞİKLİKLER</h4>
-                            
-                            <p><strong>1. Akıllı Şarj Sistemleri</strong></p>
-                            <p>Yönetmelikte yeni eklenen tanıma göre akıllı şarj sistemleri; elektrikli araçtan veya elektrik şebekesinden elektronik iletişim yoluyla şarj istasyonuna iletilen bilgilere dayanarak, şarj ünitesinden elektrikli araca aktarılan enerji miktarının gerçek zamanlı olarak izlenmesine, kontrol edilmesine ve ayarlanmasına olanak veren sistemleri ifade eder.</p>
-                            <p>Şarj istasyonlarında toplam gücün verimli ve etkin kullanımı amacıyla akıllı şarj sistemleri uygulaması yapılabilir. Bu uygulamada anlık güce ilişkin bilgilendirmeler, ilgili şarj ağı işletmecisi tarafından kullanıcılara sağlanır.</p>
-                            
-                            <p><strong>2. Mobil Şarj İstasyonları</strong></p>
-                            <p>Yönetmeliğe eklenen yeni tanıma göre mobil şarj istasyonu; sabit bir elektrik tesisatına bağlı olmayan şarj istasyonunu ifade eder. Şarj ağı işletmecisi mobil şarj istasyonu işletmek istemesi halinde EPDK'ya belirlenen formatta bildirimde bulunur. Mobil şarj istasyonlarında yer alan şarj noktaları, şarj ağının asgari oluşma yükümlülükleri kapsamında değerlendirilir.</p>
-                            
-                            <p><strong>3. Ortak Dolaşım (Roaming) Sözleşmeleri</strong></p>
-                            <p>Yönetmelikte yer alan yeni tanıma göre ortak dolaşım (roaming) sözleşmesi; şarj ağı işletmecilerinin birbirlerinin kullanıcılarına doğrudan hizmet sağlaması amacıyla birbirleriyle yaptıkları, veri ve ödeme alışverişini de kapsayan sözleşmelerdir.</p>
-                            <ul>
-                                <li>Şarj ağı işletmecileri ortak dolaşım sözleşmesi yapabilme yetkisine sahiptir</li>
-                                <li>Yapılan sözleşmelerin imzalanmasını müteakip 30 gün içerisinde Kuruma bildirilmesi zorunludur</li>
-                                <li>Kurum, ortak dolaşım sözleşmeleri kapsamında yürütülen faaliyetlere ilişkin usul ve esaslar ile gerekli protokolleri belirleyebilir</li>
-                            </ul>
-                            
-                            <p><strong>4. Otoyollarda Doğrudan Ödeme İmkanı</strong></p>
-                            <p>Karayolları Genel Müdürlüğü'nün sorumluluğu altında bulunan otoyollarda şarj ağına yeni eklenen şarj istasyonlarında bulunan DC 50 kW ve üzeri güçteki şarj ünitelerinden en az bir tanesi için banka/kredi kartı okuyucuları veya temassız ödeme yapılabilen dijital cihazlar aracılığıyla doğrudan ödeme imkanı sağlanır. <strong>Bu ödeme yöntemleri için kullanıcıdan ilave bedel, komisyon veya fark talep edilemez.</strong></p>
-                            
-                            <p><strong>5. Bilgi Güvenliği Standartları</strong></p>
-                            <p>Şarj ağı işletmecisi tarafından şarj hizmeti sunulması kapsamında kullanılan yazılım sistemlerinin, şarj cihazları ve bu sistemlere uzaktan erişimlere ilişkin süreçlere ait bilişim sistemleri altyapısının <strong>TS ISO/IEC 27001 standardının güncel sürümüne uygun olması gerekir.</strong></p>
-                            <ul>
-                                <li>Yetkisiz erişimlerin önlenmesi</li>
-                                <li>Güvenli iletişim kanallarının kullanılması</li>
-                                <li>Kimlik doğrulama ve erişim yetkilendirmesi</li>
-                                <li>Bulut bilişim güvenliğine ilişkin tedbirlerin alınması</li>
-                                <li>Bilgi Güvenliği Rehberi'nin referans kaynak olarak dikkate alınması</li>
-                            </ul>
-                            
-                            <p><strong>6. Fiyatlandırma ve Faturalama</strong></p>
-                            <ul>
-                                <li>Şarj hizmeti fiyatı serbestçe belirlenir ve birim enerji fiyatı (TL/kWh) cinsinden uygulanır</li>
-                                <li>Faturada araca aktarılan enerji miktarına ayrıca yer verilir</li>
-                                <li>Bağlanma bedeli, işlem başlatma bedeli, şarj ekipmanı kullanımı bedeli gibi her ne ad altında olursa olsun ayrı bir bedel talep edilemez</li>
-                                <li>Fiyatlar internet sayfası, dijital mecralar ve şarj istasyonlarından erişilebilecek şekilde eş zamanlı olarak ilan edilir</li>
-                            </ul>
-                            
-                            <p><strong>7. Şarj İstasyonu Devir İşlemleri</strong></p>
-                            <p>Şarj ağı işletmecisi, şarj ağından bir şarj istasyonunu başka bir şarj ağı işletmecisine devrettiğinde; devreden ve devralan şarj ağı işletmecileri bu devir işlemini EPDK tarafından belirlenen formatta elektronik ortamda Kuruma bildirirler. Kurum tarafından bildirimlerin onaylanması sonrasında şarj istasyonunu devreden ile devralan şarj ağı işletmecileri tarafından ilgili şebeke işletmecisine bildirimde bulunulur.</p>
-                            
-                            <p><strong>8. Çift Marka Kullanımı</strong></p>
-                            <p>Şarj istasyonunda şarj ağı işletmecisinin markası ile birlikte olmak koşuluyla şarj istasyonu işletmecisi tarafından kendi markası da ilave olarak kullanılabilir.</p>
-                            
-                            <h4>YENİ TANIMLAR</h4>
-                            <ul>
-                                <li><strong>Akıllı şarj sistemleri:</strong> Elektrikli araçtan veya elektrik şebekesinden elektronik iletişim yoluyla şarj istasyonuna iletilen bilgilere dayanarak şarj ünitesinden elektrikli araca aktarılan enerji miktarının gerçek zamanlı olarak izlenmesine, kontrol edilmesine ve ayarlanmasına olanak veren sistemler</li>
-                                <li><strong>EPDAŞ:</strong> Enerji Piyasaları İşletme Anonim Şirketi</li>
-                                <li><strong>Mobil şarj istasyonu:</strong> Sabit bir elektrik tesisatına bağlı olmayan şarj istasyonu</li>
-                                <li><strong>Ortak dolaşım (roaming) sözleşmesi:</strong> Şarj ağı işletmecilerinin birbirlerinin kullanıcılarına doğrudan hizmet sağlaması amacıyla birbirleriyle yaptıkları veri ve ödeme alışverişini de kapsayan sözleşmeler</li>
-                                <li><strong>Şarj noktası (soketi):</strong> Şarj ünitesinden elektrikli araca enerji aktarımını sağlamak üzere bir şarj kablosuyla tümleşik olan veya bu kablonun bağlanması amaçlanan şarj ünitesinde bir veya birden fazla bulunabilen bağlantı ekipmanı</li>
-                            </ul>
-                            
-                            <h4>SİSTEM KULLANIM ve BAĞLANTI HAKLARI</h4>
-                            <p>Her ne ad altında veya yöntemle olursa olsun ticari faaliyet göstermeyen özel şarj istasyonlarının ve kullanıcıların yalnızca kendi ihtiyacı için kurduğu ya da kurdurduğu şarj ünitelerinin bir şarj ağına bağlanmaları zorunlu değildir.</p>
-                            <p>Şarj istasyonları için yapılan dağıtım sistemine bağlantı talepleri tüketim tesisi kapsamında değerlendirilerek karşılanır ve bağlantı talepleri hakkında Elektrik Piyasası Bağlantı ve Sistem Kullanım Yönetmeliği ile Organize Sanayi Bölgelerinin ve Endüstri Bölgelerinin Elektrik Piyasası Faaliyetlerine İlişkin Yönetmelikte sayılan durumlar hariç ilgili şebeke işletmecisi tarafından olumsuz görüş verilemez.</p>
-                            
-                            <h4>SONUÇ VE DEĞERLENDİRME</h4>
-                            <p>Bu Yönetmelik ile elektrikli araç şarj altyapısında önemli düzenlemeler yapılmış, kullanıcı hakları güçlendirilmiş ve sektörün gelişimini destekleyen yenilikler getirilmiştir. Özellikle akıllı şarj sistemleri, mobil şarj istasyonları ve ortak dolaşım sözleşmelerinin düzenlenmesi, elektrikli araç kullanımının artırılması ve şarj altyapısının yaygınlaştırılması açısından önemli adımlardır.</p>
-                            <p>Otoyollarda temassız ödeme imkanının zorunlu hale getirilmesi ve bu hizmet için ilave ücret talep edilememesi, kullanıcıların en temel haklarından biridir. Ayrıca bilgi güvenliği standartlarının ISO 27001 ile belirlenmesi, kullanıcı verilerinin korunması açısından önemli bir düzenlemedir.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Bilgi Notu:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>26 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-sarj')">&times;</span>
+                                <h3>Konu: Elektrikli Araç Şarj Altyapısında Yeni Düzenlemeler</h3>
+                                
+                                <h4>YÖNETMELİĞİN ÖZETİ</h4>
+                                <p>23 Mart 2026 tarihli ve 33202 sayılı Resmî Gazete'de yayımlanan Yönetmelik ile 2/4/2022 tarihli ve 31797 sayılı Resmî Gazete'de yayınlanan Şarj Hizmeti Yönetmeliği'nde önemli değişiklikler yapılmıştır.</p>
+                                
+                                <h4>TEMEL DEĞİŞİKLİKLER</h4>
+                                <p><strong>1. Akıllı Şarj Sistemleri</strong> - Elektrikli araçtan veya elektrik şebekesinden elektronik iletişim yoluyla şarj istasyonuna iletilen bilgilere dayanarak, şarj ünitesinden elektrikli araca aktarılan enerji miktarının gerçek zamanlı olarak izlenmesine, kontrol edilmesine ve ayarlanmasına olanak veren sistemler.</p>
+                                
+                                <p><strong>2. Mobil Şarj İstasyonları</strong> - Sabit bir elektrik tesisatına bağlı olmayan şarj istasyonlarının işletilmesi.</p>
+                                
+                                <p><strong>3. Ortak Dolaşım (Roaming) Sözleşmeleri</strong> - Şarj ağı işletmecilerinin birbirlerinin kullanıcılarına doğrudan hizmet sağlaması.</p>
+                                
+                                <p><strong>4. Otoyollarda Doğrudan Ödeme</strong> - DC 50 kW ve üzeri güçteki şarj ünitelerinden en az bir tanesi için banka/kredi kartı okuyucuları veya temassız ödeme zorunluluğu. <strong>İlave bedel talep edilemez.</strong></p>
+                                
+                                <p><strong>5. Bilgi Güvenliği</strong> - TS ISO/IEC 27001 standardına uygunluk zorunluluğu.</p>
+                                
+                                <h4>SONUÇ VE DEĞERLENDİRME</h4>
+                                <p>Bu Yönetmelik ile elektrikli araç şarj altyapısında önemli düzenlemeler yapılmış, kullanıcı hakları güçlendirilmiştir.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Bilgi Notu:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>26 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Kişisel Verilerin Korunması - KVKK Kararı</span>
-                            <span class="article-date">24 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="KVKK Kararı" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">KVKK İlke Kararı: Açık Rıza Metni ile Aydınlatma Metninin Ayrı Ayrı Düzenlenmesi</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Karar No:</strong> 2026/347 | <strong>Karar Tarihi:</strong> 18.02.2026 | <strong>Resmî Gazete:</strong> 24.03.2026</p>
-                            <p>Kişisel Verileri Koruma Kurulu tarafından alınan İlke Kararı ile açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde sunulmasının hukuka aykırılık teşkil ettiği, ayrı ayrı düzenlenmesi ve ayrı beyan alınması gerektiği kamuoyuna duyurulmuştur.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">KVKK İLKE KARARI: AÇIK RIZA METNİ İLE AYDINLATMA METNİNİN AYRI AYRI DÜZENLENMESİ</h2>
+                            <div class="article-excerpt">
+                                <p>Kişisel Verileri Koruma Kurulu tarafından alınan İlke Kararı ile açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde sunulmasının hukuka aykırılık teşkil ettiği duyurulmuştur.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">24 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-kvkk')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-kvkk')">Devamını Oku →</button>
                         <div id="article-kvkk" class="article-full-content" style="display: none;">
-                            <h3>Konu: Veri Sorumluları Tarafından Açık Rıza ve Aydınlatma Metinlerinin Ayrı Ayrı Düzenlenmesi</h3>
-                            
-                            <h4>KARARIN ÖZETİ</h4>
-                            <p>Açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde ilgili kişilere sunulması, Kişisel Verileri Koruma Kurumuna intikal eden ihbar ve şikâyetlerde en çok karşılaşılan hukuka aykırılıklardan biri olarak görülmektedir. 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun 10. maddesinde düzenlenen aydınlatma yükümlülüğü, kişisel verileri işlenen ilgili kişilerin bilgilendirilmesi anlamına gelmektedir. Açık rıza ise kişisel verilerin hukuka uygun olarak işlenebilmesi için Kanun'da öngörülen işleme şartlarından biridir.</p>
-                            
-                            <h4>HUKUKİ DAYANAKLAR</h4>
-                            <p><strong>Anayasa m.20/3:</strong> Kişisel verilerin, ancak kanunda öngörülen hallerde veya kişinin açık rızasıyla işlenebileceği hüküm altına alınmıştır.</p>
-                            <p><strong>KVKK m.3:</strong> Açık rıza, "belirli bir konuya ilişkin, bilgilendirilmeye dayanan ve özgür iradeyle açıklanan rıza" şeklinde tanımlanmıştır.</p>
-                            <p><strong>KVKK m.10:</strong> Veri sorumlusu, kişisel verilerin elde edilmesi sırasında ilgili kişilere; veri sorumlusunun kimliği, kişisel verilerin hangi amaçla işleneceği, kimlere aktarılabileceği, toplamanın yöntemi ve hukuki sebebi, ve Kanun'un 11. maddesinde sayılan haklar konusunda bilgi vermekle yükümlüdür.</p>
-                            
-                            <h4>AYDINLATMA YÜKÜMLÜLÜĞÜNDE UYULACAK USUL</h4>
-                            <p>Aydınlatma Yükümlülüğünün Yerine Getirilmesinde Uyulacak Usul ve Esaslar Hakkında Tebliğ'in 5. maddesinin birinci fıkrasının (t) bendi hükme göre: Kişisel veri işleme faaliyetinin açık rıza şartına dayalı olarak gerçekleştirilmesi halinde, aydınlatma yükümlülüğü ve açık rızanın alınması işlemlerinin ayrı ayrı yerine getirilmesi gerekmektedir.</p>
-                            
-                            <h4>KARARIN ESASLARI</h4>
-                            
-                            <p><strong>1. Zorunlu Ayrım</strong></p>
-                            <ul>
-                                <li><strong>Aydınlatma yükümlülüğü</strong> ilgili kişinin talebine veya onayına bağlı olmayan, her durumda kişisel veri işlemeye başlamadan önce yerine getirilmesi gereken bir yükümlülükttür.</li>
-                                <li><strong>Açık rıza</strong> ise sadece açık rıza şartına dayalı işleme faaliyetlerinde alınması gereken, özgür iradeyle verilen konuya özel izindir.</li>
-                            </ul>
-                            
-                            <p><strong>2. Ayrı Metin Olarak Düzenleme</strong></p>
-                            <ul>
-                                <li>Kişisel veri işleme faaliyetinin açık rıza şartına dayalı olarak gerçekleştirilmesi halinde, aydınlatma metni ile açık rıza metni <strong>farklı başlıklar altında ayrı ayrı metinler</strong> olarak düzenlenmelidir.</li>
-                                <li>Metinler aynı sayfada bulunacaksa, <strong>alt alta gelecek şekilde</strong> ve <strong>her iki metin için ayrı beyan alınacak</strong> biçimde sunulmalıdır.</li>
-                            </ul>
-                            
-                            <p><strong>3. Doğru Beyan Formatı</strong></p>
-                            <ul>
-                                <li><strong>Yanlış:</strong> "Okudum ve kabul ediyorum", "Okudum ve açık rıza veriyorum", "Okudum ve onaylıyorum"</li>
-                                <li><strong>Doğru:</strong> "Okudum ve anladım" (aydınlatma metni için)</li>
-                            </ul>
-                            <p>Aydınlatma metinleri sözleşme niteliği taşımadığından, metin sonunda onay/rıza ifadeleri yer almamalıdır.</p>
-                            
-                            <p><strong>4. Hukuka Uygunluk Şartları</strong></p>
-                            <ul>
-                                <li>Metinler her veri sorumlusu tarafından <strong>kendi faaliyetlerine uygun şekilde hazırlanmalı</strong>, başka veri sorumlusunun metni birebir kullanılmamalıdır.</li>
-                                <li>Açık, anlaşılır ve <strong>sade bir dil</strong> kullanılmalıdır.</li>
-                                <li>Yanıltıcı, genel, eksik veya yanlış ifadelere yer verilmemelidir.</li>
-                                <li>Gereksiz ölçüde <strong>uzun ve karmaşık metinlerden kaçınılmalıdır</strong>.</li>
-                                <li>İşlenen kişisel veriler, kategorileri, amaç ve hukuki sebep <strong>açık ve net bir biçimde</strong> ifade edilmelidir.</li>
-                            </ul>
-                            
-                            <h4>YAYGIN HUKUKA AYKIRILIKLAR</h4>
-                            <p>Kurul tarafından sıkça tespit edilen hukuka aykırılıklar şunlardır:</p>
-                            <ul>
-                                <li>Açık rıza ve aydınlatma metinlerinin iç içe geçmiş şekilde tek bir metin halinde sunulması</li>
-                                <li>Aydınlatma yapıldığına dair ilgili kişilerden onay/rıza talep edilmesi</li>
-                                <li>Başka bir veri sorumlusu tarafından düzenlenen metinlerin birebir aynısının kullanılması</li>
-                                <li>"Kişisel verileriniz Kanun'un 5 ve 6'ncı maddesinde belirtilen işleme şartları kapsamında işlenmektedir" gibi muğlak ifadelere yer verilmesi</li>
-                                <li>Yurt dışına aktarım yapılıyorken yurt dışına aktarım yapılmadığı izlenimi uyandıran ifadeler kullanılması</li>
-                                <li>Kanun'un 11. maddesinin tamamına yer verilerek metnin uzaması</li>
-                            </ul>
-                            
-                            <h4>SONUÇ VE DEĞERLENDİRME</h4>
-                            <p>Bu İlke Kararı ile KVKK, aydınlatma yükümlülüğü ve açık rızanın birbirine karıştırılmaması gerektiğini, her ikisinin de farklı hukuki nitelikte olduğunu ve bu nedenle ayrı ayrı düzenlenmesi gerektiğini kamuoyuna duyurmuştur. Veri sorumlularının bu karara uygun hareket etmemesi halinde Kanun'un 18. maddesi hükümleri gereği işlem tesis edileceği açıklanmıştır.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Karar Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>24 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-kvkk')">&times;</span>
+                                <h3>Konu: Veri Sorumluları Tarafından Açık Rıza ve Aydınlatma Metinlerinin Ayrı Ayrı Düzenlenmesi</h3>
+                                
+                                <h4>KARARIN ÖZETİ</h4>
+                                <p>Açık rıza metni ile aydınlatma metninin iç içe geçmiş şekilde ilgili kişilere sunulması, Kişisel Verileri Koruma Kurumuna intikal eden ihbar ve şikâyetlerde en çok karşılaşılan hukuka aykırılıklardan biri olarak görülmektedir.</p>
+                                
+                                <h4>HUKUKİ DAYANAKLAR</h4>
+                                <p><strong>Anayasa m.20/3:</strong> Kişisel verilerin, ancak kanunda öngörülen hallerde veya kişinin açık rızasıyla işlenebileceği hüküm altına alınmıştır.</p>
+                                <p><strong>KVKK m.3:</strong> Açık rıza, "belirli bir konuya ilişkin, bilgilendirilmeye dayanan ve özgür iradeyle açıklanan rıza" şeklinde tanımlanmıştır.</p>
+                                
+                                <h4>KARARIN ESASLARI</h4>
+                                <p><strong>1. Zorunlu Ayrım:</strong> Aydınlatma yükümlülüğü ilgili kişinin talebine veya onayına bağlı olmayan, her durumda kişisel veri işlemeye başlamadan önce yerine getirilmesi gereken bir yükümlülükttür.</p>
+                                
+                                <p><strong>2. Ayrı Metin Olarak Düzenleme:</strong> Kişisel veri işleme faaliyetinin açık rıza şartına dayalı olarak gerçekleştirilmesi halinde, aydınlatma metni ile açık rıza metni farklı başlıklar altında ayrı ayrı metinler olarak düzenlenmelidir.</p>
+                                
+                                <p><strong>3. Doğru Beyan Formatı:</strong> Aydınlatma metinleri sözleşme niteliği taşımadığından, metin sonunda onay/rıza ifadeleri yer almamalıdır.</p>
+                                
+                                <h4>SONUÇ VE DEĞERLENDİRME</h4>
+                                <p>Bu İlke Kararı ile KVKK, aydınlatma yükümlülüğü ve açık rızanın birbirine karıştırılmaması gerektiğini, her ikisinin de farklı hukuki nitelikte olduğunu ve bu nedenle ayrı ayrı düzenlenmesi gerektiğini kamuoyuna duyurmuştur.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Karar Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>24 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Mevzuat - Kanun</span>
-                            <span class="article-date">23 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Milli Parklar Kanunu" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">7576 Sayılı Milli Parklar Kanunu ve Bazı Kanunlarda Değişiklik Yapılmasına Dair Kanun</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Kanun No:</strong> 7576 | <strong>Kabul Tarihi:</strong> 11.03.2026 | <strong>Resmî Gazete:</strong> 19.03.2026</p>
-                            <p>Av ve yaban hayatı yönetimi, avlanma planları, milli parklarda yapılan düzenlemeler ve ekolojik dengeyi bozan fiillere yönelik cezai yaptırımları içeren kapsamlı bir kanun değişikliği yayınlanmıştır.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">7576 SAYILI MİLLİ PARKLAR KANUNU VE BAZI KANUNLARDA DEĞİŞİKLİK YAPILMASINA DAİR KANUN</h2>
+                            <div class="article-excerpt">
+                                <p>Av ve yaban hayatı yönetimi, avlanma planları, milli parklarda yapılan düzenlemeler ve ekolojik dengeyi bozan fiillere yönelik cezai yaptırımları içeren kapsamlı bir kanun değişikliği.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">23 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-milli-park')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-milli-park')">Devamını Oku →</button>
                         <div id="article-milli-park" class="article-full-content" style="display: none;">
-                            <h3>Konu: Milli Parklar ve Çevre Mevzuatında Önemli Değişiklikler</h3>
-                            
-                            <h4>KANUNUN ÖZETİ</h4>
-                            <p>7576 sayılı Kanun ile 2872 sayılı Çevre Kanunu, 2873 sayılı Milli Parklar Kanunu, 4915 sayılı Kara Avcılığı Kanunu ve 375 sayılı Kanun Hükmünde Kararname'de önemli değişiklikler yapılmıştır. Kanun, 19 Mart 2026 tarihli Resmî Gazete'de yayınlanarak yürürlüğe girmiştir.</p>
-                            
-                            <h4>TEMEL DEĞİŞİKLİKLER</h4>
-                            
-                            <p><strong>1. Av ve Yaban Hayatı Yönetimi</strong></p>
-                            <ul>
-                                <li>Avlanma planlarına göre yapılacak avlanmalar için av hayvanlarının türlerine ve ağırlıklarına göre alınacak avlama ve avlanma izin ücretleri Doğa Koruma ve Milli Parklar Genel Müdürlüğünce tespit edilecektir.</li>
-                                <li>Genel Müdürlükçe talep edilmesi halinde ithalatçı, imalatçı ve toptancılar tarafından perakendecilere yapılan satışa ilişkin bilgi ve belgeler gecikmeksizin Genel Müdürlüğe iletilecektir.</li>
-                            </ul>
-                            
-                            <p><strong>2. Milli Parklarda Yapılan Düzenlemeler</strong></p>
-                            <ul>
-                                <li>Milli parklar ve tabiat parklarında inşa edilen yapıların kiralama süresi 99 yılı geçmeyecektir.</li>
-                                <li>Doğa Koruma ve Milli Parklar Genel Müdürlüğü, ihtiyaç duyduğu hallerde görev ve hizmetleriyle ilgili döner sermayeli işletmeler kurabilecektir.</li>
-                            </ul>
-                            
-                            <p><strong>3. Ekolojik Dengeyi Bozan Fiillere Cezai Yaptırımlar</strong></p>
-                            <p>Milli parklarda ekolojik dengeleri bozanlara 1 yıldan 3 yıla kadar hapis ve 5 bin güne kadar adli para cezası verilecektir.</p>
-                            
-                            <p><strong>4. Çevre Kanunu'nda Değişiklik</strong></p>
-                            <p>2872 sayılı Çevre Kanunu'nun 12. maddesine eklenen hükümle, 9. maddenin birinci fıkrasının (a), (e) ve (f) bentleri bakımından denetleme yetkisi Doğa Koruma ve Milli Parklar Genel Müdürlüğüne verilmiştir.</p>
-                            
-                            <h4>YENİ TANIMLAR</h4>
-                            <p>2873 sayılı Milli Parklar Kanunu'na eklenen yeni tanımlar:</p>
-                            <ul>
-                                <li><strong>Alan kılavuzu:</strong> Korunan alanlarda ziyaretçi yönetimi için, alan sınırları dahilinde ve yakın çevresinde yaşayan yöre insanları arasından Genel Müdürlükçe verilen eğitimi tamamlayarak kimlik almaya hak kazanmış kişi.</li>
-                                <li><strong>Av ve doğa koruma memuru:</strong> Mevzuata aykırılık oluşturan fiillerin takibi, biyolojik çeşitliliğin korunması, av ve yaban hayvanlarının bakımı, gözlenmesi ve sayımına yönelik işleri yapmak üzere görevlendirilen personel.</li>
-                            </ul>
-                            
-                            <h4>İDARİ YAPTIRIMLAR</h4>
-                            <p>Çevre Kanunu'nun 24. maddesinin yedinci fıkrası değiştirilerek, biyolojik çeşitliliği tahrip edenler ile sulak alanlar için yönetmelikle belirlenen koruma ve kullanım usul ve esaslarına aykırı davrananlara Doğa Koruma ve Milli Parklar Genel Müdürlüğü tarafından idari yaptırım uygulanması hükme bağlanmıştır.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Kanun Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>23 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-milli-park')">&times;</span>
+                                <h3>Konu: Milli Parklar ve Çevre Mevzuatında Önemli Değişiklikler</h3>
+                                
+                                <h4>KANUNUN ÖZETİ</h4>
+                                <p>7576 sayılı Kanun ile 2872 sayılı Çevre Kanunu, 2873 sayılı Milli Parklar Kanunu, 4915 sayılı Kara Avcılığı Kanunu ve 375 sayılı Kanun Hükmünde Kararname'de önemli değişiklikler yapılmıştır.</p>
+                                
+                                <h4>TEMEL DEĞİŞİKLİKLER</h4>
+                                <p><strong>1. Av ve Yaban Hayatı Yönetimi</strong> - Avlanma planlarına göre yapılacak avlanmalar için av hayvanlarının türlerine ve ağırlıklarına göre alınacak avlama ve avlanma izin ücretleri Doğa Koruma ve Milli Parklar Genel Müdürlüğünce tespit edilecektir.</p>
+                                
+                                <p><strong>2. Milli Parklarda Yapılan Düzenlemeler</strong> - Milli parklar ve tabiat parklarında inşa edilen yapıların kiralama süresi 99 yılı geçmeyecektir.</p>
+                                
+                                <p><strong>3. Ekolojik Dengeyi Bozan Fiillere Cezai Yaptırımlar</strong> - Milli parklarda ekolojik dengeleri bozanlara 1 yıldan 3 yıla kadar hapis ve 5 bin güne kadar adli para cezası verilecektir.</p>
+                                
+                                <p><strong>4. Çevre Kanunu'nda Değişiklik</strong> - Denetleme yetkisi Doğa Koruma ve Milli Parklar Genel Müdürlüğüne verilmiştir.</p>
+                                
+                                <h4>SONUÇ</h4>
+                                <p>Bu kanun değişiklikleri ile çevre ve doğa koruma alanında önemli düzenlemeler yapılmıştır.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Kanun Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>23 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">İş Hukuku - Haftanın Kararı</span>
-                            <span class="article-date">18 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Arabuluculuk Kararı" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">Yargıtay 9. Hukuk Dairesi: İhtiyari Arabuluculuk Görüşmesinin Şantiyede Telekonferans ile Yapılması</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Esas No:</strong> 2025/5152 | <strong>Karar No:</strong> 2025/8447 | <strong>Karar Tarihi:</strong> 04.11.2025</p>
-                            <p>İşçinin işverenin şantiyesinde bulunduğu sırada ihtiyari arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesi, tek başına irade sakatlığı için yeterli olmayıp tutanağın iptalini gerektirmez.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">YARGITAY 9. HUKUK DAİRESİ: İHTİYARİ ARABULUCULUK GÖRÜŞMESİNİN ŞANTİYEDE TELEKONFERANS İLE YAPILMASI</h2>
+                            <div class="article-excerpt">
+                                <p>İşçinin işverenin şantiyesinde bulunduğu sırada ihtiyari arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesi, tek başına irade sakatlığı için yeterli olmayıp tutanağın iptalini gerektirmez.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">18 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-arabuluculuk')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-arabuluculuk')">Devamını Oku →</button>
                         <div id="article-arabuluculuk" class="article-full-content" style="display: none;">
-                            <h3>Konu: İhtiyari Arabuluculuk Tutanağına Yönelik İrade Fesadı İddiası</h3>
-                            
-                            <h4>KARARIN ÖZETİ</h4>
-                            <p>Somut uyuşmazlıkta davacı vekili tarafından, müvekkilinin iş sözleşmesinin feshedilmesinden sonra baskı ve zorlama ile ihtiyari arabuluculuk anlaşma tutanağı imzalatıldığı, iradesinin fesada uğratıldığı iddia edilmiş; davalı taraf ise davacının serbest iradesi ile tutanakları imzaladığını savunmuştur.</p>
-                            
-                            <p>Dosya kapsamında dinlenilen davacı tanıkları soyut ve genel nitelikte beyanlarda bulunmuş olup, davacının arabuluculuk görüşmelerine, sürece ve irade fesadı iddialarına ilişkin somut tanık anlatımı bulunmamaktadır. Davacının ihtiyari arabuluculuk tutanağına yönelik irade fesadı iddiasını usulüne uygun olarak ispat edemediği anlaşılmıştır.</p>
-                            
-                            <h4>ARABULUCULUK SÜRECİNDE BİLGİLENDİRME</h4>
-                            <p>Ayrıca davacının arabuluculuk faaliyeti sırasında arabuluculuğun esasları, süreci ve hukuki sonuçları konusunda bilgilendirildiği, dosyada mevcut arabuluculuk ilk oturum açılış tutanağı, anlaşma tutanağı ve arabuluculuk son tutanağından anlaşılmaktadır. Bu durumun aksi de davacı tarafından ispat edilememiştir.</p>
-                            
-                            <h4>TELEKONFERANS YÖNTEMİNİN DEĞERLENDİRİLMESİ</h4>
-                            <p>Mahkemece, işçinin işverenin şantiyesinde bulunduğu sırada arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesinin tek başına irade sakatlığı için yeterli olmadığı sonucuna varılmıştır. Görüşmenin yapıldığı yerin tek başına anlaşma tutanağının iptali için yeterli bir sebep teşkil etmediği belirtilmiştir.</p>
-                            
-                            <h4>HUKUKİ DEĞERLENDİRME</h4>
-                            <p>İlk Derece Mahkemesince ihtiyari arabuluculuk tutanağı geçerli kabul edilerek bu tutanağın iptaline ve talep edilen alacakların tahsiline yönelik davanın reddi yerine yanılgılı değerlendirme ile ihtiyari arabuluculuk tutanağının iptaline ve dava konusu alacakların kısmen kabulüne karar verilmesi hatalı olup bozmayı gerektirmiştir.</p>
-                            
-                            <h4>SONUÇ</h4>
-                            <p>Bölge Adliye Mahkemesi kararı davalı vekili tarafından temyiz edilmiş; Yargıtay 9. Hukuk Dairesi tarafından yapılan inceleme sonucunda İlk Derece Mahkemesi kararının kaldırılarak yerine reddi gerektiği sonucuna varılmıştır.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Karar Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>18 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-arabuluculuk')">&times;</span>
+                                <h3>Konu: İhtiyari Arabuluculuk Tutanağına Yönelik İrade Fesadı İddiası</h3>
+                                
+                                <h4>KARARIN ÖZETİ</h4>
+                                <p>Somut uyuşmazlıkta davacı vekili tarafından, müvekkilinin iş sözleşmesinin feshedilmesinden sonra baskı ve zorlama ile ihtiyari arabuluculuk anlaşma tutanağı imzalatıldığı, iradesinin fesada uğratıldığı iddia edilmiştir.</p>
+                                
+                                <h4>TELEKONFERANS YÖNTEMİNİN DEĞERLENDİRİLMESİ</h4>
+                                <p>Mahkemece, işçinin işverenin şantiyesinde bulunduğu sırada arabuluculuk görüşmesinin telekonferans ile gerçekleştirilmesinin tek başına irade sakatlığı için yeterli olmadığı sonucuna varılmıştır.</p>
+                                
+                                <h4>SONUÇ</h4>
+                                <p>Yargıtay 9. Hukuk Dairesi tarafından yapılan inceleme sonucunda İlk Derece Mahkemesi kararının kaldırılarak yerine reddi gerektiği sonucuna varılmıştır.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Karar Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>18 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Kira Hukuku - Haftanın Kararı</span>
-                            <span class="article-date">11 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Tahliye Kararı" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">İstanbul Bölge Adliye Mahkemesi: Konut İhtiyacı Tahliye Davasında Reşit Kişinin Ayrı Meskende Oturma Hakkı</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Esas No:</strong> 2024/289 | <strong>Karar No:</strong> 2025/2257 | <strong>Karar Tarihi:</strong> 02.10.2025</p>
-                            <p>Reşit olan davacının ayrı meskende oturması yasal hakkı olduğundan, anne veya babası ile birlikte oturmaya zorlanamaz.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">İSTANBUL BÖLGE ADLİYE MAHKEMESİ: KONUT İHTİYACI TAHLİYE DAVASINDA REŞİT KİŞİNİN AYRI MESKENDE OTURMA HAKKI</h2>
+                            <div class="article-excerpt">
+                                <p>Reşit olan davacının ayrı meskende oturması yasal hakkı olduğundan, anne veya babası ile birlikte oturmaya zorlanamaz.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">11 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-tahliye')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-tahliye')">Devamını Oku →</button>
                         <div id="article-tahliye" class="article-full-content" style="display: none;">
-                            <h3>Konu: Kiraya Verenin Konut İhtiyacı Sebebiyle Kiralananın Tahliyesi</h3>
-                            
-                            <h4>KARARIN ÖZETİ</h4>
-                            <p>Davacının annesiyle birlikte oturuyor olması başlı başına ihtiyacın varlığı için yeterlidir. Davalı, davacıya ait başka taşınmazların olduğunu beyan etmekte ise de bu taşınmazların boş olduğunu iddia ve ispat edememiştir. Bu bakımdan mahkemece kiralananın tahliyesine karar verilmesi gerekirken yazılı gerekçelerle davanın reddine karar verilmesi doğru değildir ve hüküm bu nedenle bozulmalıdır.</p>
-                            
-                            <h4>SOMUT OLAY</h4>
-                            <p>Davacı 61 yaşında, babası ile birlikte ikamet ettiği evin küçük olduğunu, yaşların ilerlemesinden ötürü aile fertlerinin uzun süredir sorunlar yaşadığını, birbirleri ile anlaşamadıklarını, ayrı yaşamak istemesinden dolayı konutu kullanma zorunluluğu doğduğunu belirterek kira sözleşmesinin sona ermesi üzerine tahliye davası açmıştır.</p>
-                            
-                            <h4>İHTİYACIN DEĞERLENDİRİLMESİ</h4>
-                            <p>Mahkemece, mülkiyet hakkına üstünlük tanınarak, ihtiyacın samimi ve zorunlu olduğunun kabulü ile kiralananın başkasına kiraya verilmesi halinde davacıdan Türk Borçlar Kanunu 355. maddesi gereğince tazminat talep edilebileceği hususları dikkate alınmıştır.</p>
-                            <p>Davacının mecura ihtiyacı bulunduğu, ihtiyacının gerçek, samimi, sürekli ve zorunlu olduğu kabul edilerek davacının istinaf talebinin kabulüne karar verilmiştir.</p>
-                            
-                            <h4>HUKUKİ DEĞERLENDİRME</h4>
-                            <p><strong>Reşit bir kişinin ayrı meskende oturması yasal hakkı olup anne veya babası ile birlikte oturmaya zorlanamaz.</strong> Bu ilke, yetişkin çocukların aileleri ile birlikte ikamete zorlanamayacağı Yargıtay içtihadlarıyla da desteklenmektedir.</p>
-                            <p>Tanık dinletmekten vazgeçmenin ihtiyacın samimi, gerçek ve zorunlu olmadığı anlamına gelmeyeceği hususu da mahkemece dikkate alınmıştır.</p>
-                            
-                            <h4>SONUÇ</h4>
-                            <p>İstanbul Bölge Adliye Mahkemesi 54. Hukuk Dairesi, ilk derece mahkemesi kararını bozarak davacının istinaf talebinin kabulüne ve kiralananın tahliyesine karar verilmesi gerektiğine hükmetmiştir.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Karar Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>11 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-tahliye')">&times;</span>
+                                <h3>Konu: Kiraya Verenin Konut İhtiyacı Sebebiyle Kiralananın Tahliyesi</h3>
+                                
+                                <h4>KARARIN ÖZETİ</h4>
+                                <p>Davacının annesiyle birlikte oturuyor olması başlı başına ihtiyacın varlığı için yeterlidir. Davalı, davacıya ait başka taşınmazların olduğunu beyan etmekte ise de bu taşınmazların boş olduğunu iddia ve ispat edememiştir.</p>
+                                
+                                <h4>SOMUT OLAY</h4>
+                                <p>Davacı 61 yaşında, babası ile birlikte ikamet ettiği evin küçük olduğunu, yaşların ilerlemesinden ötürü aile fertlerinin uzun süredir sorunlar yaşadığını, birbirleri ile anlaşamadıklarını, ayrı yaşamak istemesinden dolayı konutu kullanma zorunluluğu doğduğunu belirterek kira sözleşmesinin sona ermesi üzerine tahliye davası açmıştır.</p>
+                                
+                                <h4>HUKUKİ DEĞERLENDİRME</h4>
+                                <p><strong>Reşit bir kişinin ayrı meskende oturması yasal hakkı olup anne veya babası ile birlikte oturmaya zorlanamaz.</strong> Bu ilke, yetişkin çocukların aileleri ile birlikte ikamete zorlanamayacağı Yargıtay içtihadlarıyla da desteklenmektedir.</p>
+                                
+                                <h4>SONUÇ</h4>
+                                <p>İstanbul Bölge Adliye Mahkemesi 54. Hukuk Dairesi, ilk derece mahkemesi kararını bozarak davacının istinaf talebinin kabulüne ve kiralananın tahliyesine karar verilmesi gerektiğine hükmetmiştir.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Karar Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>11 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Anayasa Hukuku - İptal Kararı</span>
-                            <span class="article-date">10 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="AYM Nöbet Kararı" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">Anayasa Mahkemesi: Sağlık Kuruluşlarında Belirli Sürenin Üzerinde Tutulan Nöbetler İçin Ücret Ödenmemesi Kuralının İptali</h2>
-                        <div class="article-excerpt">
-                            <p><strong>Esas No:</strong> 2025/89 | <strong>Karar No:</strong> 2025/243 | <strong>Karar Tarihi:</strong> 26.11.2025</p>
-                            <p>Anayasa Mahkemesi, çeşitli sağlık kuruluşlarında belirli sürelerin üzerinde tutulan nöbetler için ücret ödenmemesini öngören 657 sayılı Devlet Memurları Kanunu Ek 33. maddesinin üçüncü cümlesinin Anayasa'ya aykırı olduğuna ve iptaline karar verdi.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">ANAYASA MAHKEMESİ: SAĞLIK KURULUŞLARINDA BELİRLİ SÜRENİN ÜZERİNDE TUTULAN NÖBETLER İÇİN ÜCRET ÖDENMEMESİ KURALININ İPTALİ</h2>
+                            <div class="article-excerpt">
+                                <p>Anayasa Mahkemesi, çeşitli sağlık kuruluşlarında belirli sürelerin üzerinde tutulan nöbetler için ücret ödenmemesini öngören hükmün Anayasa'ya aykırı olduğuna ve iptaline karar verdi.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">10 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article-nobet')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article-nobet')">Devamını Oku →</button>
                         <div id="article-nobet" class="article-full-content" style="display: none;">
-                            <h3>Konu: 657 Sayılı Devlet Memurları Kanunu Ek 33. Maddesinin İptali</h3>
-                            
-                            <h4>KARARIN ÖZETİ</h4>
-                            <p>14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanunu'nun 21/1/2010 tarihli ve 5947 sayılı Kanun'un 10. maddesiyle değiştirilen ek 33. maddesinin birinci fıkrasının üçüncü cümlesinin Anayasa'nın 2., 18. ve 35. maddelerine aykırı olduğu ve iptali hakkında Anayasa Mahkemesi karar vermiştir.</p>
-                            
-                            <h4>İPTAL EDİLEN HÜKÜM</h4>
-                            <p>İptal edilen hüküm şöyledir:</p>
-                            <blockquote>
-                                "Ancak ayda aile sağlığı ve toplum sağlığı merkezlerinde 60 saatten, diğer yerlerde ve hiçbir şekilde 130 saatten fazlası için ödeme yapılmaz."
-                            </blockquote>
-                            
-                            <h4>KARARIN DAYANAKLARI</h4>
-                            <p><strong>Anayasa m.2:</strong> Türkiye Cumhuriyeti, sosyal hukuk devletidir.</p>
-                            <p><strong>Anayasa m.18:</strong> Herkes, yaşama, maddi ve manevi varlığını koruma ve geliştirme hakkına sahiptir.</p>
-                            <p><strong>Anayasa m.35:</strong> Herkes, mal varlığı ve miras hakları üzerinde mülkiyet hakkına sahiptir.</p>
-                            
-                            <h4>OLAY</h4>
-                            <p>Nöbet ücretinin ödenmesi talebiyle yapılan başvurunun reddine ilişkin işlemin iptali talebiyle açılan davada itiraz konusu kuralın Anayasa'ya aykırı olduğu kanısına varan Çanakkale 2. İdare Mahkemesi, iptali için Anayasa Mahkemesi'ne başvurmuştur.</p>
-                            
-                            <h4>MEVCUT DÜZENLEME</h4>
-                            <p>Ek 33. madde uyarınca, yataklı tedavi kurumları, seyyar hastaneler, ağız ve diş sağlığı merkezleri, aile sağlığı merkezleri, toplum sağlığı merkezleri ve 112 acil sağlık hizmetlerinde haftalık çalışma süresi dışında nöbet tutan personele izin suretiyle karşılanamayan her bir nöbet saati için nöbet ücreti ödenmektedir.</p>
-                            <p>İptal edilen hükümle bu ödeme, aile sağlığı ve toplum sağlığı merkezlerinde ayda 60 saatten, diğer yerlerde 130 saatten fazlası için yapılmamaktaydı.</p>
-                            
-                            <h4>HUKUKİ DEĞERLENDİRME</h4>
-                            <p>Anayasa Mahkemesi, söz konusu ücret sınırlamasının Anayasa'nın 2., 18. ve 35. maddelerine aykırı olduğunu tespit etmiştir. Karar, 10 Mart 2026 tarihli Resmî Gazete'de (Sayı: 33192) yayınlanmıştır.</p>
-                            
-                            <h4>SONUÇ</h4>
-                            <p>İptal edilen hüküm uyarınca nöbet ücreti ödemesi yapılmayan sağlık çalışanları için yeni hak doğumları söz konusu olabilecektir. Kamu kurumları bu karar doğrultusunda nöbet ücreti ödemelerini gözden geçirmek zorundadır.</p>
-                            
-                            <div class="article-author">
-                                <p><strong>Karar Özeti:</strong><br>
-                                Avukat Ege Özata<br>
-                                Özata Hukuk Bürosu<br>
-                                <em>10 Mart 2026</em></p>
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article-nobet')">&times;</span>
+                                <h3>Konu: 657 Sayılı Devlet Memurları Kanunu Ek 33. Maddesinin İptali</h3>
+                                
+                                <h4>KARARIN ÖZETİ</h4>
+                                <p>14/7/1965 tarihli ve 657 sayılı Devlet Memurları Kanunu'nun 21/1/2010 tarihli ve 5947 sayılı Kanun'un 10. maddesiyle değiştirilen ek 33. maddesinin birinci fıkrasının üçüncü cümlesinin Anayasa'nın 2., 18. ve 35. maddelerine aykırı olduğu ve iptali hakkında Anayasa Mahkemesi karar vermiştir.</p>
+                                
+                                <h4>İPTAL EDİLEN HÜKÜM</h4>
+                                <p>İptal edilen hüküm: "Ancak ayda aile sağlığı ve toplum sağlığı merkezlerinde 60 saatten, diğer yerlerde ve hiçbir şekilde 130 saatten fazlası için ödeme yapılmaz."</p>
+                                
+                                <h4>KARARIN DAYANAKLARI</h4>
+                                <p><strong>Anayasa m.2:</strong> Türkiye Cumhuriyeti, sosyal hukuk devletidir.</p>
+                                <p><strong>Anayasa m.18:</strong> Herkes, yaşama, maddi ve manevi varlığını koruma ve geliştirme hakkına sahiptir.</p>
+                                <p><strong>Anayasa m.35:</strong> Herkes, mal varlığı ve miras hakları üzerinde mülkiyet hakkına sahiptir.</p>
+                                
+                                <h4>SONUÇ</h4>
+                                <p>İptal edilen hüküm uyarınca nöbet ücreti ödemesi yapılmayan sağlık çalışanları için yeni hak doğumları söz konusu olabilecektir.</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Karar Özeti:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>10 Mart 2026</em></p>
+                                </div>
                             </div>
                         </div>
                     </article>
 
                     <article class="article-card">
-                        <div class="article-header">
-                            <span class="article-category">Trafik Hukuku</span>
-                            <span class="article-date">23 Mart 2026</span>
+                        <div class="article-image-wrapper">
+                            <img src="images/ben.jpg" alt="Trafik Hukuku Rehberi" class="article-image">
+                            <span class="article-tag">BİZDEN HABERLER</span>
                         </div>
-                        <h2 class="article-title">2026 Trafik Hukuku Ansiklopedisi: APP Plaka, Radar ve Yeni Nesil İdari Yaptırımlara Karşı Kapsamlı Hukuki Savunma Rehberi</h2>
-                        <div class="article-excerpt">
-                            <p>Türkiye'de karayolları denetim mekanizması, 27.02.2026 tarihli Resmî Gazete'de yayımlanan 7574 sayılı "Trafik Güvenliğinin Teknolojik Entegrasyonu ve Caydırıcılık Kanunu" ile milat niteliğinde bir değişime uğramıştır. Bu kapsamlı rehber; APP plaka cezalarından radar yaptırımlarına, itiraz süreçlerinden emsal kararlara kadar trafik hukukunun tüm detaylarını ele almaktadır.</p>
+                        <div class="article-content">
+                            <h2 class="article-title">2026 TRAFİK HUKUKU ANSİKLOPEDİSİ: APP PLAKA, RADAR VE YENİ NESİL İDARİ YAPTIRIMLARA KARŞI KAPSAMLI HUKUKİ SAVUNMA REHBERİ</h2>
+                            <div class="article-excerpt">
+                                <p>Türkiye'de karayolları denetim mekanizması 7574 sayılı Kanun ile milat niteliğinde bir değişime uğramıştır. APP plaka cezalarından radar yaptırımlarına kadar kapsamlı bir hukuki rehber.</p>
+                            </div>
+                            <div class="article-footer">
+                                <span class="article-date">23 Mart 2026</span>
+                                <button class="article-read-btn" onclick="toggleArticle('article4')">Devamını Oku</button>
+                            </div>
                         </div>
-                        <button class="article-read-more" onclick="toggleArticle('article4')">Devamını Oku →</button>
                         <div id="article4" class="article-full-content" style="display: none;">
+                            <div class="article-modal">
+                                <span class="article-close" onclick="toggleArticle('article4')">&times;</span>
+                                <h3>Giriş: Türkiye'de Trafik Denetiminin Dijital Dönüşümü</h3>
+                                <p>Türkiye'de karayolları denetim mekanizması, 27.02.2026 tarihli Resmî Gazete'de yayımlanan 7574 sayılı "Trafik Güvenliğinin Teknolojik Entegrasyonu ve Caydırıcılık Kanunu" ile milat niteliğinde bir değişime uğramıştır.</p>
+                                
+                                <h4>2026 Güncel Ceza Tarifesi</h4>
+                                <p><strong>APP Plaka Kullanımı:</strong> 14.500 TL + Araç trafikten men + 15 puan</p>
+                                <p><strong>Plaka Manipülasyonu:</strong> 140.000 TL + Adli süreç riski</p>
+                                <p><strong>Radar Cezaları:</strong> %10'a kadar 1.200 TL, %50 üzeri 30.000 TL</p>
+                                <p><strong>Drift:</strong> 46.000 TL + Ehliyet iptali</p>
+                                <p><strong>Alkol:</strong> 18.000 TL + Ehliyet 2 yıl geri alınır</p>
+                                
+                                <h4>Mahkemelerin Kabul Ettiği Savunma Stratejileri</h4>
+                                <p><strong>Ölçülülük İlkesi:</strong> Plaka okunabilir olduğunda ceza ölçülülük ilkesine aykırı olabilir.</p>
+                                <p><strong>Usul Hataları:</strong> Tarih, yer, cihaz bilgisi ve kalibrasyon eksiklikleri iptal sebebidir.</p>
+                                <p><strong>Maddi Hatalar:</strong> AI sistemleri bazen karakterleri yanlış okuyabilir.</p>
+                                
+                                <h4>İtiraz Süreci</h4>
+                                <p>1. Tebligat Alınması (15 gün süre)<br>
+                                2. Delil Toplama<br>
+                                3. Dilekçe Hazırlığı<br>
+                                4. Sulh Ceza Hakimliğine Başvuru<br>
+                                5. Karar (2-6 ay)</p>
+                                
+                                <div class="article-author">
+                                    <p><strong>Hukuki Rehber:</strong><br>
+                                    Avukat Ege Özata<br>
+                                    Özata Hukuk Bürosu<br>
+                                    <em>23 Mart 2026</em></p>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
                             <h3>Giriş: Türkiye'de Trafik Denetiminin Dijital Dönüşümü</h3>
                             <p>Türkiye'de karayolları denetim mekanizması, 27.02.2026 tarihli Resmî Gazete'de yayımlanan 7574 sayılı "Trafik Güvenliğinin Teknolojik Entegrasyonu ve Caydırıcılık Kanunu" ile milat niteliğinde bir değişime uğramıştır. Bu yasal düzenleme, sadece ceza miktarlarını artırmakla kalmamış, "trafik suçu" ve "idari kabahat" arasındaki çizgiyi belirgin şekilde kalınlaştırmıştır.</p>
                             
