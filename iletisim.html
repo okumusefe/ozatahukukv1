@@ -131,9 +131,9 @@
 
                     <form class="contact-form" id="contactForm" action="https://formsubmit.co/info@ozatahukuk.av.tr" method="POST">
                         <input type="hidden" name="_subject" value="Yeni İletişim Formu Mesajı - Özata Hukuk">
-                        <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
                         <input type="hidden" name="_next" value="https://ozatahukuk.av.tr/iletisim.html#success">
+                        <input type="text" name="_honey" style="display:none">
                         
                         <div class="form-row">
                             <div class="form-group">
@@ -149,11 +149,11 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="phone">Telefon *</label>
-                                <input type="tel" id="phone" name="Telefon" required>
+                                <input type="tel" id="phone" name="phone" required>
                             </div>
                             <div class="form-group">
                                 <label for="subject">Konu</label>
-                                <select id="subject" name="Konu">
+                                <select id="subject" name="subject">
                                     <option value="">Konu Seçiniz</option>
                                     <option value="Aile Hukuku">Aile Hukuku</option>
                                     <option value="Ceza Hukuku">Ceza Hukuku</option>
@@ -171,12 +171,12 @@
 
                         <div class="form-group">
                             <label for="message">Mesajınız *</label>
-                            <textarea id="message" name="Mesaj" rows="6" required></textarea>
+                            <textarea id="message" name="message" rows="6" required></textarea>
                         </div>
 
                         <div class="form-group">
                             <label class="checkbox-label">
-                                <input type="checkbox" id="privacy" name="_privacy_accept" value="Kabul Edildi" required>
+                                <input type="checkbox" id="privacy" name="privacy_accept" value="Kabul Edildi" required>
                                 <span>Kişisel verilerimin işlenmesini ve <a href="#" class="privacy-link">gizlilik politikasını</a> kabul ediyorum. *</span>
                             </label>
                         </div>
