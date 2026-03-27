@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trafik Kazası Tazminatı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        .form-row.three-col {
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1.2rem;
+            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+            color: var(--white);
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
+        }
+        .result-box {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 15px;
+            margin-top: 2rem;
+            border-left: 5px solid var(--accent-color);
+            display: none;
+        }
+        .result-box.show { display: block; animation: slideUp 0.4s ease; }
+        .result-box h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child {
+            border-bottom: none;
+            font-weight: 700;
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201, 169, 97, 0.1);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--accent-color);
+        }
+        .info-box h4 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .info-box ul {
+            margin: 0;
+            padding-left: 1.5rem;
+        }
+        .info-box li {
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        .limit-info {
+            background: #fff3cd;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #ffc107;
+        }
+        .limit-info h4 {
+            color: #856404;
+            margin-bottom: 0.5rem;
+        }
+        .limit-info p {
+            color: #856404;
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        @media (max-width: 768px) {
+            .form-row, .form-row.three-col {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="logo">
+                    <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                        <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="../index.html">Ana Sayfa</a></li>
+                    <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                    <li><a href="../calisma-bolgeleri.html">Çalışma Bölgeleri</a></li>
+                    <li><a href="../yayinlar.html">Yayınlar</a></li>
+                    <li><a href="../sss.html">SSS</a></li>
+                    <li><a href="../iletisim.html">İletişim</a></li>
+                </ul>
+                <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
+                    <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                            <rect x="2" y="9" width="4" height="12"></rect>
+                            <circle cx="4" cy="4" r="2"></circle>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
+                            <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section class="page-hero">
+        <div class="hero-content">
+            <h1>Trafik Kazası Tazminatı Hesaplama</h1>
+            <p>2026 yılı güncel verileriyle trafik kazası tazminatı hesaplama aracı</p>
+        </div>
+    </section>
+
+    <section class="calculator-section">
+        <div class="calculator-container">
+            <div class="calculator-card">
+                <h2>Trafik Kazası Tazminatı Hesaplama</h2>
+                <p>Zorunlu trafik sigortası teminat limitlerine göre tazminat hesaplama</p>
+                
+                <div class="limit-info">
+                    <h4>2026 Yılı Zorunlu Trafik Sigortası Teminat Limitleri</h4>
+                    <p><strong>Maddi Hasar:</strong> Araç başı 400.000 TL / Kaza başı 800.000 TL</p>
+                    <p><strong>Sağlık/Sakatlanma/Ölüm:</strong> Kişi başı 3.600.000 TL / Kaza başı 18.000.000 TL</p>
+                    <p><strong>Bakıcı Gideri:</strong> Kişi başı 3.600.000 TL</p>
+                </div>
+
+                <div class="info-box">
+                    <h4>Hesaplamada Dikkate Alınan Faktörler</h4>
+                    <ul>
+                        <li>Kusur oranı tazminat tutarını doğrudan etkiler</li>
+                        <li>Sigorta teminat limitleri aşıldığında kusurlu taraftan talep edilebilir</li>
+                        <li>Maddi zarar ve manevi tazminat ayrı hesaplanır</li>
+                        <li>Sağlık giderleri ve bakıcı giderleri ayrıca talep edilebilir</li>
+                    </ul>
+                </div>
+
+                <form id="trafikForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kazaTuru">Kaza Türü</label>
+                            <select id="kazaTuru" name="kazaTuru" required>
+                                <option value="">Seçiniz</option>
+                                <option value="maddi">Maddi Hasarlı Kaza</option>
+                                <option value="yaralanma">Yaralanmalı Kaza</option>
+                                <option value="sakatlanma">Sakatlanmalı Kaza</option>
+                                <option value="olumlu">Ölümlü Kaza</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="aracSayisi">Kazaya Karışan Araç Sayısı</label>
+                            <input type="number" id="aracSayisi" name="aracSayisi" min="1" max="10" value="2" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="kusurOrani">Kusur Oranınız (%)</label>
+                            <input type="number" id="kusurOrani" name="kusurOrani" min="0" max="100" value="0" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="karsiKusurOrani">Karşı Taraf Kusur Oranı (%)</label>
+                            <input type="number" id="karsiKusurOrani" name="karsiKusurOrani" min="0" max="100" value="100" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="aracDegerKaybi">Araç Değer Kaybı (TL)</label>
+                            <input type="number" id="aracDegerKaybi" name="aracDegerKaybi" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="tamirMasrafi">Tamir Masrafı (TL)</label>
+                            <input type="number" id="tamirMasrafi" name="tamirMasrafi" min="0" value="0">
+                        </div>
+                    </div>
+
+                    <div id="saglikGiderleri" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="tedaviMasrafi">Tedavi Masrafları (TL)</label>
+                                <input type="number" id="tedaviMasrafi" name="tedaviMasrafi" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="bakiciGideri">Bakıcı Gideri (TL)</label>
+                                <input type="number" id="bakiciGideri" name="bakiciGideri" min="0" value="0">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="geciciIsGoremezlik">Geçici İş Göremezlik (Gün)</label>
+                                <input type="number" id="geciciIsGoremezlik" name="geciciIsGoremezlik" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="gunlukKazanç">Günlük Kazanç (TL)</label>
+                                <input type="number" id="gunlukKazanc" name="gunlukKazanc" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="sakatlanmaBolumu" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="sakatlikOrani">Sakatlık Oranı (%)</label>
+                                <input type="number" id="sakatlikOrani" name="sakatlikOrani" min="0" max="100" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="sakatlikYasi">Sakatlanma Yaşı</label>
+                                <input type="number" id="sakatlikYasi" name="sakatlikYasi" min="0" max="100" value="30">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="olumBolumu" style="display: none;">
+                        <div class="form-row three-col">
+                            <div class="form-group">
+                                <label for="olenKisiYasi">Ölen Kişi Yaşı</label>
+                                <input type="number" id="olenKisiYasi" name="olenKisiYasi" min="0" max="100" value="40">
+                            </div>
+                            <div class="form-group">
+                                <label for="cinsiyet">Cinsiyet</label>
+                                <select id="cinsiyet" name="cinsiyet">
+                                    <option value="erkek">Erkek</option>
+                                    <option value="kadin">Kadın</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="aylikGelir">Aylık Gelir (TL)</label>
+                                <input type="number" id="aylikGelir" name="aylikGelir" min="0" value="5000">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="bagimliSayisi">Bağımlı Kişi Sayısı</label>
+                                <input type="number" id="bagimliSayisi" name="bagimliSayisi" min="0" max="10" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="cenazeMasrafi">Cenaze Masrafları (TL)</label>
+                                <input type="number" id="cenazeMasrafi" name="cenazeMasrafi" min="0" value="0">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="maneviTazminat">Talep Edilen Manevi Tazminat (TL)</label>
+                            <input type="number" id="maneviTazminat" name="maneviTazminat" min="0" value="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="digerMasraflar">Diğer Masraflar (TL)</label>
+                            <input type="number" id="digerMasraflar" name="digerMasraflar" min="0" value="0">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="calculate-btn">Tazminatı Hesapla</button>
+                </form>
+
+                <div id="resultBox" class="result-box">
+                    <h3>Hesaplama Sonuçları</h3>
+                    <div id="sonuclar"></div>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem; text-align: center;">
+                <a href="../index.html" class="btn btn-primary" style="margin-right: 1rem;">Ana Sayfa</a>
+                <a href="./kidem-tazminati.html" class="btn btn-secondary">Kıdem Tazminatı</a>
+            </div>
+        </div>
+    </section>
+
+    <footer style="background: var(--primary-color); color: var(--white); padding: 2rem 0; margin-top: 3rem;">
+        <div class="container" style="text-align: center;">
+            <p>&copy; 2026 Özata Hukuk Bürosu. Tüm hakları saklıdır.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                <a href="../gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a>
+            </p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+    <script>
+        document.getElementById('kazaTuru').addEventListener('change', function() {
+            const saglikGiderleri = document.getElementById('saglikGiderleri');
+            const sakatlanmaBolumu = document.getElementById('sakatlanmaBolumu');
+            const olumBolumu = document.getElementById('olumBolumu');
+            
+            saglikGiderleri.style.display = 'none';
+            sakatlanmaBolumu.style.display = 'none';
+            olumBolumu.style.display = 'none';
+            
+            if (this.value === 'yaralanma' || this.value === 'sakatlanma' || this.value === 'olumlu') {
+                saglikGiderleri.style.display = 'block';
+            }
+            if (this.value === 'sakatlanma') {
+                sakatlanmaBolumu.style.display = 'block';
+            }
+            if (this.value === 'olumlu') {
+                olumBolumu.style.display = 'block';
+            }
+        });
+
+        document.getElementById('trafikForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            hesaplaTazminat();
+        });
+
+        function hesaplaTazminat() {
+            const kazaTuru = document.getElementById('kazaTuru').value;
+            const aracSayisi = parseInt(document.getElementById('aracSayisi').value) || 1;
+            const kusurOrani = parseFloat(document.getElementById('kusurOrani').value) || 0;
+            const karsiKusurOrani = parseFloat(document.getElementById('karsiKusurOrani').value) || 100;
+            
+            const aracDegerKaybi = parseFloat(document.getElementById('aracDegerKaybi').value) || 0;
+            const tamirMasrafi = parseFloat(document.getElementById('tamirMasrafi').value) || 0;
+            const tedaviMasrafi = parseFloat(document.getElementById('tedaviMasrafi').value) || 0;
+            const bakiciGideri = parseFloat(document.getElementById('bakiciGideri').value) || 0;
+            const geciciIsGoremezlik = parseInt(document.getElementById('geciciIsGoremezlik').value) || 0;
+            const gunlukKazanc = parseFloat(document.getElementById('gunlukKazanc').value) || 0;
+            const maneviTazminat = parseFloat(document.getElementById('maneviTazminat').value) || 0;
+            const digerMasraflar = parseFloat(document.getElementById('digerMasraflar').value) || 0;
+            
+            // 2026 Teminat Limitleri
+            const maddiHasarLimitArac = 400000;
+            const maddiHasarLimitKaza = 800000;
+            const saglikLimitKisi = 3600000;
+            const saglikLimitKaza = 18000000;
+            const bakiciLimit = 3600000;
+            
+            let toplamMaddiZarar = aracDegerKaybi + tamirMasrafi + digerMasraflar;
+            let toplamSaglikGideri = tedaviMasrafi;
+            let toplamBakiciGideri = Math.min(bakiciGideri, bakiciLimit);
+            let geciciIsGoremezlikTazminati = geciciIsGoremezlik * gunlukKazanc;
+            
+            let sakatlikTazminati = 0;
+            let destekTazminati = 0;
+            let cenazeMasrafi = 0;
+            
+            if (kazaTuru === 'sakatlanma') {
+                const sakatlikOrani = parseFloat(document.getElementById('sakatlikOrani').value) || 0;
+                const sakatlikYasi = parseInt(document.getElementById('sakatlikYasi').value) || 30;
+                // Aktüeryal hesaplama - basitleştirilmiş
+                const yillikGelir = gunlukKazanc * 30 * 12;
+                const calisilacakYil = 65 - sakatlikYasi;
+                const katsayi = 0.85; // Basit katsayı
+                sakatlikTazminati = yillikGelir * calisilacakYil * (sakatlikOrani / 100) * katsayi;
+            }
+            
+            if (kazaTuru === 'olumlu') {
+                const olenKisiYasi = parseInt(document.getElementById('olenKisiYasi').value) || 40;
+                const cinsiyet = document.getElementById('cinsiyet').value;
+                const aylikGelir = parseFloat(document.getElementById('aylikGelir').value) || 5000;
+                const bagimliSayisi = parseInt(document.getElementById('bagimliSayisi').value) || 0;
+                cenazeMasrafi = parseFloat(document.getElementById('cenazeMasrafi').value) || 0;
+                
+                // Destekten yoksun kalma tazminatı - basitleştirilmiş hesaplama
+                const kalanYasamSuresi = cinsiyet === 'erkek' ? 78 - olenKisiYasi : 82 - olenKisiYasi;
+                const yillikGelir = aylikGelir * 12;
+                const katsayi = bagimliSayisi > 0 ? (0.6 + (bagimliSayisi * 0.1)) : 0.8;
+                destekTazminati = yillikGelir * Math.min(kalanYasamSuresi, 20) * katsayi;
+            }
+            
+            // Kusur oranına göre düzeltme
+            const kusurKatsayi = karsiKusurOrani / 100;
+            const kullaniciKusurKatsayi = kusurOrani / 100;
+            
+            let sigortaTazminati = 0;
+            let karsiTarafTazminati = 0;
+            
+            if (kazaTuru === 'maddi') {
+                sigortaTazminati = Math.min(toplamMaddiZarar * kusurKatsayi, maddiHasarLimitArac);
+                if (toplamMaddiZarar * kusurKatsayi > maddiHasarLimitArac) {
+                    karsiTarafTazminati = (toplamMaddiZarar * kusurKatsayi) - maddiHasarLimitArac;
+                }
+            } else {
+                const toplamSaglik = toplamSaglikGideri + toplamBakiciGideri + geciciIsGoremezlikTazminati + 
+                                    sakatlikTazminati + destekTazminati + cenazeMasrafi;
+                sigortaTazminati = Math.min(toplamSaglik * kusurKatsayi, saglikLimitKisi);
+                if (toplamSaglik * kusurKatsayi > saglikLimitKisi) {
+                    karsiTarafTazminati = (toplamSaglik * kusurKatsayi) - saglikLimitKisi;
+                }
+            }
+            
+            const maneviTazminatDusuk = maneviTazminat * (1 - kullaniciKusurKatsayi);
+            
+            const genelToplam = sigortaTazminati + karsiTarafTazminati + maneviTazminatDusuk;
+            
+            // Sonuçları göster
+            let sonucHTML = `
+                <div class="result-item">
+                    <span>Kaza Türü:</span>
+                    <span>${getKazaTuruText(kazaTuru)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Kusur Oranınız:</span>
+                    <span>%${kusurOrani}</span>
+                </div>
+                <div class="result-item">
+                    <span>Karşı Taraf Kusur Oranı:</span>
+                    <span>%${karsiKusurOrani}</span>
+                </div>
+                <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+            `;
+            
+            if (kazaTuru === 'maddi') {
+                sonucHTML += `
+                    <div class="result-item">
+                        <span>Araç Değer Kaybı:</span>
+                        <span>${formatPara(aracDegerKaybi)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Tamir Masrafı:</span>
+                        <span>${formatPara(tamirMasrafi)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Diğer Masraflar:</span>
+                        <span>${formatPara(digerMasraflar)}</span>
+                    </div>
+                `;
+            } else {
+                sonucHTML += `
+                    <div class="result-item">
+                        <span>Tedavi Masrafları:</span>
+                        <span>${formatPara(tedaviMasrafi)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Bakıcı Gideri:</span>
+                        <span>${formatPara(toplamBakiciGideri)}</span>
+                    </div>
+                    <div class="result-item">
+                        <span>Geçici İş Göremezlik:</span>
+                        <span>${formatPara(geciciIsGoremezlikTazminati)}</span>
+                    </div>
+                `;
+                
+                if (kazaTuru === 'sakatlanma' && sakatlikTazminati > 0) {
+                    sonucHTML += `
+                        <div class="result-item">
+                            <span>Sakatlık Tazminatı:</span>
+                            <span>${formatPara(sakatlikTazminati)}</span>
+                        </div>
+                    `;
+                }
+                
+                if (kazaTuru === 'olumlu' && destekTazminati > 0) {
+                    sonucHTML += `
+                        <div class="result-item">
+                            <span>Destekten Yoksun Kalma:</span>
+                            <span>${formatPara(destekTazminati)}</span>
+                        </div>
+                        <div class="result-item">
+                            <span>Cenaze Masrafları:</span>
+                            <span>${formatPara(cenazeMasrafi)}</span>
+                        </div>
+                    `;
+                }
+            }
+            
+            sonucHTML += `
+                <hr style="margin: 1rem 0; border: none; border-top: 1px solid #eee;">
+                <div class="result-item">
+                    <span>Sigorta Şirketinden Alınacak:</span>
+                    <span>${formatPara(sigortaTazminati)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Kusurlu Taraftan Alınacak:</span>
+                    <span>${formatPara(karsiTarafTazminati)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Manevi Tazminat (Kusur Düşülmüş):</span>
+                    <span>${formatPara(maneviTazminatDusuk)}</span>
+                </div>
+                <div class="result-item">
+                    <span>GENEL TOPLAM TAZMİNAT:</span>
+                    <span>${formatPara(genelToplam)}</span>
+                </div>
+            `;
+            
+            document.getElementById('sonuclar').innerHTML = sonucHTML;
+            document.getElementById('resultBox').classList.add('show');
+            document.getElementById('resultBox').scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        function formatPara(tutar) {
+            return new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' }).format(tutar);
+        }
+        
+        function getKazaTuruText(tur) {
+            const turler = {
+                'maddi': 'Maddi Hasarlı Kaza',
+                'yaralanma': 'Yaralanmalı Kaza',
+                'sakatlanma': 'Sakatlanmalı Kaza',
+                'olumlu': 'Ölümlü Kaza'
+            };
+            return turler[tur] || tur;
+        }
+    </script>
+</body>
+</html>
