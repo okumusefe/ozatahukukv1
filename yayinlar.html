@@ -131,7 +131,863 @@
                     <button class="filter-btn" data-filter="haber" onclick="filterArticles('haber')">HUKUKİ HABER</button>
                 </div>
                 <div class="articles-grid">
-                    <article class="article-card">
+
+                    <article class="article-card" data-category="mevzuat">
+                        <div class="article-header">
+                            <span class="article-category">Ceza Hukuku</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Muhakemesi Kanunu'nda Basit Yargılama Usulü: (md. 250-252)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 250-252</strong> - Ceza Muhakemesi Kanunu'nun basit yargılama usulü hükümleri: 2 yıldan az hapis cezasını gerektiren suçlar için uygulanan hızlı ve sadeleştirilmiş yargılama usulü, dilekçe şeklinde iddianame ve duruşmasız karar verme esasları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-cmk-basit')">Devamını Oku →</button>
+                        <div id="article-cmk-basit" class="article-full-content" style="display: none;">
+                            <h3>Konu: CMK Kapsamında Basit Yargılama Usulü ve Uygulaması</h3>
+                            
+                            <h4>GİRİŞ VE GENEL DEĞERLENDİRME</h4>
+                            <p>Ceza Muhakemesi Kanunu (CMK), ceza davalarının yargılanmasında normal yargılama usulü yanında, belirli suçlar için basit yargılama usulünü de öngörmektedir. CMK md. 250-252, bu özel yargılama usulünün şartlarını, usulünü ve sonuçlarını düzenlemektedir.</p>
+                            
+                            <p><strong>Mevzuat Yapısı:</strong> Basit yargılama usulü, CMK'nın beşinci kısmı "Kovuşturma" içerisinde, normal kovuşturma hükümlerinden önce düzenlenmiştir. Bu usul, ceza yargılamasının hızlandırılması ve hafif suçlarda kaynakların etkin kullanılması amacını taşımaktadır.</p>
+                            
+                            <h4>CMK M.250 - BASİT YARGILAMA USULÜNÜN ŞARTLARI</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 250, basit yargılama usulünün uygulanabilmesi için gerekli şartları düzenlemektedir.</p>
+                            
+                            <p><strong>Uygulama Şartları:</strong></p>
+                            <ul>
+                                <li><strong>Ceza Sınırı:</strong> 2 yıldan az hapis cezasını gerektiren suçlar</li>
+                                <li><strong>Hapis Cezası:</strong> Hapis cezasının üst sınırı 2 yıl olmalıdır</li>
+                                <li><strong>Adli Para Cezası:</strong> Yalnızca adli para cezasını gerektiren suçlar</li>
+                                <li><strong>Şikayete Bağlı Suçlar:</strong> Şikayete bağlı suçlarda şikayetin varlığı</li>
+                            </ul>
+                            
+                            <p><strong>Kapsam Dışı Suçlar:</strong></p>
+                            <ul>
+                                <li>Kasten işlenen suçlarda belirli şartların oluşmaması</li>
+                                <li>Soruşturma aşamasında tutuklu bulunan şüpheliler (özel haller hariç)</li>
+                                <li>Toplu dava konusu olan suçlar</li>
+                                <li>CMK'da özel düzenleme gerektiren suçlar</li>
+                            </ul>
+                            
+                            <p><strong>Basit Yargılama Usulünün Avantajları:</strong></p>
+                            <ul>
+                                <li>Hızlı sonuçlanma</li>
+                                <li>Daha az masraflı yargılama</li>
+                                <li>Duruşma yapılmadan karar verilebilmesi</li>
+                                <li>Tarafların yükünün hafiflemesi</li>
+                            </ul>
+                            
+                            <h4>CMK M.251 - BASİT YARGILAMA USULÜNDE USUL</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 251, basit yargılama usulünün nasıl işleyeceğini düzenlemektedir.</p>
+                            
+                            <p><strong>İddianame:</strong></p>
+                            <ul>
+                                <li>Normal iddianame yerine "dilekçe şeklinde iddianame" düzenlenir</li>
+                                <li>Dilekçede: Sanık bilgileri, suçun tanımı, deliller ve talep</li>
+                                <li>Mahkeme, dilekçeyi inceler ve kabul eder veya reddeder</li>
+                                <li>Red halinde normal soruşturma yapılır</li>
+                            </ul>
+                            
+                            <p><strong>Taraflara Tebliğ:</strong></p>
+                            <ul>
+                                <li>Dilekçenin bir örneği sanığa tebliğ edilir</li>
+                                <li>Sanık, tebliğden itibaren 7 gün içinde savunma yapabilir</li>
+                                <li>Savunma yapılmazsa savunma hakkından vazgeçilmiş sayılır</li>
+                                <li>Ek süre talebi değerlendirilir</li>
+                            </ul>
+                            
+                            <p><strong>Duruşmasız Karar:</strong></p>
+                            <ul>
+                                <li>Sanık savunma yaptıktan veya süre geçtikten sonra</li>
+                                <li>Mahkeme, dosya üzerinden karar verebilir</li>
+                                <li>Duruşma yapılması istenirse duruşma açılır</li>
+                                <li>Beraat veya mahkumiyet kararı verilir</li>
+                            </ul>
+                            
+                            <p><strong>Basit Yargılama Usulünün Aşamaları:</strong></p>
+                            <ol>
+                                <li>Soruşturma evresinin tamamlanması</li>
+                                <li>Dilekçe şeklinde iddianamenin düzenlenmesi</li>
+                                <li>Mahkemenin dilekçeyi kabulü</li>
+                                <li>Sanığa tebliğ ve savunma süresi</li>
+                                <li>Duruşmasız veya duruşmalı karar</li>
+                                <li>Hükmün açıklanması</li>
+                            </ol>
+                            
+                            <h4>CMK M.252 - BASİT YARGILAMA USULÜNDE HÜKÜM</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 252, basit yargılama usulünde verilecek hükümleri düzenlemektedir.</p>
+                            
+                            <p><strong>Hüküm Türleri:</strong></p>
+                            <ul>
+                                <li><strong>Beraat:</strong> Suçun sabit olmaması veya işlenmemesi</li>
+                                <li><strong>Mahkumiyet:</strong> Adli para cezası veya 2 yıldan az hapis cezası</li>
+                                <li><strong>Düşme:</strong> Zamanaşımı, şikayetten vazgeçme, af</li>
+                                <li><strong>Kovuşturmaya Yer Olmaması:</strong> CMK md. 223 halleri</li>
+                            </ul>
+                            
+                            <p><strong>Ceza Sınırlaması:</strong></p>
+                            <ul>
+                                <li>Verilecek hapis cezası en fazla 2 yıl olabilir</li>
+                                <li>Adli para cezası sınırı yoktur (kanuni maksimuma kadar)</li>
+                                <li>Hükmün açıklanmasının geri bırakılması (HAGB) uygulanabilir</li>
+                                <li>Şartlı salıverilme hükümleri uygulanır</li>
+                            </ul>
+                            
+                            <p><strong>Hükmün Açıklanması:</strong></p>
+                            <ul>
+                                <li>Yazılı olarak düzenlenir</li>
+                                <li>Özet gerekçe yeterlidir</li>
+                                <li>Temyiz yolunun gösterilmesi zorunludur</li>
+                                <li>Karar usulüne uygun tebliğ edilir</li>
+                            </ul>
+                            
+                            <h4>BASİT YARGILAMA USULÜNDE İTİRAZ YOLLARI</h4>
+                            
+                            <p><strong>Kanun Yolları:</strong></p>
+                            <ul>
+                                <li><strong>İstinaf:</strong> CMK m.268 uyarınca istinaf başvurusu yapılabilir</li>
+                                <li><strong>Temyiz:</strong> İstinaf sonrası temyiz yolu açıktır</li>
+                                <li><strong>Süre:</strong> İstinaf için 15 gün</li>
+                                <li><strong>Kapsam:</strong> Hem hukuki hem olay yönünden denetim</li>
+                            </ul>
+                            
+                            <p><strong>İtiraz:</strong></p>
+                            <ul>
+                                <li>Dilekçenin reddine karşı itiraz (CMK m.174)</li>
+                                <li>İtiraz mercii: Üst mahkeme</li>
+                                <li>Süre: Red kararından itibaren 7 gün</li>
+                                <li>Karar kesindir</li>
+                            </ul>
+                            
+                            <h4>BASİT YARGILAMA USULÜNÜN UYGULAMA ALANI</h4>
+                            
+                            <p><strong>Uygulanabilir Suç Örnekleri:</strong></p>
+                            <ul>
+                                <li>Trafik güvenliğini tehlikeye sokma (TCK md. 179)</li>
+                                <li>Mala zarar verme (TCK md. 151 - basit haller)</li>
+                                <li>Hakaret (TCK md. 125 - şikayete bağlı)</li>
+                                <li>Basit yaralama (TCK md. 86)</li>
+                                <li>İş yerinde veya halka açık yerlerde küçük çapta hırsızlık</li>
+                                <li>Şikayete bağlı suçlar</li>
+                            </ul>
+                            
+                            <p><strong>Kapsam Dışı Örnekler:</strong></p>
+                            <ul>
+                                <li>Ağır yaralama (TCK md. 86/2)</li>
+                                <li>Kasten öldürme (TCK md. 81)</li>
+                                <li>Cinsel suçlar</li>
+                                <li>Terör suçları</li>
+                                <li>Organize suçlar</li>
+                            </ul>
+                            
+                            <h4>YARGITAY İÇTIHATLARI VE UYGULAMA</h4>
+                            
+                            <p><strong>Basit Yargılama Usulünün Şartları:</strong></p>
+                            <ul>
+                                <li>Yargıtay, basit yargılama usulü şartlarının birlikte aranmasını bekler</li>
+                                <li>Ceza sınırı objektif olarak değerlendirilir</li>
+                                <li>Tutukluluk durumu dikkate alınır</li>
+                                <li>Şikayete bağlı suçlarda şikayetin süresinde yapılması gerekir</li>
+                            </ul>
+                            
+                            <p><strong>Dilekçe Şeklinde İddianame:</strong></p>
+                            <ul>
+                                <li>Dilekçenin şekli ve muhtevası konusunda sıkı denetim</li>
+                                <li>Şüpheli hakkında yeterli şüphe olması gerekir</li>
+                                <li>Delillerin gösterilmesi zorunludur</li>
+                                <li>Ret kararlarının gerekçelendirilmesi beklenir</li>
+                            </ul>
+                            
+                            <p><strong>Duruşmasız Karar:</strong></p>
+                            <ul>
+                                <li>Duruşmasız karar verme yetkisinin sınırlandırılması</li>
+                                <li>Sanığın savunma hakkının korunması</li>
+                                <li>Gerekçeli karar hakkının kısıtlanmaması</li>
+                                <li>İstinaf incelemesinde duruşma açılabilir</li>
+                            </ul>
+                            
+                            <h4>ANAYASA VE AİHS AÇISINDAN DEĞERLENDİRME</h4>
+                            
+                            <p><strong>Anayasa md. 36 - Adil Yargılanma Hakkı:</strong></p>
+                            <ul>
+                                <li>Basit yargılama usulü, adil yargılanma hakkının kullanılmasını engellememelidir</li>
+                                <li>Müdafaa hakkının kısıtlanmaması gerekir</li>
+                                <li>Gerekçeli karar hakkı korunmalıdır</li>
+                                <li>Usul, yasaya uygun olmalıdır</li>
+                            </ul>
+                            
+                            <p><strong>AİHS md. 6 - Adil Yargılanma Hakkı:</strong></p>
+                            <ul>
+                                <li>Herkese açık yargılanma hakkı</li>
+                                <li>Masumiyet karinesi</li>
+                                <li>Savunma hakkının etkin kullanımı</li>
+                                <li>Mahkeme önünde görülme hakkı (bazı istisnalar hariç)</li>
+                            </ul>
+                            
+                            <p><strong>Orantılılık ve Gerekçelilik:</strong></p>
+                            <ul>
+                                <li>Basit yargılama usulü, orantılılık ilkesine uygun olmalıdır</li>
+                                <li>Suçun ciddiyeti ile usul arasında denge kurulmalıdır</li>
+                                <li>Temel haklar ihlal edilmemelidir</li>
+                                <li>Hakkaniyet ilkeleri gözetilmelidir</li>
+                            </ul>
+                            
+                            <h4>UYGULAMADA KARŞILAŞILAN SORUNLAR</h4>
+                            
+                            <p><strong>1. Ceza Sınırının Değerlendirilmesi:</strong> Suçun işlendiği tarihteki kanuni ceza sınırı mı yoksa işlendiği sırada hükümlü olan kanun mu esas alınacak? Yargıtay, fiilin işlendiği tarihteki hükümlü kanuna göre değerlendirme yapılmasını beklemektedir.</p>
+                            
+                            <p><strong>2. Birden Fazla Suç:</strong> Sanık hakkında birden fazla suçtan işlem yapılacağı zaman, cezaların toplamının 2 yılı aşıp aşmadığı konusu tartışmalıdır. Genellikle her bir suç ayrı ayrı değerlendirilir.</p>
+                            
+                            <p><strong>3. Tutukluluk Durumu:</strong> Soruşturma aşamasında tutuklu olan şüpheliler için basit yargılama usulü uygulanamaz. Ancak tutukluluğun kaldırılması durumunda uygulanabilir.</p>
+                            
+                            <p><strong>4. Duruşma Talebinin Değerlendirilmesi:</strong> Sanık veya müdafiinin duruşma talebi, mahkemece keyfi olarak reddedilemez. Talebin somut gerekçelere dayanması gerekir.</p>
+                            
+                            <p><strong>5. Gerekçeli Karar:</strong> Basit yargılama usulünde gerekçeli karar hakkının kısıtlanması, bazen Anayasa'ya aykırı bulunabilmektedir. Özet gerekçenin yeterli olup olmadığı konusu tartışmalıdır.</p>
+                            
+                            <p><strong>6. İstinaf İncelemesi:</strong> Basit yargılama usulünde verilen hükümlerin istinaf incelemesi, normal usuldeki incelemeye göre daha sınırlı olabilmektedir.</p>
+                            
+                            <h4>SAVUNMA STRATEJİLERİ</h4>
+                            
+                            <p><strong>1. Basit Yargılama Usulünün Reddi:</strong> Sanık, basit yargılama usulünün uygulanmasını kabul etmeyebilir. Bu durumda normal kovuşturma usulü uygulanır. Ancak bu tercih, sürecin uzamasına yol açabilir.</p>
+                            
+                            <p><strong>2. Duruşma Talebi:</strong> Sanık veya müdafi, duruşma yapılmasını talep edebilir. Talep, makul gerekçelere dayanmalıdır. Duruşma talebi reddedilirse itiraz yolu açıktır.</p>
+                            
+                            <p><strong>3. Savunma Hazırlığı:</strong> 7 günlük savunma süresi kısa olup, hazırlık için yeterli olmayabilir. Ek süre talep edilmeli ve bu talep tutanağa geçirilmelidir.</p>
+                            
+                            <p><strong>4. Delil İtirazları:</strong> Dilekçede gösterilen delillerin usulüne uygun olup olmadığı incelenmelidir. Usulüne aykırı elde edilen delillerin dışlanması talep edilmelidir.</p>
+                            
+                            <p><strong>5. İstinaf Başvurusu:</strong> Basit yargılama usulünde verilen hükümler de istinaf edilebilir. İstinaf incelemesinde hem hukuki hem de olay yönünden denetim yapılır.</p>
+                            
+                            <p><strong>6. HAGB Talebi:</strong> Mahkumiyet durumunda hükmün açıklanmasının geri bırakılması (HAGB) talep edilebilir. Şüphelinin sabıkasızlığı, pişmanlığı ve telafi davranışları dikkate alınır.</p>
+                            
+                            <h4>BASİT YARGILAMA USULÜNÜN AVANTAJLARI VE DEZAVANTAJLARI</h4>
+                            
+                            <p><strong>Avantajları:</strong></p>
+                            <ul>
+                                <li>Hızlı sonuçlanma</li>
+                                <li>Düşük maliyetli yargılama</li>
+                                <li>Mahkeme yükünün hafiflemesi</li>
+                                <li>Tarafların zaman kaybının önlenmesi</li>
+                                <li>Daha az resmiyet ve bürokrasi</li>
+                            </ul>
+                            
+                            <p><strong>Dezavantajları:</strong></p>
+                            <ul>
+                                <li>Sınırlı savunma hakkı (7 günlük süre)</li>
+                                <li>Duruşmasız karar riski</li>
+                                <li>Gerekçeli karar hakkının kısıtlanması</li>
+                                <li>Özet yargılanma riski</li>
+                                <li>Daha sınırlı istinaf incelemesi</li>
+                            </ul>
+                            
+                            <h4>KARŞILAŞTIRMALI HUKUK</h4>
+                            
+                            <p><strong>Almanya (Strafprozessordnung):</strong></p>
+                            <ul>
+                                <li>"Strafbefehl" (Ceza Kararnamesi) usulü</li>
+                                <li>Küçük suçlar için hızlı yargılama</li>
+                                <li>İtiraz üzerine normal yargılama</li>
+                                <li>Türkiye'deki basit yargılamaya benzer</li>
+                            </ul>
+                            
+                            <p><strong>Fransa (Code de procédure pénale):</strong></p>
+                            <ul>
+                                <li>"Comparution immédiate" (Hemen Yargılama)</li>
+                                <li>"Procédure de citation directe" (Doğrudan Davet)</li>
+                                <li>Küçük suçlar için sadeleştirilmiş usuller</li>
+                                <li>Ön ödeme (transaction) mekanizmaları</li>
+                            </ul>
+                            
+                            <p><strong>İngiltere-Waller (Criminal Procedure):</strong></p>
+                            <ul>
+                                <li>Magistrates' Court'da basit usul</li>
+                                <li>"Guilty plea" (Suçu kabul) indirimi</li>
+                                <li>Hızlı işleyen yargılama</li>
+                                <li>Crown Court'a göre daha basit usul</li>
+                            </ul>
+                            
+                            <h4>SONUÇ VE HUKUKİ TAVSİYELER</h4>
+                            
+                            <p><strong>1. Basit Yargılama Usulünün Amacı:</strong> CMK md. 250-252, hafif suçlarda hızlı ve etkili yargılanmayı sağlamak amacıyla düzenlenmiştir. Bu usul, hem devletin yargı yükünü hafifletmekte hem de sanıkların hızlı sonuçlanma menfaatini gözetmektedir.</p>
+                            
+                            <p><strong>2. Hakların Korunması:</strong> Basit yargılama usulünde dahi adil yargılanma hakkı, müdafaa hakkı ve gerekçeli karar hakkı korunmalıdır. Bu hakların ihlali, Anayasa'ya ve AİHS'ye aykırı sonuçlar doğurabilir.</p>
+                            
+                            <p><strong>3. Orantılılık İlkesi:</strong> Basit yargılama usulü, suçun niteliği ve ceza sınırı dikkate alınarak uygulanmalıdır. Ağır suçlar için veya tutuklu sanıklar için uygulanamaz.</p>
+                            
+                            <p><strong>4. Savunma Stratejisi:</strong> Sanık veya müdafi, basit yargılama usulünün avantaj ve dezavantajlarını değerlendirerek, duruşma talep etmeli veya normal usulde yargılanmayı tercih etmelidir. Somut olayın özellikleri bu tercihi belirleyecektir.</p>
+                            
+                            <p><strong>5. İstinaf ve Temyiz:</strong> Basit yargılama usulünde verilen hükümler de istinaf ve temyiz konusudur. İtiraz yollarının süresinde ve usulüne uygun olarak kullanılması gerekir.</p>
+                            
+                            <p><strong>6. Hukuki Yardım:</strong> Basit yargılama usulü dahi teknik hükümler içermektedir. Sanıkların mutlaka uzman bir ceza avukatından hukuki yardım alması, haklarının korunması açısından büyük önem taşımaktadır.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Yazar:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>27 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="mevzuat">
+                        <div class="article-header">
+                            <span class="article-category">Ceza Hukuku</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Muhakemesi Kanunu'nda Soruşturma: (md. 161-167)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 161-167</strong> - Ceza Muhakemesi Kanunu'nun soruşturma evresine ilişkin temel hükümleri: zorla getirme, tutuklama, adli kontrol, arama, elkoyma ve diğer koruma tedbirleri ile soruşturma usulünün esasları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-cmk-sorusturma')">Devamını Oku →</button>
+                        <div id="article-cmk-sorusturma" class="article-full-content" style="display: none;">
+                            <h3>Konu: CMK Kapsamında Soruşturma Evresi ve Koruma Tedbirleri</h3>
+                            
+                            <h4>GİRİŞ VE GENEL DEĞERLENDİRME</h4>
+                            <p>Ceza Muhakemesi Kanunu (CMK), ceza davalarının soruşturma evresini dördüncü kısım olarak düzenlemektedir. Soruşturma, şüpheli veya sanık hakkında ceza kovuşturması yapılmasına karar verilinceye kadarki evreyi ifade eder. CMK md. 161-167, soruşturmanın temel kuralları ile koruma tedbirlerini düzenlemektedir.</p>
+                            
+                            <p><strong>Mevzuat Yapısı:</strong> CMK'nın dördüncü kısmı "Soruşturma", ceza yargılamasının ilk evresini oluşturmaktadır. Bu bölüm, iddianamenin düzenlenmesine kadar olan süreci kapsamaktadır. Soruşturma evresinde temel ilke, şüpheli lehine değerlendirme olup, bireylerin temel hak ve özgürlükleri korunmalıdır.</p>
+                            
+                            <h4>CMK M.161 - SORUŞTURMANIN BAŞLANGICI VE YÜRÜTÜLMESİ</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 161, soruşturmanın başlangıcı ve yürütülmesine ilişkin temel kuralları düzenlemektedir.</p>
+                            
+                            <p><strong>Soruşturmanın Başlangıcı:</strong></p>
+                            <ul>
+                                <li><strong>Suç ihbarı:</strong> Herhangi bir kişinin suç ihbarı (CMK m.96)</li>
+                                <li><strong>Doğrudan bilgi:</strong> Cumhuriyet savcısının doğrudan suç öğrenmesi</li>
+                                <li><strong>Kolluk bildirimi:</strong> Kolluk kuvvetlerinin bilgi vermesi</li>
+                                <li><strong>Resen işlem:</strong> Savcının resen harekete geçmesi</li>
+                            </ul>
+                            
+                            <p><strong>Soruşturmanın Yürütülmesi:</strong></p>
+                            <ul>
+                                <li>Soruşturma, Cumhuriyet savcısı tarafından yürütülür</li>
+                                <li>Kolluk, savcının emri altında çalışır</li>
+                                <li>Savcı, soruşturmanın tüm evrelerini denetler</li>
+                                <li>Delil toplama işlemleri bu aşamada yapılır</li>
+                            </ul>
+                            
+                            <p><strong>Soruşturmanın Gizliliği:</strong></p>
+                            <ul>
+                                <li>Soruşturma evresi gizli yürütülür (CMK m.161/2)</li>
+                                <li>Gizlilik kamu düzeni için zorunludur</li>
+                                <li>Hakları ihlal edilmeyecek kişilerin kimliği açıklanmaz</li>
+                                <li>Basın yayın yoluyla gizliliğin ihlali suçtur (CMK m.134)</li>
+                            </ul>
+                            
+                            <h4>CMK M.162 - ZORLA GETİRME (ZORLA GETİRME KARARI)</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 162, şüpheli veya tanığın zorla getirilmesi usulünü düzenlemektedir.</p>
+                            
+                            <p><strong>Zorla Getirme Kararının Şartları:</strong></p>
+                            <ul>
+                                <li>Çağrı kağıdına uygun davet edilmiş olması</li>
+                                <li>Mazeretsiz olarak gelmemesi veya özürünün kabul edilmemesi</li>
+                                <li>Soruşturma veya kovuşturma için zorunluluğu</li>
+                                <li>Hakim veya savcı kararı (gerekçesiz olarak savcı, gerekçeli olarak hakim)</li>
+                            </ul>
+                            
+                            <p><strong>Zorla Getirmenin Uygulanması:</strong></p>
+                            <ul>
+                                <li>Kolluk kuvvetleri tarafından yerine getirilir</li>
+                                <li>Güç kullanılabilir ancak orantılı olmalıdır</li>
+                                <li>Kişi, en fazla 24 saat gözaltına alınabilir (zorla getirme amacıyla)</li>
+                                <li>İşlem sonrası serbest bırakılır</li>
+                            </ul>
+                            
+                            <p><strong>Orantılılık İlkesi:</strong></p>
+                            <ul>
+                                <li>Zorla getirme, son çare olmalıdır</li>
+                                <li>Şüpheli/sanık için özel durumlar dikkate alınır</li>
+                                <li>Yaşlılar, hamileler ve engelliler için özel önlemler</li>
+                                <li>Aşırı güç kullanımı yasaktır</li>
+                            </ul>
+                            
+                            <h4>CMK M.163 - ARAMA</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 163, şüpheli veya sanık hakkında arama işlemini düzenlemektedir.</p>
+                            
+                            <p><strong>Aramanın Türleri:</strong></p>
+                            <ul>
+                                <li><strong>Beden araması:</strong> Şüphelinin üst araması</li>
+                                <li><strong>Eşya araması:</strong> Yanında bulunan eşyaların aranması</li>
+                                <li><strong>Konut araması:</strong> Ev ve işyeri araması</li>
+                                <li><strong>Araç araması:</strong> Taşıt araçlarının aranması</li>
+                            </ul>
+                            
+                            <p><strong>Beden ve Eşya Araması:</strong></p>
+                            <ul>
+                                <li>Şüpheli yakalandığında veya gözaltına alındığında yapılır</li>
+                                <li>Aynı cinsten iki kişi huzurunda yapılır</li>
+                                <li>Hassas arama (iç arama) için hakim kararı gerekir</li>
+                                <li>Arama tutanağı düzenlenir</li>
+                            </ul>
+                            
+                            <p><strong>Konut ve Araç Araması:</strong></p>
+                            <ul>
+                                <li>Hakim kararı gerekir (CMK m.163/2)</li>
+                                <li>Gece yarısından sonra başlayıp sabah oluncaya kadar ara yapılamaz</li>
+                                <li>Serbest bırakılmış sanığın konutunda arama için ayrıca savcının talebi gerekir</li>
+                                <li>Araçlarda hakim kararı aranmaz (gecikmesinde sakınca varsa savcı karar verir)</li>
+                            </ul>
+                            
+                            <p><strong>Aramanın Sınırlandırılması:</strong></p>
+                            <ul>
+                                <li>Arama, kararda belirtilen konu ile sınırlıdır</li>
+                                <li>Suç delillerinin bulunduğu yerler aranır</li>
+                                <li>Özel hayata saygı gösterilir</li>
+                                <li>El konulan eşya listelenir</li>
+                            </ul>
+                            
+                            <h4>CMK M.164 - EL KOYMA (ELKOYMA)</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 164, soruşturma ve kovuşturmada el koyma işlemini düzenlemektedir.</p>
+                            
+                            <p><strong>El Koymanın Şartları:</strong></p>
+                            <ul>
+                                <li>Suçtan kaynaklanan veya suçta kullanılan eşya</li>
+                                <li>Suç işlemeye teşebbüs için hazırlanan araç-gereç</li>
+                                <li>Suçtan kaynaklanan menfaatler</li>
+                                <li>Delil niteliğindeki eşya</li>
+                            </ul>
+                            
+                            <p><strong>El Koyma Usulü:</strong></p>
+                            <ul>
+                                <li>El koyma yetkisi: Hakim, savcı ve kolluk (savcının emriyle)</li>
+                                <li>Muhafaza altına alınan eşya listelenir</li>
+                                <li>El koyma tutanağı düzenlenir</li>
+                                <li>Malik veya zilyede tebliğ edilir</li>
+                            </ul>
+                            
+                            <p><strong>El Koymanın Süresi ve Sonuçları:</strong></p>
+                            <ul>
+                                <li>El koyma, soruşturma/kovuşturma süresince devam eder</li>
+                                <li>Beraat veya düşme halinde iade edilir</li>
+                                <li>Mahkumiyette müsadere veya iade kararı verilir</li>
+                                <li>Hurda veya bozulabilir eşya için özel hükümler</li>
+                            </ul>
+                            
+                            <h4>CMK M.165 - TUTUKLAMA</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 165, tutuklama kararının şartlarını ve usulünü düzenlemektedir.</p>
+                            
+                            <p><strong>Tutuklamanın Şartları (Tutuklama Sebepleri):</strong></p>
+                            <ul>
+                                <li><strong>Kaçma şüphesi:</strong> Şüphelinin kaçacağı veya saklanacağı şüphesi</li>
+                                <li><strong>Delil karartma:</strong> Delilleri yok etme, gizleme veya değiştirme şüphesi</li>
+                                <li><strong>Baskı:</strong> Tanık veya mağdur üzerinde baskı yapma şüphesi</li>
+                                <li><strong>Kaçak durum:</strong> Kaçak veya tutuklu firari olma durumu</li>
+                            </ul>
+                            
+                            <p><strong>Tutuklama Usulü:</strong></p>
+                            <ul>
+                                <li>Yalnızca hakim kararı ile tutuklama yapılır</li>
+                                <li>Gecikmesinde sakınca varsa savcı tutuklatabilir, 24 saat içinde hakime sevk edilir</li>
+                                <li>Tutuklama kararı gerekçeli ve yazılı olmalıdır</li>
+                                <li>Şüpheli, tutuklama nedenleri ve hakkındaki deliller öğretilir</li>
+                            </ul>
+                            
+                            <p><strong>Tutukluluk Süreleri:</strong></p>
+                            <ul>
+                                <li><strong>Serbest suçlar:</strong> En fazla 1 yıl (uzatma ile 2 yıla kadar)</li>
+                                <li><strong>Özel suçlar:</strong> En fazla 2 yıl (uzatma ile 3 yıla kadar)</li>
+                                <li><strong>Ağır ceza:</strong> En fazla 3 yıl (uzatma ile 5 yıla kadar)</li>
+                                <li>Süreler, soruşturma evresi için geçerlidir</li>
+                            </ul>
+                            
+                            <p><strong>Tutukluluk İncelemesi:</strong></p>
+                            <ul>
+                                <li>Şüpheli, herhangi bir zamanda tahliye talebinde bulunabilir</li>
+                                <li>Hakim, 30 günde bir durumu incelemelidir (otomatik inceleme)</li>
+                                <li>Tutukluluk devamını gerektiren sebep yoksa tahliye kararı verilir</li>
+                                <li>Karar, gerekçeli ve yazılı olmalıdır</li>
+                            </ul>
+                            
+                            <h4>CMK M.166 - ADLİ KONTROL</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 166, tutuklama yerine uygulanabilecek adli kontrol tedbirlerini düzenlemektedir.</p>
+                            
+                            <p><strong>Adli Kontrolün Amacı:</strong></p>
+                            <ul>
+                                <li>Tutuklamaya alternatif koruma tedbiri</li>
+                                <li>Şüphelinin hakları korunurken soruşturmanın yürütülmesi</li>
+                                <li>Orantılılık ilkesi gereği tutuklamadan önce tercih edilebilir</li>
+                                <li>Serbest bırakılacak şüpheli için ek güvence</li>
+                            </ul>
+                            
+                            <p><strong>Adli Kontrol Tedbirleri:</strong></p>
+                            <ul>
+                                <li><strong>Belirli yere gitme yasağı:</strong> Belirli yerleşim yerlerine gitmeme</li>
+                                <li><strong>Konutta kalma:</strong> Belirli saatler arasında konutta kalma zorunluluğu</li>
+                                <li><strong>Belirli aralıklarla bildirme:</strong> Kolluğa düzenli aralıklarla başvurma</li>
+                                <li><strong>Pasaport teslimi:</strong> Yurt dışına çıkış yasağı</li>
+                                <li><strong>Yakın takip:</strong> Elektronik kelepçe veya benzeri tedbir</li>
+                                <li><strong>Keşif yasağı:</strong> Suç mahalline veya tanıklara yaklaşmama</li>
+                            </ul>
+                            
+                            <p><strong>Adli Kontrol Kararı:</strong></p>
+                            <ul>
+                                <li>Hakim veya savcı kararı ile uygulanır</li>
+                                <li>Şüpheli, tedbirler konusunda bilgilendirilir</li>
+                                <li>Tedbirlerin ihlali, tutuklamaya sebep olabilir</li>
+                                <li>30 günde bir otomatik inceleme yapılır</li>
+                            </ul>
+                            
+                            <h4>CMK M.167 - DİĞER KORUMA TEDBİRLERİ</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 167, diğer koruma tedbirlerini düzenlemektedir.</p>
+                            
+                            <p><strong>Koruma Tedbirlerinin Türleri:</strong></p>
+                            <ul>
+                                <li><strong>Şüpheliyi dinleme:</strong> Telefon ve elektronik haberleşmenin dinlenmesi</li>
+                                <li><strong>Gizli soruşturmacı:</strong> Teknik araçlarla gözetim</li>
+                                <li><strong>Gizli tanık:</strong> Kimliği gizli tutulan tanık</li>
+                                <li><strong>İletişimin tespiti:</strong> HTS kayıtlarının incelenmesi</li>
+                                <li><strong>Banka kayıtlarının incelenmesi:</strong> Mali işlemlerin denetimi</li>
+                            </ul>
+                            
+                            <p><strong>Tedbirlerin Uygulanması:</strong></p>
+                            <ul>
+                                <li>Hakim kararı gerekir (savcı 24 saat yetkili)</li>
+                                <li>Süreleri belirli ve sınırlıdır</li>
+                                <li>Gizlilik esası geçerlidir</li>
+                                <li>Hak ihlali varsa tazminat hakkı doğar</li>
+                            </ul>
+                            
+                            <p><strong>Orantılılık ve Gerekçelilik:</strong></p>
+                            <ul>
+                                <li>Koruma tedbirleri, son çare olarak uygulanmalıdır</li>
+                                <li>Gerekçeli karar ve yazılı düzenleme zorunludur</li>
+                                <li>Usulüne aykırı elde edilen deliller hukuka aykırı delil niteliğindedir</li>
+                                <li>AİHS ve Anayasa'ya uygunluk aranır</li>
+                            </ul>
+                            
+                            <h4>ANAYASA VE AİHS AÇISINDAN DEĞERLENDİRME</h4>
+                            
+                            <p><strong>Anayasa md. 19 - Kişi Hürriyeti ve Güvenliği:</strong></p>
+                            <ul>
+                                <li>Kişi hürriyeti ve güvenliği temel hak olarak güvence altındadır</li>
+                                <li>Tutuklama ve zorla getirme ancak kanuni sebeplerle ve usulle sınırlıdır</li>
+                                <li>Müdafii gözaltı öncesinde seçme ve görüşme hakkı</li>
+                                <li>Gözaltı süresinin 24 saatle sınırlandırılması (hakim kararıyla 48 saate kadar uzatılabilir)</li>
+                            </ul>
+                            
+                            <p><strong>AİHS md. 5 - Hürriyet ve Güvenlik Hakkı:</strong></p>
+                            <ul>
+                                <li>Hukuka uyru tutuklama ve gözaltı şartları</li>
+                                <li>Haber verme hakkı (tutuklama nedenleri ve deliller)</li>
+                                <li>Hakim veya görevli memur önünde derhal çıkarma hakkı</li>
+                                <li>Tutukluluk kararının denetimi (habeas corpus)</li>
+                            </ul>
+                            
+                            <p><strong>Avrupa İnsan Hakları Mahkemesi Kararları:</strong></p>
+                            <ul>
+                                <li>Tutuklamanın makul şüpheye dayanması gerekir</li>
+                                <li>Tutukluluk süresinin makul olması ve sürekli denetimi</li>
+                                <li>Adli kontrol tedbirlerinin ölçülülüğü ve gerekçeliliği</li>
+                                <li>Avukatla görüşme hakkının önemi</li>
+                            </ul>
+                            
+                            <h4>YARGITAY İÇTIHATLARI VE UYGULAMA</h4>
+                            
+                            <p><strong>Tutuklama Kararlarının Denetimi:</strong></p>
+                            <ul>
+                                <li>Yargıtay, tutuklama kararlarını sıkı denetime tabi tutar</li>
+                                <li>Tutuklama sebeplerinin somut delillere dayanması gerekir</li>
+                                <li>Şüpheden suçlu çıkarma yaklaşımı kabul edilmez</li>
+                                <li>Tutukluluk devamı için sürekli denetim zorunludur</li>
+                            </ul>
+                            
+                            <p><strong>Arama ve El Koyma:</strong></p>
+                            <ul>
+                                <li>Arama kararlarının hukuka uygun olması gerekir</li>
+                                <li>Usulüne aykırı arama sonucu elde edilen deliller hukuka aykırı delil niteliğindedir</li>
+                                <li>Arama ve el koyma tutanaklarının eksiksiz tutulması gerekir</li>
+                                <li>Gece yarısı araması için özel zorunluluk şartı aranır</li>
+                            </ul>
+                            
+                            <p><strong>Adli Kontrol Uygulaması:</strong></p>
+                            <ul>
+                                <li>Adli kontrol, tutuklamaya alternatif olarak değerlendirilmeli</li>
+                                <li>Tedbirlerin şüpheli haklarına saygılı olması gerekir</li>
+                                <li>Tedbirlerin ihlali, usulsüz tutuklama gibi değerlendirilebilir</li>
+                                <li>Otomatik inceleme mekanizmasının işletilmesi zorunludur</li>
+                            </ul>
+                            
+                            <h4>UYGULAMADA KARŞILAŞILAN SORUNLAR</h4>
+                            
+                            <p><strong>1. Tutuklama Tedbirinin Aşırı Kullanımı:</strong> Türkiye'de tutuklama, ceza hukuku uygulamasında en sık kullanılan koruma tedbirlerinden biri olup, Avrupa standartlarına göre tutuklu yargılama oranları yüksektir. Tutuklama yerine adli kontrol tedbirlerinin yeterince değerlendirilmemesi sorun oluşturmaktadır.</p>
+                            
+                            <p><strong>2. Tutukluluk Sürelerinin Uzaması:</strong> Özellikle terör ve organize suç soruşturmalarında tutukluluk süreleri uzamakta, bu durum bireylerin temel hakları üzerinde olumsuz etki yaratmaktadır.</p>
+                            
+                            <p><strong>3. Gizlilik İlkesinin İhlali:</strong> Soruşturma gizliliği, bazı yüksek profilli olaylarda basın yayın yoluyla ihlal edilmekte, bu durum tarafsız yargı ilkesini zedelemektedir.</p>
+                            
+                            <p><strong>4. Adli Kontrol Tedbirlerinin İhlali:</strong> Adli kontrol kararları, zaman zaman somut delil olmaksızın verilmekte veya tedbirler aşırı uygulanmaktadır.</p>
+                            
+                            <p><strong>5. Avukat Görüşme Hakkının Kısıtlanması:</strong> Gözaltı ve tutuklama aşamasında avukatla görüşme hakkının zaman veya şekil bakımından kısıtlanması uygulamada karşılaşılan önemli bir sorundur.</p>
+                            
+                            <h4>SAVUNMA STRATEJİLERİ</h4>
+                            
+                            <p><strong>1. Tutuklamaya İtiraz:</strong> Tutuklama kararına karşı CMK m.104 uyarınca itiraz edilebilir. İtiraz üzerine bir üst mahkeme karar verir. Tutukluluğun devamını gerektiren somut sebeplerin bulunmadığı ileri sürülmelidir.</p>
+                            
+                            <p><strong>2. Tahliye Talebi:</strong> Tutukluluk süresince herhangi bir zamanda tahliye talebinde bulunulabilir. Soruşturmanın ilerlemesi, delil durumu ve şüphelinin durumu göz önünde bulundurularak tahliye talepleri dile getirilmelidir.</p>
+                            
+                            <p><strong>3. Adli Kontrol Alternatifi:</strong> Tutuklama yerine adli kontrol tedbirlerinin uygulanmasının yeterli olacağı savunulmalıdır. Şüphelinin yerleşik hayatı, sabit ikameti ve kaçma şüphesinin bulunmadığı vurgulanmalıdır.</p>
+                            
+                            <p><strong>4. Usul İtirazları:</strong> Arama, el koyma, zorla getirme gibi işlemlerde usul hatalarına karşı itirazlar yapılmalıdır. Usulüne aykırı toplanan delillerin hukuka aykırı delil olduğu ve değerlendirmeye alınamayacağı ileri sürülmelidir.</p>
+                            
+                            <p><strong>5. AİHM Başvurusu:</strong> Tutukluluk süresinin makul olmaması, usulsüz tutuklama veya hak ihlalleri durumunda Avrupa İnsan Hakları Mahkemesi'ne bireysel başvuru yapılabilir.</p>
+                            
+                            <h4>SONUÇ VE HUKUKİ TAVSİYELER</h4>
+                            
+                            <p><strong>1. CMK'nın Önemi:</strong> Ceza Muhakemesi Kanunu, bireylerin temel hak ve özgürlüklerinin korunması ile suçun etkili bir şekilde soruşturulması arasında hassas bir denge kurmaktadır. Soruşturma evresi hükümleri, bu dengenin kurulduğu kritik bir aşamadır.</p>
+                            
+                            <p><strong>2. Temel Hakların Korunması:</strong> Anayasa ve AİHS çerçevesinde kişi hürriyeti ve güvenliği, masumiyet karinesi ve adil yargılanma hakları, soruşturma evresinde titizlikle korunmalıdır.</p>
+                            
+                            <p><strong>3. Tutuklama Son Çare Olmalı:</strong> Tutuklama, orantılılık ilkesi gereği son çare olarak değerlendirilmeli, mümkün olduğunca adli kontrol tedbirlerine başvurulmalıdır.</p>
+                            
+                            <p><strong>4. Usul Kurallarına Uygunluk:</strong> Zorla getirme, arama, el koyma ve tutuklama işlemlerinin CMK'da öngörülen usul kurallarına göre yapılması, elde edilen delillerin hukuken geçerli olması açısından kritik öneme sahiptir.</p>
+                            
+                            <p><strong>5. Sürekli Denetim:</strong> Tutuklama ve adli kontrol kararlarının 30 günlük periyotlarla otomatik denetimi, bireylerin temel haklarının korunması açısından önemli bir mekanizmadır.</p>
+                            
+                            <p><strong>6. Hukuki Yardım:</strong> Ceza soruşturması, karmaşık ve teknik hükümler içeren bir süreçtir. Gözaltı, tutuklama veya koruma tedbirleri ile karşı karşıya kalan kişilerin mutlaka uzman bir ceza avukatından hukuki yardım alması önerilmektedir.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Yazar:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>27 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="mevzuat">
+                        <div class="article-header">
+                            <span class="article-category">Ceza Hukuku</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Muhakemesi Kanunu'nda Kovuşturma: (md. 253-271)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 253-271</strong> - Ceza Muhakemesi Kanunu'nun kovuşturma evresine ilişkin hükümleri: iddianame, duruşma hazırlığı, duruşma usulü, hüküm, istinaf ve temyiz süreçleri ile ceza davalarında yargılamanın temel ilkeleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="toggleArticle('article-cmk-kovusturma')">Devamını Oku →</button>
+                        <div id="article-cmk-kovusturma" class="article-full-content" style="display: none;">
+                            <h3>Konu: CMK Kapsamında Kovuşturma Evresi ve Yargılama Usulü</h3>
+                            
+                            <h4>GİRİŞ VE GENEL DEĞERLENDİRME</h4>
+                            <p>Ceza Muhakemesi Kanunu (CMK), ceza davalarının yargısal olarak çözümlenmesini düzenleyen temel kanundur. Kanunun kovuşturma evresi hükümleri (md. 253-271), soruşturma sonunda hazırlanan iddianame ile başlayan ve hükmün kesinleşmesine kadar devam eden yargılama sürecini düzenlemektedir.</p>
+                            
+                            <p><strong>Mevzuat Yapısı:</strong> CMK'nın beşinci kısmı olan "Kovuşturma", yargılama usulünün tüm evrelerini içermektedir. Bu bölüm, anayasal güvence altına alınmış adil yargılanma hakkının pratikte uygulanmasını sağlayan hükümleri barındırmaktadır.</p>
+                            
+                            <h4>CMK M.253 - İDDİANAME</h4>
+                            
+                            <p><strong>Kanuni Tanım:</strong> CMK md. 253 uyarınca, "Cumhuriyet savcısı, yeterli şüpheye göre kovuşturma yapılmasını talep ettiği kişi hakkında, yetkili ve görevli mahkemeye iddianame düzenleyerek gönderir."</p>
+                            
+                            <p><strong>İddianamenin Unsurları:</strong></p>
+                            <ul>
+                                <li><strong>Sanık:</strong> Kovuşturması istenen kişinin kimlik bilgileri</li>
+                                <li><strong>Suç:</strong> İşlendiği iddia edilen suçun açık tanımı</li>
+                                <li><strong>Deliller:</strong> Suçun kanıtlandığına dair delillerin listesi</li>
+                                <li><strong>Mevzuat:</strong> Uygulanacak kanun maddeleri</li>
+                                <li><strong>Yetki:</strong> Yetkili mahkemenin gösterilmesi</li>
+                            </ul>
+                            
+                            <p><strong>İddianamenin Niteliği:</strong></p>
+                            <ul>
+                                <li>İddianame, kovuşturmanın başlangıç belgesidir</li>
+                                <li>Mahkeme tarafından incelenip kabul veya reddedilir</li>
+                                <li>Kabul edildikten sonra duruşma aşamasına geçilir</li>
+                                <li>Reddedilmesi halinde ek soruşturma yapılabilir</li>
+                            </ul>
+                            
+                            <h4>CMK M.254-255 - DURUŞMA HAZIRLIĞI</h4>
+                            
+                            <p><strong>Duruşma Hazırlığı:</strong> CMK md. 254-255, iddianamenin kabulünden sonra duruşmaya hazırlık işlemlerini düzenler:</p>
+                            
+                            <ul>
+                                <li><strong>Tebligat:</strong> Sanığa ve müştekiye duruşma günü bildirimi</li>
+                                <li><strong>Müdafi:</strong> Sanığa avukat tutma hakkının hatırlatılması</li>
+                                <li><strong>Ek Süre:</strong> Savunma hazırlığı için ek süre talebi</li>
+                                <li><strong>Delil Listesi:</strong> Mahkemece delil listesinin hazırlanması</li>
+                            </ul>
+                            
+                            <p><strong>Hazırlık İncelemesi:</strong></p>
+                            <ul>
+                                <li>Hâkim, duruşma öncesi dosyayı inceler</li>
+                                <li>Eksikliklerin giderilmesini talep edebilir</li>
+                                <li>Taraflardan ön beyan alabilir</li>
+                                <li>Basit soruşturmalarda hazırlık aşaması kısa tutulabilir</li>
+                            </ul>
+                            
+                            <h4>CMK M.256-262 - DURUŞMA USULÜ</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 256-262, duruşma usulünün temel kurallarını düzenlemektedir.</p>
+                            
+                            <p><strong>Duruşmanın Açıklığı:</strong></p>
+                            <ul>
+                                <li>Genel kural: Duruşmalar herkese açıktır (CMK m.256)</li>
+                                <li>Kamu düzeni ve ahlakın korunması için kapalı yapılabilir</li>
+                                <li>Reşit olmayanların korunması için kapalı yargılama</li>
+                                <li>Mahkeme başkanı duruşma düzenini sağlar</li>
+                            </ul>
+                            
+                            <p><strong>Duruşma Başkanının Yetkileri:</strong></p>
+                            <ul>
+                                <li>Duruşmanın düzenli yürütülmesini sağlama</li>
+                                <li>Soru sorma ve konuşma hakkını düzenleme</li>
+                                <li>Tarafları dinleme ve karar verme</li>
+                                <li>Huzuru bozanları çıkarma yetkisi</li>
+                            </ul>
+                            
+                            <p><strong>Sorgu ve Çapraz Sorgu:</strong></p>
+                            <ul>
+                                <li>Sanık ve tanıkların dinlenmesi (CMK m.257)</li>
+                                <li>Çapraz sorgu hakkı (CMK m.258)</li>
+                                <li>Yemin ve yalan yere yemin suçu uyarısı</li>
+                                <li>Gizli tanık usulü (CMK m.259)</li>
+                            </ul>
+                            
+                            <h4>CMK M.263-267 - HÜKÜM</h4>
+                            
+                            <p><strong>Hüküm Kavramı:</strong> CMK md. 263-267, ceza yargılamasının son aşaması olan hükmü düzenlemektedir.</p>
+                            
+                            <p><strong>Hükmün Unsurları:</strong></p>
+                            <ul>
+                                <li><strong>Mahkeme:</strong> Kararı veren mahkemenin bilgileri</li>
+                                <li><strong>Tarih:</strong> Kararın verildiği tarih</li>
+                                <li><strong>Esas:</strong> Uyuşmazlığın özeti</li>
+                                <li><strong>Hüküm:</strong> Sanığın beraat veya mahkumiyeti</li>
+                                <li><strong>Gerekçe:</strong> Kararın dayandığı hukuki ve fiili gerekçeler</li>
+                                <li><strong>Temyiz:</strong> Temyiz yolunun gösterilmesi</li>
+                            </ul>
+                            
+                            <p><strong>Hüküm Türleri:</strong></p>
+                            <ul>
+                                <li><strong>Beraat:</strong> Suçun sabit olmaması veya işlenmemesi</li>
+                                <li><strong>Mahkumiyet:</strong> Suçun sabit olması ve ceza verilmesi</li>
+                                <li><strong>Düşme:</strong> Zamanaşımı, af veya ölüm nedeniyle</li>
+                                <li><strong>Usulden Düşme:</strong> Kusur yeteneğinin olmaması</li>
+                            </ul>
+                            
+                            <h4>CMK M.268-271 - İSTİNAF VE TEMYİZ</h4>
+                            
+                            <p><strong>Kanuni Düzenleme:</strong> CMK md. 268-271, hükme karşı kanun yollarını düzenlemektedir.</p>
+                            
+                            <p><strong>İstinaf (CMK m.268-269):</strong></p>
+                            <ul>
+                                <li>Bölge adliye mahkemelerine başvuru</li>
+                                <li>Hükümler için 15 günlük süre</li>
+                                <li>Hem hukuki hem de olay yönünden inceleme</li>
+                                <li>İkinci derece mahkemesi niteliğindedir</li>
+                            </ul>
+                            
+                            <p><strong>Temyiz (CMK m.270-271):</strong></p>
+                            <ul>
+                                <li>Yargıtay'a başvuru</li>
+                                <li>Kesinleşmiş olmayan hükümler için</li>
+                                <li>Genellikle hukuki inceleme</li>
+                                <li>Kanun yararına bozma (CMK m.271)</li>
+                            </ul>
+                            
+                            <h4>CMK'DA KOVUŞTURMANIN ÖZEL HÜKÜMLERİ</h4>
+                            
+                            <p><strong>Basit Yargılama Usulü (CMK md. 250-252):</strong></p>
+                            <ul>
+                                <li>2 yıldan az hapis cezasını gerektiren suçlar için</li>
+                                <li>Duruşma yapılmadan karar verilebilir</li>
+                                <li>Tarafların yazılı beyanı esastır</li>
+                                <li>Hızlı sonuçlandırma amaçlanır</li>
+                            </ul>
+                            
+                            <p><strong>Seri Müdafaa (CMK md. 260-262):</strong></p>
+                            <ul>
+                                <li>Tutuklu sanıklar için hızlı yargılama</li>
+                                <li>Belirli süreler içinde sonuçlandırma zorunluluğu</li>
+                                <li>Tutukluluk süresinin sınırlanması</li>
+                            </ul>
+                            
+                            <p><strong>Kovuşturmadan Vazgeçme:</strong></p>
+                            <ul>
+                                <li>Belli şartlarda kovuşturma yapılmayabilir</li>
+                                <li>Uzlaştırma hükümlerinin uygulanması</li>
+                                <li>Aktif pişmanlık hükümleri (CMK md. 168)</li>
+                            </ul>
+                            
+                            <h4>YARGITAY İÇTIHATLARI VE UYGULAMA</h4>
+                            
+                            <p><strong>Duruşma Usulünde Usulsüzlükler:</strong></p>
+                            <ul>
+                                <li>Yargıtay, duruşma usulünün eksiksiz uygulanmasını bekler</li>
+                                <li>Usul hataları bozma gerekçesi olabilir</li>
+                                <li>Önemli usul hatalarına karşı itiraz hakları</li>
+                            </ul>
+                            
+                            <p><strong>Adil Yargılanma Hakkı:</strong></p>
+                            <ul>
+                                <li>Anayasa md. 36 ve AİHS md. 6'ya uygunluk</li>
+                                <li>Müdafaa hakkının kullanılması</li>
+                                <li>Delillerin tartışılması</li>
+                                <li>Seri yargılama hakkı</li>
+                            </ul>
+                            
+                            <p><strong>Hükmün Açıklanması:</strong></p>
+                            <ul>
+                                <li>Hükmün duruşmada açıklanması zorunluluğu</li>
+                                <li>Gerekçeli karar hakkı</li>
+                                <li>Basit hükümlerde gerekçe gösterme yükümlülüğü</li>
+                            </ul>
+                            
+                            <h4>UYGULAMADA KARŞILAŞILAN SORUNLAR</h4>
+                            
+                            <p><strong>1. Duruşma Sürelerinin Uzaması:</strong> Özellikle ağır ceza mahkemelerinde duruşma sürelerinin uzaması, sanık haklarını olumsuz etkilemektedir. CMK'nın seri yargılama hükümleri yeterince uygulanamamaktadır.</p>
+                            
+                            <p><strong>2. Tutuklukta Yargılama:</strong> Tutuklu sanıkların duruşma süreçlerinin uzaması, tutukluluk süresinin cezaya dönüşmemesi ilkesini zedelemektedir.</p>
+                            
+                            <p><strong>3. Delil Toplama:</strong> Duruşma aşamasında yeni delil sunulması ve delillerin tartışılması konusu uygulamada sıkça karşılaşılan sorunlardır.</p>
+                            
+                            <p><strong>4. İstinaf Sistemi:</strong> İstinaf incelemesinin kapsamı ve süresi konusunda uygulamada farklı yaklaşımlar mevcuttur.</p>
+                            
+                            <p><strong>5. Müdafaa Hakkının Kısıtlanması:</strong> Bazı durumlarda sanığın veya müdafiinin savunma hakkının yeterince kullanılamadığı iddiaları önemli bir sorundur.</p>
+                            
+                            <h4>SAVUNMA STRATEJİLERİ</h4>
+                            
+                            <p><strong>1. Duruşma Hazırlığı:</strong> Duruşma öncesi dosyanın detaylı incelenmesi, delil listesinin hazırlanması ve eksikliklerin tamamlanması savunma için kritik öneme sahiptir.</p>
+                            
+                            <p><strong>2. Usul İtirazları:</strong> Duruşma sürecinde usul hatalarına karşı derhal itiraz edilmeli ve bu itirazlar tutanağa geçirilmelidir.</p>
+                            
+                            <p><strong>3. Delil İtirazları:</strong> Usulüne aykırı toplanan delillere karşı itirazlar yapılmalı, bu delillerin kullanılamaz olduğu ileri sürülmelidir.</p>
+                            
+                            <p><strong>4. İstinaf/Temyiz Başvuruları:</strong> Hükme karşı itiraz yollarının süresinde ve usulüne uygun olarak kullanılması gerekir.</p>
+                            
+                            <p><strong>5. Seri Müdafaa Talepleri:</strong> Tutuklu sanıklar için seri müdafaa hükümlerinin uygulanması talep edilmelidir.</p>
+                            
+                            <h4>SONUÇ VE HUKUKİ TAVSİYELER</h4>
+                            
+                            <p><strong>1. CMK'nın Önemi:</strong> Ceza Muhakemesi Kanunu, ceza davalarının adil ve hukuka uygun şekilde yargılanmasını sağlayan temel kanundur. Kovuşturma hükümleri bu sürecin temelini oluşturur.</p>
+                            
+                            <p><strong>2. Adil Yargılanma Hakkı:</strong> Anayasal güvence altındaki adil yargılanma hakkının tüm unsurları (müdafaa hakkı, delil gösterme, çapraz sorgu vb.) kovuşturma evresinde kullanılmalıdır.</p>
+                            
+                            <p><strong>3. Usul Kurallarına Uygunluk:</strong> Kovuşturma, CMK'da öngörülen usul kurallarına göre yürütülmelidir. Usul hataları, istinaf ve temyiz yoluyla düzeltilebilir.</p>
+                            
+                            <p><strong>4. Seri Yargılama:</strong> Ceza davalarının gecikmeksizin sonuçlandırılması, hem sanık hakları hem de adaletin yerine getirilmesi açısından önemlidir.</p>
+                            
+                            <p><strong>5. Yargıtay İçtihatları:</strong> Kovuşturma hükümlerinin uygulanmasında Yargıtay'ın yerleşmiş içtihatları büyük önem taşımaktadır.</p>
+                            
+                            <p><strong>6. Hukuki Yardım:</strong> CMK'daki kovuşturma usulü karmaşık ve teknik hükümler içermektedir. Mutlaka uzman bir ceza avukatından hukuki yardım alınması önerilmektedir.</p>
+                            
+                            <div class="article-author">
+                                <p><strong>Yazar:</strong><br>
+                                Avukat Ege Özata<br>
+                                Özata Hukuk Bürosu<br>
+                                <em>27 Mart 2026</em></p>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="article-card" data-category="haber">
                         <div class="article-header">
                             <span class="article-category">Gayrimenkul Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -238,7 +1094,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -417,7 +1273,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -620,7 +1476,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -829,7 +1685,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -1116,7 +1972,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -1360,7 +2216,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -1564,7 +2420,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -1868,7 +2724,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -2126,7 +2982,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="haber">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku</span>
                             <span class="article-date">27 Mart 2026</span>
@@ -2247,7 +3103,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="ictihat">
                         <div class="article-header">
                             <span class="article-category">İcra İflas Hukuku</span>
                             <span class="article-date">25 Mart 2026</span>
@@ -2294,7 +3150,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="mevzuat">
                         <div class="article-header">
                             <span class="article-category">Enerji Piyasası Mevzuatı</span>
                             <span class="article-date">26 Mart 2026</span>
@@ -2381,7 +3237,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="ictihat">
                         <div class="article-header">
                             <span class="article-category">Kişisel Verilerin Korunması</span>
                             <span class="article-date">24 Mart 2026</span>
@@ -2459,7 +3315,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="mevzuat">
                         <div class="article-header">
                             <span class="article-category">Mevzuat - Kanun</span>
                             <span class="article-date">23 Mart 2026</span>
@@ -2515,7 +3371,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="ictihat">
                         <div class="article-header">
                             <span class="article-category">İş Hukuku</span>
                             <span class="article-date">18 Mart 2026</span>
@@ -2555,7 +3411,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="ictihat">
                         <div class="article-header">
                             <span class="article-category">Kira Hukuku</span>
                             <span class="article-date">11 Mart 2026</span>
@@ -2595,7 +3451,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="ictihat">
                         <div class="article-header">
                             <span class="article-category">Anayasa Hukuku</span>
                             <span class="article-date">10 Mart 2026</span>
@@ -2645,7 +3501,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Trafik Hukuku</span>
                             <span class="article-date">23 Mart 2026</span>
@@ -3472,7 +4328,7 @@
                         </div>
                     </article>
 
-                    <article class="article-card">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">Ceza Hukuku - Özel Hayata Karşı Suçlar</span>
                             <span class="article-date">27 Mart 2026</span>
