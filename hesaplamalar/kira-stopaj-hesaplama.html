@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kira Stopaj Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="kira-artis.html">Kira Artış</a>
+                <a href="kira-stopaj-hesaplama.html">Kira Stopaj</a>
+                <a href="tapu-harci.html">Tapu Harcı</a>
+                <a href="mahkeme-harci.html">Mahkeme Harcı</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Kira Stopaj Hesaplama</h2>
+                    <p>Kira geliri üzerinden vergi, damga vergisi ve diğer kesintileri hesaplayın</p>
+
+                    <div class="info-box">
+                        <strong>Stopaj Oranları (2026):</strong>
+                        <ul>
+                            <li><strong>Konut Kirası:</strong> Gelir vergisi stopajı yok (istisna limiti var)</li>
+                            <li><strong>İşyeri Kirası:</strong> %20 gelir vergisi stopajı</li>
+                            <li><strong>Damga Vergisi:</strong> Kira bedelinin binde 1.89'u</li>
+                        </ul>
+                    </div>
+
+                    <form id="stopajForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="kiraTuru">Kira Türü *</label>
+                                <select id="kiraTuru" required>
+                                    <option value="">Seçiniz</option>
+                                    <option value="konut">Konut (Mesken)</option>
+                                    <option value="isyeri">İşyeri (Ticari)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="aylikKira">Aylık Kira Bedeli (TL) *</label>
+                                <input type="number" id="aylikKira" min="0" step="0.01" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="vergiDilimi">Vergi Dilimi</label>
+                                <select id="vergiDilimi">
+                                    <option value="15">%15 (70.000 TL'ye kadar)</option>
+                                    <option value="20">%20 (150.000 TL'ye kadar)</option>
+                                    <option value="22">%22 (550.000 TL'ye kadar)</option>
+                                    <option value="27">%27 (1.900.000 TL'ye kadar)</option>
+                                    <option value="35">%35 (üzeri)</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="damgaOrani">Damga Vergisi Oranı (%)</label>
+                                <input type="number" id="damgaOrani" min="0" max="1" step="0.001" value="0.189">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="stopajOrani">Stopaj Oranı (%)</label>
+                                <input type="number" id="stopajOrani" min="0" max="50" step="1" value="20">
+                            </div>
+                            <div class="form-group">
+                                <label for="gayrimenkulGider">Gayrimenkul Gider İstisnası (TL)</label>
+                                <input type="number" id="gayrimenkulGider" min="0" step="0.01" value="15800">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="konutIstisna">Konut Kira İstisnası (TL)</label>
+                                <input type="number" id="konutIstisna" min="0" step="0.01" value="15800">
+                            </div>
+                            <div class="form-group">
+                                <label for="kesinti">Diğer Kesintiler (TL)</label>
+                                <input type="number" id="kesinti" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaStopaj()">Stopaj Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Kira türü değiştiğinde stopaj oranını güncelle
+        document.getElementById('kiraTuru').addEventListener('change', function() {
+            const stopajInput = document.getElementById('stopajOrani');
+            if (this.value === 'konut') {
+                stopajInput.value = 0;
+                stopajInput.disabled = true;
+            } else {
+                stopajInput.value = 20;
+                stopajInput.disabled = false;
+            }
+        });
+
+        function hesaplaStopaj() {
+            const kiraTuru = document.getElementById('kiraTuru').value;
+            const aylikKira = parseFloat(document.getElementById('aylikKira').value) || 0;
+            const vergiDilimi = parseFloat(document.getElementById('vergiDilimi').value) || 15;
+            const damgaOrani = parseFloat(document.getElementById('damgaOrani').value) || 0.189;
+            const stopajOrani = parseFloat(document.getElementById('stopajOrani').value) || 20;
+            const gayrimenkulGider = parseFloat(document.getElementById('gayrimenkulGider').value) || 15800;
+            const konutIstisna = parseFloat(document.getElementById('konutIstisna').value) || 15800;
+            const digerKesinti = parseFloat(document.getElementById('kesinti').value) || 0;
+
+            if (!kiraTuru || aylikKira <= 0) {
+                alert('Lütfen kira türü ve aylık kira bedelini giriniz.');
+                return;
+            }
+
+            // Yıllık kira hesaplama
+            const yillikKira = aylikKira * 12;
+            
+            // Damga vergisi (yıllık)
+            const damgaVergisi = yillikKira * (damgaOrani / 1000);
+            
+            let gelirVergisi = 0;
+            let vergilendirilecekMatrah = 0;
+            let istisnaAciklama = '';
+            let stopaj = 0;
+
+            if (kiraTuru === 'konut') {
+                // Konut kira geliri istisnası
+                const istisnaMatrah = Math.min(yillikKira, konutIstisna);
+                vergilendirilecekMatrah = Math.max(0, yillikKira - konutIstisna - gayrimenkulGider);
+                
+                if (yillikKira <= konutIstisna) {
+                    istisnaAciklama = `Konut kira geliri ${konutIstisna.toLocaleString('tr-TR')} TL istisna limiti içinde olduğundan vergilendirme yapılmaz.`;
+                } else {
+                    istisnaAciklama = `Konut kira gelirinden ${konutIstisna.toLocaleString('tr-TR')} TL istisna ve ${gayrimenkulGider.toLocaleString('tr-TR')} TL gayrimenkul gider istisnası düşülmüştür.`;
+                }
+                
+                // Konut kiralarında stopaj yok, beyanname ile ödenir
+                if (vergilendirilecekMatrah > 0) {
+                    gelirVergisi = vergilendirilecekMatrah * (vergiDilimi / 100);
+                }
+                stopaj = 0;
+                
+            } else {
+                // İşyeri kirası - stopaj uygulanır
+                vergilendirilecekMatrah = Math.max(0, yillikKira - gayrimenkulGider);
+                stopaj = aylikKira * (stopajOrani / 100) * 12; // Aylık stopajın yıllığı
+                
+                istisnaAciklama = `İşyeri kira gelirinden ${gayrimenkulGider.toLocaleString('tr-TR')} TL gayrimenkul gider istisnası düşülmüştür. Stopaj uygulanmıştır.`;
+                
+                // Stopaj mahsup edilir, kalan vergi beyanname ile ödenir
+                gelirVergisi = Math.max(0, vergilendirilecekMatrah * (vergiDilimi / 100) - stopaj);
+            }
+
+            // Net kira (yıllık)
+            const yillikKesinti = damgaVergisi + stopaj + gelirVergisi + digerKesinti;
+            const netYillikKira = yillikKira - yillikKesinti;
+            const netAylikKira = netYillikKira / 12;
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Kira Türü:</span>
+                    <span>${kiraTuru === 'konut' ? 'Konut (Mesken)' : 'İşyeri (Ticari)'}</span>
+                </div>
+                <div class="result-item">
+                    <span>Aylık Kira Bedeli:</span>
+                    <span>${aylikKira.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Yıllık Kira Geliri:</span>
+                    <span>${yillikKira.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Vergiye Tabi Matrah:</span>
+                    <span>${vergilendirilecekMatrah.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${stopaj > 0 ? `
+                <div class="result-item">
+                    <span>Stopaj Kesintisi (%${stopajOrani}):</span>
+                    <span>${stopaj.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="result-item">
+                    <span>Damga Vergisi (Binde ${damgaOrani.toFixed(3)}):</span>
+                    <span>${damgaVergisi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${gelirVergisi > 0 ? `
+                <div class="result-item">
+                    <span>Gelir Vergisi (%${vergiDilimi}):</span>
+                    <span>${gelirVergisi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                ${digerKesinti > 0 ? `
+                <div class="result-item">
+                    <span>Diğer Kesintiler:</span>
+                    <span>${digerKesinti.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="result-item total">
+                    <span>Yıllık Toplam Vergi/Kesinti:</span>
+                    <span>${yillikKesinti.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item total">
+                    <span>Net Yıllık Kira Geliri:</span>
+                    <span>${netYillikKira.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item total">
+                    <span>Net Aylık Kira Geliri:</span>
+                    <span>${netAylikKira.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Hesaplama Detayı:</strong><br>
+                    ${istisnaAciklama}<br><br>
+                    <strong>Önemli Notlar:</strong><br>
+                    • Konut kiralamalarında stopaj uygulanmaz, beyanname ile vergi ödenir.<br>
+                    • İşyeri kiralamalarında stopaj uygulanır ve mahsup edilir.<br>
+                    • Damga vergisi kira sözleşmesi için her yıl ödenir.<br>
+                    • Kesin vergi hesabı için mali müşavire danışmanız önerilir.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

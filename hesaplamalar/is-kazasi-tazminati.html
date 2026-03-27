@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>İş Kazası Tazminatı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="trafik-kazasi-tazminati.html">Trafik Kazası</a>
+                <a href="is-kazasi-tazminati.html">İş Kazası</a>
+                <a href="tazminat.html">Tazminat</a>
+                <a href="kidem-tazminati.html">Kıdem Tazminatı</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>İş Kazası Tazminatı Hesaplama</h2>
+                    <p>İş kazası sonucu oluşan maddi ve manevi tazminat hesaplama</p>
+
+                    <div class="info-box">
+                        <strong>İş Kazası Tazminatı Türleri:</strong>
+                        <ul>
+                            <li><strong>Geçici İş Göremezlik:</strong> Tedavi süresince ödenen günlük kazanç</li>
+                            <li><strong>Kalıcı İş Göremezlik:</strong> Sürekli sakatlık durumunda tazminat</li>
+                            <li><strong>Maluliyet/Ölüm:</strong> Bakmakla yükümlü olunan kişiler için tazminat</li>
+                        </ul>
+                    </div>
+
+                    <form id="isKazasiForm">
+                        <div class="form-group">
+                            <label for="kazaTuru">Kaza Sonucu *</label>
+                            <select id="kazaTuru" required>
+                                <option value="">Seçiniz</option>
+                                <option value="gecici">Geçici İş Göremezlik</option>
+                                <option value="sakatlik">Kalıcı Sakatlık (Maluliyet)</option>
+                                <option value="olum">Ölüm</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gunlukKazanc">Günlük Kazanç (TL) *</label>
+                                <input type="number" id="gunlukKazanc" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="aylikKazanc">Aylık Kazanç (TL)</label>
+                                <input type="number" id="aylikKazanc" min="0" step="0.01">
+                            </div>
+                        </div>
+
+                        <div class="form-row" id="geciciAlani">
+                            <div class="form-group">
+                                <label for="hastaneGun">Hastanede Yatış Günü</label>
+                                <input type="number" id="hastaneGun" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="ayaktaGun">Ayakta Tedavi Günü</label>
+                                <input type="number" id="ayaktaGun" min="0" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row" id="sakatlikAlani" style="display: none;">
+                            <div class="form-group">
+                                <label for="sakatlikOrani">Sakatlık Oranı (%)</label>
+                                <input type="number" id="sakatlikOrani" min="0" max="100" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="calismaSuresi">Çalışma Süresi (Yıl)</label>
+                                <input type="number" id="calismaSuresi" min="0" max="50" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row" id="olumAlani" style="display: none;">
+                            <div class="form-group">
+                                <label for="bagimliSayisi">Bakmakla Yükümlü Olduğu Kişi</label>
+                                <input type="number" id="bagimliSayisi" min="0" max="10" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="esCocuk">Eş ve Çocuk Sayısı</label>
+                                <input type="number" id="esCocuk" min="0" max="20" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="maluliyetYasi">Maluliyet/Ölüm Yaşı</label>
+                                <input type="number" id="maluliyetYasi" min="16" max="100" value="35">
+                            </div>
+                            <div class="form-group">
+                                <label for="emeklilikYasi">Emeklilik Yaşı</label>
+                                <input type="number" id="emeklilikYasi" min="50" max="70" value="60">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="tibbiMasraf">Tıbbi Giderler (TL)</label>
+                            <input type="number" id="tibbiMasraf" min="0" step="0.01" value="0">
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaIsKazasi()">Tazminat Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Kaza türüne göre alanları göster/gizle
+        document.getElementById('kazaTuru').addEventListener('change', function() {
+            document.getElementById('geciciAlani').style.display = 'grid';
+            document.getElementById('sakatlikAlani').style.display = 'none';
+            document.getElementById('olumAlani').style.display = 'none';
+            
+            if (this.value === 'sakatlik') {
+                document.getElementById('sakatlikAlani').style.display = 'grid';
+            } else if (this.value === 'olum') {
+                document.getElementById('olumAlani').style.display = 'grid';
+            }
+        });
+
+        // Aylık kazançtan günlük kazanç hesapla
+        document.getElementById('aylikKazanc').addEventListener('change', function() {
+            if (this.value > 0) {
+                const gunluk = this.value / 30;
+                document.getElementById('gunlukKazanc').value = gunluk.toFixed(2);
+            }
+        });
+
+        function hesaplaIsKazasi() {
+            const kazaTuru = document.getElementById('kazaTuru').value;
+            const gunlukKazanc = parseFloat(document.getElementById('gunlukKazanc').value) || 0;
+            const aylikKazanc = parseFloat(document.getElementById('aylikKazanc').value) || (gunlukKazanc * 30);
+            const hastaneGun = parseInt(document.getElementById('hastaneGun').value) || 0;
+            const ayaktaGun = parseInt(document.getElementById('ayaktaGun').value) || 0;
+            const sakatlikOrani = parseInt(document.getElementById('sakatlikOrani').value) || 0;
+            const calismaSuresi = parseInt(document.getElementById('calismaSuresi').value) || 0;
+            const bagimliSayisi = parseInt(document.getElementById('bagimliSayisi').value) || 0;
+            const esCocuk = parseInt(document.getElementById('esCocuk').value) || 0;
+            const maluliyetYasi = parseInt(document.getElementById('maluliyetYasi').value) || 35;
+            const emeklilikYasi = parseInt(document.getElementById('emeklilikYasi').value) || 60;
+            const tibbiMasraf = parseFloat(document.getElementById('tibbiMasraf').value) || 0;
+
+            if (!kazaTuru || gunlukKazanc <= 0) {
+                alert('Lütfen kaza türü ve kazanç bilgilerini giriniz.');
+                return;
+            }
+
+            let tazminat = 0;
+            let aciklama = '';
+            let detaylar = [];
+
+            if (kazaTuru === 'gecici') {
+                // Geçici iş göremezlik
+                const hastaneOdemesi = hastaneGun * gunlukKazanc * 0.66; // %66
+                const ayaktaOdemesi = ayaktaGun * gunlukKazanc * 0.66;
+                const toplamGecici = hastaneOdemesi + ayaktaOdemesi;
+                
+                tazminat = toplamGecici;
+                aciklama = 'Geçici iş göremezlik tazminatı, hastanede yatış ve ayakta tedavi süreleri için hesaplanır.';
+                detaylar = [
+                    `Hastanede Yatış (${hastaneGun} gün x ${gunlukKazanc.toFixed(2)} TL x %66): ${hastaneOdemesi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`,
+                    `Ayakta Tedavi (${ayaktaGun} gün x ${gunlukKazanc.toFixed(2)} TL x %66): ${ayaktaOdemesi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`
+                ];
+                
+            } else if (kazaTuru === 'sakatlik') {
+                // Kalıcı sakatlık tazminatı
+                const kalanYil = Math.max(0, emeklilikYasi - maluliyetYasi);
+                const yillikKayip = aylikKazanc * 12 * (sakatlikOrani / 100);
+                const akturKapital = yillikKayip * kalanYil * 0.75; // Aktür kapital değeri
+                
+                tazminat = akturKapital + tibbiMasraf;
+                aciklama = 'Kalıcı sakatlık tazminatı, çalışma gücü kaybı oranına göre hesaplanır.';
+                detaylar = [
+                    `Sakatlık Oranı: %${sakatlikOrani}`,
+                    `Kalan Çalışma Süresi: ${kalanYil} yıl`,
+                    `Yıllık Kazanç Kaybı: ${yillikKayip.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`,
+                    `Aktür Kapital Değeri: ${akturKapital.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`
+                ];
+                
+            } else if (kazaTuru === 'olum') {
+                // Ölüm tazminatı
+                const kalanYil = Math.max(0, emeklilikYasi - maluliyetYasi);
+                const yillikDestek = aylikKazanc * 12;
+                const akturKapital = yillikDestek * kalanYil * 0.80;
+                
+                // Bakmakla yükümlü olduğu kişiler için
+                const bagimliTazminat = bagimliSayisi * (aylikKazanc * 0.50 * 12 * Math.min(kalanYil, 15));
+                const esCocukTazminat = esCocuk * (aylikKazanc * 0.25 * 12 * 10); // Eş ve çocuk için 10 yıl
+                
+                tazminat = akturKapital + bagimliTazminat + esCocukTazminat + tibbiMasraf;
+                aciklama = 'Ölüm tazminatı, geride kalanların desteksiz kalması üzerinden hesaplanır.';
+                detaylar = [
+                    `Kalan Çalışma Süresi: ${kalanYil} yıl`,
+                    `Aktür Kapital: ${akturKapital.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`,
+                    `Bakmakla Yükümlü Olduğu Kişi Tazminatı: ${bagimliTazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`,
+                    `Eş ve Çocuk Tazminatı: ${esCocukTazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL`
+                ];
+            }
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            let detayHTML = '';
+            
+            if (detaylar.length > 0) {
+                detayHTML = detaylar.map(d => `
+                    <div class="result-item">
+                        <span>${d.split(':')[0]}:</span>
+                        <span>${d.split(':')[1] || d}</span>
+                    </div>
+                `).join('');
+            }
+
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Kaza Türü:</span>
+                    <span>${kazaTuru === 'gecici' ? 'Geçici İş Göremezlik' : (kazaTuru === 'sakatlik' ? 'Kalıcı Sakatlık' : 'Ölüm')}</span>
+                </div>
+                <div class="result-item">
+                    <span>Günlük Kazanç:</span>
+                    <span>${gunlukKazanc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Aylık Kazanç:</span>
+                    <span>${aylikKazanc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${detayHTML}
+                ${tibbiMasraf > 0 ? `
+                <div class="result-item">
+                    <span>Tıbbi Giderler:</span>
+                    <span>${tibbiMasraf.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="result-item total">
+                    <span>Toplam Tazminat Tutarı:</span>
+                    <span>${tazminat.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Hesaplama Detayı:</strong><br>
+                    ${aciklama}<br><br>
+                    <strong>Önemli Notlar:</strong><br>
+                    • İş kazası tazminatı, 5510 sayılı Sosyal Sigortalar ve Genel Sağlık Sigortası Kanunu'na göre hesaplanır.<br>
+                    • SGK ödemeleri ve işveren sorumluluğu ayrı değerlendirilir.<br>
+                    • Manevi tazminat hakkı ayrıca talep edilebilir.<br>
+                    • Kesin tazminat tutarı için iş hukuku uzmanına danışmanız önerilir.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

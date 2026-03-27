@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nafaka Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="kidem-tazminati.html">Kıdem Tazminatı</a>
+                <a href="ihbar-tazminati.html">İhbar Tazminatı</a>
+                <a href="issizlik-maasi.html">İşsizlik Maaşı</a>
+                <a href="nafaka-hesaplama.html">Nafaka</a>
+                <a href="vekalet-ucreti.html">Vekalet Ücreti</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Nafaka Hesaplama</h2>
+                    <p>Tedbir, yoksulluk ve iştirak nafakası hesaplama aracı</p>
+
+                    <div class="info-box">
+                        <strong>Nafaka Türleri:</strong>
+                        <ul>
+                            <li><strong>Tedbir Nafakası:</strong> Boşanma davası sürecinde eşin geçimini sağlamak amacıyla ödenir</li>
+                            <li><strong>Yoksulluk Nafakası:</strong> Boşanma sonrası yoksulluğa düşecek eşe ödenir</li>
+                            <li><strong>İştirak Nafakası:</strong> Çocuğun bakım, eğitim ve geçim giderleri için ödenir</li>
+                        </ul>
+                    </div>
+
+                    <form id="nafakaForm">
+                        <div class="form-group">
+                            <label for="nafakaTuru">Nafaka Türü *</label>
+                            <select id="nafakaTuru" required>
+                                <option value="">Seçiniz</option>
+                                <option value="tedbir">Tedbir Nafakası</option>
+                                <option value="yoksulluk">Yoksulluk Nafakası</option>
+                                <option value="istirak">İştirak Nafakası (Çocuk)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gelir">Eşin Aylık Net Geliri (TL) *</label>
+                                <input type="number" id="gelir" min="0" step="0.01" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="esyasi">Diğer Gelirler (Kira, vb.) (TL)</label>
+                                <input type="number" id="esyasi" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="masraf">Eşin Aylık Giderleri (TL)</label>
+                                <input type="number" id="masraf" min="0" step="0.01" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="cocukSayisi">Çocuk Sayısı (İştirak için)</label>
+                                <input type="number" id="cocukSayisi" min="0" max="10" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="evlilikSuresi">Evlilik Süresi (Yıl) *</label>
+                                <input type="number" id="evlilikSuresi" min="0" max="60" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="asgariUcret">Güncel Asgari Ücret (TL) *</label>
+                                <input type="number" id="asgariUcret" min="0" step="0.01" value="22328.00" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group" id="kusurAlani" style="display: none;">
+                            <label for="kusur">Kusur Durumu</label>
+                            <select id="kusur">
+                                <option value="yok">Kusur yok / Karşılıklı</option>
+                                <option value="talepci">Talep eden kusurlu</option>
+                                <option value="karsi">Karşı taraf kusurlu</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaNafaka()">Nafaka Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('nafakaTuru').addEventListener('change', function() {
+            const kusurAlani = document.getElementById('kusurAlani');
+            if (this.value === 'yoksulluk') {
+                kusurAlani.style.display = 'block';
+            } else {
+                kusurAlani.style.display = 'none';
+            }
+        });
+
+        function hesaplaNafaka() {
+            const nafakaTuru = document.getElementById('nafakaTuru').value;
+            const gelir = parseFloat(document.getElementById('gelir').value) || 0;
+            const esyasi = parseFloat(document.getElementById('esyasi').value) || 0;
+            const masraf = parseFloat(document.getElementById('masraf').value) || 0;
+            const cocukSayisi = parseInt(document.getElementById('cocukSayisi').value) || 0;
+            const evlilikSuresi = parseFloat(document.getElementById('evlilikSuresi').value) || 0;
+            const asgariUcret = parseFloat(document.getElementById('asgariUcret').value) || 22328;
+            const kusur = document.getElementById('kusur').value;
+
+            if (!nafakaTuru || gelir <= 0 || evlilikSuresi <= 0) {
+                alert('Lütfen zorunlu alanları doldurunuz.');
+                return;
+            }
+
+            const toplamGelir = gelir + esyasi;
+            const disposableIncome = toplamGelir - masraf;
+            let nafaka = 0;
+            let aciklama = '';
+            let yuzde = 0;
+
+            if (nafakaTuru === 'tedbir') {
+                // Tedbir nafakası: Dava sürecinde geçici ödeme
+                // Genellikle asgari ücret düzeyinde veya eşin gelirinin 1/4'ü kadar
+                yuzde = 25;
+                nafaka = Math.max(asgariUcret * 0.5, disposableIncome * 0.25);
+                aciklama = `Tedbir nafakası, boşanma davası sürecinde talep edilen eşin geçimini sağlamak için ödenir. Dava sonuçlanana kadar devam eder.`;
+                
+            } else if (nafakaTuru === 'yoksulluk') {
+                // Yoksulluk nafakası: Boşanma sonrası sürekli veya geçici
+                // Kusur durumuna göre değişir
+                let kusurEtkisi = 1;
+                if (kusur === 'talepci') {
+                    kusurEtkisi = 0.5;
+                    aciklama = 'Talep eden eş kusurlu olduğundan nafaka indirimli hesaplanmıştır.';
+                } else if (kusur === 'karsi') {
+                    kusurEtkisi = 1.2;
+                    aciklama = 'Karşı taraf kusurlu olduğundan nafaka artırımlı hesaplanmıştır.';
+                } else {
+                    aciklama = 'Karşılıklı kusur veya kusursuz boşanma durumunda standart hesaplama yapılmıştır.';
+                }
+
+                // Evlilik süresine göre katsayı
+                let sureKatsayi = Math.min(evlilikSuresi / 10, 1.5);
+                if (evlilikSuresi < 5) sureKatsayi = 0.5;
+                else if (evlilikSuresi < 10) sureKatsayi = 0.75;
+                
+                yuzde = 20 * kusurEtkisi * sureKatsayi;
+                nafaka = disposableIncome * (yuzde / 100);
+                nafaka = Math.max(nafaka, asgariUcret * 0.4); // Minimum sınır
+                
+                aciklama += ` Evlilik süresi (${evlilikSuresi} yıl) dikkate alınmıştır.`;
+                
+            } else if (nafakaTuru === 'istirak') {
+                // İştirak nafakası: Çocuk için
+                if (cocukSayisi === 0) {
+                    alert('İştirak nafakası için en az 1 çocuk olmalıdır.');
+                    return;
+                }
+                
+                // Her çocuk için ayrı hesap
+                const cocukNafakasi = disposableIncome * 0.15;
+                nafaka = cocukNafakasi * cocukSayisi;
+                yuzde = 15 * cocukSayisi;
+                aciklama = `Her çocuk için eşin gelirinin yaklaşık %15'i oranında (${cocukNafakasi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL) hesaplanmıştır. İştirak nafakası çocuk reşit olana veya evlenene kadar devam eder.`;
+            }
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Eşin Toplam Geliri:</span>
+                    <span>${toplamGelir.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Eşin Giderleri:</span>
+                    <span>${masraf.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Kalan Gelir:</span>
+                    <span>${disposableIncome.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${cocukSayisi > 0 && nafakaTuru === 'istirak' ? `
+                <div class="result-item">
+                    <span>Çocuk Sayısı:</span>
+                    <span>${cocukSayisi}</span>
+                </div>
+                ` : ''}
+                <div class="result-item">
+                    <span>Uygulanan Oran:</span>
+                    <span>%${yuzde.toFixed(1)}</span>
+                </div>
+                <div class="result-item total">
+                    <span>Aylık Nafaka Tutarı:</span>
+                    <span>${nafaka.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Açıklama:</strong><br>
+                    ${aciklama}<br><br>
+                    <strong>Hukuki Not:</strong> Bu hesaplama yaklaşık değerler içerir. Nihai nafaka miktarı, hakim tarafından tarafların ekonomik durumu, kusur oranı ve diğer hususlar dikkate alınarak belirlenir.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

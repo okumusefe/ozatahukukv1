@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doğum İzni Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="yillik-izin.html">Yıllık İzin</a>
+                <a href="dogum-izni-hesaplama.html">Doğum İzni</a>
+                <a href="kidem-tazminati.html">Kıdem Tazminatı</a>
+                <a href="ihbar-tazminati.html">İhbar Tazminatı</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Doğum İzni Hesaplama</h2>
+                    <p>İşçi ve memurlar için doğum öncesi/sonrası izin süresi hesaplama</p>
+
+                    <div class="info-box">
+                        <strong>Doğum İzni Hakları:</strong>
+                        <ul>
+                            <li><strong>İşçiler (4A):</strong> Toplam 16 hafta (8+8), çoğul gebelikte 18 hafta</li>
+                            <li><strong>Memurlar (4C):</strong> Toplam 16 hafta, doğumdan önce isteğe bağlı</li>
+                            <li><strong>Emzirme izni:</strong> Günlük 1.5 saat, ilk 6 ay ücretli</li>
+                            <li><strong>Annelik izni:</strong> Doğumdan sonra 8 hafta zorunlu</li>
+                        </ul>
+                    </div>
+
+                    <form id="dogumIzniForm">
+                        <div class="form-group">
+                            <label for="calisanTuru">Çalışan Türü *</label>
+                            <select id="calisanTuru" required>
+                                <option value="">Seçiniz</option>
+                                <option value="isci">İşçi (4A - SSK)</option>
+                                <option value="memur">Memur (4C - Emekli Sandığı)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dogumTarihi">Doğum Tarihi (Tahmini) *</label>
+                                <input type="date" id="dogumTarihi" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="gebelikTuru">Gebelik Türü *</label>
+                                <select id="gebelikTuru" required>
+                                    <option value="tekil">Tekil Gebelik (1 bebek)</option>
+                                    <option value="cogul">Çoğul Gebelik (İkiz/Üçüz)</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="dogumOncesi">Doğum Öncesi İzni (Hafta)</label>
+                                <input type="number" id="dogumOncesi" min="0" max="16" value="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="dogumSonrasi">Doğum Sonrası İzni (Hafta)</label>
+                                <input type="number" id="dogumSonrasi" min="0" max="16" value="8">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="calismaSaati">Günlük Çalışma Saati</label>
+                                <input type="number" id="calismaSaati" min="0" max="24" value="8">
+                            </div>
+                            <div class="form-group">
+                                <label for="emzirmeAyi">Emzirme Süresi (Ay)</label>
+                                <input type="number" id="emzirmeAyi" min="0" max="24" value="6">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gunlukUcret">Günlük Ücret (TL)</label>
+                                <input type="number" id="gunlukUcret" min="0" step="0.01" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="aylikUcret">Aylık Ücret (TL)</label>
+                                <input type="number" id="aylikUcret" min="0" step="0.01" value="0">
+                            </div>
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaDogumIzni()">Doğum İzni Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Çalışan türüne göre varsayılan değerleri ayarla
+        document.getElementById('calisanTuru').addEventListener('change', function() {
+            if (this.value === 'memur') {
+                document.getElementById('dogumOncesi').value = 3; // Memurda daha esnek
+                document.getElementById('dogumSonrasi').value = 13;
+            } else {
+                document.getElementById('dogumOncesi').value = 8;
+                document.getElementById('dogumSonrasi').value = 8;
+            }
+        });
+
+        // Aylık ücretten günlük ücret hesapla
+        document.getElementById('aylikUcret').addEventListener('change', function() {
+            if (this.value > 0) {
+                document.getElementById('gunlukUcret').value = (this.value / 30).toFixed(2);
+            }
+        });
+
+        function hesaplaDogumIzni() {
+            const calisanTuru = document.getElementById('calisanTuru').value;
+            const dogumTarihi = document.getElementById('dogumTarihi').value;
+            const gebelikTuru = document.getElementById('gebelikTuru').value;
+            const dogumOncesi = parseInt(document.getElementById('dogumOncesi').value) || 8;
+            const dogumSonrasi = parseInt(document.getElementById('dogumSonrasi').value) || 8;
+            const calismaSaati = parseInt(document.getElementById('calismaSaati').value) || 8;
+            const emzirmeAyi = parseInt(document.getElementById('emzirmeAyi').value) || 6;
+            const gunlukUcret = parseFloat(document.getElementById('gunlukUcret').value) || 0;
+            const aylikUcret = parseFloat(document.getElementById('aylikUcret').value) || (gunlukUcret * 30);
+
+            if (!calisanTuru || !dogumTarihi) {
+                alert('Lütfen çalışan türü ve doğum tarihini giriniz.');
+                return;
+            }
+
+            // Toplam izin süresi
+            let toplamHafta = dogumOncesi + dogumSonrasi;
+            
+            // Çoğul gebelik kontrolü
+            if (gebelikTuru === 'cogul') {
+                toplamHafta += 2; // 2 hafta ek
+            }
+
+            const toplamGun = toplamHafta * 7;
+            const toplamAy = Math.ceil(toplamGun / 30);
+
+            // Tarih hesaplamaları
+            const dogumDate = new Date(dogumTarihi);
+            const izinBaslangic = new Date(dogumDate);
+            izinBaslangic.setDate(izinBaslangic.getDate() - (dogumOncesi * 7));
+            
+            const izinBitis = new Date(dogumDate);
+            izinBitis.setDate(izinBitis.getDate() + (dogumSonrasi * 7));
+
+            // Emzirme izni hesaplama (günlük 1.5 saat)
+            const emzirmeSaati = 1.5;
+            const emzirmeToplamSaat = emzirmeSaati * 22 * emzirmeAyi; // Aylık 22 iş günü
+            const emzirmeUcreti = gunlukUcret > 0 ? (gunlukUcret / calismaSaati) * emzirmeSaati * 22 * emzirmeAyi : 0;
+
+            // Ücretli izin hesabı
+            const toplamUcret = gunlukUcret * toplamGun;
+
+            // Memur ve işçi farkları
+            let statuAciklama = '';
+            if (calisanTuru === 'isci') {
+                statuAciklama = 'İşçilerde doğum öncesi 8 hafta ve sonrası 8 hafta izin hakkı vardır. Çoğul gebelikte 2 hafta eklenir.';
+            } else {
+                statuAciklama = 'Memurlarda toplam 16 hafta izin kullanılabilir. Doğum öncesi izin isteğe bağlıdır.';
+            }
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Çalışan Türü:</span>
+                    <span>${calisanTuru === 'isci' ? 'İşçi (4A)' : 'Memur (4C)'}</span>
+                </div>
+                <div class="result-item">
+                    <span>Gebelik Türü:</span>
+                    <span>${gebelikTuru === 'tekil' ? 'Tekil Gebelik' : 'Çoğul Gebelik'}</span>
+                </div>
+                <div class="result-item">
+                    <span>Doğum Tarihi:</span>
+                    <span>${dogumDate.toLocaleDateString('tr-TR')}</span>
+                </div>
+                <div class="result-item">
+                    <span>İzin Başlangıcı:</span>
+                    <span>${izinBaslangic.toLocaleDateString('tr-TR')} (${dogumOncesi} hafta önce)</span>
+                </div>
+                <div class="result-item">
+                    <span>İzin Bitişi:</span>
+                    <span>${izinBitis.toLocaleDateString('tr-TR')} (${dogumSonrasi} hafta sonra)</span>
+                </div>
+                <div class="result-item">
+                    <span>Toplam İzin Süresi:</span>
+                    <span>${toplamHafta} hafta (${toplamGun} gün / ~${toplamAy} ay)</span>
+                </div>
+                <div class="result-item">
+                    <span>Emzirme İzni (Günlük):</span>
+                    <span>${emzirmeSaati} saat x ${emzirmeAyi} ay = ${emzirmeToplamSaat.toFixed(0)} saat</span>
+                </div>
+                ${gunlukUcret > 0 ? `
+                <div class="result-item">
+                    <span>Emzirme İzni Ücreti:</span>
+                    <span>${emzirmeUcreti.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item total">
+                    <span>Toplam Ücretli İzin (Doğum İzni):</span>
+                    <span>${toplamUcret.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Hukuki Açıklama:</strong><br>
+                    ${statuAciklama}<br><br>
+                    <strong>Önemli Notlar:</strong><br>
+                    • Doğum izni ücretli ve SSK tarafından karşılanır.<br>
+                    • Doğum sonrası 8 hafta izin zorunludur, işveren çalıştıramaz.<br>
+                    • Emzirme izni, çalışma süresinden sayılır ve ilk 6 ay ücretlidir.<br>
+                    • Çoğul gebelikte doğum izni 2 hafta uzar (toplam 18 hafta).<br>
+                    • Anne ölümü durumunda izin hakkı babaya devredilir.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

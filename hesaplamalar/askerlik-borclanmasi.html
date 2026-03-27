@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Askerlik Borçlanması Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="emekli-maasi-hesaplama.html">Emekli Maaşı</a>
+                <a href="askerlik-borclanmasi.html">Askerlik Borçlanması</a>
+                <a href="yurtdisi-borclanmasi.html">Yurtdışı Borçlanması</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Askerlik Borçlanması Hesaplama</h2>
+                    <p>Askerlik süresinin prim gününe dönüştürülmesi ve maliyet hesabı</p>
+
+                    <div class="info-box">
+                        <strong>Askerlik Borçlanması Hakkında:</strong>
+                        <ul>
+                            <li>Erkek sigortalılar askerlik sürelerini borçlanarak prim günü kazanabilir</li>
+                            <li>2026 yılı günlük borçlanma tutarı: yaklaşık 120-140 TL/gün</li>
+                            <li>Askerlik süresi için geriye dönük en fazla 2 yıl içinde başvuru yapılabilir</li>
+                            <li>Borçlanma, emeklilik yaşından indirim ve prim günü tamamlama için kullanılır</li>
+                        </ul>
+                    </div>
+
+                    <form id="askerlikForm">
+                        <div class="form-group">
+                            <label for="askerlikTuru">Askerlik Türü *</label>
+                            <select id="askerlikTuru" required>
+                                <option value="">Seçiniz</option>
+                                <option value="kisa">Kısa Dönem (6 ay)</option>
+                                <option value="uzun">Uzun Dönem (12 ay)</option>
+                                <option value="yedek">Yedek Subay/Tekmil (12+ ay)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="baslangicTarihi">Askerlik Başlangıç Tarihi</label>
+                                <input type="date" id="baslangicTarihi">
+                            </div>
+                            <div class="form-group">
+                                <label for="bitisTarihi">Askerlik Bitiş Tarihi</label>
+                                <input type="date" id="bitisTarihi">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="gunlukBorc">Günlük Borçlanma Tutarı (TL) *</label>
+                                <input type="number" id="gunlukBorc" min="0" step="0.01" value="130.00" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="asgariUcret">Güncel Asgari Ücret (TL)</label>
+                                <input type="number" id="asgariUcret" min="0" step="0.01" value="22328.00">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="mevcutPrim">Mevcut Prim Gün Sayısı</label>
+                                <input type="number" id="mevcutPrim" min="0" value="0">
+                            </div>
+                            <div class="form-group">
+                                <label for="hedefPrim">Hedef Prim Günü (Emeklilik için)</label>
+                                <input type="number" id="hedefPrim" min="0" value="7200">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="statu">Sigorta Statüsü</label>
+                            <select id="statu">
+                                <option value="4a">4A - SSK</option>
+                                <option value="4b">4B - Bağ-Kur</option>
+                                <option value="4c">4C - Emekli Sandığı</option>
+                            </select>
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaAskerlikBorclanmasi()">Borçlanma Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tarih seçildiğinde hesaplamayı otomatik yap
+        document.getElementById('baslangicTarihi').addEventListener('change', hesaplaGun);
+        document.getElementById('bitisTarihi').addEventListener('change', hesaplaGun);
+        document.getElementById('askerlikTuru').addEventListener('change', function() {
+            if (this.value === 'kisa') {
+                document.getElementById('gunlukBorc').value = 130;
+            } else if (this.value === 'uzun') {
+                document.getElementById('gunlukBorc').value = 130;
+            } else {
+                document.getElementById('gunlukBorc').value = 145;
+            }
+        });
+
+        function hesaplaGun() {
+            const baslangic = new Date(document.getElementById('baslangicTarihi').value);
+            const bitis = new Date(document.getElementById('bitisTarihi').value);
+            
+            if (baslangic && bitis && bitis > baslangic) {
+                const fark = Math.ceil((bitis - baslangic) / (1000 * 60 * 60 * 24));
+                // Otomatik olarak günlük borçlanma hesaplanacak
+            }
+        }
+
+        function hesaplaAskerlikBorclanmasi() {
+            const askerlikTuru = document.getElementById('askerlikTuru').value;
+            const gunlukBorc = parseFloat(document.getElementById('gunlukBorc').value) || 130;
+            const asgariUcret = parseFloat(document.getElementById('asgariUcret').value) || 22328;
+            const mevcutPrim = parseInt(document.getElementById('mevcutPrim').value) || 0;
+            const hedefPrim = parseInt(document.getElementById('hedefPrim').value) || 7200;
+            const statu = document.getElementById('statu').value;
+
+            if (!askerlikTuru || gunlukBorc <= 0) {
+                alert('Lütfen askerlik türü ve günlük borçlanma tutarını giriniz.');
+                return;
+            }
+
+            // Askerlik süresi hesaplama
+            let askerlikSuresiGun = 0;
+            let askerlikSuresiAy = 0;
+            let statuAciklama = '';
+
+            if (askerlikTuru === 'kisa') {
+                askerlikSuresiGun = 180; // 6 ay
+                askerlikSuresiAy = 6;
+                statuAciklama = 'Kısa dönem askerlik (6 ay)';
+            } else if (askerlikTuru === 'uzun') {
+                askerlikSuresiGun = 365; // 12 ay
+                askerlikSuresiAy = 12;
+                statuAciklama = 'Uzun dönem askerlik (12 ay)';
+            } else if (askerlikTuru === 'yedek') {
+                askerlikSuresiGun = 540; // 18 ay (yedek subay)
+                askerlikSuresiAy = 18;
+                statuAciklama = 'Yedek subay/tekmil askerlik (18 ay+)';
+            }
+
+            // Tarihlerden hesaplama
+            const baslangic = document.getElementById('baslangicTarihi').value;
+            const bitis = document.getElementById('bitisTarihi').value;
+            if (baslangic && bitis) {
+                const baslangicDate = new Date(baslangic);
+                const bitisDate = new Date(bitis);
+                if (bitisDate > baslangicDate) {
+                    const gercekGun = Math.ceil((bitisDate - baslangicDate) / (1000 * 60 * 60 * 24));
+                    askerlikSuresiGun = gercekGun;
+                    askerlikSuresiAy = Math.floor(gercekGun / 30);
+                }
+            }
+
+            // Borçlanma tutarı hesaplama
+            const toplamBorc = askerlikSuresiGun * gunlukBorc;
+            
+            // Prim günü kazancı
+            const kazanilanPrim = askerlikSuresiGun;
+            const yeniPrimGunu = mevcutPrim + kazanilanPrim;
+            const primEksikligi = Math.max(0, hedefPrim - yeniPrimGunu);
+            
+            // Emeklilik etkisi
+            let emeklilikEtkisi = '';
+            if (yeniPrimGunu >= hedefPrim) {
+                emeklilikEtkisi = `Hedeflenen ${hedefPrim} prim gününe ulaşıldı. Emeklilik için prim şartı tamamlandı.`;
+            } else {
+                emeklilikEtkisi = `Prim şartı için ${primEksikligi} gün daha gereklidir.`;
+            }
+
+            // SGK statüsüne göre farklılıklar
+            let statuNot = '';
+            if (statu === '4a') {
+                statuNot = '4A (SSK) statüsünde askerlik borçlanması prim günü ve emeklilik yaşı hesaplamasında kullanılır.';
+            } else if (statu === '4b') {
+                statuNot = '4B (Bağ-Kur) statüsünde askerlik borçlanması 12600 prim günü hedefine katkı sağlar.';
+            } else if (statu === '4c') {
+                statuNot = '4C (Emekli Sandığı) statüsünde askerlik borçlanması hizmet süresine eklenir.';
+            }
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Askerlik Türü:</span>
+                    <span>${statuAciklama}</span>
+                </div>
+                <div class="result-item">
+                    <span>Askerlik Süresi:</span>
+                    <span>${askerlikSuresiGun} gün (${askerlikSuresiAy} ay)</span>
+                </div>
+                <div class="result-item">
+                    <span>Günlük Borçlanma Tutarı:</span>
+                    <span>${gunlukBorc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Kazanılan Prim Günü:</span>
+                    <span>${kazanilanPrim} gün</span>
+                </div>
+                <div class="result-item">
+                    <span>Mevcut Prim Günü:</span>
+                    <span>${mevcutPrim} gün</span>
+                </div>
+                <div class="result-item">
+                    <span>Borçlanmadan Sonra Prim Günü:</span>
+                    <span>${yeniPrimGunu} gün</span>
+                </div>
+                <div class="result-item total">
+                    <span>Toplam Borçlanma Tutarı:</span>
+                    <span>${toplamBorc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Emeklilik Etkisi:</span>
+                    <span>${emeklilikEtkisi}</span>
+                </div>
+                ${primEksikligi > 0 ? `
+                <div class="result-item">
+                    <span>Ek Borçlanma Gerekirse:</span>
+                    <span>${primEksikligi} gün x ${gunlukBorc.toLocaleString('tr-TR')} TL = ${(primEksikligi * gunlukBorc).toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Statü Bilgisi:</strong><br>
+                    ${statuNot}<br><br>
+                    <strong>Önemli Notlar:</strong><br>
+                    • Askerlik borçlanması, askerlik süresinin sonundan itibaren 2 yıl içinde yapılmalıdır.<br>
+                    • Borçlanma tutarı, güncel asgari ücretin 32.5 katı üzerinden hesaplanır.<br>
+                    • Borçlanma, hem prim günü tamamlama hem de emeklilik yaş hesaplamasında kullanılır.<br>
+                    • Kesin tutar için SGK'ya başvurmanız önerilir.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>

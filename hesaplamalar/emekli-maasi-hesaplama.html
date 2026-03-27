@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Emekli Maaşı Hesaplama - Özata Hukuk</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    <style>
+        .calculator-section { padding: 5rem 0; background: var(--white); }
+        .calculator-container { max-width: 900px; margin: 0 auto; }
+        .calculator-card {
+            background: var(--bg-light);
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+        }
+        .calculator-card h2 {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+        .calculator-card > p {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+        }
+        .form-group { margin-bottom: 1.5rem; }
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 1rem;
+            font-size: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            transition: border-color 0.3s ease;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-color);
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1rem;
+        }
+        .calculate-btn {
+            width: 100%;
+            padding: 1rem;
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 1rem;
+        }
+        .calculate-btn:hover {
+            background: var(--accent-color);
+            transform: translateY(-2px);
+        }
+        .result-section {
+            margin-top: 2rem;
+            padding: 1.5rem;
+            background: white;
+            border-radius: 15px;
+            border-left: 4px solid var(--accent-color);
+            display: none;
+        }
+        .result-section.show { display: block; }
+        .result-section h3 {
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        .result-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        .result-item:last-child { border-bottom: none; }
+        .result-item.total {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 2px solid var(--accent-color);
+        }
+        .info-box {
+            background: rgba(201,169,97,0.1);
+            border-left: 3px solid var(--accent-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--text-color);
+        }
+        .info-box ul { margin: 0.5rem 0 0 1rem; }
+        .info-box li { margin-bottom: 0.3rem; }
+        .calculator-nav {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        .calculator-nav a {
+            padding: 0.5rem 1rem;
+            background: var(--bg-light);
+            color: var(--primary-color);
+            text-decoration: none;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            border: 1px solid #ddd;
+        }
+        .calculator-nav a:hover {
+            background: var(--primary-color);
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .form-row { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li><a href="../kurumsal.html">Kurumsal</a></li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="calculator-section">
+        <div class="container">
+            <div class="calculator-nav">
+                <a href="kidem-tazminati.html">Kıdem Tazminatı</a>
+                <a href="emekli-maasi-hesaplama.html">Emekli Maaşı</a>
+                <a href="issizlik-maasi.html">İşsizlik Maaşı</a>
+                <a href="nafaka-hesaplama.html">Nafaka</a>
+                <a href="../hesaplamalar.html">Tüm Araçlar →</a>
+            </div>
+
+            <div class="calculator-container">
+                <div class="calculator-card">
+                    <h2>Emekli Maaşı Hesaplama</h2>
+                    <p>4A (SSK), 4B (Bağ-Kur), 4C (Emekli Sandığı) emekli maaşı ve ikramiye hesaplama</p>
+
+                    <div class="info-box">
+                        <strong>Sigorta Statüleri:</strong>
+                        <ul>
+                            <li><strong>4A (SSK):</strong> Çalışan sigortalılar - Özel sektör ve kamu işçileri</li>
+                            <li><strong>4B (Bağ-Kur):</strong> Serbest meslek sahipleri ve esnaf</li>
+                            <li><strong>4C (Emekli Sandığı):</strong> Kamu memurları ve personel</li>
+                        </ul>
+                    </div>
+
+                    <form id="emekliForm">
+                        <div class="form-group">
+                            <label for="statu">Sigorta Statüsü *</label>
+                            <select id="statu" required>
+                                <option value="">Seçiniz</option>
+                                <option value="4a">4A - SSK (Çalışan)</option>
+                                <option value="4b">4B - Bağ-Kur (Esnaf/Serbest)</option>
+                                <option value="4c">4C - Emekli Sandığı (Memur)</option>
+                            </select>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="primGun">Toplam Prim Gün Sayısı *</label>
+                                <input type="number" id="primGun" min="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="ortalamaKazanc">Aylık Ortalama Kazanç (TL) *</label>
+                                <input type="number" id="ortalamaKazanc" min="0" step="0.01" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="hizmetYili">Toplam Hizmet Süresi (Yıl) *</label>
+                                <input type="number" id="hizmetYili" min="0" max="50" step="0.5" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="cocuk">Reşit Olmamış Çocuk Sayısı</label>
+                                <input type="number" id="cocuk" min="0" max="10" value="0">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="es">Çalışmayan Eş (0/1)</label>
+                                <select id="es">
+                                    <option value="0">Yok</option>
+                                    <option value="1">Var</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="yuzdeZam">Güncel Zam Oranı (%)</label>
+                                <input type="number" id="yuzdeZam" min="0" max="100" step="0.01" value="49.25">
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="asgariUcret">Asgari Ücret (TL)</label>
+                                <input type="number" id="asgariUcret" min="0" step="0.01" value="22328.00">
+                            </div>
+                            <div class="form-group">
+                                <label for="yil">Hesaplama Yılı</label>
+                                <input type="number" id="yil" min="2024" max="2030" value="2026">
+                            </div>
+                        </div>
+
+                        <button type="button" class="calculate-btn" onclick="hesaplaEmekliMaasi()">Emekli Maaşı Hesapla</button>
+                    </form>
+
+                    <div id="sonuc" class="result-section">
+                        <h3>Hesaplama Sonucu</h3>
+                        <div id="sonucDetay"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function hesaplaEmekliMaasi() {
+            const statu = document.getElementById('statu').value;
+            const primGun = parseInt(document.getElementById('primGun').value) || 0;
+            const ortalamaKazanc = parseFloat(document.getElementById('ortalamaKazanc').value) || 0;
+            const hizmetYili = parseFloat(document.getElementById('hizmetYili').value) || 0;
+            const cocuk = parseInt(document.getElementById('cocuk').value) || 0;
+            const es = parseInt(document.getElementById('es').value) || 0;
+            const yuzdeZam = parseFloat(document.getElementById('yuzdeZam').value) || 49.25;
+            const asgariUcret = parseFloat(document.getElementById('asgariUcret').value) || 22328;
+            const yil = parseInt(document.getElementById('yil').value) || 2026;
+
+            if (!statu || primGun <= 0 || ortalamaKazanc <= 0 || hizmetYili <= 0) {
+                alert('Lütfen zorunlu alanları doldurunuz.');
+                return;
+            }
+
+            // Yaş haddi kontrolü (yaklaşık değerler)
+            const emeklilikYasi = statu === '4c' ? 65 : (statu === '4a' ? 60 : 62);
+
+            // Temel emekli aylığı hesaplama
+            let temelAylik = 0;
+            let ikramiye = 0;
+            let aciklama = '';
+            let oran = 0;
+
+            if (statu === '4a') {
+                // 4A (SSK) Hesaplama
+                // Prim günü başına yaklaşık değer
+                oran = Math.min((primGun / 9000) * 70, 70); // Maksimum %70
+                temelAylik = ortalamaKazanc * (oran / 100);
+                
+                // İkramiye: Her yıl için 30 günlük ücret
+                ikramiye = ortalamaKazanc * hizmetYili;
+                
+                aciklama = '4A (SSK) emekli aylığı: Prim gün sayısı ve son 10 yıl ortalama kazancına göre hesaplanır. Maksimum aylık oranı %70\'dir.';
+                
+            } else if (statu === '4b') {
+                // 4B (Bağ-Kur) Hesaplama
+                // Bağ-Kur'da prim günü başına hesaplama
+                oran = Math.min((primGun / 12600) * 65, 65); // Maksimum %65
+                temelAylik = ortalamaKazanc * (oran / 100);
+                
+                // İkramiye hesabı
+                ikramiye = ortalamaKazanc * hizmetYili * 0.9;
+                
+                aciklama = '4B (Bağ-Kur) emekli aylığı: Prim gün sayısı ve ortalama kazanca göre hesaplanır. Maksimum aylık oranı %65\'dir.';
+                
+            } else if (statu === '4c') {
+                // 4C (Emekli Sandığı) Hesaplama
+                // Memurlarda hizmet süresi başına %2 oran
+                oran = Math.min(hizmetYili * 2, 80); // Her yıl %2, maksimum %80
+                temelAylik = ortalamaKazanc * (oran / 100);
+                
+                // Ek ödeme (ikramiye yerine)
+                const ekOdeme = temelAylik * 1.5; // Yıllık ek ödeme yaklaşık
+                
+                // Memurlarda ikramiye sistemi farklı (nakdi ikramiye)
+                ikramiye = ortalamaKazanc * hizmetYili * 2; // Her yıl için 2 aylık
+                
+                aciklama = '4C (Emekli Sandığı) emekli aylığı: Her hizmet yılı için %2 oranla hesaplanır. Maksimum aylık oranı %80\'dir. Ek ödeme (temmuz-ocak) ve nakdi ikramiye hakkı vardır.';
+            }
+
+            // Aile yardımı ödeneği (tüm statüler için)
+            const cocukYardimi = cocuk * (asgariUcret * 0.05); // Her çocuk için asgari ücretin %5'i
+            const esYardimi = es * (asgariUcret * 0.10); // Çalışmayan eş için asgari ücretin %10'u
+            const aileYardimi = cocukYardimi + esYardimi;
+
+            // Zam uygulaması (belirtilen yıla göre)
+            const zamliAylik = temelAylik * (1 + (yuzdeZam / 100));
+            const toplamAylik = zamliAylik + aileYardimi;
+
+            // Yıllık değerler
+            const yillikAylik = toplamAylik * 12;
+            const yillikEkOdeme = statu === '4c' ? toplamAylik * 3 : 0; // 4C için ek ödeme
+            const toplamYillik = yillikAylik + ikramiye + yillikEkOdeme;
+
+            // Sonuçları göster
+            const sonucDetay = document.getElementById('sonucDetay');
+            sonucDetay.innerHTML = `
+                <div class="result-item">
+                    <span>Sigorta Statüsü:</span>
+                    <span>${statu === '4a' ? '4A - SSK' : (statu === '4b' ? '4B - Bağ-Kur' : '4C - Emekli Sandığı')}</span>
+                </div>
+                <div class="result-item">
+                    <span>Prim Gün Sayısı / Hizmet Yılı:</span>
+                    <span>${primGun} gün / ${hizmetYili} yıl</span>
+                </div>
+                <div class="result-item">
+                    <span>Uygulanan Oran:</span>
+                    <span>%${oran.toFixed(2)}</span>
+                </div>
+                <div class="result-item">
+                    <span>Temel Emekli Aylığı:</span>
+                    <span>${temelAylik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Zamlı Aylık (%${yuzdeZam}):</span>
+                    <span>${zamliAylik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${aileYardimi > 0 ? `
+                <div class="result-item">
+                    <span>Aile Yardımı (Çocuk: ${cocuk}, Eş: ${es}):</span>
+                    <span>${aileYardimi.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="result-item total">
+                    <span>Net Aylık Toplam:</span>
+                    <span>${toplamAylik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="result-item">
+                    <span>Yıllık Toplam Gelir:</span>
+                    <span>${yillikAylik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ${ikramiye > 0 ? `
+                <div class="result-item">
+                    <span>${statu === '4c' ? 'Nakdi İkramiye' : 'Emeklilik İkramiyesi'}:</span>
+                    <span>${ikramiye.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                ${statu === '4c' ? `
+                <div class="result-item">
+                    <span>Ek Ödeme (Yıllık):</span>
+                    <span>${yillikEkOdeme.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                ` : ''}
+                <div class="result-item total">
+                    <span>Yıllık Toplam (İkramiye Dahil):</span>
+                    <span>${toplamYillik.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</span>
+                </div>
+                <div class="info-box" style="margin-top: 1rem;">
+                    <strong>Hesaplama Detayı:</strong><br>
+                    ${aciklama}<br><br>
+                    <strong>Not:</strong> Bu hesaplama yaklaşık değerler içerir. Kesin emekli maaşı bilgisi için SGK veya kurumunuzdan onaylı hesap almanız gerekir. ${yil} yılı için uygulanan zam oranı dikkate alınmıştır.
+                </div>
+            `;
+
+            document.getElementById('sonuc').classList.add('show');
+        }
+    </script>
+</body>
+</html>
