@@ -123,6 +123,13 @@
 
         <section class="articles-section">
             <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">TÜMÜ</button>
+                    <button class="filter-btn" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
+                    <button class="filter-btn" data-filter="ictihat" onclick="filterArticles('ictihat')">İÇTİHAT</button>
+                    <button class="filter-btn" data-filter="mevzuat" onclick="filterArticles('mevzuat')">MEVZUAT</button>
+                    <button class="filter-btn" data-filter="haber" onclick="filterArticles('haber')">HUKUKİ HABER</button>
+                </div>
                 <div class="articles-grid">
                     <article class="article-card">
                         <div class="article-header">
