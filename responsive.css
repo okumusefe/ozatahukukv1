@@ -199,8 +199,13 @@ p, li {
   
   .nav-menu .dropdown > a {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    text-align: center;
+  }
+  
+  .nav-menu .dropdown > a::after {
+    margin-left: 8px;
   }
   
   .nav-menu .dropdown > a span {
