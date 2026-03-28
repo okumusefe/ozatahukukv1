@@ -218,7 +218,12 @@ function filterArticles(category) {
         }
         
         if (category === 'all') {
-            article.style.display = 'block';
+            // Show all except tck and cmk articles in "Tümü" filter
+            if (articleCategory === 'tck' || articleCategory === 'cmk') {
+                article.style.display = 'none';
+            } else {
+                article.style.display = 'block';
+            }
         } else if (articleCategory === category) {
             article.style.display = 'block';
         } else {
