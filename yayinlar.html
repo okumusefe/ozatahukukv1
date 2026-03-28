@@ -5050,7 +5050,48 @@
                         </div>
                     </article>
 
+    <script>
+    function filterArticles(category) {
+        const articles = document.querySelectorAll(".article-card");
+        const buttons = document.querySelectorAll(".filter-btn");
+        buttons.forEach(btn => {
+            if (btn.getAttribute("data-filter") === category) btn.classList.add("active");
+            else btn.classList.remove("active");
+        });
+        articles.forEach(article => {
+            const cat = article.getAttribute("data-category");
+            if (category === "all" || cat === category) article.style.display = "block";
+            else article.style.display = "none";
+        });
+    }
+    </script>
 
+    <script>
+    // Inline filter function for publications page
+    function filterArticles(category) {
+        const articles = document.querySelectorAll('.article-card');
+        const buttons = document.querySelectorAll('.filter-btn');
+        
+        buttons.forEach(btn => {
+            if (btn.getAttribute('data-filter') === category) {
+                btn.classList.add('active');
+            } else {
+                btn.classList.remove('active');
+            }
+        });
+        
+        articles.forEach(article => {
+            const articleCategory = article.getAttribute('data-category');
+            if (category === 'all') {
+                article.style.display = 'block';
+            } else if (articleCategory === category) {
+                article.style.display = 'block';
+            } else {
+                article.style.display = 'none';
+            }
+        });
+    }
+    </script>
     <script src="script.js"></script>
     <script src="publications.js"></script>
 </body>
