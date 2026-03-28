@@ -125,11 +125,16 @@
         <section class="articles-section">
             <div class="container">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">TÜMÜ</button>
-                    <button class="filter-btn" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
+                    <button class="filter-btn active" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
                     <button class="filter-btn" data-filter="cmk" onclick="filterArticles('cmk')">CMK</button>
                     <button class="filter-btn" data-filter="ictihat" onclick="filterArticles('ictihat')">İÇTİHAT</button>
                     <button class="filter-btn" data-filter="haber" onclick="filterArticles('haber')">GÜNCEL HABER</button>
+                </div>
+                <div class="category-descriptions">
+                    <p class="cat-desc tck-desc active">Türk Ceza Kanunu makaleleri: Suçlar ve cezalar hakkında detaylı hukuki incelemeler, Yargıtay içtihatları ve mevzuat analizleri.</p>
+                    <p class="cat-desc cmk-desc">Ceza Muhakemesi Kanunu makaleleri: Soruşturma ve kovuşturma usulü, tutuklama, ifade alma ve diğer CMK konuları.</p>
+                    <p class="cat-desc ictihat-desc">Yargıtay ve Bölge Adliye Mahkemesi içtihatları: Güncel yargı kararları ve hukuk yorumları.</p>
+                    <p class="cat-desc haber-desc">Güncel hukuk haberleri: Mevzuat değişiklikleri, Resmi Gazete duyuruları ve hukuk dünyasından son gelişmeler.</p>
                 </div>
                 <div class="articles-grid">
                     <!-- Örnek İçtihat Makalesi -->

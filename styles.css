@@ -1407,15 +1407,49 @@ body {
     box-shadow: 0 4px 15px rgba(197, 162, 98, 0.4);
 }
 
+/* Category Descriptions Styles */
+.category-descriptions {
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    text-align: center;
+    padding: 0 1rem;
+}
+
+.cat-desc {
+    display: none;
+    font-size: 1rem;
+    color: var(--text-light);
+    line-height: 1.7;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(197, 162, 98, 0.08) 0%, rgba(197, 162, 98, 0.03) 100%);
+    border-radius: 12px;
+    border-left: 4px solid var(--accent-color);
+    margin: 0;
+}
+
+.cat-desc.active {
+    display: block;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
 @media (max-width: 768px) {
     .filter-buttons {
         gap: 0.5rem;
-        margin-bottom: 2rem;
+        margin-bottom: 1.5rem;
     }
     
     .filter-btn {
         padding: 0.6rem 1.2rem;
         font-size: 0.85rem;
+    }
+    
+    .category-descriptions {
+        margin-bottom: 2rem;
+    }
+    
+    .cat-desc {
+        font-size: 0.9rem;
+        padding: 1rem;
     }
 }
 

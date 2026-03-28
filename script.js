@@ -195,6 +195,7 @@ function filterArticles(category) {
     
     const articles = document.querySelectorAll('.article-card');
     const buttons = document.querySelectorAll('.filter-btn');
+    const descriptions = document.querySelectorAll('.cat-desc');
     
     console.log('Found articles:', articles.length);
     console.log('Found buttons:', buttons.length);
@@ -209,6 +210,14 @@ function filterArticles(category) {
         }
     });
     
+    // Update category descriptions
+    descriptions.forEach(desc => {
+        desc.classList.remove('active');
+        if (desc.classList.contains(category + '-desc')) {
+            desc.classList.add('active');
+        }
+    });
+    
     // Show/hide articles based on category
     articles.forEach((article, index) => {
         const articleCategory = article.getAttribute('data-category');
@@ -217,14 +226,7 @@ function filterArticles(category) {
             console.log(`Article ${index}: category="${articleCategory}"`);
         }
         
-        if (category === 'all') {
-            // Show all except tck and cmk articles in "Tümü" filter
-            if (articleCategory === 'tck' || articleCategory === 'cmk') {
-                article.style.display = 'none';
-            } else {
-                article.style.display = 'block';
-            }
-        } else if (articleCategory === category) {
+        if (articleCategory === category) {
             article.style.display = 'block';
         } else {
             article.style.display = 'none';
@@ -237,7 +239,7 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing filter');
     // Check if we're on yayinlar.html
     if (document.querySelector('.filter-btn')) {
-        console.log('Filter buttons found, showing all articles by default');
-        filterArticles('all');
+        console.log('Filter buttons found, showing TCK articles by default');
+        filterArticles('tck');
     }
 });
