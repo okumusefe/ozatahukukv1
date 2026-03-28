@@ -77,10 +77,18 @@ p, li {
    ========================================================================== */
 
 @media (max-width: 480px) {
-  /* Container adjustments */
+/* Mobile viewport fix - prevent horizontal overflow */
+  html, body {
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+  
+  /* Container adjustments - full width on mobile */
   .container {
     padding: 0 var(--space-sm);
     max-width: 100%;
+    width: 100%;
+    margin: 0 auto;
   }
   
   /* Navigation - Enhanced Hamburger */
@@ -162,9 +170,15 @@ p, li {
     padding: var(--space-sm) 0;
     font-size: var(--font-lg);
     font-weight: 500;
+    text-align: center;
   }
   
-  /* Dropdown in mobile */
+  /* Mobile nav menu items center alignment */
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
   .nav-menu .dropdown {
     position: static;
   }
@@ -342,13 +356,28 @@ p, li {
     padding: var(--space-md);
   }
   
-  /* Quote Section */
+  /* Quote Section - Responsive fix for Pascal quote */
   .quote-section {
     padding: var(--space-xl) var(--space-sm);
+    overflow-x: hidden;
+  }
+  
+  .quote {
+    max-width: 100%;
+    padding: 0 var(--space-sm);
   }
   
   .quote p {
-    font-size: var(--font-xl);
+    font-size: var(--font-lg);
+    white-space: normal !important;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    line-height: 1.5;
+  }
+  
+  .quote cite {
+    font-size: var(--font-base);
   }
   
   /* CTA Section */
@@ -425,6 +454,12 @@ p, li {
     font-size: var(--font-lg);
   }
   
+  .nav-menu .dropdown-menu a {
+    font-size: var(--font-base);
+    padding: var(--space-sm) 0;
+    text-align: center;
+  }
+  
   .service-list li {
     font-size: var(--font-sm);
     padding-left: var(--space-md);
@@ -461,7 +496,7 @@ p, li {
     height: 70px;
   }
   
-  /* Team Page */
+  /* Team Page - Enhanced Responsive Values Grid */
   .team-grid {
     grid-template-columns: 1fr;
     gap: var(--space-md);
@@ -469,6 +504,35 @@ p, li {
   
   .team-card {
     padding: var(--space-md);
+  }
+  
+  /* Team values grid - mobile optimized */
+  .values-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+  
+  .value-card {
+    padding: var(--space-md);
+    text-align: center;
+  }
+  
+  .value-icon {
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 15px;
+  }
+  
+  .value-card h4 {
+    font-size: var(--font-lg);
+    margin-bottom: 8px;
+  }
+  
+  .value-card p {
+    font-size: var(--font-sm);
+    line-height: 1.6;
   }
   
   /* Contact Page */
@@ -698,10 +762,16 @@ p, li {
     max-width: 400px;
   }
   
-  /* Footer */
-  .footer-grid {
+  /* Tablet values grid - 2 columns */
+  .values-grid {
     grid-template-columns: repeat(2, 1fr);
-    text-align: left;
+    gap: var(--space-md);
+  }
+  
+  /* Tablet quote fix */
+  .quote p {
+    white-space: normal !important;
+    font-size: var(--font-xl);
   }
   
   .footer-section:first-child {
