@@ -191,12 +191,18 @@ function toggleDistrict(btn) {
 
 // Filter articles by category (for yayinlar.html)
 function filterArticles(category) {
+    console.log('Filtering articles by category:', category);
+    
     const articles = document.querySelectorAll('.article-card');
     const buttons = document.querySelectorAll('.filter-btn');
     
+    console.log('Found articles:', articles.length);
+    console.log('Found buttons:', buttons.length);
+    
     // Update active button state
     buttons.forEach(btn => {
-        if (btn.getAttribute('data-filter') === category) {
+        const btnFilter = btn.getAttribute('data-filter');
+        if (btnFilter === category) {
             btn.classList.add('active');
         } else {
             btn.classList.remove('active');
@@ -204,8 +210,12 @@ function filterArticles(category) {
     });
     
     // Show/hide articles based on category
-    articles.forEach(article => {
+    articles.forEach((article, index) => {
         const articleCategory = article.getAttribute('data-category');
+        
+        if (index < 3) {
+            console.log(`Article ${index}: category="${articleCategory}"`);
+        }
         
         if (category === 'all') {
             article.style.display = 'block';
@@ -216,3 +226,13 @@ function filterArticles(category) {
         }
     });
 }
+
+// Initialize filter on page load
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded, initializing filter');
+    // Check if we're on yayinlar.html
+    if (document.querySelector('.filter-btn')) {
+        console.log('Filter buttons found, showing all articles by default');
+        filterArticles('all');
+    }
+});
