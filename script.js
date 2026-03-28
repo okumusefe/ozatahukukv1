@@ -161,9 +161,11 @@ window.onclick = function(event) {
 
 function toggleArticle(articleId) {
     const article = document.getElementById(articleId);
-    const button = event.target;
+    const button = event.target.closest('.article-read-more');
     
-    if (article.style.display === 'none') {
+    if (!article || !button) return;
+    
+    if (article.style.display === 'none' || article.style.display === '') {
         article.style.display = 'block';
         button.textContent = 'Daha Az Göster ↑';
     } else {
