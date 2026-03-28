@@ -216,31 +216,3 @@ function filterArticles(category) {
         }
     });
 }
-
-// Filter articles by category (for yayinlar.html)
-function filterArticles(category) {
-    const articles = document.querySelectorAll('.article-card');
-    const buttons = document.querySelectorAll('.filter-btn');
-    
-    // Update active button state
-    buttons.forEach(btn => {
-        if (btn.getAttribute('data-filter') === category) {
-            btn.classList.add('active');
-        } else {
-            btn.classList.remove('active');
-        }
-    });
-    
-    // Show/hide articles based on category
-    articles.forEach(article => {
-        const articleCategory = article.getAttribute('data-category');
-        
-        if (category === 'all') {
-            article.style.display = 'block';
-        } else if (articleCategory === category) {
-            article.style.display = 'block';
-        } else {
-            article.style.display = 'none';
-        }
-    });
-}
