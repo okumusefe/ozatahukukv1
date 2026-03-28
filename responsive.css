@@ -88,6 +88,19 @@ p, li {
     padding: 0.75rem var(--space-sm);
     flex-wrap: wrap;
     position: relative;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    flex-shrink: 0;
+    margin-right: 0;
+  }
+  
+  .logo img {
+    max-height: 40px;
+    width: auto;
+    display: block;
   }
   
   .mobile-menu-toggle {
@@ -207,39 +220,66 @@ p, li {
   /* Hero Section */
   .hero {
     height: 100vh;
-    min-height: 500px;
-    max-height: 700px;
+    min-height: 600px;
+    max-height: 800px;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  .hero-overlay {
+    background: linear-gradient(to bottom, rgba(26, 35, 58, 0.7) 0%, rgba(26, 35, 58, 0.85) 100%);
   }
   
   .hero-content {
     padding: var(--space-md);
     text-align: center;
+    max-width: 100%;
+    background-color: rgba(26, 35, 58, 0.4);
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin: 0 1rem;
   }
   
   .hero-title {
-    font-size: var(--font-3xl);
+    font-size: clamp(1.5rem, 6vw, 2rem);
     margin-bottom: var(--space-sm);
+    line-height: 1.2;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
   
   .hero-subtitle {
-    font-size: var(--font-lg);
+    font-size: clamp(0.875rem, 3.5vw, 1rem);
     margin-bottom: var(--space-md);
+    line-height: 1.5;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    max-width: 90%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .hero-buttons {
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: 0.75rem;
     width: 100%;
-    max-width: 280px;
+    max-width: 100%;
     margin: 0 auto;
+    padding: 0 0.5rem;
   }
   
   .btn {
-    width: 100%;
-    padding: 1rem var(--space-md);
+    width: 90%;
+    max-width: 280px;
+    padding: 0.875rem 1rem;
     font-size: var(--font-base);
     min-height: 48px;
     touch-action: manipulation;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    white-space: nowrap;
   }
   
   /* Intro Section */
