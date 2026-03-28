@@ -242,7 +242,7 @@ p, li {
   }
   
   .hero-overlay {
-    background: linear-gradient(to bottom, rgba(26, 35, 58, 0.7) 0%, rgba(26, 35, 58, 0.85) 100%);
+    background: rgba(0, 0, 0, 0.5);
   }
   
   .hero-content {

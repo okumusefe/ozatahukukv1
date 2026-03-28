@@ -1392,11 +1392,6 @@ body {
     letter-spacing: 1px;
 }
 
-/* Hide İçtihat and Hukuki Haber buttons since no content exists */
-.filter-btn[data-filter="ictihat"],
-.filter-btn[data-filter="haber"] {
-    display: none !important;
-}
 
 .filter-btn:hover {
     background: var(--accent-color);
