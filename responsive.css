@@ -1,0 +1,1009 @@
+/* ==========================================================================
+   ÖZATA HUKUK - MODERN RESPONSIVE TASARIM
+   Mobile First Approach - 2026
+   ========================================================================== */
+
+/* ==========================================================================
+   1. MODERN CSS RESET & FLUID TYPOGRAPHY (clamp())
+   ========================================================================== */
+
+:root {
+  /* Fluid font sizes using clamp() */
+  --font-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.875rem);
+  --font-sm: clamp(0.875rem, 0.8rem + 0.35vw, 1rem);
+  --font-base: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  --font-lg: clamp(1.125rem, 1rem + 0.5vw, 1.25rem);
+  --font-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+  --font-2xl: clamp(1.5rem, 1.25rem + 1.25vw, 2rem);
+  --font-3xl: clamp(1.875rem, 1.5rem + 1.875vw, 2.5rem);
+  --font-4xl: clamp(2.25rem, 1.75rem + 2.5vw, 3rem);
+  --font-5xl: clamp(3rem, 2rem + 5vw, 4.5rem);
+  
+  /* Fluid spacing */
+  --space-xs: clamp(0.5rem, 0.4rem + 0.5vw, 0.75rem);
+  --space-sm: clamp(0.75rem, 0.6rem + 0.75vw, 1rem);
+  --space-md: clamp(1rem, 0.8rem + 1vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 1.2rem + 1.5vw, 2.5rem);
+  --space-xl: clamp(2rem, 1.5rem + 2.5vw, 4rem);
+  --space-2xl: clamp(3rem, 2rem + 5vw, 6rem);
+  
+  /* Container widths */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1200px;
+}
+
+/* Ensure images don't overflow */
+img, video, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Better box sizing */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* Fluid typography application */
+h1, .hero-title {
+  font-size: var(--font-5xl);
+  line-height: 1.1;
+}
+
+h2, .section-title {
+  font-size: var(--font-4xl);
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: var(--font-3xl);
+  line-height: 1.3;
+}
+
+h4 {
+  font-size: var(--font-2xl);
+  line-height: 1.4;
+}
+
+p, li {
+  font-size: var(--font-base);
+  line-height: 1.7;
+}
+
+/* ==========================================================================
+   2. MOBILE BREAKPOINT (max-width: 480px)
+   ========================================================================== */
+
+@media (max-width: 480px) {
+  /* Container adjustments */
+  .container {
+    padding: 0 var(--space-sm);
+    max-width: 100%;
+  }
+  
+  /* Navigation - Enhanced Hamburger */
+  .nav-container {
+    padding: 0.75rem var(--space-sm);
+    flex-wrap: wrap;
+    position: relative;
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
+    background: rgba(201, 169, 97, 0.1);
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 10px;
+  }
+  
+  .mobile-menu-toggle span {
+    width: 24px;
+    height: 3px;
+    background: var(--primary-color);
+    margin: 4px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+  
+  /* Mobile Menu Slide */
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 85%;
+    max-width: 320px;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    padding: 5rem var(--space-md) var(--space-md);
+    gap: 0;
+    transition: left 0.3s ease-in-out;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+    overflow-y: auto;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu li:last-child {
+    border-bottom: none;
+  }
+  
+  .nav-menu a {
+    display: block;
+    padding: var(--space-sm) 0;
+    font-size: var(--font-lg);
+    font-weight: 500;
+  }
+  
+  /* Dropdown in mobile */
+  .nav-menu .dropdown {
+    position: static;
+  }
+  
+  .nav-menu .dropdown-menu {
+    position: static;
+    display: none;
+    box-shadow: none;
+    padding: 0;
+    padding-left: var(--space-md);
+    background: transparent;
+    min-width: auto;
+  }
+  
+  .nav-menu .dropdown.active .dropdown-menu {
+    display: block;
+  }
+  
+  .nav-menu .dropdown > a {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .nav-menu .dropdown > a span {
+    transition: transform 0.3s ease;
+  }
+  
+  .nav-menu .dropdown.active > a span {
+    transform: rotate(180deg);
+  }
+  
+  /* Social icons in mobile nav */
+  .nav-social {
+    display: flex !important;
+    margin-left: auto;
+    margin-right: 10px;
+  }
+  
+  .nav-social a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .nav-social svg {
+    width: 20px;
+    height: 20px;
+  }
+  
+  /* Hero Section */
+  .hero {
+    height: 100vh;
+    min-height: 500px;
+    max-height: 700px;
+  }
+  
+  .hero-content {
+    padding: var(--space-md);
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: var(--font-3xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-lg);
+    margin-bottom: var(--space-md);
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    gap: var(--space-sm);
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .btn {
+    width: 100%;
+    padding: 1rem var(--space-md);
+    font-size: var(--font-base);
+    min-height: 48px;
+    touch-action: manipulation;
+  }
+  
+  /* Intro Section */
+  .intro-section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .intro-grid {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .intro-text {
+    text-align: center;
+  }
+  
+  .intro-text h2 {
+    font-size: var(--font-2xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .intro-text h3 {
+    font-size: var(--font-xl);
+    margin-bottom: var(--space-sm);
+  }
+  
+  .intro-image {
+    order: -1;
+  }
+  
+  .intro-image img {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+  }
+  
+  /* Section Titles */
+  .section-title {
+    font-size: var(--font-2xl);
+    text-align: center;
+  }
+  
+  /* Why Us / Features */
+  .why-us-section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .features-grid,
+  .practice-areas-grid,
+  .district-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .feature-card,
+  .practice-card,
+  .district-card {
+    padding: var(--space-md);
+  }
+  
+  /* Quote Section */
+  .quote-section {
+    padding: var(--space-xl) var(--space-sm);
+  }
+  
+  .quote p {
+    font-size: var(--font-xl);
+  }
+  
+  /* CTA Section */
+  .cta-section {
+    padding: var(--space-xl) var(--space-sm);
+  }
+  
+  .cta-content h2 {
+    font-size: var(--font-2xl);
+  }
+  
+  /* Footer */
+  .footer {
+    padding: var(--space-xl) 0 var(--space-md);
+  }
+  
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-lg);
+    text-align: center;
+  }
+  
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .footer-contact li {
+    justify-content: center;
+  }
+  
+  /* Page Hero */
+  .page-hero {
+    padding: 100px var(--space-sm) 60px;
+    min-height: auto;
+  }
+  
+  .page-hero h1 {
+    font-size: var(--font-3xl);
+  }
+  
+  /* Practice Areas Page */
+  .practice-area-item {
+    padding: var(--space-md);
+    margin-bottom: var(--space-md);
+  }
+  
+  .practice-area-header {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-sm);
+  }
+  
+  .practice-area-icon-large {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .practice-area-header h2 {
+    font-size: var(--font-xl);
+  }
+  
+  .lead-text {
+    font-size: var(--font-base);
+    text-align: left;
+  }
+  
+  .practice-area-content h3 {
+    font-size: var(--font-lg);
+  }
+  
+  .service-list li {
+    font-size: var(--font-sm);
+    padding-left: var(--space-md);
+  }
+  
+  /* About Page */
+  .about-intro-section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .about-intro-content h2 {
+    font-size: var(--font-2xl);
+  }
+  
+  .vision-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .vision-icon {
+    margin-bottom: var(--space-md);
+  }
+  
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .principle-card {
+    padding: var(--space-md);
+  }
+  
+  .principle-icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Team Page */
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .team-card {
+    padding: var(--space-md);
+  }
+  
+  /* Contact Page */
+  .contact-info-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .contact-info-card {
+    padding: var(--space-md);
+  }
+  
+  .contact-info-icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .contact-form-section {
+    padding: var(--space-xl) 0;
+  }
+  
+  .contact-form {
+    padding: var(--space-md);
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+    min-height: 48px;
+  }
+  
+  .contact-form-intro h2 {
+    font-size: var(--font-2xl);
+  }
+  
+  /* Articles / Yayinlar Page */
+  .article-card {
+    padding: var(--space-md);
+  }
+  
+  .article-title {
+    font-size: var(--font-xl);
+  }
+  
+  .article-excerpt {
+    padding-left: var(--space-sm);
+  }
+  
+  .article-full-content h3 {
+    font-size: var(--font-lg);
+  }
+  
+  .article-author {
+    padding: var(--space-md);
+  }
+  
+  .articles-grid {
+    gap: var(--space-lg);
+  }
+  
+  /* Network Section */
+  .network-content {
+    flex-direction: column;
+    gap: var(--space-lg);
+  }
+  
+  .network-text h2 {
+    font-size: var(--font-2xl);
+  }
+  
+  .services-highlight {
+    padding: var(--space-md);
+  }
+  
+  .services-highlight h3 {
+    font-size: var(--font-lg);
+  }
+  
+  /* District Section */
+  .district-header h2 {
+    font-size: var(--font-2xl);
+  }
+  
+  .district-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-md);
+  }
+  
+  .district-card {
+    padding: var(--space-md);
+  }
+  
+  .district-card h3 {
+    font-size: var(--font-lg);
+  }
+  
+  /* WhatsApp Float - Adjusted for mobile */
+  .whatsapp-float {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+  }
+  
+  .whatsapp-float svg {
+    width: 28px;
+    height: 28px;
+  }
+  
+  /* Backdrop for mobile menu */
+  .menu-backdrop {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  
+  .menu-backdrop.active {
+    display: block;
+    opacity: 1;
+  }
+}
+
+/* ==========================================================================
+   3. TABLET BREAKPOINT (481px - 768px)
+   ========================================================================== */
+
+@media (min-width: 481px) and (max-width: 768px) {
+  .container {
+    padding: 0 var(--space-md);
+  }
+  
+  /* Navigation */
+  .nav-container {
+    padding: 1rem var(--space-md);
+  }
+  
+  .mobile-menu-toggle {
+    display: flex;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 80%;
+    max-width: 360px;
+    height: 100vh;
+    background: var(--white);
+    flex-direction: column;
+    padding: 5rem var(--space-lg) var(--space-lg);
+    gap: 0;
+    transition: left 0.3s ease-in-out;
+    box-shadow: var(--shadow-lg);
+    z-index: 1000;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .nav-menu li {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+  
+  .nav-menu a {
+    padding: var(--space-sm) 0;
+    font-size: var(--font-lg);
+  }
+  
+  /* Hero */
+  .hero {
+    height: 80vh;
+    min-height: 500px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-4xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-xl);
+  }
+  
+  .hero-buttons {
+    gap: var(--space-sm);
+  }
+  
+  /* Grids - 2 columns */
+  .features-grid,
+  .practice-areas-grid,
+  .team-grid,
+  .district-grid,
+  .network-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+  
+  /* Intro */
+  .intro-grid {
+    flex-direction: column;
+    gap: var(--space-xl);
+  }
+  
+  .intro-image {
+    order: -1;
+    text-align: center;
+  }
+  
+  .intro-image img {
+    max-width: 400px;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    text-align: left;
+  }
+  
+  .footer-section:first-child {
+    grid-column: 1 / -1;
+    text-align: center;
+  }
+  
+  .footer-section:first-child h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  /* Page Hero */
+  .page-hero h1 {
+    font-size: var(--font-4xl);
+  }
+  
+  /* Contact */
+  .contact-info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .contact-info-card:first-child {
+    grid-column: 1 / -1;
+  }
+  
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+
+/* ==========================================================================
+   4. DESKTOP OPTIMIZATION (1024px+)
+   ========================================================================== */
+
+@media (min-width: 1024px) {
+  /* Container max widths */
+  .container {
+    max-width: var(--container-xl);
+    padding: 0 var(--space-lg);
+  }
+  
+  /* Navigation - Show desktop menu */
+  .mobile-menu-toggle {
+    display: none !important;
+  }
+  
+  .nav-menu {
+    display: flex !important;
+    position: static;
+    flex-direction: row;
+    width: auto;
+    height: auto;
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    gap: 2rem;
+    left: auto;
+  }
+  
+  .nav-menu li {
+    border: none;
+  }
+  
+  .nav-menu a {
+    padding: 0;
+    font-size: var(--font-base);
+  }
+  
+  /* Dropdown for desktop */
+  .nav-menu .dropdown {
+    position: relative;
+  }
+  
+  .nav-menu .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    background: var(--white);
+    box-shadow: var(--shadow-lg);
+    min-width: 200px;
+    padding: 10px 0;
+  }
+  
+  .nav-menu .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+  
+  /* Hero */
+  .hero {
+    height: 750px;
+  }
+  
+  .hero-content {
+    max-width: 800px;
+  }
+  
+  .hero-title {
+    font-size: var(--font-5xl);
+  }
+  
+  .hero-subtitle {
+    font-size: var(--font-2xl);
+  }
+  
+  /* Grids - 3-4 columns */
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .practice-areas-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  .team-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .district-grid {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-lg);
+  }
+  
+  .network-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+  }
+  
+  /* Intro */
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-2xl);
+    align-items: center;
+  }
+  
+  .intro-image {
+    order: 0;
+  }
+  
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    text-align: left;
+    gap: var(--space-xl);
+  }
+  
+  .footer-section:first-child {
+    text-align: left;
+  }
+  
+  .footer-section h4::after {
+    left: 0;
+    transform: none;
+  }
+  
+  .social-links {
+    justify-content: flex-start;
+  }
+  
+  .footer-contact li {
+    justify-content: flex-start;
+  }
+  
+  /* Contact */
+  .contact-info-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .contact-info-card:first-child {
+    grid-column: auto;
+  }
+  
+  .form-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-md);
+  }
+  
+  /* Backdrop hidden on desktop */
+  .menu-backdrop {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   5. LARGE DESKTOP (1440px+)
+   ========================================================================== */
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1320px;
+  }
+  
+  .hero {
+    height: 850px;
+  }
+  
+  .features-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.5rem;
+  }
+}
+
+/* ==========================================================================
+   6. TOUCH TARGET OPTIMIZATIONS
+   ========================================================================== */
+
+@media (pointer: coarse) {
+  /* Increase touch targets for touch devices */
+  .btn,
+  button,
+  .nav-menu a,
+  .footer-section a,
+  .social-links a,
+  .read-more-btn,
+  .article-read-more {
+    min-height: 44px;
+    min-width: 44px;
+    padding: 12px 20px;
+  }
+  
+  .nav-menu a {
+    padding: 16px 0;
+  }
+  
+  .mobile-menu-toggle {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    min-height: 48px;
+    padding: 14px;
+  }
+  
+  /* WhatsApp button larger on touch */
+  .whatsapp-float {
+    width: 64px;
+    height: 64px;
+  }
+  
+  .whatsapp-float svg {
+    width: 32px;
+    height: 32px;
+  }
+}
+
+/* ==========================================================================
+   7. PRINT STYLES
+   ========================================================================== */
+
+@media print {
+  .header,
+  .mobile-menu-toggle,
+  .whatsapp-float,
+  .hero-video,
+  .nav-social,
+  .social-links {
+    display: none !important;
+  }
+  
+  body {
+    font-size: 12pt;
+    line-height: 1.5;
+    color: #000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #000;
+  }
+  
+  .container {
+    max-width: 100%;
+    padding: 0;
+  }
+  
+  .article-card,
+  .feature-card,
+  .practice-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+}
+
+/* ==========================================================================
+   8. UTILITY CLASSES
+   ========================================================================== */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.no-scroll {
+  overflow: hidden;
+  height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles for accessibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}

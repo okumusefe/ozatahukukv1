@@ -1,31 +1,109 @@
 document.addEventListener('DOMContentLoaded', function() {
     const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
     const navMenu = document.querySelector('.nav-menu');
+    const body = document.body;
 
-    if (mobileMenuToggle) {
+    // Create backdrop element for mobile menu
+    let menuBackdrop = document.querySelector('.menu-backdrop');
+    if (!menuBackdrop) {
+        menuBackdrop = document.createElement('div');
+        menuBackdrop.className = 'menu-backdrop';
+        menuBackdrop.style.cssText = 'display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.5); z-index: 999; opacity: 0; transition: opacity 0.3s ease;';
+        body.appendChild(menuBackdrop);
+    }
+
+    // Mobile menu toggle functionality
+    if (mobileMenuToggle && navMenu) {
         mobileMenuToggle.addEventListener('click', function() {
-            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.toggle('active');
             mobileMenuToggle.classList.toggle('active');
+            
+            if (isActive) {
+                // Open menu
+                menuBackdrop.style.display = 'block';
+                setTimeout(() => menuBackdrop.style.opacity = '1', 10);
+                body.classList.add('no-scroll');
+            } else {
+                // Close menu
+                closeMobileMenu();
+            }
+        });
+
+        // Close menu when clicking backdrop
+        menuBackdrop.addEventListener('click', function() {
+            closeMobileMenu();
+        });
+
+        // Close menu function
+        function closeMobileMenu() {
+            navMenu.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            menuBackdrop.style.opacity = '0';
+            setTimeout(() => {
+                menuBackdrop.style.display = 'none';
+            }, 300);
+            body.classList.remove('no-scroll');
+        }
+
+        // Close menu on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && navMenu.classList.contains('active')) {
+                closeMobileMenu();
+            }
+        });
+
+        // Mobile dropdown handling
+        const dropdowns = navMenu.querySelectorAll('.dropdown');
+        dropdowns.forEach(dropdown => {
+            const dropdownLink = dropdown.querySelector('a');
+            
+            dropdownLink.addEventListener('click', function(e) {
+                if (window.innerWidth <= 768) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('active');
+                }
+            });
         });
     }
 
+    // Close menu when clicking nav links (on mobile)
     const navLinks = document.querySelectorAll('.nav-menu a');
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            // Don't close if it's a dropdown toggle
+            if (link.parentElement.classList.contains('dropdown') && window.innerWidth <= 768) {
+                return;
+            }
+            
             if (window.innerWidth <= 768) {
                 navMenu.classList.remove('active');
                 mobileMenuToggle.classList.remove('active');
+                menuBackdrop.style.opacity = '0';
+                setTimeout(() => {
+                    menuBackdrop.style.display = 'none';
+                }, 300);
+                body.classList.remove('no-scroll');
             }
         });
     });
 
+    // Reset menu on resize to desktop
     window.addEventListener('resize', function() {
         if (window.innerWidth > 768) {
             navMenu.classList.remove('active');
             mobileMenuToggle.classList.remove('active');
+            menuBackdrop.style.display = 'none';
+            body.classList.remove('no-scroll');
+            
+            // Reset mobile dropdowns
+            const dropdowns = navMenu.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove('active');
+            });
         }
     });
 
+    // Intersection Observer for animations
     const observerOptions = {
         threshold: 0.1,
         rootMargin: '0px 0px -100px 0px'
@@ -48,6 +126,7 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(el);
     });
 
+    // Contact form success modal
     const contactForm = document.getElementById('contactForm');
     if (contactForm) {
         if (window.location.hash === '#success') {
