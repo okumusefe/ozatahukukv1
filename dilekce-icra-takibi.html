@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- PDF and Word generation libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -171,8 +174,9 @@ Ekler:
 İmza</code></pre>
                 </div>
                 <div class="petition-actions">
-                    <button class="btn btn-secondary" onclick="copyPetition('icra-dilekcesi')">Kopyala</button>
-                    <button class="btn btn-primary" onclick="downloadPetition('icra-dilekcesi')">İndir (.txt)</button>
+                    <button class="btn btn-secondary" onclick="copyPetition(\'icra-dilekcesi\')">Kopyala</button>
+                    <button class="btn btn-primary" onclick="downloadUDF(\'icra-dilekcesi\')">İndir (UDF - UYAP)</button>
+                    <button class="btn btn-success" onclick="downloadDOCX(\'icra-dilekcesi\')">İndir (Word)</button>
                 </div>
             </article>
         </div>

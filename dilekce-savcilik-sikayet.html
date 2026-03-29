@@ -12,6 +12,10 @@
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="shortcut icon" href="favicon.ico">
+    <!-- PDF and Word generation libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/docx/8.5.0/docx.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/2.0.5/FileSaver.min.js"></script>
 </head>
 <body>
     <header class="header">
@@ -169,7 +173,8 @@ Ekler:
                 </div>
                 <div class="petition-actions">
                     <button class="btn btn-secondary" onclick="copyPetition('sikayet-dilekcesi')">Kopyala</button>
-                    <button class="btn btn-primary" onclick="downloadPetition('sikayet-dilekcesi')">İndir (.txt)</button>
+                    <button class="btn btn-primary" onclick="downloadUDF('sikayet-dilekcesi')">İndir (UDF - UYAP)</button>
+                    <button class="btn btn-success" onclick="downloadDOCX('sikayet-dilekcesi')">İndir (Word)</button>
                 </div>
             </article>
         </div>
@@ -278,22 +283,82 @@ Ekler:
             }
         }
 
-        // Dilekçe indirme fonksiyonu
-        function downloadPetition(filename) {
-            const card = document.getElementById(filename);
+        // UDF (UYAP Doküman Formatı) indirme fonksiyonu
+        function downloadUDF(elementId) {
+            const card = document.getElementById(elementId);
             if (card) {
                 const code = card.querySelector('code');
                 if (code) {
                     const content = code.innerText;
-                    const blob = new Blob([content], { type: 'text/plain;charset=utf-8' });
+                    // UYAP UDF formatında indirme (RTF bazlı)
+                    const rtfContent = '{\\rtf1\\ansi\\deff0 {\\fonttbl {\\f0 Times New Roman;}}\\f0\\fs24 ' + 
+                        content.replace(/\n/g, '\\par\\n').replace(/[çÇ]/g, '\\u231?').replace(/[ğĞ]/g, '\\u287?')
+                            .replace(/[ıİ]/g, '\\u305?').replace(/[öÖ]/g, '\\u246?')
+                            .replace(/[şŞ]/g, '\\u351?').replace(/[üÜ]/g, '\\u252?') + '}';
+                    
+                    const blob = new Blob([rtfContent], { type: 'application/rtf' });
                     const url = URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = filename + '.txt';
+                    a.download = elementId + '.udf';
                     document.body.appendChild(a);
                     a.click();
                     document.body.removeChild(a);
                     URL.revokeObjectURL(url);
+                }
+            }
+        }
+
+        // DOCX (Word) indirme fonksiyonu
+        async function downloadDOCX(elementId) {
+            const card = document.getElementById(elementId);
+            if (card) {
+                const code = card.querySelector('code');
+                if (code) {
+                    const content = code.innerText;
+                    
+                    // docx.js kullanarak DOCX oluştur
+                    if (window.docx) {
+                        const { Document, Paragraph, TextRun, Packer } = docx;
+                        
+                        const doc = new Document({
+                            sections: [{
+                                properties: {},
+                                children: [
+                                    new Paragraph({
+                                        children: [
+                                            new TextRun({
+                                                text: content,
+                                                font: 'Times New Roman',
+                                                size: 24, // 12pt
+                                            }),
+                                        ],
+                                    }),
+                                ],
+                            }],
+                        });
+
+                        const blob = await Packer.toBlob(doc);
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = elementId + '.docx';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    } else {
+                        // Fallback: basit DOCX oluştur
+                        const blob = new Blob([content], { type: 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' });
+                        const url = URL.createObjectURL(blob);
+                        const a = document.createElement('a');
+                        a.href = url;
+                        a.download = elementId + '.docx';
+                        document.body.appendChild(a);
+                        a.click();
+                        document.body.removeChild(a);
+                        URL.revokeObjectURL(url);
+                    }
                 }
             }
         }
