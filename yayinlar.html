@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="tr">
 <head>
     <meta charset="UTF-8">
@@ -15,74 +15,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS inline for above-the-fold content -->
-    <style>
-        /* Critical: Prevent FOIT */
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        /* Critical: Header styles to prevent layout shift */
-        .header {
-            min-height: 80px;
-        }
-        
-        /* Preloader critical styles */
-        #preloader {
-            contain: strict;
-            content-visibility: auto;
-        }
-    </style>
 </head>
 <body>
-    <!-- Preloader - only shows if loading takes longer than 800ms -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
-        <div class="preloader-logo" style="animation: spin 2s linear infinite;">
-            <img src="logo.svg" alt="Özata Hukuk" width="100" height="64" style="display: block;">
-        </div>
-        <div class="preloader-text" style="margin-top: 20px; color: rgba(201,169,97,0.9); font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; animation: pulse 1.5s ease-in-out infinite;">YÜKLENİYOR...</div>
-    </div>
-    
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-        #preloader.visible {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-    </style>
-    
-    <script>
-        (function() {
-            const preloader = document.getElementById('preloader');
-            let preloaderShown = false;
-            let pageLoaded = false;
-            
-            // Show preloader only if loading takes longer than 300ms (reduced from 800ms)
-            const showTimeout = setTimeout(function() {
-                if (!pageLoaded) {
-                    preloader.classList.add('visible');
-                    preloaderShown = true;
-                }
-            }, 300);
-            
-            window.addEventListener('load', function() {
-                pageLoaded = true;
-                clearTimeout(showTimeout);
-                if (preloaderShown) {
-                    preloader.classList.remove('visible');
-                }
-            });
-        })();
-    </script>
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
@@ -112,24 +46,11 @@
                 <li><a href="iletisim.html">İletişim</a></li>
             </ul>
             <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
-                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
+                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path></svg>
                 </a>
-                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
+                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
                 </a>
             </div>
         </nav>
@@ -146,18 +67,59 @@
         <section class="articles-section">
             <div class="container">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
+                    <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">Tümü</button>
+                    <button class="filter-btn" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
                     <button class="filter-btn" data-filter="cmk" onclick="filterArticles('cmk')">CMK</button>
-                    <button class="filter-btn" data-filter="ictihat" onclick="filterArticles('ictihat')">İÇTİHAT</button>
-                    <button class="filter-btn" data-filter="haber" onclick="filterArticles('haber')">GÜNCEL HABER</button>
-                </div>
-                <div class="category-descriptions">
-                    <p class="cat-desc tck-desc active">Türk Ceza Kanunu makaleleri: Suçlar ve cezalar hakkında detaylı hukuki incelemeler, Yargıtay içtihatları ve mevzuat analizleri.</p>
-                    <p class="cat-desc cmk-desc">Ceza Muhakemesi Kanunu makaleleri: Soruşturma ve kovuşturma usulü, tutuklama, ifade alma ve diğer CMK konuları.</p>
-                    <p class="cat-desc ictihat-desc">Yargıtay ve Bölge Adliye Mahkemesi içtihatları: Güncel yargı kararları ve hukuk yorumları.</p>
-                    <p class="cat-desc haber-desc">Güncel hukuk haberleri: Mevzuat değişiklikleri, Resmi Gazete duyuruları ve hukuk dünyasından son gelişmeler.</p>
                 </div>
                 <div class="articles-grid">
+                    <!-- TCK Articles -->
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir: (md. 20-23)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 20-23</strong> - Ceza hukukunun temel taşı, her bireyin yalnızca kendi fiillerinden sorumlu tutulması ilkesidir.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler: (md. 24-34)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 24-34</strong> - Meşru müdafa, zaruret hali, haksız tahrik ve rıza halleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Suça Teşebbüs: (md. 35-36)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 35-36</strong> - Suçun icrasına başlanması ancak neticenin gerçekleşmemesi halleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Suça İştirak: (md. 37-41)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 37-41</strong> - Azmettirme, yardım etme ve organize suç örgütleri hükümleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
@@ -166,1056 +128,415 @@
                         </div>
                         <h2 class="article-title">Türk Ceza Kanunu'nda Suçların İçtimaı: (md. 42-44)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 42-44</strong> - Türk Ceza Kanunu'nun Genel Hükümler kısmında düzenlenen suçların içtimaı (birikimi): bir fiilin birden fazla suç oluşturması, fikrî içtima, fiilî içtima ve cezanın tayini hükümlerinin kapsamlı analizi.</p>
+                            <p><strong>TCK md. 42-44</strong> - Bir fiilin birden fazla suç oluşturması, fikrî ve fiilî içtima.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-42-44.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
                             <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Türk Ceza Kanunu nda Cezanın Belirlenmesi ve Bireyselleştirilmesi: (md. 61-63)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cezalar: (md. 45-52)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 45-52</strong> - Hapis cezası ve adli para cezası hükümleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-45-52.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Güvenlik Tedbirleri: (md. 53-60)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 53-60</strong> - İş ve meslekten yasaklama, müsadere, denetimli serbestlik.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-53-60.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cezanın Belirlenmesi ve Bireyselleştirilmesi: (md. 61-63)</h2>
                         <div class="article-excerpt">
                             <p><strong>TCK md. 61-63</strong> - Cezanın belirlenmesi ve bireyselleştirilmesi.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-61-63.html'">Devamını Oku →</button>
-                        </article>
-
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">27 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Türk Ceza Kanunu nda Cezalar: (md. 45-52)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 45-52</strong> - Hapis cezası ve adli para cezası.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-45-52.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
                             <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Türk Ceza Kanunu'nda İştirak: (md. 37-41)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Dava ve Cezanın Düşürülmesi: (md. 64-75)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 37-41</strong> - Türk Ceza Kanunu'nun Genel Hükümler kısmının İkinci Bölüm 4. Bölüm'nde düzenlenen azmettirme (md. 37), yardım etme (md. 38), işbirliği (md. 39) ve iştirakte gönüllü vazgeçme (md. 40) ile iştirakte özel ceza indirimi (md. 41) hükümlerinin kapsamlı hukuki analizi.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
-                        </article>
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">27 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Türk Ceza Kanunu'nda Teşebbüs: (md. 35-36)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 35-36</strong> - Türk Ceza Kanunu'nun Genel Hükümler kısmının İkinci Bölüm 3. Bölüm'nde düzenlenen teşebbüs (md. 35) ve teşebbüste gönüllü vazgeçme (md. 29) hükümlerinin hukuki niteliği, unsurları, cezalandırılması ve Yargıtay içtihatları bağlamında kapsamlı analiz.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
-                        </article>
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">27 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Türk Ceza Kanunu'nda Cezayı Ağırlaştıran ve Hafifleten Sebepler: (md. 24-34)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 24-34</strong> - Türk Ceza Kanunu'nun Genel Hükümler kısmının İkinci Bölüm'nde düzenlenen haksız tahrik (md. 24), nefsi müdafaa (md. 25), meşru müdafaa ve zorunluluk hali (md. 26-28), gönüllü vazgeçme (md. 29-30), küçükler ve akıl hastaları (md. 31-33) ile hata (md. 34) hükümlerinin kapsamlı hukuki analizi.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
-                        </article>
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">27 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Türk Ceza Kanunu'nda Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir: (md. 20-23)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 20-23</strong> - Türk Ceza Kanunu'nun Genel Hükümler kısmının İkinci Bölümü'nde düzenlenen ceza sorumluluğu hükümleri (kabahatler, kast, taksir ve failin cezalandırılabilirliği) hukuki nitelikleri, uygulama alanları ve Yargıtay içtihatları bağlamında kapsamlı analiz.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
-                        </article>
-
-    <script>
-    function filterArticles(category) {
-        const articles = document.querySelectorAll(".article-card");
-        const buttons = document.querySelectorAll(".filter-btn");
-        buttons.forEach(btn => {
-            if (btn.getAttribute("data-filter") === category) btn.classList.add("active");
-            else btn.classList.remove("active");
-        });
-        articles.forEach(article => {
-            const cat = article.getAttribute("data-category");
-            if (category === "all" || cat === category) article.style.display = "block";
-            else article.style.display = "none";
-        });
-    }
-    </script>
-
-    <script>
-    // Inline filter function for publications page
-    function filterArticles(category) {
-        const articles = document.querySelectorAll('.article-card');
-        const buttons = document.querySelectorAll('.filter-btn');
-        
-        buttons.forEach(btn => {
-            if (btn.getAttribute('data-filter') === category) {
-                btn.classList.add('active');
-            } else {
-                btn.classList.remove('active');
-            }
-        });
-        
-        articles.forEach(article => {
-            const articleCategory = article.getAttribute('data-category');
-            if (category === 'all') {
-                article.style.display = 'block';
-            } else if (articleCategory === category) {
-                article.style.display = 'block';
-            } else {
-                article.style.display = 'none';
-            }
-        });
-    }
-    </script>
-    <script src="script.js"></script>
-    <script src="publications.js"></script>
-</body>
-</html>
-<!-- CMK Makaleleri - Düşük Madde Numaraları -->
-
-                    <!-- CMK md. 3-7: Görev -->
-
-                    <!-- CMK md. 8-11: Bağlantılı Davalar -->
-
-                    <!-- CMK md. 12-21: Yetki -->
-
-                    <!-- CMK md. 22-32: Hâkimin Davaya Bakamaması ve Reddi -->
-
-                    <!-- CMK md. 33-38/A: Kararlar, Açıklanması ve Tebliği -->
-
-                    <!-- CMK md. 39-42: Süreler ve Eski Hâle Getirme -->
-
-                    <!-- CMK md. 43-61: Tanıklık -->
-
-                    <!-- CMK md. 62-73: Bilirkişi İncelemesi -->
-
-                    <!-- CMK md. 74-89: Gözlem Altına Alınma, Muayene, Keşif ve Otopsi -->
-
-                    <!-- CMK md. 90-99: Yakalama ve Gözaltı -->
-
-                    <!-- CMK md. 100-108: Tutuklama -->
-
-                    <!-- CMK md. 109-115: Adlî Kontrol -->
-
-                    <!-- CMK md. 116-134: Arama ve Elkoyma -->
-
-                    <!-- CMK md. 135-138: Telekomünikasyon Yoluyla Yapılan İletişimin Denetlenmesi -->
-
-                    <!-- CMK md. 139-140/A: Gizli Soruşturmacı ve Teknik Araçlarla İzleme -->
-
-                    <!-- CMK md. 141-144: Koruma Tedbirleri Nedeniyle Tazminat -->
-
-                    <!-- CMK md. 145-146: İfade veya Sorgu İçin Çağrı -->
-
-                    <!-- CMK md. 147-148: İfade ve Sorgu Usulü -->
-
-                    <!-- CMK md. 149-156: Müdafi Seçimi, Görevlendirilmesi, Görev ve Yetkileri -->
-
-                    <!-- CMK md. 157-159: Soruşturmanın Gizliliği, Suçların İhbarı -->
-
-                    <!-- CMK md. 160-169: Soruşturma İşlemleri -->
-
-                    <!-- CMK md. 170-171: Kamu Davasının Açılması -->
-
-                    <!-- CMK md. 172-174: Kovuşturmaya Yer Olmadığına Dair Karar, İtiraz ve İddianamenin İadesi -->
-
-                    <!-- CMK md. 175-181: Duruşma Hazırlığı -->
-
-                    <!-- CMK md. 182-202: Duruşma -->
-
-                    <!-- CMK md. 203-205: Duruşmanın Düzen ve Disiplini -->
-
-                    <!-- CMK md. 206-218: Delillerin Ortaya Konulması ve Tartışılması -->
-
-                    <!-- CMK md. 219-222: Duruşma Tutanağı -->
-
-                    <!-- CMK md. 223-225: Duruşmanın Sona Ermesi ve Hüküm -->
-
-                    <!-- CMK md. 226: Suç Niteliğinde Değişiklik -->
-
-                    <!-- CMK md. 227-232: Karar ve Hüküm -->
-
-                    <!-- CMK md. 233-236: Suçun Mağduru ile Şikâyetçinin Hakları -->
-
-                    <!-- CMK md. 237-243: Kamu Davasına Katılma -->
-
-                    <!-- CMK md. 244-246: Gaiplerin Yargılanması -->
-
-                    <!-- CMK md. 247-248: Kaçakların Yargılanması -->
-
-                    <!-- CMK md. 249: Tüzel Kişilerin Soruşturmada ve Kovuşturmada Temsili -->
-
-                    <!-- CMK md. 250-252: Bazı Suçlara İlişkin Muhakeme -->
-
-                    <!-- CMK md. 253-255: Uzlaşma -->
-
-                    <!-- CMK md. 256-259: Müsadere Usulü -->
-
-                    <!-- CMK md. 260-266: Genel Hükümler -->
-                                        
-<!-- TCK Makaleleri - Eksik Başlıklar -->
-
-                    <!-- TCK md. 20-23: Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir: (md. 20-23)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 20-23</strong> - Ceza sorumluluğunun şahsi niteliği, kast (dolus), taksir (kusur) ve cezai ehliyet.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 24-34: Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler: (md. 24-34)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 24-34</strong> - Meşru müdafa, zaruret hali, haksız tahrik, rıza ve kusur yeteneğinin olmaması.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 35-36: Suça Teşebbüs -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça Teşebbüs: (md. 35-36)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 35-36</strong> - Suçun icrasına başlanması ancak neticenin gerçekleşmemesi halleri.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 37-41: Suça İştirak -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça İştirak: (md. 37-41)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 37-41</strong> - Azmettirme, yardım etme, organize suç örgütleri ve iştirak hükümleri.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 42-44: Suçların İçtimaı -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suçların İçtimaı: (md. 42-44)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 42-44</strong> - Fiil içtiması, hukuki içtima ve ideal içtima halleri.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-42-44.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 45-52: Cezalar -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Cezalar: (md. 45-52)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 45-52</strong> - Hapis cezası, adli para cezası, kısa süreli ve uzun süreli hapis.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-45-52.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 53-60: Güvenlik Tedbirleri -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Güvenlik Tedbirleri: (md. 53-60)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 53-60</strong> - Tedavi, eğitim, denetim altında bırakma ve güvenlik tedbirlerinin uygulanması.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-53-60.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 61-63: Cezanın Belirlenmesi ve Bireyselleştirilmesi -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Cezanın Belirlenmesi ve Bireyselleştirilmesi: (md. 61-63)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 61-63</strong> - Ceza tayini, ağırlaştırıcı ve hafifletici sebepler.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-61-63.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 64-75: Dava ve Cezanın Düşürülmesi -->
-                                        <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Dava ve Cezanın Düşürülmesi: (md. 64-75)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 64-75</strong> - Zamanaşımı, af, özgeçmiş kaydı ve cezanın bütün neticeleriyle sona ermesi.</p>
+                            <p><strong>TCK md. 64-75</strong> - Zamanaşımı, af ve cezanın sona ermesi.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-64-75.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 76-78: Soykırım ve İnsanlığa Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Soykırım ve İnsanlığa Karşı Suçlar: (md. 76-78)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Soykırım ve İnsanlığa Karşı Suçlar: (md. 76-78)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 76-78</strong> - Soykırım, insanlığa karşı suçlar ve işkence yasakları.</p>
+                            <p><strong>TCK md. 76-78</strong> - Soykırım, insanlığa karşı suçlar ve savaş suçları.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-76-78.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 79-80: Göçmen Kaçakçılığı ve İnsan Ticareti -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Göçmen Kaçakçılığı ve İnsan Ticareti: (md. 79-80)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Göçmen Kaçakçılığı ve İnsan Ticareti: (md. 79-80)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 79-80</strong> - Yasa dışı göçmen kaçakçılığı ve insan ticareti suçları.</p>
+                            <p><strong>TCK md. 79-80</strong> - Göçmen kaçakçılığı ve insan ticareti suçları.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-79-80.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 81-85: Hayata Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Hayata Karşı Suçlar: (md. 81-85)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Hayata Karşı Suçlar: (md. 81-85)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 81-85</strong> - Kasten öldürme, eziyetle öldürme, taksirli öldürme ve intihar.</p>
+                            <p><strong>TCK md. 81-85</strong> - Kasten öldürme, tasarlayarak öldürme, canavarca hisle öldürme.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-81-85.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 86-93: Vücut Dokunulmazlığına Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Vücut Dokunulmazlığına Karşı Suçlar: (md. 86-93)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Vücut Dokunulmazlığına Karşı Suçlar: (md. 86-93)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 86-93</strong> - Kasten yaralama, taksirli yaralama, darp ve vücut dokunulmazlığı.</p>
+                            <p><strong>TCK md. 86-93</strong> - Kasten yaralama ve taksirle yaralama hükümleri.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-86-93.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 94-96: İşkence ve Eziyet -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">İşkence ve Eziyet: (md. 94-96)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda İşkence ve Eziyet: (md. 94-96)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 94-96</strong> - İşkence, eziyet ve kötü muamele yasakları, görevli memur işkencesi.</p>
+                            <p><strong>TCK md. 94-96</strong> - İşkence, insanlık dışı muamele ve eziyet suçları.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-94-96.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 97-98: Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlâli -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlâli: (md. 97-98)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlali: (md. 97-98)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 97-98</strong> - Görevi ihmal, yardım etmeme ve bildirim yükümlülüğünün ihlali.</p>
+                            <p><strong>TCK md. 97-98</strong> - Koruma ve yardım yükümlülüğünün ihlali.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-97-98.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 99-101: Çocuk Düşürtme, Düşürme veya Kısırlaştırma -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Çocuk Düşürtme, Düşürme veya Kısırlaştırma: (md. 99-101)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Çocuk Düşürtme, Düşürme veya Kısırlaştırma: (md. 99-101)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 99-101</strong> - Rıza ile düşürme, rıza dışı düşürme ve kısırlaştırma suçları.</p>
+                            <p><strong>TCK md. 99-101</strong> - Çocuk düşürtme, düşürme ve kısırlaştırma.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-99-101.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 102-105: Cinsel Dokunulmazlığa Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Cinsel Dokunulmazlığa Karşı Suçlar: (md. 102-105)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cinsel Dokunulmazlığa Karşı Suçlar: (md. 102-105)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 102-105</strong> - Cinsel saldırı, çocuğun cinsel istismarı ve cinsel dokunulmazlığa karşı suçlar.</p>
+                            <p><strong>TCK md. 102-105</strong> - Cinsel saldırı, çocuğun cinsel istismarı, cinsel taciz.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-102-105.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 106-124: Hürriyete Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Hürriyete Karşı Suçlar: (md. 106-124)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Hürriyete Karşı Suçlar: (md. 106-124)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 106-124</strong> - Hürriyetin ihlali, kaçırma, alıkoyma, cebir ve şantaj suçları.</p>
+                            <p><strong>TCK md. 106-124</strong> - Hürriyetin engellenmesi, cebir, şantaj, kaçırma.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-106-124.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 125-131: Şerefe Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Şerefe Karşı Suçlar: (md. 125-131)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Şerefe Karşı Suçlar: (md. 125-131)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 125-131</strong> - Hakaret, iftira ve kişi onuruna yönelik suçlar.</p>
+                            <p><strong>TCK md. 125-131</strong> - Hakaret ve iftira suçları.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-125-131.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 132-140: Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar: (md. 132-140)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar: (md. 132-140)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 132-140</strong> - Özel hayatın gizliliği, haberleşme hürriyeti ve kişisel verilerin korunması.</p>
+                            <p><strong>TCK md. 132-140</strong> - Özel hayatın gizliliği ve haberleşme hürriyeti.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-132-140.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 141-169: Malvarlığına Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Malvarlığına Karşı Suçlar: (md. 141-169)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Malvarlığına Karşı Suçlar: (md. 141-169)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 141-169</strong> - Hırsızlık, dolandırıcılık, zimmet, yağma, güveni kötüye kullanma.</p>
+                            <p><strong>TCK md. 141-169</strong> - Hırsızlık, dolandırıcılık, zimmet, yağma.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-141-169.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 170-180: Genel Tehlike Yaratan Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Genel Tehlike Yaratan Suçlar: (md. 170-180)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Genel Tehlike Yaratan Suçlar: (md. 170-180)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 170-180</strong> - Yangın, su, ulaşım ve altyapıya yönelik suçlar.</p>
+                            <p><strong>TCK md. 170-180</strong> - Yangın, patlayıcılar ve tehlikeli maddeler.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-170-180.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 181-184: Çevreye Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Çevreye Karşı Suçlar: (md. 181-184)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Çevreye Karşı Suçlar: (md. 181-184)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 181-184</strong> - Çevre kirliliği, hayvanlara kötü muamele ve doğayı koruma.</p>
+                            <p><strong>TCK md. 181-184</strong> - Çevre kirliliği, su havzaları ve ormanlar.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-181-184.html'">Devamını Oku →</button>
-                        </article>
+                    </article>
 
-                    <!-- TCK md. 185-196: Kamunun Sağlığına Karşı Suçlar -->
-                                        <article class="article-card" data-category="tck">
+                    <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Kamunun Sağlığına Karşı Suçlar: (md. 185-196)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamunun Sağlığına Karşı Suçlar: (md. 185-196)</h2>
                         <div class="article-excerpt">
-                            <p><strong>TCK md. 185-196</strong> - Gıda, ilaç, sahte içki ve halk sağlığını tehlikeye atan suçlar.</p>
+                            <p><strong>TCK md. 185-196</strong> - Gıda, ilaç, uyuşturucu ve halk sağlığı.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-185-196.html'">Devamını Oku →</button>
-                        </article>
-<!-- TCK md. 20-23: Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir - DETAYLI VERSİYON -->
-
-                    <!-- TCK md. 20-23: Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir - Detaylı İnceleme -->
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir: Derin Hukuki İnceleme (md. 20-23)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 20-23</strong> - Ceza sorumluluğunun temel ilkeleri: şahsi sorumluluk, kast (dolus) ve taksir (kusur) kavramlarının hukuki yapısı, nitelikleri ve ceza hukukundaki yeri.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
-                        </article>
-<!-- TCK md. 24-34: Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler - DETAYLI VERSİYON -->
-
-                    <!-- TCK md. 24-34: Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler - Detaylı İnceleme -->
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler: Kapsamlı Hukuki İnceleme (md. 24-34)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 24-34</strong> - Meşru müdafa, zaruret hali, haksız tahrik, rıza ve etkin pişmanlık gibi ceza sorumluluğunu etkileyen hallerin derin hukuki analizi.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
-                        </article>
-<!-- TCK md. 35-36: Suça Teşebbüs - SADE VE DETAYLI -->
-
-                    <!-- TCK md. 35-36: Suça Teşebbüs - Sade ve Detaylı İnceleme -->
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça Teşebbüs: Hukuki Yapı ve Uygulama (md. 35-36)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 35-36</strong> - Teşebbüs kavramının unsurları, tamamlanmamış suçun cezalandırılması ve iyi niyetli vazgeçme.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
-                        </article>
-
-                    <!-- TCK md. 37-41: Suça İştirak - SADE VE DETAYLI -->
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça İştirak: Azmettirme, Yardım ve Organize Suç (md. 37-41)</h2>
-                        <div class="article-excerpt">
-                            <p><strong>TCK md. 37-41</strong> - Fiile iştirak, azmettirme, yardım etme ve organize suç örgütleri hükümleri.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
-                        </article>
-<!-- TCK md. 20-23: Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir (md. 20-23)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu Güvenine Karşı Suçlar: (md. 197-212)</h2>
                         <div class="article-excerpt">
-                            <p>Ceza hukukunun temel taşı, her bireyin yalnızca kendi fiillerinden sorumlu tutulması ilkesidir. TCK'nın 20. maddesi bu hakikati veciz bir dille ifade eder: kimse başkasının suçundan ötürü cezalandırılamaz.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 24-34: Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler (md. 24-34)</h2>
-                        <div class="article-excerpt">
-                            <p>İnsan, her zaman kusursuz bir iradeyle hareket etmez. Kimi zaman hastalık, kimi zaman yaşın getirdiği olgunlaşmamışlık, kimi zaman da hayatın kaçınılmaz şartları, bireyin hukuki sorumluluğunu etkiler.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 35-36: Suça Teşebbüs - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça Teşebbüs (md. 35-36)</h2>
-                        <div class="article-excerpt">
-                            <p>Suçun icrasına başlanmış ancak tamamlanamamış olması hâli, ceza hukukunda teşebbüs olarak adlandırılır. Bu durum, tamamlanmış suç kadar ciddi olmakla birlikte, hukuki değerlendirmesi farklılık arz eder.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 37-41: Suça İştirak - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suça İştirak (md. 37-41)</h2>
-                        <div class="article-excerpt">
-                            <p>Suçlar yalnız bireysel olarak işlenmez. Kimi zaman birden fazla kişi bir araya gelerek, kimi zaman birileri arkadan yönlendirerek, kimi zaman da yardım sağlayarak suçun oluşmasına katkıda bulunur.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 42-44: Suçların İçtimaı - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Suçların İçtimaı (md. 42-44)</h2>
-                        <div class="article-excerpt">
-                            <p>Hayatta bir fiil, birden fazla suç tipine uyması mümkündür. İşte bu durumda ceza hukuku, failin aynı fiilden dolayı birden fazla kez cezalandırılmasını önlemek için içtima kurallarını devreye sokar.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-42-44.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 45-52: Cezalar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Cezalar (md. 45-52)</h2>
-                        <div class="article-excerpt">
-                            <p>Ceza, hukuk devletinin en ağır yaptırımıdır. Ancak ceza yalnızca bir cezalandırma aracı değil; aynı zamanda toplumu koruma, faili rehabilite etme ve adaleti sağlama amacını taşır.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-45-52.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 53-60: Güvenlik Tedbirleri - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Güvenlik Tedbirleri (md. 53-60)</h2>
-                        <div class="article-excerpt">
-                            <p>Ceza sorumluluğu olmayanlar için uygulanan önlemler, toplumu koruma amacını taşır. Bu tedbirler ceza değil; koruma ve rehabilite etme amaçlı müdahalelerdir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-53-60.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 61-75: Cezanın Belirlenmesi, Düşürülmesi ve Zamanaşımı - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Cezanın Belirlenmesi, Düşürülmesi ve Zamanaşımı (md. 61-75)</h2>
-                        <div class="article-excerpt">
-                            <p>Ceza tayini, hukukun matematiksel kesinliği ile adalet duygusunun buluştuğu noktadır. Aynı suçu işleyen iki kişi, farklı cezalara mahkum edilebilir; çünkü her olay kendi özgün koşullarını taşır.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-61-75.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 76-78: Soykırım ve İnsanlığa Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Soykırım ve İnsanlığa Karşı Suçlar (md. 76-78)</h2>
-                        <div class="article-excerpt">
-                            <p>Uluslararası ceza hukukunun en ağır suçları, insanlığın ortak vicdanını sızlatan eylemlerdir. Soykırım ve insanlığa karşı suçlar, zamanaşımına uğramayan ve af kapsamına girmeyen evrensel suçlardır.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-76-78.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 79-80: Göçmen Kaçakçılığı ve İnsan Ticareti - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Göçmen Kaçakçılığı ve İnsan Ticareti (md. 79-80)</h2>
-                        <div class="article-excerpt">
-                            <p>İnsan ticareti ve göçmen kaçakçılığı, modern çağın köle ticaretidir. Bu suçlar, insan onurunu ayaklar altına alan ve uluslararası organize suçların en ağır cezaları gerektiren türlerindendir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-79-80.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 81-85: Hayata Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Hayata Karşı Suçlar (md. 81-85)</h2>
-                        <div class="article-excerpt">
-                            <p>Yaşam hakkı, en temel insan hakkıdır. Bu hakkın ihlali, ceza hukukunun en ağır suçlarını oluşturur. Kasten öldürme ve türevleri, toplumsal barışı derinden sarsan eylemlerdir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-81-85.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 86-93: Vücut Dokunulmazlığına Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Vücut Dokunulmazlığına Karşı Suçlar (md. 86-93)</h2>
-                        <div class="article-excerpt">
-                            <p>Vücut bütünlüğü, insan onurunun ayrılmaz bir parçasıdır. Kasten ve taksirle yaralama suçları, bu bütünlüğün ihlalinin farklı boyutlarını gösterir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-86-93.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 94-96: İşkence ve Eziyet - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">İşkence ve Eziyet (md. 94-96)</h2>
-                        <div class="article-excerpt">
-                            <p>İşkence, insanlık onurunun en ağır ihlalidir. Bu suç, devlet görevlilerinin yetkisini kötüye kullanmasının en çarpıcı örneğidir ve mutlak yasak kapsamındadır.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-94-96.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 97-98: Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlâli - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlâli (md. 97-98)</h2>
-                        <div class="article-excerpt">
-                            <p>Hayatın akışında kimi zaman yardım etmek, kimi zaman gözetmek, kimi zaman ise yetkililere bildirmek gibi yükümlülükler doğar. Bu yükümlülüklerin ihlali de ceza hukukunun kapsamına girer.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-97-98.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 99-101: Çocuk Düşürtme, Düşürme veya Kısırlaştırma - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Çocuk Düşürtme, Düşürme veya Kısırlaştırma (md. 99-101)</h2>
-                        <div class="article-excerpt">
-                            <p>Üreme sağlığı ve kadınların beden bütünlüğü, ceza hukukunun hassasiyetle koruduğu alanlardır. Bu suçlar, hem kadının sağlık hakkını hem de potansiyel yaşamı ilgilendirir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-99-101.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 102-105: Cinsel Dokunulmazlığa Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Cinsel Dokunulmazlığa Karşı Suçlar (md. 102-105)</h2>
-                        <div class="article-excerpt">
-                            <p>Cinsel dokunulmazlık, kişinin en temel haklarından biridir ve hiçbir koşulda ihlal edilemez. Bu alandaki suçlar, mağdurun rızası dışında gerçekleşen eylemleri kapsar ve toplumsal cinsiyet eşitliği açısından kritik öneme sahiptir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-102-105.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 106-124: Hürriyete Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Hürriyete Karşı Suçlar (md. 106-124)</h2>
-                        <div class="article-excerpt">
-                            <p>Hürriyet, temel hak ve özgürlüklerin başında gelir. Kişinin fiziksel veya hukuki olarak hareket özgürlüğünün kısıtlanması, ceza hukukunun en sık karşılaşılan suç türlerinden biridir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-106-124.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 125-131: Şerefe Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Şerefe Karşı Suçlar (md. 125-131)</h2>
-                        <div class="article-excerpt">
-                            <p>Kişi onuru ve saygınlığı, hukukun temel koruma alanlarından biridir. Hakaret ve iftira suçları, bu korumanın ihlali hallerinde devreye girer.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-125-131.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 132-140: Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar (md. 132-140)</h2>
-                        <div class="article-excerpt">
-                            <p>Özel hayatın gizliliği, Anayasa ve AİHS tarafından korunan temel bir haktır. Bu alandaki suçlar, kişisel verilerin korunması ve haberleşme özgürlüğü ile yakından ilişkilidir.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-132-140.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 141-169: Malvarlığına Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Malvarlığına Karşı Suçlar (md. 141-169)</h2>
-                        <div class="article-excerpt">
-                            <p>Mülkiyet hakkı, hukuk düzeninin temel direklerinden biridir. Bu hakkın ihlali, ekonomik düzeni sarsan ve toplumsal güveni zedeleyen suçları oluşturur.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-141-169.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 170-180: Genel Tehlike Yaratan Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Genel Tehlike Yaratan Suçlar (md. 170-180)</h2>
-                        <div class="article-excerpt">
-                            <p>Toplumun güvenliğini tehdit eden eylemler, bireysel zararın ötesinde, kolektif bir risk oluşturur. Bu suçlar, kişilere değil; tüm topluluğa yönelik tehlikeleri düzenler.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-170-180.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 181-184: Çevreye Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Çevreye Karşı Suçlar (md. 181-184)</h2>
-                        <div class="article-excerpt">
-                            <p>Çevre, gelecek nesillere bırakılan en değerli mirastır. Bu alandaki suçlar, yalnızca mevcut kuşağın değil; gelecek kuşakların hakkını da ihlal eder.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-181-184.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 185-196: Kamunun Sağlığına Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Kamunun Sağlığına Karşı Suçlar (md. 185-196)</h2>
-                        <div class="article-excerpt">
-                            <p>Kamu sağlığı, toplumsal varoluşun temel şartlarından biridir. Bu alandaki suçlar, bireysel zararın ötesinde, toplumun tümünün sağlığını tehlikeye atan eylemleri düzenler.</p>
-                        </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-185-196.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 197-212: Kamu Güvenine Karşı Suçlar - Edebi Üslup -->
-
-                    <article class="article-card" data-category="tck">
-                        <div class="article-header">
-                            <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
-                        </div>
-                        <h2 class="article-title">Kamu Güvenine Karşı Suçlar (md. 197-212)</h2>
-                        <div class="article-excerpt">
-                            <p>Kamu güveni, ekonomik ve sosyal hayatın düzenini sağlayan temel unsurdur. Para ve evrak sahtekarlığı gibi suçlar, bu güveni sarsar.</p>
+                            <p><strong>TCK md. 197-212</strong> - Para sahteciliği, evrak sahteciliği.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-197-212.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 213-224: Kamu Barışına ve Ulaşıma Karşı Suçlar - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Kamu Barışına ve Ulaşıma Karşı Suçlar (md. 213-224)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu Barışına Karşı Suçlar: (md. 213-222)</h2>
                         <div class="article-excerpt">
-                            <p>Kamu barışı, toplumsal düzenin ve huzurun korunmasını ifade eder. Silah, patlayıcı ve ulaşım güvenliğine yönelik suçlar, bu barışı tehdit eder.</p>
+                            <p><strong>TCK md. 213-222</strong> - Silah, patlayıcı ve kamu barışını bozucu suçlar.</p>
                         </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-213-224.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 225-234: Aile, Ahlak ve Evlilik Düzenine Karşı Suçlar - Edebi Üslup -->
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-213-222.html'">Devamını Oku →</button>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Aile, Ahlak ve Evlilik Düzenine Karşı Suçlar (md. 225-234)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ulaşım Araçlarına veya Sabit Platformlara Karşı Suçlar: (md. 223-224)</h2>
                         <div class="article-excerpt">
-                            <p>Aile, toplumun temel yapı taşıdır. Bu alandaki suçlar, evlilik birliğinin ve aile düzeninin korunmasına yöneliktir.</p>
+                            <p><strong>TCK md. 223-224</strong> - Ulaşım güvenliğine yönelik suçlar.</p>
                         </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-225-234.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 235-242: Ekonomi ve Ticarete İlişkin Suçlar - Edebi Üslup -->
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-223-224.html'">Devamını Oku →</button>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Ekonomi ve Ticarete İlişkin Suçlar (md. 235-242)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Genel Ahlaka Karşı Suçlar: (md. 225-229)</h2>
                         <div class="article-excerpt">
-                            <p>Ekonomik düzen, toplumsal refahın temelidir. Rekabet ihlali, tüketicinin korunması ve ticari sır gibi suçlar, bu düzeni korumaya yöneliktir.</p>
+                            <p><strong>TCK md. 225-229</strong> - Fuhuş ve genel ahlaka yönelik suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-225-229.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Aile Düzenine Karşı Suçlar: (md. 230-234)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 230-234</strong> - Evlilik dışı ilişki ve aile suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-230-234.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ekonomi, Sanayi ve Ticarete İlişkin Suçlar: (md. 235-242)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 235-242</strong> - Rekabet, tüketici koruması ve ekonomik suçlar.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-235-242.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 243-246: Bilişim Alanında Suçlar - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Bilişim Alanında Suçlar (md. 243-246)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Bilişim Alanında Suçlar: (md. 243-246)</h2>
                         <div class="article-excerpt">
-                            <p>Dijital çağda suçların yüzü değişmektedir. Siber suçlar, bilgi sistemlerine ve veri güvenliğine yönelik modern tehditleri düzenler.</p>
+                            <p><strong>TCK md. 243-246</strong> - Siber suçlar ve bilişim güvenliği.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-243-246.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 247-266: Kamu İdaresinin Güvenilirliğine Karşı Suçlar - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Kamu İdaresinin Güvenilirliğine Karşı Suçlar (md. 247-266)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu İdaresinin Güvenilirliğine ve İşleyişine Karşı Suçlar: (md. 247-266)</h2>
                         <div class="article-excerpt">
-                            <p>Kamu görevlilerinin dürüstlüğü, devletin meşruiyetinin temelidir. Görevi kötüye kullanma, zimmet ve rüşvet gibi suçlar, bu güveni sarsar.</p>
+                            <p><strong>TCK md. 247-266</strong> - Görevi kötüye kullanma, rüşvet.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-247-266.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 267-298: Adliyeye Karşı Suçlar - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Adliyeye Karşı Suçlar (md. 267-298)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Adliyeye Karşı Suçlar: (md. 267-298)</h2>
                         <div class="article-excerpt">
-                            <p>Adaletin işleyişi, hukuk devletinin vazgeçilmez şartıdır. Yargı görevini yapmayan memur, delil yok etme veya şikayet suistimali gibi suçlar, bu işleyişi bozar.</p>
+                            <p><strong>TCK md. 267-298</strong> - Yargı görevini yapmayan memur, delil yok etme.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-267-298.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 299-316: Devletin Egemenlik Alametlerine ve Anayasal Düzene Karşı Suçlar - Edebi Üslup -->
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Devletin Egemenlik Alametlerine ve Anayasal Düzene Karşı Suçlar (md. 299-316)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devletin Egemenlik Alametlerine ve Organlarının Saygınlığına Karşı Suçlar: (md. 299-301)</h2>
                         <div class="article-excerpt">
-                            <p>Devletin varlığı ve anayasal düzeni, toplumsal düzenin temelidir. Cumhurbaşkanına hakaret veya anayasal düzeni ortadan kaldırma gibi suçlar, bu temeli hedef alır.</p>
+                            <p><strong>TCK md. 299-301</strong> - Cumhurbaşkanına ve TBMM üyelerine hakaret.</p>
                         </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-299-316.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 317-339: Milli Savunma, Devlet Sırları ve Casusluk - Edebi Üslup -->
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-299-301.html'">Devamını Oku →</button>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Milli Savunma, Devlet Sırları ve Casusluk (md. 317-339)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devletin Güvenliğine Karşı Suçlar: (md. 302-308)</h2>
                         <div class="article-excerpt">
-                            <p>Devletin güvenliği ve varlığı, milli savunma ve istihbarat faaliyetleriyle sağlanır. Asker kaçaklığı, devlet sırlarını açıklama ve casusluk gibi suçlar, bu güvenliği tehdit eder.</p>
+                            <p><strong>TCK md. 302-308</strong> - Anayasal düzeni ortadan kaldırma, silahlı isyan.</p>
                         </div>
-                        <button class="article-read-more" onclick="window.location.href='makale-tck-317-339.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- TCK md. 340-343: Yabancı Devletlerle Olan İlişkilere Karşı Suçlar - Edebi Üslup -->
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-302-308.html'">Devamını Oku →</button>
+                    </article>
 
                     <article class="article-card" data-category="tck">
                         <div class="article-header">
                             <span class="article-category">TCK</span>
-                            <span class="article-date">29 Mart 2026</span>
+                            <span class="article-date">27 Mart 2026</span>
                         </div>
-                        <h2 class="article-title">Yabancı Devletlerle Olan İlişkilere Karşı Suçlar (md. 340-343)</h2>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Anayasal Düzene ve Bu Düzenin İşleyişine Karşı Suçlar: (md. 309-316)</h2>
                         <div class="article-excerpt">
-                            <p>Diplomatik ilişkiler, uluslararası barışın ve iş birliğinin temelidir. Yabancı devlet başkanına hakaret veya diplomatik dokunulmazlığın ihlali gibi suçlar, bu ilişkileri zedeler.</p>
+                            <p><strong>TCK md. 309-316</strong> - Cumhuriyeti ortadan kaldırma, hükümeti devirme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-309-316.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Milli Savunmaya Karşı Suçlar: (md. 317-325)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 317-325</strong> - Asker kaçaklığı ve askeri suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-317-325.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devlet Sırlarına Karşı Suçlar ve Casusluk: (md. 326-339)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 326-339</strong> - Devlet sırlarını açıklama ve casusluk.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-326-339.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Yabancı Devletlerle Olan İlişkilere Karşı Suçlar: (md. 340-343)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 340-343</strong> - Yabancı devlet başkanına hakaret, diplomatik dokunulmazlık.</p>
                         </div>
                         <button class="article-read-more" onclick="window.location.href='makale-tck-340-343.html'">Devamını Oku →</button>
-                        </article>
-
-<!-- CMK md. 3-22: Ceza Muhakemesinin İlkeleri - Edebi Üslup -->
-
-<!-- CMK md. 23-41: Yetki ve Görev - Edebi Üslup -->
-
-<!-- CMK md. 42-89: Soruşturma - Edebi Üslup -->
-
-<!-- CMK md. 90-140/A: Yakalama ve Gözaltı - Edebi Üslup -->
-
-<!-- CMK md. 141-180: Kovuşturma ve İddianame - Edebi Üslup -->
-
-<!-- CMK md. 181-220: Hüküm ve Kanun Yolları - Edebi Üslup -->
-
-<!-- CMK md. 221-265: Tutuklama ve Adli Kontrol - Edebi Üslup -->
-
-<!-- CMK md. 266-290: Soruşturma İşlemleri - Edebi Üslup -->
-
-<!-- CMK md. 291-335: Özel Çözüm Yolları ve İnfaz - Edebi Üslup -->
-
+                    </article>
