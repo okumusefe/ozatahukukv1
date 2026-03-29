@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYK959FEKW');
+</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Türk Ceza Kanunu (TCK) ve Ceza Muhakemesi Kanunu (CMK) hükümleri hakkında detaylı makaleler ve hukuki içerikler. Ceza hukuku kapsamlı bilgi kaynağı.">
@@ -67,9 +76,10 @@
         <section class="articles-section">
             <div class="container">
                 <div class="filter-buttons">
-                    <button class="filter-btn active" data-filter="all" onclick="filterArticles('all')">Tümü</button>
-                    <button class="filter-btn" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
+                    <button class="filter-btn active" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
                     <button class="filter-btn" data-filter="cmk" onclick="filterArticles('cmk')">CMK</button>
+                    <button class="filter-btn" data-filter="ictihat" onclick="filterArticles('ictihat')">İçtihat</button>
+                    <button class="filter-btn" data-filter="guncel" onclick="filterArticles('guncel')">Güncel Haber</button>
                 </div>
                 <div class="articles-grid">
                     <!-- TCK Articles -->
