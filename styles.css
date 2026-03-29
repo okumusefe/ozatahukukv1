@@ -1370,7 +1370,7 @@ body {
 
 /* İçtihat Sayfası Üst Kısım Stilleri */
 .page-header {
-    background: linear-gradient(135deg, #5c3a1e 0%, #8B5A2B 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     padding: 3rem 0 2.5rem;
     text-align: center;
     color: white;
@@ -1385,7 +1385,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 12rem;
-    opacity: 0.05;
+    opacity: 0.08;
     z-index: 0;
 }
 
@@ -1406,7 +1406,7 @@ body {
 
 .page-header .update-date {
     font-size: 1.1rem;
-    color: rgba(255,255,255,0.9);
+    color: var(--accent-color);
     font-weight: 500;
     position: relative;
     z-index: 1;
@@ -1416,7 +1416,7 @@ body {
 .back-link {
     display: inline-flex;
     align-items: center;
-    color: #8B5A2B;
+    color: var(--accent-color);
     text-decoration: none;
     font-weight: 600;
     margin-bottom: 1.5rem;
@@ -1425,7 +1425,7 @@ body {
 }
 
 .back-link:hover {
-    color: #5c3a1e;
+    color: var(--primary-color);
     transform: translateX(-5px);
 }
 
@@ -1447,15 +1447,15 @@ body {
     position: absolute;
     top: -14px;
     left: 30px;
-    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    color: var(--primary-color);
     padding: 8px 20px;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 2px;
     border-radius: 25px;
     text-transform: uppercase;
-    box-shadow: 0 4px 15px rgba(139, 90, 43, 0.4);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
     z-index: 10;
 }
 
@@ -1492,8 +1492,8 @@ body {
 /* İçtihat Detay Sayfası İçeriği Stilleri */
 .detail-article {
     background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);
-    border: 1px solid rgba(139, 90, 43, 0.15);
-    border-left: 5px solid #8B5A2B;
+    border: 1px solid rgba(201, 169, 97, 0.2);
+    border-left: 5px solid var(--accent-color);
     border-radius: 12px;
     padding: 2.5rem;
     margin: 2rem 0;
@@ -1524,15 +1524,15 @@ body {
     margin-bottom: 2rem;
     margin-top: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 2px dashed rgba(139, 90, 43, 0.2);
+    border-bottom: 2px dashed rgba(201, 169, 97, 0.3);
 }
 
 .detail-article .article-category {
     display: inline-flex;
     align-items: center;
     padding: 0.5rem 1rem;
-    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 100%);
-    color: white;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    color: var(--primary-color);
     border-radius: 20px;
     font-size: 0.85rem;
     font-weight: 700;
@@ -1541,7 +1541,7 @@ body {
 }
 
 .detail-article .article-date {
-    color: #8B5A2B;
+    color: var(--accent-color);
     font-size: 0.9rem;
     font-weight: 600;
     display: flex;
@@ -1555,16 +1555,16 @@ body {
 
 .detail-article h2 {
     font-size: 1.8rem;
-    color: #5c3a1e;
+    color: var(--primary-color);
     margin: 1.5rem 0 1rem;
     padding-bottom: 0.8rem;
-    border-bottom: 2px solid rgba(139, 90, 43, 0.2);
+    border-bottom: 2px solid rgba(201, 169, 97, 0.3);
     font-weight: 700;
 }
 
 .detail-article h3 {
     font-size: 1.3rem;
-    color: #6b4423;
+    color: var(--primary-color);
     margin: 2rem 0 1rem;
     font-weight: 600;
     position: relative;
@@ -1579,7 +1579,7 @@ body {
     transform: translateY(-50%);
     width: 4px;
     height: 70%;
-    background: linear-gradient(180deg, #8B5A2B 0%, #A0522D 100%);
+    background: linear-gradient(180deg, var(--accent-color) 0%, #d4b876 100%);
     border-radius: 2px;
 }
 
@@ -1592,23 +1592,23 @@ body {
 }
 
 .detail-article strong {
-    color: #8B5A2B;
+    color: var(--accent-color);
     font-weight: 600;
 }
 
 /* Karar Bilgileri Kutusu */
 .detail-article h2 + p {
-    background: linear-gradient(135deg, rgba(139, 90, 43, 0.08) 0%, rgba(160, 82, 45, 0.04) 100%);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.1) 0%, rgba(201, 169, 97, 0.05) 100%);
     padding: 1.5rem;
     border-radius: 10px;
-    border-left: 4px solid #8B5A2B;
+    border-left: 4px solid var(--accent-color);
     margin-bottom: 2rem;
 }
 
 .detail-article h2 + p strong {
     display: inline-block;
     width: 110px;
-    color: #6b4423;
+    color: var(--primary-color);
 }
 
 /* Liste Stilleri */
@@ -1631,43 +1631,43 @@ body {
 }
 
 .detail-article ol li strong {
-    color: #8B5A2B;
+    color: var(--accent-color);
     display: block;
     margin-bottom: 0.3rem;
 }
 
 .detail-article ul li {
     list-style-type: disc;
-    color: #5c3a1e;
+    color: var(--primary-color);
 }
 
 /* Suç ve Hüküm Bölümü */
 .detail-article h3:nth-of-type(1) + p {
-    background: rgba(139, 90, 43, 0.05);
+    background: rgba(201, 169, 97, 0.08);
     padding: 1.2rem;
     border-radius: 8px;
-    border: 1px solid rgba(139, 90, 43, 0.1);
+    border: 1px solid rgba(201, 169, 97, 0.2);
 }
 
 /* Sonuç Bölümü */
 .detail-article h3:nth-last-of-type(2) + p {
-    background: linear-gradient(135deg, rgba(139, 90, 43, 0.1) 0%, rgba(160, 82, 45, 0.05) 100%);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(201, 169, 97, 0.08) 100%);
     padding: 1.5rem;
     border-radius: 10px;
-    border: 2px solid rgba(139, 90, 43, 0.15);
+    border: 2px solid rgba(201, 169, 97, 0.25);
     font-weight: 500;
 }
 
 /* Hukuki Dayanaklar */
 .detail-article h3:last-of-type + ul {
-    background: #f5f5f5;
+    background: var(--bg-light);
     padding: 1.2rem 1.5rem 1.2rem 2.5rem;
     border-radius: 8px;
-    border-left: 3px solid #8B5A2B;
+    border-left: 3px solid var(--accent-color);
 }
 
 .detail-article h3:last-of-type + ul li {
-    color: #6b4423;
+    color: var(--primary-color);
     font-weight: 500;
 }
 
