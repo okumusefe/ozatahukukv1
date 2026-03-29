@@ -495,28 +495,41 @@ function hesaplaVekalet() {
     document.getElementById('vekalet-sonuc').classList.add('active');
 }
 
-// Kira Artışı Hesaplama
+// Kira Artışı Hesaplama - Güncel (2026 Mart - %25 sınırı kaldırıldı)
 function hesaplaKiraArtis() {
     const kira = parseFloat(document.getElementById('kira-mevcut')?.value) || 0;
-    const oran = parseFloat(document.getElementById('kira-oran')?.value) || 25;
-    const tur = document.getElementById('kira-tur')?.value || 'konut';
+    const yontem = document.getElementById('kira-yontem')?.value || 'tufe_gercek';
+    const manuelOran = parseFloat(document.getElementById('kira-oran')?.value) || 0;
     
     if (kira === 0) {
         alert('Lütfen mevcut kira tutarı giriniz.');
         return;
     }
     
-    let artis = kira * (oran / 100);
+    let oran = 0;
     
-    // Konut kiralarında %25 sınırı (TBK Md. 344)
-    if (tur === 'konut') {
-        artis = Math.min(artis, kira * 0.25);
+    if (yontem === 'tufe_gercek') {
+        // Mart 2026 TÜFE oranı (12 aylık ortalama)
+        oran = 47.09;
+    } else if (yontem === 'belirli' || yontem === 'serbest') {
+        if (manuelOran === 0) {
+            alert('Lütfen artış oranını giriniz.');
+            return;
+        }
+        oran = manuelOran;
     }
     
+    const artis = kira * (oran / 100);
     const yeniKira = kira + artis;
+    const yillik = yeniKira * 12;
     
+    // Sonuçları göster
+    document.getElementById('kira-oran-text').textContent = '%' + oran.toFixed(2).replace('.', ',');
+    document.getElementById('kira-mevcut-text').textContent = formatPara(kira);
     document.getElementById('kira-artis-tutar').textContent = formatPara(artis);
     document.getElementById('kira-yeni').textContent = formatPara(yeniKira);
+    document.getElementById('kira-yeni-detay').textContent = formatPara(yeniKira);
+    document.getElementById('kira-yillik').textContent = formatPara(yillik);
     document.getElementById('kira-sonuc').classList.add('active');
 }
 

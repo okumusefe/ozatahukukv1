@@ -170,8 +170,7 @@
                     <div class="form-group">
                         <label for="kira-yontem">Kira Artış Tercihi</label>
                         <select id="kira-yontem">
-                            <option value="tufe_yasal">TÜFE (Yasal oran)</option>
-                            <option value="tufe_gercek">TÜFE (Gerçek oran - %25 sınırı olmadan)</option>
+                            <option value="tufe_gercek">TÜFE (Gerçek oran)</option>
                             <option value="belirli">Belirli Oran</option>
                             <option value="serbest">Serbest (Taraflarca Belirlenir)</option>
                         </select>
@@ -197,30 +196,23 @@
                                 <tr>
                                     <th>Dönem</th>
                                     <th>TÜFE Oranı</th>
-                                    <th>Yasal Limit</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
                                     <td>Mart 2026</td>
                                     <td>%47,09</td>
-                                    <td>%25</td>
                                 </tr>
                                 <tr>
                                     <td>2025 (Ort.)</td>
                                     <td>%51,69</td>
-                                    <td>%25</td>
                                 </tr>
                                 <tr>
                                     <td>2024</td>
                                     <td>%62,79</td>
-                                    <td>%25</td>
                                 </tr>
                             </tbody>
                         </table>
-                        <p style="margin-top: 10px; font-size: 0.8rem; color: #666;">
-                            * Konut kiralarında 6098 Sayılı TBK Md. 344'e göre artış oranı %25 ile sınırlıdır.
-                        </p>
                     </div>
                     
                     <button class="calculate-btn" onclick="hesaplaKiraArtis()">Hesapla</button>
@@ -254,9 +246,6 @@
                         </div>
                     </div>
                     
-                    <div class="warning-box" id="kira-uyari" style="display: none;">
-                        <p>⚠️ <strong>Uyarı:</strong> Seçtiğiniz oran %25 yasal sınırını aşıyor. Konut kiralarında TBK Md. 344'e göre artış en fazla %25 olabilir.</p>
-                    </div>
                 </div>
             </div>
         </section>
