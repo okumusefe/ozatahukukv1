@@ -1640,6 +1640,7 @@ body {
     font-size: 1.05rem;
     line-height: 1.8;
     color: var(--text-color);
+    text-align: justify;
 }
 
 .article-author strong {
