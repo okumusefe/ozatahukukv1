@@ -1,0 +1,33 @@
+...SAVCILIĞINA (SULH CEZA HAKİMLİĞİNE)
+
+KONU:     Suç duyurusu
+
+ŞİKAYETÇİ: [Ad Soyad]
+TC No:     [Kimlik numarası]
+Adres:     [Adres]
+Tel:       [Telefon]
+
+ŞÜPHELİ:   [Biliniyorsa ad soyad ve adres]
+
+AÇIKLAMA:
+
+[ tarihinde ], [yerde] meydana gelen olay hakkında bilgilerinize sunarım.
+
+Olayın Kısa Özeti:
+[Kısa ve net bir şekilde olayın nasıl gerçekleştiği anlatılır. Tarih, yer, şüphelinin fiili açıklanır.]
+
+Hukuki Değerlendirme:
+Şüphelinin eylemi, Türk Ceza Kanunu'nun [madde numarası] uyarınca [suç tipi] suçunu oluşturmaktadır.
+
+Talep:
+Yukarıda açıklanan olayın soruşturulması, şüpheli hakkında kamu davası açılması hususunda;
+Bilgilerinize, gereğinin yapılmasını arz ederim.
+
+Ekler:
+1. Olay tarihli tutanak örneği
+2. Tanık listesi
+3. [Diğer belgeler]
+
+[Ad Soyad]
+[Tarih]
+İmza

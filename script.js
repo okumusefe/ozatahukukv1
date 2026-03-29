@@ -234,6 +234,82 @@ function filterArticles(category) {
     });
 }
 
+// Dilekçe Kopyalama Fonksiyonu
+function copyPetition(elementId) {
+    const element = document.getElementById(elementId);
+    if (!element) {
+        alert('Dilekçe içeriği bulunamadı.');
+        return;
+    }
+    
+    const codeElement = element.querySelector('pre code');
+    if (!codeElement) {
+        alert('Dilekçe metni bulunamadı.');
+        return;
+    }
+    
+    const text = codeElement.innerText;
+    
+    navigator.clipboard.writeText(text).then(function() {
+        alert('Dilekçe panoya kopyalandı!');
+    }).catch(function(err) {
+        console.error('Kopyalama hatası:', err);
+        // Fallback for older browsers
+        const textArea = document.createElement('textarea');
+        textArea.value = text;
+        textArea.style.position = 'fixed';
+        textArea.style.left = '-9999px';
+        document.body.appendChild(textArea);
+        textArea.select();
+        try {
+            document.execCommand('copy');
+            alert('Dilekçe panoya kopyalandı!');
+        } catch (err) {
+            alert('Kopyalama işlemi başarısız oldu. Lütfen manuel olarak kopyalayın.');
+        }
+        document.body.removeChild(textArea);
+    });
+}
+
+// TXT Dosya İndirme Fonksiyonu
+function downloadTXT(elementId) {
+    const petitionFiles = {
+        'sikayet-dilekcesi': 'dilekce-savcilik-sikayet.txt',
+        'icra-dilekcesi': 'dilekce-icra-takibi.txt',
+        'kidem-dilekcesi': 'dilekce-kidem-tazminati.txt',
+        'nafaka-dilekcesi': 'dilekce-nafaka-talebi.txt',
+        'tuketici-dilekcesi': 'dilekce-tuketici-hakem.txt',
+        'idare-dilekcesi': 'dilekce-idari-iptal.txt'
+    };
+    
+    const fileName = petitionFiles[elementId];
+    if (!fileName) {
+        alert('Dosya bulunamadı.');
+        return;
+    }
+    
+    // Create download link
+    const link = document.createElement('a');
+    link.href = fileName;
+    link.download = fileName;
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
+// Word (DOCX) İndirme - TXT olarak indirir
+function downloadDOCX(elementId) {
+    // For now, download as TXT (same as downloadTXT)
+    downloadTXT(elementId);
+}
+
+// UDF/UYAP İndirme - TXT olarak indirir
+function downloadUDF(elementId) {
+    // For now, download as TXT (same as downloadTXT)
+    downloadTXT(elementId);
+}
+
 // Initialize filter on page load
 document.addEventListener('DOMContentLoaded', function() {
     console.log('DOM loaded, initializing filter');

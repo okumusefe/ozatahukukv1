@@ -1,0 +1,42 @@
+...AİLE MAHKEMESİ SAYI:...
+
+KONU:      Tedbir/Yoksulluk nafakası talebi
+
+DAVACI:    [Ad Soyad]
+TC No:     [Kimlik numarası]
+Meslek:    [Meslek]
+Gelir:     [Aylık gelir]
+Adres:     [Adres]
+
+DAVALI:    [Eşin Ad Soyad]
+TC No:     [Kimlik numarası]
+Meslek:    [Meslek]
+Adres:     [Adres]
+
+DAVA KONUSU:
+
+Davacı ile davalı [tarihte] evlenmiş olup, [tarihte] boşanma/dava açılmıştır.
+
+Talep Gerekçesi:
+Davalı, müşterek hayatı terk etmiş olup/kusurlu olarak ayrı yaşamaktadır.
+Davacının geçimini sağlayacak geliri bulunmamaktadır.
+
+Talep Edilen:
+Davalı'dan aylık [miktar] TL tedbir/yoksulluk nafakası bağlanması;
+Nafakanın tedbir kararıyla hüküm tarihinden/itibaren başlatılması;
+Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;
+hükümle arz ederim.
+
+Yasal Dayanak:
+- Hukuk Muhakemesi Kanunu
+- Medeni Kanun m. 175, 185, 196
+
+Ekler:
+1. Nüfus kayıt örneği
+2. Evlenme cüzdanı örneği
+3. Gelir belgesi
+4. Vekaletname
+
+[Ad Soyad]
+[Tarih]
+İmza

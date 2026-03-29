@@ -1,0 +1,43 @@
+...İŞ MAHKEMESİ SAYI:...
+
+KONU:      Kıdem tazminatı alacağı talebi
+
+DAVACI:    [Ad Soyad]
+TC No:     [Kimlik numarası]
+Adres:     [Adres]
+
+DAVALI:    [Şirket Unvanı]
+Adres:     [Şirket adresi]
+
+DAVA KONUSU:
+
+Davacı, davalı işverenin [işyeri adresi] adresindeki işyerinde
+[tarihten/itibaren] çalışmaya başlamış olup, son görevi [pozisyon]
+olarak devam etmekteydi.
+
+Davalı işveren tarafından [tarihte] haksız/haksız nedenlerle
+iş sözleşmesi feshedilmiştir.
+
+Çalışılan Süre:    [Yıl] yıl [Ay] ay [Gün] gün
+Son Brüt Ücret:    [Miktar] TL
+Hak Edilen Kıdem:  [Miktar] TL
+
+Talep Edilen:
+Davalıdan [miktar] TL kıdem tazminatının tahsili;
+Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;
+Hükümle arz ederim.
+
+Yasal Dayanak:
+- Hukuk Muhakemesi Kanunu
+- İş Kanunu m. 14, 24, 25, 29
+
+Ekler:
+1. SGK hizmet dökümü
+2. Maaş bordrosu
+3. İhbar/İşten çıkarma yazısı
+4. İKÜS bildirgesi
+5. Vekaletname
+
+[Ad Soyad]
+[Tarih]
+İmza

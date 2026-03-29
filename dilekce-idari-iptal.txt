@@ -1,0 +1,42 @@
+...İDARE MAHKEMESİ SAYI:...
+
+KONU:      İdari işlemin iptali talebi
+
+DAVACI:    [Ad Soyad/Unvan]
+TC/Vergi No: [Numara]
+Adres:     [Adres]
+
+DAVALI:    [İdare Birimi - Valilik/Belediye/vb.]
+Adres:     [Adres]
+
+DAVA KONUSU:
+
+Davalı idare tarafından [tarihte] [işlem numaralı/tarihli]
+[idari işlem adı] işlemi tesis edilmiştir.
+
+İptal Gerekçesi:
+1. Yetki yönünden: İşlem, yetki sahibi merci tarafından tesis edilmemiştir.
+2. Şekil yönünden: Gerekli usul kurallarına uyulmamıştır.
+3. Sebep yönünden: Hukuki dayanak yanlıştır.
+4. Maksat yönünden: Amaç dışı kullanılmıştır.
+
+Taleplerimiz:
+İşlemin iptali veya yürütmesinin durdurulması,
+Yargılama giderleri,
+Vekalet ücreti,
+Hükümle arz ederim.
+
+Yasal Dayanak:
+- İdari Yargılama Usulü Kanunu m. 2, 7
+- İdare Pro. Kanunu m. 10-16
+- Anayasa m. 125, 148
+
+Ekler:
+1. İptali istenen işlem örneği
+2. İdari başvuru ve cevap (varsa)
+3. İmar planı/durum belgesi (varsa)
+4. Vekaletname
+
+[Ad Soyad]
+[Tarih]
+İmza
