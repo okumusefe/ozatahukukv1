@@ -1606,6 +1606,13 @@ body {
     text-align: justify;
 }
 
+/* Article content justify alignment for all article pages */
+.article-content p {
+    text-align: justify;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+}
+
 .article-full-content h3 {
     font-size: 1.6rem;
     color: var(--primary-color);
