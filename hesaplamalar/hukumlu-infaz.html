@@ -1,128 +1,3 @@
-﻿<!DOCTYPE html>
-<html lang="tr">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QYK959FEKW');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hükümlü İnfaz Hesaplama - Özata Hukuk</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <style>
-        .calculator-section { padding: 5rem 0; background: var(--white); }
-        .calculator-container { max-width: 800px; margin: 0 auto; }
-        .calculator-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-        .calculator-card h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .calculator-card > p {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-            gap: 1rem;
-        }
-        .calculate-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
-        }
-        .result-box {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-            border-left: 5px solid var(--accent-color);
-            display: none;
-        }
-        .result-box.show { display: block; animation: slideUp 0.4s ease; }
-        .result-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-        }
-        .result-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #eee;
-        }
-        .formula-info {
-            background: rgba(201, 169, 97, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        .formula-info strong { color: var(--primary-color); }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .back-link:hover { text-decoration: underline; }
-        @media (max-width: 768px) {
-            .form-row { grid-template-columns: 1fr; }
-            .calculator-card { padding: 1.5rem; }
-        }
-    </style>
-</head>
 <body>
     <!-- Preloader - only shows if loading takes longer than 800ms -->
     <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
@@ -171,10 +46,11 @@
             });
         })();
     </script>
+
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="../index.html">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
                     <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
                 </a>
             </div>
@@ -194,32 +70,39 @@
                     </ul>
                 </li>
                 <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="../dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
                 <li><a href="../yayinlar.html">Yayınlar</a></li>
                 <li><a href="../iletisim.html">İletişim</a></li>
             </ul>
             <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
-                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                 </a>
             </div>
-        </nav>
+                    <button class="nav-search-btn" aria-label="Ara" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(201,169,97,0.35); border: none; border-radius: 50%; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+</nav>
     </header>
 
     <main>
@@ -391,265 +274,212 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                    <h4 style="margin-top: 25px; font-size: 1rem;">Bilgilendirme</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; margin-top: 10px;">Bu internet sitesinde yer alan bilgiler potansiyel avukat-müvekkil ilişkisi yaratılması amacına yönelik değildir.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="../index.html">Anasayfa</a></li>
+                        <li><a href="../kurumsal.html">Kurumsal</a></li>
+                        <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html" class="active">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="../dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="../iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Son Eklenen Yayınlar</h4>
+                    <div class="latest-publications-list"></div>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="../gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Koşullu salıverilme oranını belirle - Yargı Paketleri tarihlerine göre
-        function getKosulluSalivermeOrani(crimeType, isBefore2014, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12) {
-            const ratios = {
-                // Genel suçlar - 11. Yargı Paketi ile değişen oranlar
-                genel: isBefore2020 ? 0.5 : (isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.66 : 0.5))))),
-                
-                // Kasten öldürme - 11. Yargı Paketi değişikliği
-                kastenOldurme: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // Nitelikli yaralama
-                nitelikliYaralama: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.66 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // Cinsel dokunulmazlığa karşı suçlar
-                cinselSaldiri: isBefore2014 ? 0.66 : (isBefore2023 ? 0.75 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66))))),
-                
-                // Uyuşturucu suçları
-                uyusturucu: isBefore2023 ? 0.75 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // Terör suçları
-                teror: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // İşkence ve eziyet
-                iskence: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                eziyet: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // Özel hayata karşı suçlar
-                ozelHayat: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66)))),
-                
-                // Örgüt suçları
-                orgut: isBefore2023 ? 0.66 : (isBefore2024_03 ? 0.5 : (isBefore2024_11 ? 0.75 : (isBefore2025_06 ? 0.5 : (isBefore2025_12 ? 0.75 : 0.66))))
-            };
-            
-            return ratios[crimeType] || 0.66;
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="../script.js"></script>
+    <script src="../publications.js"></script>
+
+<!-- Search Modal -->
+<div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
+    <div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+        <div class="search-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="color: #c9a961; margin: 0; font-size: 1.3rem;">Site İçi Arama</h3>
+            <button id="closeSearchModal" class="close-search-btn" style="background: none; border: none; color: #c9a961; font-size: 1.5rem; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'" onmouseout="this.style.background='none'">×</button>
+        </div>
+        <div class="search-input-wrapper" style="position: relative; margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="Aramak istediğiniz kelimeyi yazın..." style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='rgba(255,255,255,0.1)';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+            <button id="searchSubmitBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="searchResults" class="search-results" style="max-height: 400px; overflow-y: auto; color: #fff;">
+            <p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const searchModal = document.getElementById('searchModal');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const closeSearchBtn = document.getElementById('closeSearchModal');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const navSearchBtns = document.querySelectorAll('.nav-search-btn');
+    
+    function openSearchModal() {
+        searchModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => searchInput.focus(), 100);
+    }
+    
+    function closeSearchModal() {
+        searchModal.style.display = 'none';
+        document.body.style.overflow = '';
+        searchInput.value = '';
+        searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>';
+    }
+    
+    navSearchBtns.forEach(btn => {
+        btn.addEventListener('click', openSearchModal);
+    });
+    
+    if (closeSearchBtn) {
+        closeSearchBtn.addEventListener('click', closeSearchModal);
+    }
+    
+    searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+            closeSearchModal();
         }
-
-        // Denetimli serbestlik süresini belirle (yıl cinsinden)
-        function getDenetimliSerbestlikYili(crimeType, isBefore2020, isBefore2024_11) {
-            const exceptionCrimes = ['kastenOldurme', 'nitelikliYaralama', 'cinselSaldiri', 'uyusturucu', 'teror', 'iskence', 'eziyet', 'ozelHayat', 'orgut'];
-            
-            if (exceptionCrimes.includes(crimeType)) {
-                // İstisna suçlar: 2024-11 öncesi 1 yıl, sonrası 6 ay (0.5 yıl)
-                return isBefore2024_11 ? 1 : 0.5;
-            } else {
-                // Genel suçlar: 2020 öncesi 3 yıl, 2020-2024 arası 1 yıl, 2024-11 sonrası 6 ay
-                if (isBefore2020) return 3;
-                else if (isBefore2024_11) return 1;
-                else return 0.5;
-            }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchModal.style.display === 'flex') {
+            closeSearchModal();
         }
-
-        // Tarihi formatla
-        function formatTarih(date) {
-            if (!date || isNaN(date.getTime())) return 'Belirlenemedi';
-            return date.toLocaleDateString('tr-TR', { year: 'numeric', month: 'long', day: 'numeric' });
+    });
+    
+    function performSearch(query) {
+        if (!query.trim()) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Lütfen bir arama terimi girin.</p>';
+            return;
         }
-
-        // Süreyi yıl/ay/gün formatında göster
-        function formatSure(gun) {
-            if (gun <= 0) return '0 gün';
-            const yil = Math.floor(gun / 365);
-            const kalanGun = gun % 365;
-            const ay = Math.floor(kalanGun / 30);
-            const sonGun = kalanGun % 30;
-            
-            let sonuc = '';
-            if (yil > 0) sonuc += yil + ' yıl ';
-            if (ay > 0) sonuc += ay + ' ay ';
-            if (sonGun > 0 || sonuc === '') sonuc += sonGun + ' gün';
-            return sonuc.trim() + ' (' + gun + ' gün)';
+        
+        query = query.toLowerCase();
+        const prefix = '../';
+        const pages = [
+            { title: 'Anasayfa', url: prefix + 'index.html', keywords: 'anasayfa, ana sayfa, home, avukat, hukuk, ege özata' },
+            { title: 'Kurumsal', url: prefix + 'kurumsal.html', keywords: 'kurumsal, hakkımızda, about, hukuk bürosu, ofis' },
+            { title: 'Ekibimiz', url: prefix + 'ekibimiz.html', keywords: 'ekip, ekibimiz, team, avukatlar, personel' },
+            { title: 'Sıkça Sorulan Sorular', url: prefix + 'sss.html', keywords: 'sss, sıkça sorulan sorular, faq, soru cevap' },
+            { title: 'Çalışma Alanlarımız', url: prefix + 'calisma-alanlari.html', keywords: 'çalışma alanları, hizmetler, hukuk alanları, uzmanlık' },
+            { title: 'Çalışma Bölgelerimiz', url: prefix + 'calisma-bolgeleri.html', keywords: 'çalışma bölgeleri, bölgeler, izmir, istanbul, bölge' },
+            { title: 'Hesaplama Araçları', url: prefix + 'hesaplamalar.html', keywords: 'hesaplama, hesaplayıcı, hesap, araçlar, tools' },
+            { title: 'Dilekçe Örnekleri', url: prefix + 'dilekce-ornekleri.html', keywords: 'dilekçe, örnek, şablon, dilekçe örneği' },
+            { title: 'Yayınlar', url: prefix + 'yayinlar.html', keywords: 'yayınlar, makaleler, blog, yazılar' },
+            { title: 'İletişim', url: prefix + 'iletisim.html', keywords: 'iletişim, contact, telefon, email, adres' },
+            { title: 'Gizlilik Politikası', url: prefix + 'gizlilik-politikasi.html', keywords: 'gizlilik, privacy, kvkk, politika' }
+        ];
+        
+        const calcPages = [
+            'arac-deger-kaybi', 'askerlik-borclanmasi', 'bayram-tatil-ucreti', 'ceza-zamanasimi',
+            'dogum-izni-hesaplama', 'emekli-maasi-hesaplama', 'fazla-mesai', 'gece-calismasi',
+            'gunluk-yevmiye', 'hukumlu-infaz', 'icra-harci', 'ihbar-tazminati', 'is-kazasi-tazminati',
+            'islah-harci', 'issizlik-maasi', 'kidem-tazminati', 'kira-artis', 'kira-stopaj-hesaplama',
+            'mahkeme-harci', 'nafaka-hesaplama', 'netten-brute-maas', 'smm-hesaplama', 'tapu-harci',
+            'tazminat', 'trafik-kazasi-tazminati', 'vekalet-ucreti', 'yillik-izin', 'yurtdisi-borclanmasi'
+        ];
+        
+        calcPages.forEach(page => {
+            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            pages.push({
+                title: title + ' Hesaplayıcı',
+                url: prefix + 'hesaplamalar/' + page + '.html',
+                keywords: page.replace(/-/g, ' ') + ' hesapla, hesaplama, hesaplayıcı'
+            });
+        });
+        
+        const petitionPages = [
+            { name: 'İcra Takibi', file: 'icra-takibi' },
+            { name: 'İdari İptal', file: 'idari-iptal' },
+            { name: 'Kıdem Tazminatı', file: 'kidem-tazminati' },
+            { name: 'Nafaka Talebi', file: 'nafaka-talebi' },
+            { name: 'Savcılık Şikayet', file: 'savcilik-sikayet' },
+            { name: 'Tüketici Hakem', file: 'tuketici-hakem' }
+        ];
+        
+        petitionPages.forEach(p => {
+            pages.push({
+                title: p.name + ' Dilekçesi',
+                url: prefix + 'dilekce-' + p.file + '.html',
+                keywords: p.name.toLowerCase() + ' dilekçe, dilekçe örneği, şablon'
+            });
+        });
+        
+        const results = pages.filter(page => 
+            page.title.toLowerCase().includes(query) || 
+            page.keywords.toLowerCase().includes(query)
+        );
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramanıza uygun sonuç bulunamadı.</p>';
+        } else {
+            let html = '<div style="display: flex; flex-direction: column; gap: 10px;">';
+            results.slice(0, 8).forEach(result => {
+                html += `<a href="${result.url}" style="display: block; padding: 15px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'; this.style.borderColor='#c9a961';" onmouseout="this.style.background='rgba(201,169,97,0.1)'; this.style.borderColor='rgba(201,169,97,0.2)';"><div style="font-weight: 600; color: #c9a961; margin-bottom: 5px;">${result.title}</div></a>`;
+            });
+            html += '</div>';
+            searchResults.innerHTML = html;
         }
-
-        function hesaplaInfaz() {
-            const yil = parseInt(document.getElementById('infaz-yil').value) || 0;
-            const ay = parseInt(document.getElementById('infaz-ay').value) || 0;
-            const gun = parseInt(document.getElementById('infaz-gun').value) || 0;
-            const tur = document.getElementById('infaz-tur').value;
-            const tutukluluk = parseInt(document.getElementById('infaz-tutukluluk').value) || 0;
-            const hukumTarihiStr = document.getElementById('infaz-hukum').value;
-            
-            // İndirim değerleri
-            const etkinIndirim = parseInt(document.getElementById('infaz-indirim-etkin').value) || 0;
-            const iyiIndirim = parseInt(document.getElementById('infaz-indirim-iyi').value) || 0;
-            const yargilamaIndirim = parseInt(document.getElementById('infaz-indirim-yargilama').value) || 0;
-            
-            // Checkbox durumları
-            const isMukerrer = document.getElementById('infaz-mukerrer').checked;
-            const isCocuk = document.getElementById('infaz-cocuk').checked;
-            const isSaglik = document.getElementById('infaz-saglik').checked;
-            
-            // 11. Yargı Paketi otomatik kontrol - Suç tarihi 31 Temmuz 2023 ve öncesi mi?
-            const sucTarihiStr = document.getElementById('infaz-suc-tarihi').value;
-            let is11Yargi = false;
-            if (sucTarihiStr) {
-                const sucTarihi = new Date(sucTarihiStr);
-                // 31 Temmuz 2023 ve öncesi (31.07.2023 dahil)
-                is11Yargi = sucTarihi <= new Date('2023-07-31');
-            }
-
-            if (!tur || yil + ay + gun === 0 || !hukumTarihiStr) {
-                alert('Lütfen ceza süresi, suç türü ve suç/hüküm tarihini giriniz.');
-                return;
-            }
-
-            const toplamGun = (yil * 365) + (ay * 30) + gun;
-            const hukumTarihi = new Date(hukumTarihiStr);
-            const hesaplamaTarihi = new Date();
-            
-            // Yargı Paketi tarihleri
-            const isBefore2020 = hukumTarihi < new Date('2020-03-30');
-            const isBefore2023 = hukumTarihi < new Date('2023-07-01');
-            const isBefore2024_03 = hukumTarihi < new Date('2024-03-12');
-            const isBefore2024_11 = hukumTarihi < new Date('2024-11-14');
-            const isBefore2025_06 = hukumTarihi < new Date('2025-06-04');
-            const isBefore2025_12 = hukumTarihi < new Date('2025-12-25');
-            
-            // isBefore2014 definition for backward compatibility
-            const isBefore2014 = hukumTarihi < new Date('2014-01-01');
-            
-            // Koşullu salıverilme oranını belirle
-            let kosulluSalivermeOrani = getKosulluSalivermeOrani(tur, isBefore2014, isBefore2020, isBefore2023, isBefore2024_03, isBefore2024_11, isBefore2025_06, isBefore2025_12);
-            
-            // Mükerrir kontrolü
-            if (isMukerrer) {
-                kosulluSalivermeOrani = 0.66; // 2/3
-            }
-            
-            // İndirim hesaplamaları
-            let indirimGun = 0;
-            let indirimAciklama = [];
-            
-            // Etkin pişmanlık
-            if (etkinIndirim > 0) {
-                const etkinGun = Math.floor(toplamGun * (etkinIndirim / 100));
-                indirimGun += etkinGun;
-                indirimAciklama.push(`Etkin pişmanlık: ${formatSure(etkinGun)}`);
-            }
-            
-            // İyi hal
-            if (iyiIndirim > 0) {
-                const iyiGun = Math.floor(toplamGun * (iyiIndirim / 100));
-                indirimGun += iyiGun;
-                indirimAciklama.push(`İyi hal: ${formatSure(iyiGun)}`);
-            }
-            
-            // Yargılama süresi (yıl olarak, direkt ceza süresinden düşülür)
-            const yargilamaGun = yargilamaIndirim * 365;
-            const indirimliCezaGun = Math.max(0, toplamGun - indirimGun - yargilamaGun);
-            
-            if (yargilamaIndirim > 0) {
-                indirimAciklama.push(`Yargılama süresi: ${yargilamaIndirim} yıl`);
-            }
-            
-            // Cezaevinde kalacak süre (koşullu salıverilme oranı uygulanmış)
-            const cezaeviSuresi = Math.floor(indirimliCezaGun * kosulluSalivermeOrani);
-            
-            // Kapalı ve açık cezaevi ayrımı (genel kural: %80 kapalı, %20 açık)
-            const kapaliCezaevi = Math.floor(cezaeviSuresi * 0.8);
-            const acikCezaevi = cezaeviSuresi - kapaliCezaevi;
-            
-            // Denetimli serbestlik süresi
-            const denetimYili = getDenetimliSerbestlikYili(tur, isBefore2020, isBefore2024_11);
-            const denetimGun = denetimYili * 365;
-            
-            // 11. Yargı Paketi (25.12.2025 - 7571 sayılı Kanun) 3+3 hesaplama
-            // 31 Temmuz 2023 ve öncesi işlenen suçlarda: 3 yıl erken açık cezaevi + 3 yıl erken denetimli serbestlik
-            const yargiPaketi11_istisnaSuclar = ['teror', 'orgut', 'cinselSaldiri'];
-            const kastenOldurme_istisna = tur === 'kastenOldurme'; // Kasten öldürmede belirli haller istisna
-            
-            let yargiPaketi11_faydalanabilir = is11Yargi && !yargiPaketi11_istisnaSuclar.includes(tur);
-            let yargiPaketi11_acikErkenGun = 0;
-            let yargiPaketi11_denetimErkenGun = 0;
-            let yargiPaketi11_aciklama = '';
-            
-            if (yargiPaketi11_faydalanabilir) {
-                // 3 yıl = 1095 gün erken açık cezaevine geçiş
-                yargiPaketi11_acikErkenGun = 3 * 365; // 1095 gün
-                // 3 yıl = 1095 gün erken denetimli serbestlik
-                yargiPaketi11_denetimErkenGun = 3 * 365; // 1095 gün
-                yargiPaketi11_aciklama = '<br><strong>✅ 11. Yargı Paketi (7571 SK - 25.12.2025):</strong> 31 Temmuz 2023 ve öncesi suç nedeniyle 3 yıl erken açık cezaevine geçiş ve 3 yıl erken denetimli serbestlik hakkı tanınmıştır.<br>';
-            } else if (is11Yargi && yargiPaketi11_istisnaSuclar.includes(tur)) {
-                yargiPaketi11_aciklama = '<br><strong>⚠️ 11. Yargı Paketi Kapsamı Dışı:</strong> Terör, örgüt veya cinsel dokunulmazlığa karşı suçlar 11. Yargı Paketi infaz düzenlemesinden yararlanamaz.<br>';
-            }
-            
-            // Tahliye tarihi hesapla
-            let tahliyeTarihi;
-            if (tutukluluk > 0) {
-                const kalanCezaevi = Math.max(0, cezaeviSuresi - tutukluluk);
-                tahliyeTarihi = new Date(hesaplamaTarihi);
-                tahliyeTarihi.setDate(tahliyeTarihi.getDate() + kalanCezaevi);
-            } else {
-                tahliyeTarihi = new Date(hesaplamaTarihi);
-                tahliyeTarihi.setDate(tahliyeTarihi.getDate() + cezaeviSuresi);
-            }
-            
-            // Oran metni
-            const oranText = kosulluSalivermeOrani === 0.5 ? '1/2 (%50)' : 
-                            kosulluSalivermeOrani === 0.66 ? '2/3 (%66)' : 
-                            kosulluSalivermeOrani === 0.75 ? '3/4 (%75)' : 
-                            `%${Math.round(kosulluSalivermeOrani * 100)}`;
-            
-            // Yasal dayanak belirle
-            let yasalDayanak = '';
-            if (!isBefore2025_12) {
-                yasalDayanak = ' (11. Yargı Paketi sonrası)';
-            } else if (!isBefore2025_06) {
-                yasalDayanak = ' (10. Yargı Paketi sonrası)';
-            } else if (!isBefore2024_11) {
-                yasalDayanak = ' (9. Yargı Paketi sonrası)';
-            } else if (!isBefore2024_03) {
-                yasalDayanak = ' (8. Yargı Paketi sonrası)';
-            } else if (!isBefore2023) {
-                yasalDayanak = ' (7. Yargı Paketi sonrası)';
-            } else if (!isBefore2020) {
-                yasalDayanak = ' (7242 Sayılı Kanun sonrası)';
-            } else {
-                yasalDayanak = ' (7242 Sayılı Kanun öncesi)';
-            }
-
-            document.getElementById('infaz-toplam').textContent = formatSure(toplamGun);
-            document.getElementById('infaz-oran').textContent = oranText + yasalDayanak;
-            document.getElementById('infaz-yatar').textContent = formatSure(cezaeviSuresi);
-            document.getElementById('infaz-mahsup').textContent = tutukluluk > 0 ? formatSure(tutukluluk) : 'Yok';
-            document.getElementById('infaz-kalan').textContent = formatSure(cezaeviSuresi - tutukluluk);
-            document.getElementById('infaz-tahliye').textContent = formatTarih(tahliyeTarihi);
-            document.getElementById('infaz-denetim').textContent = formatSure(denetimGun) + ` (${denetimYili} yıl)`;
-            
-            // Detaylı bilgi güncelle
-            const detayliBilgi = `
-<strong>📊 İnfaz Hesaplama Detayları:</strong><br><br>
-<strong>Temel Ceza:</strong> ${formatSure(toplamGun)}<br>
-<strong>İndirimler:</strong><br>${indirimAciklama.length > 0 ? indirimAciklama.map(x => '• ' + x).join('<br>') : '• İndirim uygulanmadı'}<br><br>
-<strong>İndirimli Ceza:</strong> ${formatSure(indirimliCezaGun)}<br>
-<strong>Koşullu Salıverilme Oranı:</strong> ${oranText}${yasalDayanak}<br><br>
-<strong>🏢 Cezaevinde Kalma Süresi:</strong><br>
-• Kapalı Cezaevi: ${formatSure(kapaliCezaevi)}<br>
-• Açık Cezaevi: ${formatSure(acikCezaevi)}<br>
-• Toplam: ${formatSure(cezaeviSuresi)}<br><br>
-<strong>🔓 Denetimli Serbestlik:</strong> ${formatSure(denetimGun)}<br>
-<strong>📅 Tahliye Tarihi:</strong> ${formatTarih(tahliyeTarihi)}<br><br>
-${isMukerrer ? '<strong>⚠️ Not:</strong> Mükerrir durumunda koşullu salıverilme oranı 2/3 olarak sabitlenmiştir.<br>' : ''}
-${isCocuk ? '<strong>👶 Not:</strong> 0-6 yaş çocuğu olan hükümlülere özel hükümler uygulanabilir.<br>' : ''}
-${isSaglik ? '<strong>🏥 Not:</strong> Ağır hastalık durumunda infazın ertelenmesi veya tedavi kurumuna sevk mümkündür.<br>' : ''}
-${yargiPaketi11_aciklama}
-            `;
-            
-            document.querySelector('.formula-info').innerHTML = detayliBilgi;
-            document.getElementById('infaz-sonuc').classList.add('show');
+    }
+    
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => performSearch(this.value), 300);
+    });
+    
+    if (searchSubmitBtn) {
+        searchSubmitBtn.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+    }
+    
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch(this.value);
         }
-    </script>
+    });
+})();
+</script>
+
 </body>
 </html>
-

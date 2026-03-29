@@ -1,211 +1,3 @@
-﻿<!DOCTYPE html>
-<html lang="tr">
-<head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-QYK959FEKW');
-</script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Araç Değer Kaybı Hesaplama - Özata Hukuk</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    <style>
-        .calculator-section { padding: 5rem 0; background: var(--white); }
-        .calculator-container { max-width: 900px; margin: 0 auto; }
-        .calculator-card {
-            background: var(--bg-light);
-            padding: 2.5rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow-lg);
-        }
-        .calculator-card h2 {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-        .calculator-card > p {
-            text-align: center;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-        }
-        .form-group { margin-bottom: 1.5rem; }
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-        }
-        .form-group input, .form-group select {
-            width: 100%;
-            padding: 1rem;
-            font-size: 1rem;
-            border: 2px solid #e0e0e0;
-            border-radius: 10px;
-            transition: border-color 0.3s ease;
-            font-family: inherit;
-        }
-        .form-group input:focus, .form-group select:focus {
-            outline: none;
-            border-color: var(--accent-color);
-        }
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1rem;
-        }
-        .form-row-3 {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        .calculate-btn {
-            width: 100%;
-            padding: 1.2rem;
-            background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
-            color: var(--white);
-            border: none;
-            border-radius: 10px;
-            font-size: 1.1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-        .calculate-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(201, 169, 97, 0.4);
-        }
-        .result-box {
-            background: var(--white);
-            padding: 2rem;
-            border-radius: 15px;
-            margin-top: 2rem;
-            border-left: 5px solid var(--accent-color);
-            display: none;
-        }
-        .result-box.show { display: block; animation: slideUp 0.4s ease; }
-        .result-box h3 {
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 1.3rem;
-        }
-        .result-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-        .result-card {
-            background: var(--bg-light);
-            padding: 1.5rem;
-            border-radius: 12px;
-            text-align: center;
-        }
-        .result-card h4 {
-            color: var(--primary-color);
-            font-size: 1rem;
-            margin-bottom: 0.5rem;
-        }
-        .result-card .value {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--accent-color);
-        }
-        .breakdown-section {
-            background: rgba(201, 169, 97, 0.1);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 1.5rem;
-        }
-        .breakdown-section h4 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        .breakdown-item {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.5rem 0;
-            border-bottom: 1px solid rgba(0,0,0,0.1);
-        }
-        .damage-type-card {
-            background: var(--white);
-            padding: 1rem;
-            border-radius: 10px;
-            border: 2px solid #e0e0e0;
-            margin-bottom: 1rem;
-            transition: all 0.3s ease;
-        }
-        .damage-type-card:hover {
-            border-color: var(--accent-color);
-        }
-        .damage-type-card label {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            font-weight: 500;
-            cursor: pointer;
-        }
-        .damage-type-card input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
-            accent-color: var(--accent-color);
-        }
-        .damage-type-card .damage-desc {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            margin-top: 5px;
-            margin-left: 30px;
-        }
-        .formula-info {
-            background: rgba(201, 169, 97, 0.1);
-            padding: 1rem;
-            border-radius: 8px;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-        }
-        .formula-info strong { color: var(--primary-color); }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--accent-color);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .back-link:hover { text-decoration: underline; }
-        .warning-box {
-            background: #fff3cd;
-            border: 1px solid #ffc107;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            color: #856404;
-        }
-        .warning-box strong { color: #856404; }
-        .conditional-field {
-            display: none;
-            margin-top: 1rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        .conditional-field.show { display: block; }
-        @media (max-width: 768px) {
-            .form-row, .form-row-3 { grid-template-columns: 1fr; }
-            .calculator-card { padding: 1.5rem; }
-        }
-    </style>
-</head>
 <body>
     <!-- Preloader - only shows if loading takes longer than 800ms -->
     <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
@@ -254,10 +46,11 @@
             });
         })();
     </script>
+
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="../index.html">
+                <a href="../index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
                     <img src="../logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
                 </a>
             </div>
@@ -277,32 +70,39 @@
                     </ul>
                 </li>
                 <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                <li><a href="../hesaplamalar.html" class="active">Hesaplama Araçları</a></li>
+                <li><a href="../hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="../dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
                 <li><a href="../yayinlar.html">Yayınlar</a></li>
                 <li><a href="../iletisim.html">İletişim</a></li>
             </ul>
             <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
-                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                         <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
                         <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
                     </svg>
                 </a>
-                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                         <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
                         <rect x="2" y="9" width="4" height="12"></rect>
                         <circle cx="4" cy="4" r="2"></circle>
                     </svg>
                 </a>
-                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;">
+                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
                     <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
                         <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
                     </svg>
                 </a>
             </div>
-        </nav>
+                    <button class="nav-search-btn" aria-label="Ara" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(201,169,97,0.35); border: none; border-radius: 50%; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+</nav>
     </header>
 
     <main>
@@ -543,359 +343,212 @@
             </div>
         </section>
     </main>
-
     <footer class="footer">
         <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                    <h4 style="margin-top: 25px; font-size: 1rem;">Bilgilendirme</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; margin-top: 10px;">Bu internet sitesinde yer alan bilgiler potansiyel avukat-müvekkil ilişkisi yaratılması amacına yönelik değildir.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="../index.html">Anasayfa</a></li>
+                        <li><a href="../kurumsal.html">Kurumsal</a></li>
+                        <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="../calisma-bolgeleri.html" class="active">Çalışma Bölgelerimiz</a></li>
+                <li><a href="../hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="../dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
+                <li><a href="../yayinlar.html">Yayınlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="../iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Son Eklenen Yayınlar</h4>
+                    <div class="latest-publications-list"></div>
+                </div>
+            </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="../gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
             </div>
         </div>
     </footer>
 
-    <script>
-        // Araç modelleri veritabanı
-        const aracModelleri = {
-            'acura': ['ILX', 'TLX', 'RLX', 'RDX', 'MDX', 'NSX'],
-            'alfa-romeo': ['Giulia', 'Stelvio', 'Tonale', 'Giulietta', '4C'],
-            'aston-martin': ['Vantage', 'DB11', 'DBS', 'Rapide', 'Vanquish'],
-            'audi': ['A1', 'A3', 'A4', 'A5', 'A6', 'A7', 'A8', 'Q2', 'Q3', 'Q5', 'Q7', 'Q8', 'e-tron', 'TT', 'R8'],
-            'bentley': ['Continental GT', 'Flying Spur', 'Bentayga', 'Mulsanne'],
-            'bmw': ['1 Serisi', '2 Serisi', '3 Serisi', '4 Serisi', '5 Serisi', '6 Serisi', '7 Serisi', '8 Serisi', 'X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'iX', 'i4', 'iX3', 'Z4', 'M2', 'M3', 'M4', 'M5'],
-            'bugatti': ['Chiron', 'Veyron'],
-            'buick': ['Encore', 'Envision', 'Enclave'],
-            'byd': ['Atto 3', 'Seal', 'Dolphin', 'Han', 'Tang'],
-            'cadillac': ['CT4', 'CT5', 'CT6', 'XT4', 'XT5', 'XT6', 'Escalade'],
-            'chery': ['Tiggo 7', 'Tiggo 8', 'Omoda 5', 'Omoda 3'],
-            'chevrolet': ['Spark', 'Malibu', 'Camaro', 'Corvette', 'Equinox', 'Blazer', 'Traverse', 'Tahoe', 'Suburban', 'Silverado'],
-            'chrysler': ['300C', 'Pacifica'],
-            'citroen': ['C3', 'C4', 'C5 Aircross', 'C-Elysee', 'Berlingo', 'Jumper'],
-            'cupra': ['Formentor', 'Leon', 'Ateca', 'Born'],
-            'dacia': ['Sandero', 'Logan', 'Duster', 'Spring', 'Jogger'],
-            'daewoo': ['Lanos', 'Nexia', 'Matiz'],
-            'daihatsu': ['Sirion', 'Terios', 'Materia'],
-            'dodge': ['Challenger', 'Charger', 'Durango', 'Journey'],
-            'ds': ['DS 3', 'DS 4', 'DS 7', 'DS 9'],
-            'ferrari': ['Roma', 'Portofino', '296 GTB', 'F8 Tributo', 'SF90', '812'],
-            'fiat': ['Egea', 'Egea Cross', '500', '500X', '500L', 'Panda', 'Tipo', 'Fiorino', 'Doblo', 'Scudo', 'Talento'],
-            'ford': ['Fiesta', 'Focus', 'Kuga', 'Puma', 'EcoSport', 'Escape', 'Bronco', 'Edge', 'Explorer', 'Mustang', 'Ranger', 'F-150', 'Tourneo', 'Transit', 'S-MAX', 'Galaxy'],
-            'geely': ['Coolray', 'Tugella', 'Geometry C'],
-            'honda': ['Jazz', 'Civic', 'City', 'HR-V', 'CR-V', 'ZR-V', 'Pilot', 'Accord', 'e'],
-            'hyundai': ['i10', 'i20', 'i30', 'Bayon', 'Kona', 'Tucson', 'Santa Fe', 'Palisade', 'Ioniq 5', 'Ioniq 6', 'Elantra', 'Accent'],
-            'infiniti': ['Q30', 'Q50', 'Q60', 'QX30', 'QX50', 'QX60', 'QX80'],
-            'isuzu': ['D-Max', 'MU-X'],
-            'iveco': ['Daily'],
-            'jaguar': ['XE', 'XF', 'XJ', 'E-PACE', 'F-PACE', 'I-PACE', 'F-TYPE'],
-            'jeep': ['Renegade', 'Compass', 'Cherokee', 'Grand Cherokee', 'Wrangler', 'Gladiator', 'Commander'],
-            'kia': ['Picanto', 'Rio', 'Stonic', 'Ceed', 'Cerato', 'Sportage', 'Sorento', 'Soul', 'Niro', 'EV6', 'Stinger'],
-            'lamborghini': ['Huracan', 'Urus', 'Aventador', 'Revuelto'],
-            'lancia': ['Ypsilon'],
-            'land-rover': ['Defender', 'Discovery', 'Discovery Sport', 'Range Rover', 'Range Rover Sport', 'Range Rover Velar', 'Range Rover Evoque'],
-            'lexus': ['UX', 'NX', 'RX', 'RZ', 'ES', 'LS', 'IS', 'LC', 'LX'],
-            'lincoln': ['Corsair', 'Nautilus', 'Aviator', 'Navigator', 'Continental'],
-            'lotus': ['Emira', 'Eletre', 'Evija'],
-            'maserati': ['Ghibli', 'Quattroporte', 'Levante', 'MC20', 'Grecale'],
-            'mazda': ['2', '3', '6', 'CX-3', 'CX-30', 'CX-5', 'CX-60', 'CX-80', 'MX-5', 'MX-30'],
-            'mclaren': ['Artura', 'GT', '720S', '765LT'],
-            'mercedes': ['A Serisi', 'B Serisi', 'C Serisi', 'E Serisi', 'S Serisi', 'CLA', 'CLS', 'GLA', 'GLB', 'GLC', 'GLE', 'GLS', 'G Serisi', 'EQA', 'EQB', 'EQC', 'EQE', 'EQS', 'EQS SUV', 'AMG GT', 'SL', 'Maybach'],
-            'mini': ['Cooper', 'Cooper S', 'Cooper SE', 'Countryman', 'Clubman', 'Paceman'],
-            'mitsubishi': ['Space Star', 'Eclipse Cross', 'ASX', 'Outlander', 'L200', 'Pajero'],
-            'nissan': ['Micra', 'Note', 'Juke', 'Qashqai', 'X-Trail', 'Ariya', 'Leaf', 'Navara', 'Patrol'],
-            'opel': ['Corsa', 'Astra', 'Insignia', 'Crossland', 'Grandland', 'Mokka', 'Zafira', 'Combo', 'Vivaro'],
-            'peugeot': ['108', '208', '308', '408', '508', '2008', '3008', '5008', 'Rifter', 'Traveller'],
-            'porsche': ['911', '718', 'Panamera', 'Taycan', 'Cayenne', 'Macan'],
-            'proton': ['Saga', 'Persona', 'X50', 'X70', 'X90'],
-            'range-rover': ['Evoque', 'Velar', 'Sport', 'Range Rover'],
-            'renault': ['Clio', 'Megane', 'Talisman', 'Captur', 'Austral', 'Arkana', 'Kadjar', 'Koleos', 'Duster', 'Express', 'Trafic', 'Master'],
-            'rolls-royce': ['Phantom', 'Ghost', 'Wraith', 'Dawn', 'Cullinan', 'Spectre'],
-            'saab': ['9-3', '9-5'],
-            'seat': ['Ibiza', 'Arona', 'Leon', 'Ateca', 'Tarraco', 'Alhambra'],
-            'skoda': ['Fabia', 'Scala', 'Octavia', 'Superb', 'Kamiq', 'Karoq', 'Kodiaq', 'Enyaq'],
-            'smart': ['Fortwo', 'Forfour', '#1', '#3'],
-            'ssangyong': ['Tivoli', 'Korando', 'Rexton', 'Musso'],
-            'subaru': ['Impreza', 'Legacy', 'Outback', 'Forester', 'XV', 'WRX', 'BRZ', 'Solterra'],
-            'suzuki': ['Swift', 'Baleno', 'Ignis', 'Vitara', 'S-Cross', 'Jimny', 'Across'],
-            'tata': ['Safari', 'Harrier', 'Nexon', 'Punch'],
-            'tesla': ['Model 3', 'Model Y', 'Model S', 'Model X', 'Cybertruck'],
-            'toyota': ['Aygo X', 'Yaris', 'Corolla', 'Camry', 'C-HR', 'RAV4', 'Corolla Cross', 'Highlander', 'Land Cruiser', 'Hilux', 'Prius', 'bZ4X', 'GR Yaris', 'GR Supra', 'Proace'],
-            'volkswagen': ['Polo', 'Golf', 'Jetta', 'Passat', 'Arteon', 'T-Cross', 'T-Roc', 'Taigo', 'Tiguan', 'Touareg', 'ID.3', 'ID.4', 'ID.5', 'ID. Buzz', 'Caddy', 'Transporter', 'Multivan', 'California'],
-            'volvo': ['XC40', 'XC60', 'XC90', 'C40', 'S60', 'S90', 'V60', 'V90', 'EX30', 'EX90']
-        };
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
 
-        function updateModels() {
-            const marka = document.getElementById('arac-marka').value;
-            const modelSelect = document.getElementById('arac-model');
-            
-            modelSelect.innerHTML = '<option value="">Seçiniz...</option>';
-            
-            if (marka && aracModelleri[marka]) {
-                aracModelleri[marka].forEach(model => {
-                    const option = document.createElement('option');
-                    option.value = model.toLowerCase().replace(/\s+/g, '-');
-                    option.textContent = model;
-                    modelSelect.appendChild(option);
-                });
-            }
+    <script src="../script.js"></script>
+    <script src="../publications.js"></script>
+
+<!-- Search Modal -->
+<div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
+    <div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+        <div class="search-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="color: #c9a961; margin: 0; font-size: 1.3rem;">Site İçi Arama</h3>
+            <button id="closeSearchModal" class="close-search-btn" style="background: none; border: none; color: #c9a961; font-size: 1.5rem; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'" onmouseout="this.style.background='none'">×</button>
+        </div>
+        <div class="search-input-wrapper" style="position: relative; margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="Aramak istediğiniz kelimeyi yazın..." style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='rgba(255,255,255,0.1)';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+            <button id="searchSubmitBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="searchResults" class="search-results" style="max-height: 400px; overflow-y: auto; color: #fff;">
+            <p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const searchModal = document.getElementById('searchModal');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const closeSearchBtn = document.getElementById('closeSearchModal');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const navSearchBtns = document.querySelectorAll('.nav-search-btn');
+    
+    function openSearchModal() {
+        searchModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => searchInput.focus(), 100);
+    }
+    
+    function closeSearchModal() {
+        searchModal.style.display = 'none';
+        document.body.style.overflow = '';
+        searchInput.value = '';
+        searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>';
+    }
+    
+    navSearchBtns.forEach(btn => {
+        btn.addEventListener('click', openSearchModal);
+    });
+    
+    if (closeSearchBtn) {
+        closeSearchBtn.addEventListener('click', closeSearchModal);
+    }
+    
+    searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+            closeSearchModal();
         }
-
-        function toggleAirbagWarning() {
-            const hasarAirbag = document.getElementById('hasar-airbag').checked;
-            const hasarYapisal = document.getElementById('hasar-yapisal').checked;
-            const hasarMekanik = document.getElementById('hasar-mekanik').checked;
-            
-            const warningBox = document.getElementById('airbag-warning');
-            
-            // Airbag açıldığında veya çok ciddi hasar varsa uyarı göster
-            if (hasarAirbag || (hasarYapisal && hasarMekanik)) {
-                warningBox.style.display = 'block';
-            } else {
-                warningBox.style.display = 'none';
-            }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchModal.style.display === 'flex') {
+            closeSearchModal();
         }
-
-        function toggleTramerFields() {
-            const tramerDurum = document.getElementById('tramer-durum').value;
-            const tramerBolgeField = document.getElementById('tramer-bolge-field');
-            
-            if (tramerDurum === 'var') {
-                tramerBolgeField.classList.add('show');
-            } else {
-                tramerBolgeField.classList.remove('show');
-            }
+    });
+    
+    function performSearch(query) {
+        if (!query.trim()) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Lütfen bir arama terimi girin.</p>';
+            return;
         }
-
-        function hesaplaDegerKaybi() {
-            // Form değerlerini al
-            const marka = document.getElementById('arac-marka').value;
-            const model = document.getElementById('arac-model').value;
-            const yil = parseInt(document.getElementById('arac-yil').value) || 0;
-            const km = parseInt(document.getElementById('arac-km').value) || 0;
-            const deger = parseFloat(document.getElementById('arac-deger').value) || 0;
-            const kazaTarih = document.getElementById('arac-kaza-tarih').value;
-            const tamirBedel = parseFloat(document.getElementById('tamir-bedel').value) || 0;
-            const tramerDurum = document.getElementById('tramer-durum').value;
-            const tramerBolge = document.getElementById('tramer-bolge').value;
-
-            // Hasar türleri
-            const hasarYapisal = document.getElementById('hasar-yapisal').checked;
-            const hasarMekanik = document.getElementById('hasar-mekanik').checked;
-            const hasarKaporta = document.getElementById('hasar-kaporta').checked;
-            const hasarAirbag = document.getElementById('hasar-airbag').checked;
-
-            // Validasyon
-            if (!marka || !model || !yil || !deger || !kazaTarih) {
-                alert('Lütfen araç markası, modeli, model yılı, değeri ve kaza tarihini giriniz.');
-                return;
-            }
-
-            // Airbag kontrolü - pert uyarısı
-            if (hasarAirbag) {
-                const confirmCalc = confirm('Airbag açılması durumunda araç %90 oranında perte ayrılabilir. Perte ayrılan araçlarda değer kaybı hesaplanamaz. Yine de hesaplama yapmak istiyor musunuz?');
-                if (!confirmCalc) {
-                    return;
-                }
-            }
-
-            // Mevcut yılı hesapla
-            const mevcutYil = new Date().getFullYear();
-            const aracYasi = mevcutYil - yil;
-
-            // Yaş/Km faktörü hesapla (Yargıtay kriterleri)
-            let yasFaktor = 1;
-            
-            // Yaş bazlı faktör
-            if (aracYasi <= 1) {
-                yasFaktor = 1.0; // 0-1 yaş: Tam değer
-            } else if (aracYasi <= 3) {
-                yasFaktor = 0.9; // 1-3 yaş: %10 düşüş
-            } else if (aracYasi <= 5) {
-                yasFaktor = 0.8; // 3-5 yaş: %20 düşüş
-            } else if (aracYasi <= 7) {
-                yasFaktor = 0.7; // 5-7 yaş: %30 düşüş
-            } else if (aracYasi <= 10) {
-                yasFaktor = 0.6; // 7-10 yaş: %40 düşüş
-            } else {
-                yasFaktor = 0.5; // 10+ yaş: %50 düşüş
-            }
-
-            // Kilometre bazlı ek düzeltme
-            if (km > 100000) {
-                yasFaktor *= 0.9; // 100.000+ km: ek %10 düşüş
-            } else if (km > 50000) {
-                yasFaktor *= 0.95; // 50.000-100.000 km: ek %5 düşüş
-            }
-
-            // Marka katsayısı (güncellenmiş değerler)
-            const markaKatsayi = {
-                'rolls-royce': 1.4,
-                'bentley': 1.35,
-                'bugatti': 1.35,
-                'lamborghini': 1.35,
-                'ferrari': 1.35,
-                'mclaren': 1.35,
-                'aston-martin': 1.3,
-                'maserati': 1.25,
-                'porsche': 1.25,
-                'range-rover': 1.25,
-                'mercedes': 1.2,
-                'bmw': 1.2,
-                'audi': 1.2,
-                'jaguar': 1.2,
-                'land-rover': 1.2,
-                'lexus': 1.15,
-                'volvo': 1.15,
-                'infiniti': 1.15,
-                'cadillac': 1.15,
-                'lincoln': 1.15,
-                'tesla': 1.15,
-                'genesis': 1.1,
-                'alfa-romeo': 1.1,
-                'ds': 1.1,
-                'cupra': 1.1,
-                'jeep': 1.1,
-                'mini': 1.1,
-                'volkswagen': 1.05,
-                'toyota': 1.05,
-                'honda': 1.05,
-                'mazda': 1.05,
-                'subaru': 1.05,
-                'kia': 1.05,
-                'hyundai': 1.05,
-                'skoda': 1.0,
-                'seat': 1.0,
-                'opel': 1.0,
-                'peugeot': 1.0,
-                'citroen': 1.0,
-                'renault': 1.0,
-                'nissan': 1.0,
-                'ford': 1.0,
-                'fiat': 0.95,
-                'dacia': 0.9,
-                'suzuki': 0.95,
-                'daihatsu': 0.9,
-                'lada': 0.85,
-                'proton': 0.85,
-                'tata': 0.85,
-                'chery': 0.9,
-                'geely': 0.9,
-                'byd': 0.95
-            }[marka] || 1.0;
-
-            // Hasar ağırlığı hesapla (%)
-            let hasarAgirligi = 0;
-            let hasarAciklamalar = [];
-
-            if (hasarAirbag) {
-                // Airbag açılırsa %35 değer kaybı (pert riski)
-                hasarAgirligi = 35;
-                hasarAciklamalar.push('Airbag açılması (Pert riski): %35');
-            } else {
-                if (hasarYapisal) {
-                    hasarAgirligi += 20;
-                    hasarAciklamalar.push('Yapısal hasar (Şase/Podye/Direk): %20');
-                }
-                if (hasarMekanik) {
-                    hasarAgirligi += 15;
-                    hasarAciklamalar.push('Mekanik hasar (Motor/Şanzıman): %15');
-                }
-                if (hasarKaporta) {
-                    // Kaporta hasarı tamir bedeline göre değişir
-                    if (tamirBedel > 0 && deger > 0) {
-                        const tamirOrani = (tamirBedel / deger) * 100;
-                        if (tamirOrani > 10) {
-                            hasarAgirligi += 8;
-                            hasarAciklamalar.push('Ağır kaporta hasarı: %8');
-                        } else if (tamirOrani > 5) {
-                            hasarAgirligi += 5;
-                            hasarAciklamalar.push('Orta kaporta hasarı: %5');
-                        } else {
-                            hasarAgirligi += 2;
-                            hasarAciklamalar.push('Hafif kaporta hasarı: %2');
-                        }
-                    } else {
-                        hasarAgirligi += 3;
-                        hasarAciklamalar.push('Kaporta hasarı: %3');
-                    }
-                }
-            }
-
-            // Tramer kaydı düzeltmesi
-            let tramerFaktor = 1.0;
-            if (tramerDurum === 'var') {
-                tramerFaktor = 0.85; // Tramer kaydı varsa %15 ek değer kaybı
-                hasarAciklamalar.push('Tramer kaydı: -%15');
-                
-                if (tramerBolge === 'evet') {
-                    // Aynı bölgede hasar varsa ek değer kaybı
-                    tramerFaktor *= 0.95;
-                    hasarAciklamalar.push('Aynı bölgede önceki hasar: -%5');
-                }
-            }
-
-            // Maksimum %35 sınırlaması (Yargıtay kriteri)
-            hasarAgirligi = Math.min(hasarAgirligi, 35);
-
-            // Değer kaybı hesapla
-            const degerKaybi = deger * yasFaktor * (hasarAgirligi / 100) * markaKatsayi * tramerFaktor;
-            const degerKaybiYuzde = (degerKaybi / deger) * 100;
-
-            // Sonuçları göster
-            document.getElementById('sonuc-deger').textContent = deger.toLocaleString('tr-TR') + ' TL';
-            document.getElementById('sonuc-yas-faktor').textContent = '%' + Math.round((1 - yasFaktor) * 100);
-            document.getElementById('sonuc-hasar-oran').textContent = '%' + hasarAgirligi.toFixed(1);
-            document.getElementById('sonuc-kayip').textContent = Math.round(degerKaybi).toLocaleString('tr-TR') + ' TL';
-
-            // Detayları oluştur
-            let tramerDetay = '';
-            if (tramerDurum === 'var') {
-                tramerDetay = `
-                <div class="breakdown-item">
-                    <span>Tramer Kaydı:</span>
-                    <span>Var (${tramerBolge === 'evet' ? 'Aynı bölge' : 'Farklı bölge'})</span>
-                </div>`;
-            }
-
-            const detayHTML = `
-                <div class="breakdown-item">
-                    <span>Araç Marka/Model:</span>
-                    <span>${marka.toUpperCase()} / ${model.toUpperCase()}</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Araç Yaşı:</span>
-                    <span>${aracYasi} yıl</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Kilometre:</span>
-                    <span>${km.toLocaleString('tr-TR')} km</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Yaş/Km Faktörü:</span>
-                    <span>%${Math.round((1 - yasFaktor) * 100)}</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Marka Katsayısı:</span>
-                    <span>${markaKatsayi.toFixed(2)}x</span>
-                </div>
-                <div class="breakdown-item">
-                    <span>Tamirat Bedeli:</span>
-                    <span>${tamirBedel.toLocaleString('tr-TR')} TL</span>
-                </div>
-                ${tramerDetay}
-                ${hasarAciklamalar.map(aciklama => `
-                <div class="breakdown-item">
-                    <span>Hasar Kalem:</span>
-                    <span>${aciklama}</span>
-                </div>
-                `).join('')}
-                <div class="breakdown-item" style="border-top: 2px solid var(--accent-color); margin-top: 10px; padding-top: 10px; font-weight: 600;">
-                    <span>Toplam Değer Kaybı:</span>
-                    <span>${degerKaybiYuzde.toFixed(2)}% (${Math.round(degerKaybi).toLocaleString('tr-TR')} TL)</span>
-                </div>
-            `;
-
-            document.getElementById('hesaplama-detay').innerHTML = detayHTML;
-            document.getElementById('sonuc-box').classList.add('show');
+        
+        query = query.toLowerCase();
+        const prefix = '../';
+        const pages = [
+            { title: 'Anasayfa', url: prefix + 'index.html', keywords: 'anasayfa, ana sayfa, home, avukat, hukuk, ege özata' },
+            { title: 'Kurumsal', url: prefix + 'kurumsal.html', keywords: 'kurumsal, hakkımızda, about, hukuk bürosu, ofis' },
+            { title: 'Ekibimiz', url: prefix + 'ekibimiz.html', keywords: 'ekip, ekibimiz, team, avukatlar, personel' },
+            { title: 'Sıkça Sorulan Sorular', url: prefix + 'sss.html', keywords: 'sss, sıkça sorulan sorular, faq, soru cevap' },
+            { title: 'Çalışma Alanlarımız', url: prefix + 'calisma-alanlari.html', keywords: 'çalışma alanları, hizmetler, hukuk alanları, uzmanlık' },
+            { title: 'Çalışma Bölgelerimiz', url: prefix + 'calisma-bolgeleri.html', keywords: 'çalışma bölgeleri, bölgeler, izmir, istanbul, bölge' },
+            { title: 'Hesaplama Araçları', url: prefix + 'hesaplamalar.html', keywords: 'hesaplama, hesaplayıcı, hesap, araçlar, tools' },
+            { title: 'Dilekçe Örnekleri', url: prefix + 'dilekce-ornekleri.html', keywords: 'dilekçe, örnek, şablon, dilekçe örneği' },
+            { title: 'Yayınlar', url: prefix + 'yayinlar.html', keywords: 'yayınlar, makaleler, blog, yazılar' },
+            { title: 'İletişim', url: prefix + 'iletisim.html', keywords: 'iletişim, contact, telefon, email, adres' },
+            { title: 'Gizlilik Politikası', url: prefix + 'gizlilik-politikasi.html', keywords: 'gizlilik, privacy, kvkk, politika' }
+        ];
+        
+        const calcPages = [
+            'arac-deger-kaybi', 'askerlik-borclanmasi', 'bayram-tatil-ucreti', 'ceza-zamanasimi',
+            'dogum-izni-hesaplama', 'emekli-maasi-hesaplama', 'fazla-mesai', 'gece-calismasi',
+            'gunluk-yevmiye', 'hukumlu-infaz', 'icra-harci', 'ihbar-tazminati', 'is-kazasi-tazminati',
+            'islah-harci', 'issizlik-maasi', 'kidem-tazminati', 'kira-artis', 'kira-stopaj-hesaplama',
+            'mahkeme-harci', 'nafaka-hesaplama', 'netten-brute-maas', 'smm-hesaplama', 'tapu-harci',
+            'tazminat', 'trafik-kazasi-tazminati', 'vekalet-ucreti', 'yillik-izin', 'yurtdisi-borclanmasi'
+        ];
+        
+        calcPages.forEach(page => {
+            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            pages.push({
+                title: title + ' Hesaplayıcı',
+                url: prefix + 'hesaplamalar/' + page + '.html',
+                keywords: page.replace(/-/g, ' ') + ' hesapla, hesaplama, hesaplayıcı'
+            });
+        });
+        
+        const petitionPages = [
+            { name: 'İcra Takibi', file: 'icra-takibi' },
+            { name: 'İdari İptal', file: 'idari-iptal' },
+            { name: 'Kıdem Tazminatı', file: 'kidem-tazminati' },
+            { name: 'Nafaka Talebi', file: 'nafaka-talebi' },
+            { name: 'Savcılık Şikayet', file: 'savcilik-sikayet' },
+            { name: 'Tüketici Hakem', file: 'tuketici-hakem' }
+        ];
+        
+        petitionPages.forEach(p => {
+            pages.push({
+                title: p.name + ' Dilekçesi',
+                url: prefix + 'dilekce-' + p.file + '.html',
+                keywords: p.name.toLowerCase() + ' dilekçe, dilekçe örneği, şablon'
+            });
+        });
+        
+        const results = pages.filter(page => 
+            page.title.toLowerCase().includes(query) || 
+            page.keywords.toLowerCase().includes(query)
+        );
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramanıza uygun sonuç bulunamadı.</p>';
+        } else {
+            let html = '<div style="display: flex; flex-direction: column; gap: 10px;">';
+            results.slice(0, 8).forEach(result => {
+                html += `<a href="${result.url}" style="display: block; padding: 15px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'; this.style.borderColor='#c9a961';" onmouseout="this.style.background='rgba(201,169,97,0.1)'; this.style.borderColor='rgba(201,169,97,0.2)';"><div style="font-weight: 600; color: #c9a961; margin-bottom: 5px;">${result.title}</div></a>`;
+            });
+            html += '</div>';
+            searchResults.innerHTML = html;
         }
-    </script>
+    }
+    
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => performSearch(this.value), 300);
+    });
+    
+    if (searchSubmitBtn) {
+        searchSubmitBtn.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+    }
+    
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch(this.value);
+        }
+    });
+})();
+</script>
+
 </body>
 </html>
-
