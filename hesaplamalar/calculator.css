@@ -1,0 +1,292 @@
+/* ============================================
+   HESAPLAMA ARAÇLARI - ÖZEL CSS
+   Sadece hesaplama sayfaları için
+   ============================================ */
+
+/* Ana Hesaplama Bölümü */
+.calculator-section {
+    padding: 40px 0 60px;
+    background: #f8f9fa;
+    min-height: calc(100vh - 300px);
+}
+
+/* Hesaplama Navigasyonu (Üst sekme linkleri) */
+.calculator-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 30px;
+    padding: 15px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-nav a {
+    display: inline-block;
+    padding: 8px 16px;
+    background: #f0f0f0;
+    color: #333;
+    text-decoration: none;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.calculator-nav a:hover {
+    background: #c9a961;
+    color: white;
+}
+
+/* Hesaplama Konteyneri */
+.calculator-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* Hesaplama Kartı (Ana form kartı) */
+.calculator-card {
+    background: white;
+    border-radius: 12px;
+    padding: 35px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.calculator-card h2 {
+    font-size: 1.6rem;
+    color: #1a1a2e;
+    margin-bottom: 10px;
+}
+
+.calculator-card > p {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+}
+
+/* Bilgi Kutusu */
+.info-box {
+    background: #f8f9fa;
+    border-left: 4px solid #c9a961;
+    padding: 20px;
+    margin-bottom: 30px;
+    border-radius: 0 8px 8px 0;
+}
+
+.info-box strong {
+    color: #1a1a2e;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.info-box ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.info-box li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+/* Form Grubu */
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    color: #1a1a2e;
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+    font-family: inherit;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #c9a961;
+    box-shadow: 0 0 0 3px rgba(201, 169, 97, 0.1);
+}
+
+.form-group input[type="number"] {
+    text-align: right;
+}
+
+/* Form Satırı (Yan yana inputlar) */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+/* Hesapla Butonu */
+.calculate-btn {
+    width: 100%;
+    padding: 15px 30px;
+    background: #c9a961;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.calculate-btn:hover {
+    background: #b8964f;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
+}
+
+/* Sonuç Bölümü */
+.result-section {
+    margin-top: 30px;
+    padding: 25px;
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+    border-radius: 12px;
+    color: white;
+    display: none;
+}
+
+.result-section.visible {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.result-section h3 {
+    color: #c9a961;
+    margin-bottom: 20px;
+    font-size: 1.3rem;
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+}
+
+.result-label {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.result-value {
+    color: white;
+    font-weight: 600;
+}
+
+.result-total {
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 2px solid #c9a961;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.result-total .result-label {
+    color: #c9a961;
+    font-weight: 600;
+}
+
+.result-total .result-value {
+    color: #c9a961;
+    font-weight: 700;
+    font-size: 1.4rem;
+}
+
+/* Açıklama Metni */
+.result-note {
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Mobil Uyumluluk */
+@media (max-width: 768px) {
+    .calculator-section {
+        padding: 20px 0 40px;
+    }
+    
+    .calculator-nav {
+        padding: 10px;
+        gap: 6px;
+    }
+    
+    .calculator-nav a {
+        padding: 6px 12px;
+        font-size: 0.85rem;
+    }
+    
+    .calculator-card {
+        padding: 25px 20px;
+    }
+    
+    .calculator-card h2 {
+        font-size: 1.4rem;
+    }
+    
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+    
+    .calculate-btn {
+        font-size: 1rem;
+        padding: 12px 24px;
+    }
+    
+    .result-section {
+        padding: 20px;
+    }
+    
+    .result-total {
+        font-size: 1.1rem;
+    }
+    
+    .result-total .result-value {
+        font-size: 1.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator-container {
+        padding: 0 15px;
+    }
+    
+    .calculator-card {
+        padding: 20px 15px;
+    }
+    
+    .info-box {
+        padding: 15px;
+    }
+}
