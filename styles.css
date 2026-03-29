@@ -1711,8 +1711,8 @@ body {
 }
 .article-card[data-category="ictihat"] {
     background: linear-gradient(135deg, #fefefe 0%, #f8f9fa 100%);
-    border: 2px solid rgba(139, 90, 43, 0.15);
-    border-left: 5px solid #8B5A2B;
+    border: 2px solid rgba(201, 169, 97, 0.15);
+    border-left: 5px solid var(--accent-color);
     position: relative;
     overflow: hidden;
 }
@@ -1728,64 +1728,65 @@ body {
 }
 
 .article-card[data-category="ictihat"]:hover {
-    border-color: rgba(139, 90, 43, 0.3);
-    box-shadow: 0 15px 40px rgba(139, 90, 43, 0.12);
+    border-color: rgba(201, 169, 97, 0.3);
+    box-shadow: 0 15px 40px rgba(201, 169, 97, 0.12);
     transform: translateY(-5px);
 }
 
 .article-card[data-category="ictihat"] .article-header {
-    border-bottom: 1px dashed rgba(139, 90, 43, 0.2);
+    border-bottom: 1px dashed rgba(201, 169, 97, 0.25);
     padding-bottom: 1rem;
     margin-bottom: 1.5rem;
 }
 
 .article-card[data-category="ictihat"] .article-category {
-    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 100%);
-    color: var(--white);
-    box-shadow: 0 3px 10px rgba(139, 90, 43, 0.3);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    color: var(--primary-color);
+    box-shadow: 0 3px 10px rgba(201, 169, 97, 0.3);
 }
 
 .article-card[data-category="ictihat"] .article-title {
     font-size: 1.9rem;
-    color: #5c3a1e;
+    color: var(--primary-color);
     line-height: 1.35;
     position: relative;
     padding-left: 1rem;
-    border-left: 3px solid #8B5A2B;
+    border-left: 3px solid var(--accent-color);
 }
 
 .article-card[data-category="ictihat"] .article-excerpt {
-    border-left: 3px solid #A0522D;
-    background: linear-gradient(135deg, rgba(139, 90, 43, 0.05) 0%, rgba(160, 82, 45, 0.02) 100%);
+    border-left: 3px solid var(--accent-color);
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.08) 0%, rgba(201, 169, 97, 0.03) 100%);
     padding: 1.2rem 1.5rem;
     border-radius: 0 8px 8px 0;
 }
 
 .article-card[data-category="ictihat"] .article-excerpt p {
-    color: #4a3728;
+    color: var(--text-color);
     font-size: 1.05rem;
     line-height: 1.8;
 }
 
 .article-card[data-category="ictihat"] .article-excerpt strong {
-    color: #8B5A2B;
+    color: var(--accent-color);
     font-weight: 600;
 }
 
 .article-card[data-category="ictihat"] .article-read-more {
-    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 100%);
-    box-shadow: 0 4px 15px rgba(139, 90, 43, 0.25);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    color: var(--primary-color);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.3);
 }
 
 .article-card[data-category="ictihat"] .article-read-more:hover {
-    background: linear-gradient(135deg, #6b4423 0%, #8B5A2B 100%);
-    box-shadow: 0 6px 20px rgba(139, 90, 43, 0.35);
+    background: linear-gradient(135deg, #b89850 0%, var(--accent-color) 100%);
+    box-shadow: 0 6px 20px rgba(201, 169, 97, 0.4);
 }
 
 /* İçtihat Kartı İçeriği - Tam Açılmış Makale */
 .article-card.full-article[data-category="ictihat"] {
     background: var(--white);
-    border-left: 6px solid #8B5A2B;
+    border-left: 6px solid var(--accent-color);
 }
 
 .article-card.full-article[data-category="ictihat"] .article-content {
@@ -1801,8 +1802,8 @@ body {
     position: absolute;
     top: -12px;
     left: 20px;
-    background: #8B5A2B;
-    color: white;
+    background: var(--accent-color);
+    color: var(--primary-color);
     padding: 4px 15px;
     font-size: 0.75rem;
     font-weight: 700;
@@ -1820,7 +1821,7 @@ body {
 }
 
 .article-card.full-article[data-category="ictihat"] .article-content strong {
-    color: #8B5A2B;
+    color: var(--accent-color);
 }
 
 /* İçtihat için özel responsive ayarlar */
