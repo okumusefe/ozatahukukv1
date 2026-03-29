@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-QYK959FEKW');
+</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hukuki makaleler, yayınlar ve güncel hukuki gelişmeler.">
+    <meta name="keywords" content="izmir avukat, hukuk bürosu, ceza avukatı, aile avukatı, iş hukuku, icra avukatı">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>Yayınlar | Özata Hukuk Bürosu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
+    
+    <!-- Critical CSS inline for above-the-fold content -->
+    <style>
+        /* Critical: Prevent FOIT with system font fallback */
+        html {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+        
+        /* Critical: Header styles to prevent layout shift */
+        .header {
+            min-height: 80px;
+        }
+        
+        /* Preloader critical styles */
+        #preloader {
+            contain: strict;
+            content-visibility: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader - only shows if loading takes longer than 800ms -->
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
+        <div class="preloader-logo" style="animation: spin 2s linear infinite;">
+            <img src="logo.svg" alt="Özata Hukuk" width="100" height="64" style="display: block;">
+        </div>
+        <div class="preloader-text" style="margin-top: 20px; color: rgba(201,169,97,0.9); font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; animation: pulse 1.5s ease-in-out infinite;">YÜKLENİYOR...</div>
+    </div>
+    
+    <style>
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 0.6; }
+            50% { opacity: 1; }
+        }
+        #preloader.visible {
+            opacity: 1;
+            visibility: visible;
+            pointer-events: auto;
+        }
+    </style>
+    
+    <script>
+        (function() {
+            const preloader = document.getElementById('preloader');
+            let preloaderShown = false;
+            let pageLoaded = false;
+            
+            // Show preloader only if loading takes longer than 800ms
+            const showTimeout = setTimeout(function() {
+                if (!pageLoaded) {
+                    preloader.classList.add('visible');
+                    preloaderShown = true;
+                }
+            }, 800);
+            
+            window.addEventListener('load', function() {
+                pageLoaded = true;
+                clearTimeout(showTimeout);
+                if (preloaderShown) {
+                    preloader.classList.remove('visible');
+                }
+            });
+        })();
+    </script>
+
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
+                    <img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                </a>
+            </div>
+            <button class="mobile-menu-toggle" aria-label="Menü">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html">Anasayfa</a></li>
+                <li class="dropdown">
+                    <a href="../kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="../kurumsal.html">Hakkımızda</a></li>
+                        <li><a href="../ekibimiz.html">Ekibimiz</a></li>
+                        <li><a href="../sss.html">Sıkça Sorulan Sorular</a></li>
+                    </ul>
+                </li>
+                <li><a href="../calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="../dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
+                <li><a href="yayinlar.html" class="active">Yayınlar</a></li>
+                <li><a href="../iletisim.html">İletişim</a></li>
+            </ul>
+            <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
+                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                </a>
+                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                        <rect x="2" y="9" width="4" height="12"></rect>
+                        <circle cx="4" cy="4" r="2"></circle>
+                    </svg>
+                </a>
+                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
+                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                    </svg>
+                </a>
+            </div>
+                    <button class="nav-search-btn" aria-label="Ara" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(201,169,97,0.35); border: none; border-radius: 50%; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+</nav>
+    </header>
+
+    <main>
+        <section class="page-hero">
+            <div class="container">
+                <h1>Yayınlar</h1>
+                <p>Hukuk alanındaki güncel gelişmeler ve uzman görüşlerimiz</p>
+            </div>
+        </section>
+
+        <section class="articles-section">
+            <div class="container">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" data-filter="tck" onclick="filterArticles('tck')">TCK</button>
+                    <button class="filter-btn" data-filter="cmk" onclick="filterArticles('cmk')">CMK</button>
+                    <button class="filter-btn" data-filter="ictihat" onclick="filterArticles('ictihat')">İçtihat</button>
+                    <button class="filter-btn" data-filter="guncel" onclick="filterArticles('guncel')">Güncel Haber</button>
+                </div>
+                <div class="articles-grid">
+                    <!-- TCK Articles -->
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ceza Sorumluluğunun Şahsiliği, Kast ve Taksir: (md. 20-23)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 20-23</strong> - Ceza hukukunun temel taşı, her bireyin yalnızca kendi fiillerinden sorumlu tutulması ilkesidir.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-20-23.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ceza Sorumluluğunu Kaldıran veya Azaltan Nedenler: (md. 24-34)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 24-34</strong> - Meşru müdafa, zaruret hali, haksız tahrik ve rıza halleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-24-34.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Suça Teşebbüs: (md. 35-36)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 35-36</strong> - Suçun icrasına başlanması ancak neticenin gerçekleşmemesi halleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-35-36.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Suça İştirak: (md. 37-41)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 37-41</strong> - Azmettirme, yardım etme ve organize suç örgütleri hükümleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-37-41.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Suçların İçtimaı: (md. 42-44)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 42-44</strong> - Bir fiilin birden fazla suç oluşturması, fikrî ve fiilî içtima.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-42-44.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cezalar: (md. 45-52)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 45-52</strong> - Hapis cezası ve adli para cezası hükümleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-45-52.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Güvenlik Tedbirleri: (md. 53-60)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 53-60</strong> - İş ve meslekten yasaklama, müsadere, denetimli serbestlik.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-53-60.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cezanın Belirlenmesi ve Bireyselleştirilmesi: (md. 61-63)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 61-63</strong> - Cezanın belirlenmesi ve bireyselleştirilmesi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-61-63.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Dava ve Cezanın Düşürülmesi: (md. 64-75)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 64-75</strong> - Zamanaşımı, af ve cezanın sona ermesi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-64-75.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Soykırım ve İnsanlığa Karşı Suçlar: (md. 76-78)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 76-78</strong> - Soykırım, insanlığa karşı suçlar ve savaş suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-76-78.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Göçmen Kaçakçılığı ve İnsan Ticareti: (md. 79-80)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 79-80</strong> - Göçmen kaçakçılığı ve insan ticareti suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-79-80.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Hayata Karşı Suçlar: (md. 81-85)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 81-85</strong> - Kasten öldürme, tasarlayarak öldürme, canavarca hisle öldürme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-81-85.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Vücut Dokunulmazlığına Karşı Suçlar: (md. 86-93)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 86-93</strong> - Kasten yaralama ve taksirle yaralama hükümleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-86-93.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda İşkence ve Eziyet: (md. 94-96)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 94-96</strong> - İşkence, insanlık dışı muamele ve eziyet suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-94-96.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Koruma, Gözetim, Yardım veya Bildirim Yükümlülüğünün İhlali: (md. 97-98)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 97-98</strong> - Koruma ve yardım yükümlülüğünün ihlali.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-97-98.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Çocuk Düşürtme, Düşürme veya Kısırlaştırma: (md. 99-101)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 99-101</strong> - Çocuk düşürtme, düşürme ve kısırlaştırma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-99-101.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Cinsel Dokunulmazlığa Karşı Suçlar: (md. 102-105)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 102-105</strong> - Cinsel saldırı, çocuğun cinsel istismarı, cinsel taciz.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-102-105.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Hürriyete Karşı Suçlar: (md. 106-124)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 106-124</strong> - Hürriyetin engellenmesi, cebir, şantaj, kaçırma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-106-124.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Şerefe Karşı Suçlar: (md. 125-131)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 125-131</strong> - Hakaret ve iftira suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-125-131.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Özel Hayata ve Hayatın Gizli Alanına Karşı Suçlar: (md. 132-140)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 132-140</strong> - Özel hayatın gizliliği ve haberleşme hürriyeti.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-132-140.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Malvarlığına Karşı Suçlar: (md. 141-169)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 141-169</strong> - Hırsızlık, dolandırıcılık, zimmet, yağma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-141-169.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Genel Tehlike Yaratan Suçlar: (md. 170-180)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 170-180</strong> - Yangın, patlayıcılar ve tehlikeli maddeler.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-170-180.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Çevreye Karşı Suçlar: (md. 181-184)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 181-184</strong> - Çevre kirliliği, su havzaları ve ormanlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-181-184.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamunun Sağlığına Karşı Suçlar: (md. 185-196)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 185-196</strong> - Gıda, ilaç, uyuşturucu ve halk sağlığı.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-185-196.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu Güvenine Karşı Suçlar: (md. 197-212)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 197-212</strong> - Para sahteciliği, evrak sahteciliği.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-197-212.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu Barışına Karşı Suçlar: (md. 213-222)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 213-222</strong> - Silah, patlayıcı ve kamu barışını bozucu suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-213-222.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ulaşım Araçlarına veya Sabit Platformlara Karşı Suçlar: (md. 223-224)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 223-224</strong> - Ulaşım güvenliğine yönelik suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-223-224.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Genel Ahlaka Karşı Suçlar: (md. 225-229)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 225-229</strong> - Fuhuş ve genel ahlaka yönelik suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-225-229.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Aile Düzenine Karşı Suçlar: (md. 230-234)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 230-234</strong> - Evlilik dışı ilişki ve aile suçları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-230-234.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Ekonomi, Sanayi ve Ticarete İlişkin Suçlar: (md. 235-242)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 235-242</strong> - Rekabet, tüketici koruması ve ekonomik suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-235-242.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Bilişim Alanında Suçlar: (md. 243-246)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 243-246</strong> - Siber suçlar ve bilişim güvenliği.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-243-246.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Kamu İdaresinin Güvenilirliğine ve İşleyişine Karşı Suçlar: (md. 247-266)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 247-266</strong> - Görevi kötüye kullanma, rüşvet.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-247-266.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Adliyeye Karşı Suçlar: (md. 267-298)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 267-298</strong> - Yargı görevini yapmayan memur, delil yok etme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-267-298.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devletin Egemenlik Alametlerine ve Organlarının Saygınlığına Karşı Suçlar: (md. 299-301)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 299-301</strong> - Cumhurbaşkanına ve TBMM üyelerine hakaret.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-299-301.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devletin Güvenliğine Karşı Suçlar: (md. 302-308)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 302-308</strong> - Anayasal düzeni ortadan kaldırma, silahlı isyan.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-302-308.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Anayasal Düzene ve Bu Düzenin İşleyişine Karşı Suçlar: (md. 309-316)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 309-316</strong> - Cumhuriyeti ortadan kaldırma, hükümeti devirme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-309-316.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Milli Savunmaya Karşı Suçlar: (md. 317-325)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 317-325</strong> - Asker kaçaklığı ve askeri suçlar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-317-325.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Devlet Sırlarına Karşı Suçlar ve Casusluk: (md. 326-339)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>TCK md. 326-339</strong> - Devlet sırlarını açıklama ve casusluk.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-326-339.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="tck">
+                        <div class="article-header">
+                            <span class="article-category">TCK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Türk Ceza Kanunu'nda Yabancı Devletlerle Olan İlişkilere Karşı Suçlar: (md. 340-343)</h2>
+                        <div class="article-excerpt">
+                        <button class="article-read-more" onclick="window.location.href='makale-tck-340-343.html'">Devamını Oku →</button>
+                    </article>
+
+                    <!-- İçtihatlar -->
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">17 Ocak 2019</span>
+                        </div>
+                        <h2 class="article-title">Yağma Suçunda Teşebbüs ve Hükmün Gerekçeli Olması - Yargıtay 6. Ceza Dairesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Yargıtay 6. Ceza Dairesi - 17.01.2019</strong> - Önceden önlem alan polislerin müdahalesiyle eylemlerini tamamlaması mümkün bulunmayan sanıklar hakkında TCK'nin 35. maddesiyle teşebbüs hükümleri uygulanması gerekir. Sanığın yağma suçunun asli faili olduğunu gösteren delillerin nelerden ibaret olduğu karar yerinde açıklanıp tartışılmadan genel geçişli ifadelerle yetinilmesi, ayrıca sanıkların eyleminin TCK 149/1-c bendinin yanı sıra 149/1-d bendi kapsamında kaldığının düşünülmemesi hukuka aykırıdır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-yagma-tesebbus.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">23 Haziran 2025</span>
+                        </div>
+                        <h2 class="article-title">Haksız Gözaltı ve Tutukluluk Nedeniyle Manevi Tazminatın Belirlenmesi - Yargıtay 12. Ceza Dairesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Yargıtay 12. Ceza Dairesi - 23.06.2025</strong> - Çocuğun cinsel istismarı suçundan 718 gün gözaltı/tutuklu kaldıktan sonra beraat eden davacıya haksız gözaltı ve tutukluluk nedeniyle manevi tazminat belirlenirken; davacının sosyal ve ekonomik durumu, üzerine atılı suçun niteliği, tutuklanmasına neden olan olayın cereyan tarzı, tutuklu kaldığı süre ve tazminat davasının kesinleşeceği tarihe kadar faizi ile elde edeceği parasal değer dikkate alınarak hak ve nesafet ilkelerine uygun makul bir miktar tayin edilmesi gerekir. Belirlenen ölçütlere uymayacak şekilde eksik manevi tazminat hükmedilmesi hukuka aykırıdır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-haksiz-tutukluluk-tazminat.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">19 Haziran 2025</span>
+                        </div>
+                        <h2 class="article-title">Cumhurbaşkanına Hakaret ve Kamu Görevlisine Hakaret Suçlarının Birleştirilmesi - Yargıtay 4. Ceza Dairesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Yargıtay 4. Ceza Dairesi - 19.06.2025</strong> - Sanığın aynı eylemle Cumhurbaşkanına ve kendisine müdahale eden polis memurlarına hakaret etmesi durumunda, Cumhurbaşkanına hakaret (TCK 299) ile kamu görevlisine görevinden dolayı hakaret suçlarının tek eylemle işlenmesi nedeniyle TCK 44. gereği daha ağır hüküm içeren TCK 299 uyarınca hüküm kurulması gerekir. Polis memurları hakkındaki sözlerden dolayı açılan davanın varlığı araştırılmayıp, koşulların oluşması halinde birleştirme kararı verilerek delillerin birlikte değerlendirilmesi gerektiğinin gözetilmemesi hukuka aykırıdır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-hakaret-birlestirme.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">12 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Konut İhtiyacı Sebebiyle Tahliyede Reşit Davacının Ayrı Meskende Oturma Hakkı - İstanbul BAM 54. Hukuk</h2>
+                        <div class="article-excerpt">
+                            <p><strong>İstanbul Bölge Adliye Mahkemesi 54. Hukuk Dairesi - 02.10.2025</strong> - Konut ihtiyacı sebebiyle tahliye davasında, reşit olan davacının ayrı meskende oturması yasal hakkı olduğundan anne veya babası ile birlikte oturmaya zorlanamaz. 61 yaşlı davacının babasıyla yaşadığı evin küçüklüğü ve aile içi anlaşmazlıklar nedeniyle ayrı yaşama isteği, gerçek, samimi ve zorunlu ihtiyaç olarak kabul edilir.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-konut-ihtiyaci-tahliye.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">26 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">İş Merkezi Bina Görevlisinin Komşu Olarak Değerlendirilemeyeceği - Yargıtay 12. Hukuk Dairesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Yargıtay 12. Hukuk Dairesi - 23.06.2025</strong> - İş merkezi bina görevlisi "en yakın komşu" olarak değerlendirilemeyeceğinden bu kişiye yapılan tebligat usulsüzdür. Tebligat Kanunu'nun 21. maddesi gereği haber verilen kişinin isminin ve sıfatının tutanağa usulüne uygun geçirilmesi zorunludur. Fazlaca bağımsız bölümü olan iş hanının bina görevlisi, komşu sıfatı taşımadığından tebligat usulsüz sayılır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-tebligat-bina-gorevlisi.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="ictihat">
+                        <div class="article-header">
+                            <span class="article-category">İçtihat</span>
+                            <span class="article-date">19 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">İhtiyari Arabuluculuk Görüşmesinin İşveren Şantiyesinde Telekonferans ile Yapılması - Yargıtay 9. Hukuk Dairesi</h2>
+                        <div class="article-excerpt">
+                            <p><strong>Yargıtay 9. Hukuk Dairesi - 04.11.2025</strong> - İhtiyari arabuluculuk görüşmesinin işçinin işverenin şantiyesinde bulunduğu sırada telekonferans ile gerçekleştirilmesi tek başına irade sakatlığı için yeterli olmayıp, tutanağın iptalini gerektirmez. İşçinin irade fesadı iddiasını ispat edemediği durumlarda arabuluculuk tutanağı geçerli sayılır.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='ictihat-arabuluculuk-telekonferans.html'">Devamını Oku →</button>
+                    </article>
+
+                    <!-- CMK Articles -->
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Görev: (md. 3-7)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 3-7</strong> - Ceza muhakemesinde görev kuralları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-3-7.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Bağlantılı Davalar: (md. 8-11)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 8-11</strong> - Birleştirme ve bağlantılı davalar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-8-11.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Yetki: (md. 12-21)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 12-21</strong> - Ceza muhakemesinde yetki kuralları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-12-21.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Hâkimin Davaya Bakamaması ve Reddi: (md. 22-32)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 22-32</strong> - Hâkimin tarafsızlığı ve reddi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-22-32.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kararlar, Açıklanması ve Tebliği: (md. 33-38)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 33-38</strong> - Kararların usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-33-38.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Süreler ve Eski Hâle Getirme: (md. 39-42)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 39-42</strong> - Süreler ve eski hâle getirme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-39-42.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Tanıklık: (md. 43-61)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 43-61</strong> - Tanık beyanları ve hakları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-43-61.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Bilirkişi İncelemesi: (md. 62-73)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 62-73</strong> - Bilirkişi incelemesi usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-62-73.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Gözlem Altına Alınma, Muayene, Keşif ve Otopsi: (md. 74-89)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 74-89</strong> - Delil elde etme yöntemleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-74-89.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Yakalama ve Gözaltı: (md. 90-99)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 90-99</strong> - Yakalama ve gözaltı usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-90-99.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Tutuklama: (md. 100-108)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 100-108</strong> - Tutuklama tedbiri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-100-108.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Adlî Kontrol: (md. 109-115)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 109-115</strong> - Adli kontrol tedbirleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-109-115.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Arama ve Elkoyma: (md. 116-134)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 116-134</strong> - Arama ve el koyma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-116-134.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Telekomünikasyon Yoluyla Yapılan İletişimin Denetlenmesi: (md. 135-138)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 135-138</strong> - İletişim denetimi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-135-138.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Gizli Soruşturmacı ve Teknik Araçlarla İzleme: (md. 139-140)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 139-140</strong> - Teknik takip.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-139-140.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Koruma Tedbirleri Nedeniyle Tazminat: (md. 141-144)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 141-144</strong> - Koruma tedbirleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-141-144.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda İfade veya Sorgu İçin Çağrı: (md. 145-146)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 145-146</strong> - Çağrı usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-145-146.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda İfade ve Sorgu Usulü: (md. 147-148)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 147-148</strong> - Sorgu teknikleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-147-148.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Müdafi Seçimi, Görevlendirilmesi, Görev ve Yetkileri: (md. 149-156)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 149-156</strong> - Müdafilik hakkı.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-149-156.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Soruşturmanın Gizliliği, Suçların İhbarı: (md. 157-159)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 157-159</strong> - Soruşturma ilkeleri.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-157-159.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Soruşturma İşlemleri: (md. 160-169)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 160-169</strong> - Soruşturma evresi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-160-169.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kamu Davasının Açılması: (md. 170-171)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 170-171</strong> - İddianame.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-170-171.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kovuşturmaya Yer Olmadığına Dair Karar, İtiraz ve İddianamenin İadesi: (md. 172-174)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 172-174</strong> - Takipsizlik kararı.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-172-174.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Duruşma Hazırlığı: (md. 175-181)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 175-181</strong> - Duruşma öncesi hazırlıklar.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-175-181.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Duruşma: (md. 182-202)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 182-202</strong> - Duruşma usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-182-202.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Duruşmanın Düzen ve Disiplini: (md. 203-205)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 203-205</strong> - Duruşma düzeni.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-203-205.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Delillerin Ortaya Konulması ve Tartışılması: (md. 206-218)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 206-218</strong> - Delil sunma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-206-218.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Duruşma Tutanağı: (md. 219-222)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 219-222</strong> - Tutanak tutma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-219-222.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Duruşmanın Sona Ermesi ve Hüküm: (md. 223-225)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 223-225</strong> - Hüküm kurulması.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-223-225.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Suç Niteliğinde Değişiklik: (md. 226-226)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 226-226</strong> - Nitelik değişikliği.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-226-226.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Karar ve Hüküm: (md. 227-232)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 227-232</strong> - Kararlar ve hükümler.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-227-232.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Suçun Mağduru ile Şikâyetçinin Hakları: (md. 233-236)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 233-236</strong> - Mağdur hakları.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-233-236.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kamu Davasına Katılma: (md. 237-243)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 237-243</strong> - Dava katılma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-237-243.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Gaiplerin Yargılanması: (md. 244-246)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 244-246</strong> - Gaip sanık.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-244-246.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kaçakların Yargılanması: (md. 247-248)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 247-248</strong> - Kaçak sanık.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-247-248.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Tüzel Kişilerin Soruşturmada ve Kovuşturmada Temsili: (md. 249-249)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 249-249</strong> - Tüzel kişi temsili.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-249-249.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Bazı Suçlara İlişkin Muhakeme: (md. 250-252)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 250-252</strong> - Özel muhakeme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-250-252.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Uzlaşma: (md. 253-255)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 253-255</strong> - Uzlaşma usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-253-255.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Müsadere Usulü: (md. 256-259)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 256-259</strong> - Müsadere.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-256-259.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Genel Hükümler: (md. 260-266)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 260-266</strong> - Genel hükümler.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-260-266.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda İtiraz: (md. 267-271)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 267-271</strong> - İtiraz usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-267-271.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda İstinaf: (md. 272-285)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 272-285</strong> - İstinaf incelemesi.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-272-285.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Temyiz: (md. 286-307)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 286-307</strong> - Temyiz usulü.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-286-307.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Cumhuriyet Başsavcısının İtiraz Yetkisi: (md. 308-308)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 308-308</strong> - Başsavcı itirazı.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-308-308.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Kanun Yararına Bozma: (md. 309-310)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 309-310</strong> - Kanun yararına bozma.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-309-310.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Yargılamanın Yenilenmesi: (md. 311-323)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 311-323</strong> - Yenileme.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-311-323.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Yargılama Giderleri: (md. 324-330)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 324-330</strong> - Giderler.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-324-330.html'">Devamını Oku →</button>
+                    </article>
+
+                    <article class="article-card" data-category="cmk">
+                        <div class="article-header">
+                            <span class="article-category">CMK</span>
+                            <span class="article-date">27 Mart 2026</span>
+                        </div>
+                        <h2 class="article-title">Ceza Muhakemesi Kanunu'nda Çeşitli Hükümler: (md. 331-335)</h2>
+                        <div class="article-excerpt">
+                            <p><strong>CMK md. 331-335</strong> - Çeşitli hükümler.</p>
+                        </div>
+                        <button class="article-read-more" onclick="window.location.href='makale-cmk-331-335.html'">Devamını Oku →</button>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>ÖZATA HUKUK</h4>
+                    <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
+                    <h4 style="margin-top: 25px; font-size: 1rem;">Bilgilendirme</h4>
+                    <p style="font-size: 0.85rem; line-height: 1.6; margin-top: 10px;">Bu internet sitesinde yer alan bilgiler potansiyel avukat-müvekkil ilişkisi yaratılması amacına yönelik değildir.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Hızlı Bağlantılar</h4>
+                    <ul>
+                        <li><a href="index.html">Anasayfa</a></li>
+                        <li><a href="kurumsal.html">Kurumsal</a></li>
+                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
+                <li><a href="calisma-bolgeleri.html" class="active">Çalışma Bölgelerimiz</a></li>
+                <li><a href="hesaplamalar.html">Hesaplama Araçları</a></li>
+                <li><a href="dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
+                <li><a href="yayinlar.html">Yayınlar</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>İletişim</h4>
+                    <ul>
+                        <li><a href="iletisim.html">İletişim Formu</a></li>
+                        <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
+                        <li><a href="mailto:info@ozatahukuk.com">E-posta</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>Son Eklenen Yayınlar</h4>
+                    <div class="latest-publications-list"></div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+        </svg>
+    </a>
+
+    <script src="script.js"></script>
+    <script src="publications.js"></script>
+
+<!-- Search Modal -->
+<div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
+    <div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
+        <div class="search-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+            <h3 style="color: #c9a961; margin: 0; font-size: 1.3rem;">Site İçi Arama</h3>
+            <button id="closeSearchModal" class="close-search-btn" style="background: none; border: none; color: #c9a961; font-size: 1.5rem; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'" onmouseout="this.style.background='none'">×</button>
+        </div>
+        <div class="search-input-wrapper" style="position: relative; margin-bottom: 20px;">
+            <input type="text" id="searchInput" placeholder="Aramak istediğiniz kelimeyi yazın..." style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='rgba(255,255,255,0.1)';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
+            <button id="searchSubmitBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="11" cy="11" r="8"></circle>
+                    <path d="m21 21-4.35-4.35"></path>
+                </svg>
+            </button>
+        </div>
+        <div id="searchResults" class="search-results" style="max-height: 400px; overflow-y: auto; color: #fff;">
+            <p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function() {
+    const searchModal = document.getElementById('searchModal');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+    const closeSearchBtn = document.getElementById('closeSearchModal');
+    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
+    const navSearchBtns = document.querySelectorAll('.nav-search-btn');
+    
+    function openSearchModal() {
+        searchModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        setTimeout(() => searchInput.focus(), 100);
+    }
+    
+    function closeSearchModal() {
+        searchModal.style.display = 'none';
+        document.body.style.overflow = '';
+        searchInput.value = '';
+        searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>';
+    }
+    
+    navSearchBtns.forEach(btn => {
+        btn.addEventListener('click', openSearchModal);
+    });
+    
+    if (closeSearchBtn) {
+        closeSearchBtn.addEventListener('click', closeSearchModal);
+    }
+    
+    searchModal.addEventListener('click', function(e) {
+        if (e.target === searchModal) {
+            closeSearchModal();
+        }
+    });
+    
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && searchModal.style.display === 'flex') {
+            closeSearchModal();
+        }
+    });
+    
+    function performSearch(query) {
+        if (!query.trim()) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Lütfen bir arama terimi girin.</p>';
+            return;
+        }
+        
+        query = query.toLowerCase();
+        const prefix = '';
+        const pages = [
+            { title: 'Anasayfa', url: prefix + 'index.html', keywords: 'anasayfa, ana sayfa, home, avukat, hukuk, ege özata' },
+            { title: 'Kurumsal', url: prefix + 'kurumsal.html', keywords: 'kurumsal, hakkımızda, about, hukuk bürosu, ofis' },
+            { title: 'Ekibimiz', url: prefix + 'ekibimiz.html', keywords: 'ekip, ekibimiz, team, avukatlar, personel' },
+            { title: 'Sıkça Sorulan Sorular', url: prefix + 'sss.html', keywords: 'sss, sıkça sorulan sorular, faq, soru cevap' },
+            { title: 'Çalışma Alanlarımız', url: prefix + 'calisma-alanlari.html', keywords: 'çalışma alanları, hizmetler, hukuk alanları, uzmanlık' },
+            { title: 'Çalışma Bölgelerimiz', url: prefix + 'calisma-bolgeleri.html', keywords: 'çalışma bölgeleri, bölgeler, izmir, istanbul, bölge' },
+            { title: 'Hesaplama Araçları', url: prefix + 'hesaplamalar.html', keywords: 'hesaplama, hesaplayıcı, hesap, araçlar, tools' },
+            { title: 'Dilekçe Örnekleri', url: prefix + 'dilekce-ornekleri.html', keywords: 'dilekçe, örnek, şablon, dilekçe örneği' },
+            { title: 'Yayınlar', url: prefix + 'yayinlar.html', keywords: 'yayınlar, makaleler, blog, yazılar' },
+            { title: 'İletişim', url: prefix + 'iletisim.html', keywords: 'iletişim, contact, telefon, email, adres' },
+            { title: 'Gizlilik Politikası', url: prefix + 'gizlilik-politikasi.html', keywords: 'gizlilik, privacy, kvkk, politika' }
+        ];
+        
+        const calcPages = [
+            'arac-deger-kaybi', 'askerlik-borclanmasi', 'bayram-tatil-ucreti', 'ceza-zamanasimi',
+            'dogum-izni-hesaplama', 'emekli-maasi-hesaplama', 'fazla-mesai', 'gece-calismasi',
+            'gunluk-yevmiye', 'hukumlu-infaz', 'icra-harci', 'ihbar-tazminati', 'is-kazasi-tazminati',
+            'islah-harci', 'issizlik-maasi', 'kidem-tazminati', 'kira-artis', 'kira-stopaj-hesaplama',
+            'mahkeme-harci', 'nafaka-hesaplama', 'netten-brute-maas', 'smm-hesaplama', 'tapu-harci',
+            'tazminat', 'trafik-kazasi-tazminati', 'vekalet-ucreti', 'yillik-izin', 'yurtdisi-borclanmasi'
+        ];
+        
+        calcPages.forEach(page => {
+            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            pages.push({
+                title: title + ' Hesaplayıcı',
+                url: prefix + 'hesaplamalar/' + page + '.html',
+                keywords: page.replace(/-/g, ' ') + ' hesapla, hesaplama, hesaplayıcı'
+            });
+        });
+        
+        const petitionPages = [
+            { name: 'İcra Takibi', file: 'icra-takibi' },
+            { name: 'İdari İptal', file: 'idari-iptal' },
+            { name: 'Kıdem Tazminatı', file: 'kidem-tazminati' },
+            { name: 'Nafaka Talebi', file: 'nafaka-talebi' },
+            { name: 'Savcılık Şikayet', file: 'savcilik-sikayet' },
+            { name: 'Tüketici Hakem', file: 'tuketici-hakem' }
+        ];
+        
+        petitionPages.forEach(p => {
+            pages.push({
+                title: p.name + ' Dilekçesi',
+                url: prefix + 'dilekce-' + p.file + '.html',
+                keywords: p.name.toLowerCase() + ' dilekçe, dilekçe örneği, şablon'
+            });
+        });
+        
+        const results = pages.filter(page => 
+            page.title.toLowerCase().includes(query) || 
+            page.keywords.toLowerCase().includes(query)
+        );
+        
+        if (results.length === 0) {
+            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramanıza uygun sonuç bulunamadı.</p>';
+        } else {
+            let html = '<div style="display: flex; flex-direction: column; gap: 10px;">';
+            results.slice(0, 8).forEach(result => {
+                html += `<a href="${result.url}" style="display: block; padding: 15px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'; this.style.borderColor='#c9a961';" onmouseout="this.style.background='rgba(201,169,97,0.1)'; this.style.borderColor='rgba(201,169,97,0.2)';"><div style="font-weight: 600; color: #c9a961; margin-bottom: 5px;">${result.title}</div></a>`;
+            });
+            html += '</div>';
+            searchResults.innerHTML = html;
+        }
+    }
+    
+    let searchTimeout;
+    searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => performSearch(this.value), 300);
+    });
+    
+    if (searchSubmitBtn) {
+        searchSubmitBtn.addEventListener('click', function() {
+            performSearch(searchInput.value);
+        });
+    }
+    
+    searchInput.addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') {
+            performSearch(this.value);
+        }
+    });
+})();
+</script>
+
+</body>
+</html>
