@@ -2254,3 +2254,228 @@ body {
 .contact-info p {
     margin-bottom: 0.5rem;
 }
+
+/* Petition Examples Page Styles */
+.info-section {
+    background: var(--bg-light);
+    padding: 4rem 0;
+}
+
+.info-content h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.info-content .lead-text {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.info-card {
+    background: var(--white);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.info-card h3 {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.info-card ul {
+    list-style: disc;
+    padding-left: 1.5rem;
+    color: var(--text-dark);
+}
+
+.info-card li {
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.warning-box {
+    background: linear-gradient(135deg, #fff5f5 0%, #ffe0e0 100%);
+    border-left: 4px solid #e53e3e;
+    padding: 1.5rem 2rem;
+    border-radius: 8px;
+    margin-top: 2rem;
+}
+
+.warning-box h4 {
+    color: #c53030;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.warning-box p {
+    color: #742a2a;
+    line-height: 1.6;
+}
+
+/* Petitions Section */
+.petitions-section {
+    padding: 4rem 0;
+    background: var(--white);
+}
+
+.petitions-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.section-description {
+    text-align: center;
+    color: var(--text-light);
+    max-width: 800px;
+    margin: 0 auto 3rem;
+    font-size: 1.1rem;
+}
+
+.petitions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.petition-card {
+    background: var(--white);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.petition-card:hover {
+    transform: translateY(-5px);
+}
+
+.petition-header {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #3d4785 100%);
+    color: var(--white);
+    padding: 1.5rem;
+}
+
+.petition-category {
+    display: inline-block;
+    background: rgba(201, 169, 97, 0.9);
+    color: var(--primary-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+}
+
+.petition-header h3 {
+    font-size: 1.3rem;
+    margin: 0;
+    color: var(--white);
+}
+
+.petition-preview {
+    padding: 1.5rem;
+    background: #f8f9fa;
+}
+
+.petition-preview pre {
+    background: var(--white);
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1rem;
+    overflow-x: auto;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.petition-preview code {
+    font-family: 'Courier New', monospace;
+    color: var(--text-dark);
+    white-space: pre-wrap;
+}
+
+.petition-actions {
+    padding: 1rem 1.5rem;
+    display: flex;
+    gap: 1rem;
+    background: var(--white);
+    border-top: 1px solid #e2e8f0;
+}
+
+.petition-actions .btn {
+    flex: 1;
+    text-align: center;
+}
+
+/* FAQ Section */
+.faq-section {
+    background: var(--bg-light);
+    padding: 4rem 0;
+}
+
+.faq-section h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 3rem;
+}
+
+.faq-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+}
+
+.faq-item {
+    background: var(--white);
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.faq-item h3 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid var(--accent-color);
+}
+
+.faq-item p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+    .petitions-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .faq-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .petition-actions {
+        flex-direction: column;
+    }
+}
