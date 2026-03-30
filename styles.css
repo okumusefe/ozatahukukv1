@@ -3510,3 +3510,88 @@ body {
         font-size: 0.8rem;
     }
 }
+
+/* İçtihat Makaleleri - Şık Tasarım */
+.full-article .article-category {
+    background: linear-gradient(135deg, #8B5A2B 0%, #A0522D 100%);
+    color: var(--white);
+    box-shadow: 0 4px 12px rgba(139, 90, 43, 0.3);
+}
+
+/* Karar Bilgileri Kutusu */
+.full-article .article-content > p:first-of-type {
+    background: linear-gradient(135deg, rgba(139, 90, 43, 0.08) 0%, rgba(160, 82, 45, 0.03) 100%);
+    border: 1px solid rgba(139, 90, 43, 0.15);
+    border-radius: 10px;
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    line-height: 1.8;
+}
+
+.full-article .article-content > p:first-of-type strong {
+    color: #8B5A2B;
+    display: inline-block;
+    min-width: 100px;
+}
+
+/* Bölüm Başlıkları */
+.full-article .article-content h3 {
+    font-size: 1.4rem;
+    color: var(--primary-color);
+    margin-top: 2.5rem;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid rgba(139, 90, 43, 0.2);
+    position: relative;
+}
+
+.full-article .article-content h3::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, #8B5A2B 0%, #A0522D 100%);
+}
+
+/* Liste Stillari */
+.full-article .article-content ol,
+.full-article .article-content ul {
+    background: rgba(139, 90, 43, 0.03);
+    border-left: 3px solid rgba(139, 90, 43, 0.2);
+    padding: 1.5rem 2rem;
+    border-radius: 0 8px 8px 0;
+    margin-bottom: 1.5rem;
+}
+
+.full-article .article-content ol li {
+    margin-bottom: 0.8rem;
+    line-height: 1.7;
+}
+
+.full-article .article-content ul li {
+    margin-bottom: 0.5rem;
+}
+
+/* Responsive İçtihat */
+@media (max-width: 768px) {
+    .full-article .article-content > p:first-of-type {
+        padding: 1rem 1.5rem;
+    }
+    
+    .full-article .article-content > p:first-of-type strong {
+        display: block;
+        width: auto;
+        margin-bottom: 0.3rem;
+    }
+    
+    .full-article .article-content h3 {
+        font-size: 1.2rem;
+    }
+    
+    .full-article .article-content ol,
+    .full-article .article-content ul {
+        padding: 1rem 1.5rem;
+    }
+}
