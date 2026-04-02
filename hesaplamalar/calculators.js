@@ -401,11 +401,12 @@ function hesaplaZamanasimi() {
 
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
-    const ceza = parseInt(document.getElementById('infaz-ceza')?.value) || 0;
+    const cezaInput = document.getElementById('infaz-ceza')?.value;
+    const ceza = parseFloat(cezaInput);
     const tur = document.getElementById('infaz-tur')?.value || 'agir';
     const yargi = document.getElementById('infaz-yargi')?.value || 'normal';
     
-    if (ceza === 0) {
+    if (isNaN(ceza) || ceza <= 0) {
         alert('Lütfen ceza süresi giriniz.');
         return;
     }
