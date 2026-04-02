@@ -401,12 +401,15 @@ function hesaplaZamanasimi() {
 
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
-    const cezaInput = document.getElementById('infaz-ceza')?.value;
-    const ceza = parseFloat(cezaInput);
+    const yil = parseFloat(document.getElementById('infaz-yil')?.value) || 0;
+    const ay = parseFloat(document.getElementById('infaz-ay')?.value) || 0;
+    const gun = parseFloat(document.getElementById('infaz-gun')?.value) || 0;
     const tur = document.getElementById('infaz-tur')?.value || 'agir';
-    const yargi = document.getElementById('infaz-yargi')?.value || 'normal';
+    const tutukluluk = document.getElementById('infaz-tutukluluk')?.value || 'yok';
     
-    if (isNaN(ceza) || ceza <= 0) {
+    const ceza = yil + (ay / 12) + (gun / 365);
+    
+    if (ceza <= 0) {
         alert('Lütfen ceza süresi giriniz.');
         return;
     }
@@ -415,8 +418,7 @@ function hesaplaInfaz() {
     if (tur === 'agir') oran = 0.66;
     else if (tur === 'normal') oran = 0.50;
     else if (tur === 'kisa') oran = 0.50;
-    
-    if (yargi === 'denetimli') oran = 0.50;
+    else if (tur === 'denetimli') oran = 0.50;
     
     const infazSuresi = ceza * oran;
     const serbestlik = ceza - infazSuresi;
