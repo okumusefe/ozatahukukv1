@@ -3166,153 +3166,379 @@ body {
     }
 }
 
-/* SSS / FAQ Sayfası Stilleri */
-.faq-hero {
-    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+/* SSS / FAQ Sayfası - Modern Yeniden Tasarım */
+.sss-hero {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 50%, #1a1f3d 100%);
     color: var(--white);
-    padding: 80px 0 60px;
+    padding: 100px 0 80px;
     text-align: center;
+    position: relative;
+    overflow: hidden;
 }
 
-.faq-hero h1 {
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: 15px;
+.sss-hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a961' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 1;
+}
+
+.sss-hero .container {
+    position: relative;
+    z-index: 1;
+}
+
+.sss-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin-bottom: 20px;
     color: var(--white);
+    letter-spacing: -1px;
 }
 
-.faq-hero p {
-    font-size: 1.1rem;
-    color: rgba(255, 255, 255, 0.9);
+.sss-hero p {
+    font-size: 1.2rem;
+    color: rgba(255, 255, 255, 0.85);
     max-width: 600px;
     margin: 0 auto;
+    font-weight: 300;
 }
 
+/* FAQ Section Modern */
 .faq-section {
-    padding: 60px 0;
-    background: var(--bg-light);
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 100%);
 }
 
+/* Category Filter Tabs */
 .faq-categories {
     display: flex;
-    flex-direction: column;
-    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 50px;
+    padding: 0 20px;
 }
 
 .faq-category {
     background: var(--white);
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: var(--shadow);
+    border: 2px solid rgba(201, 169, 97, 0.2);
+    border-radius: 30px;
+    padding: 12px 24px;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--text-color);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
-.faq-category h2 {
-    font-size: 1.4rem;
-    color: var(--primary-color);
-    margin-bottom: 25px;
-    padding-bottom: 15px;
-    border-bottom: 2px solid var(--accent-color);
+.faq-category:hover {
+    border-color: var(--accent-color);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(201, 169, 97, 0.15);
 }
 
+.faq-category.active {
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    border-color: var(--accent-color);
+    color: var(--white);
+    box-shadow: 0 4px 20px rgba(201, 169, 97, 0.3);
+}
+
+/* FAQ List Container */
 .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 16px;
 }
 
+/* FAQ Item Cards */
 .faq-item {
-    border: 1px solid #e0e0e0;
-    border-radius: 8px;
+    background: var(--white);
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
     overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
+.faq-item:hover {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
+}
+
+.faq-item.active {
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
+    border-color: rgba(201, 169, 97, 0.3);
+}
+
+/* FAQ Question */
 .faq-question {
     width: 100%;
-    padding: 20px 25px;
+    padding: 24px 30px;
     background: var(--white);
     border: none;
     text-align: left;
-    font-size: 1rem;
-    font-weight: 500;
+    font-size: 1.1rem;
+    font-weight: 600;
     color: var(--primary-color);
     cursor: pointer;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.3s ease;
+    transition: all 0.3s ease;
+    gap: 20px;
 }
 
 .faq-question:hover {
-    background: var(--bg-light);
+    background: linear-gradient(90deg, var(--white) 0%, rgba(201, 169, 97, 0.03) 100%);
+}
+
+.faq-item.active .faq-question {
+    background: linear-gradient(90deg, var(--white) 0%, rgba(201, 169, 97, 0.05) 100%);
 }
 
 .faq-question::after {
-    content: '+';
-    font-size: 1.5rem;
-    color: var(--accent-color);
-    transition: transform 0.3s ease;
+    content: '';
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 2px 8px rgba(201, 169, 97, 0.3);
 }
 
 .faq-item.active .faq-question::after {
-    transform: rotate(45deg);
+    transform: rotate(180deg);
 }
 
+/* FAQ Answer */
 .faq-answer {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease, padding 0.3s ease;
-    background: var(--bg-light);
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), padding 0.4s ease;
+    background: linear-gradient(180deg, rgba(201, 169, 97, 0.02) 0%, var(--white) 100%);
 }
 
 .faq-item.active .faq-answer {
-    max-height: 500px;
-    padding: 20px 25px;
+    max-height: 600px;
+    padding: 0 30px 30px;
+}
+
+.faq-answer-content {
+    padding-top: 10px;
 }
 
 .faq-answer p {
     color: var(--text-light);
-    line-height: 1.7;
-    font-size: 0.95rem;
+    line-height: 1.8;
+    font-size: 1rem;
+    margin-bottom: 16px;
 }
 
-.faq-contact {
-    padding: 60px 0;
-    background: var(--white);
-    text-align: center;
+.faq-answer p:last-child {
+    margin-bottom: 0;
 }
 
-.faq-contact h2 {
-    font-size: 1.8rem;
-    color: var(--primary-color);
-    margin-bottom: 15px;
+.faq-answer ul,
+.faq-answer ol {
+    padding-left: 20px;
+    margin: 16px 0;
 }
 
-.faq-contact p {
+.faq-answer li {
     color: var(--text-light);
-    margin-bottom: 25px;
+    line-height: 1.7;
+    margin-bottom: 8px;
+}
+
+.faq-answer strong {
+    color: var(--primary-color);
+    font-weight: 600;
+}
+
+/* Category Tags in FAQ */
+.faq-category-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 4px 12px;
+    background: rgba(201, 169, 97, 0.1);
+    color: var(--accent-color);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-right: 12px;
+    flex-shrink: 0;
+}
+
+/* Contact CTA Section */
+.contact-cta {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.contact-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(201, 169, 97, 0.1) 0%, transparent 70%);
+    animation: pulse 8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.5; }
+    50% { transform: scale(1.1); opacity: 0.8; }
+}
+
+.contact-cta .container {
+    position: relative;
+    z-index: 1;
+}
+
+.contact-cta h2 {
+    font-size: 2.5rem;
+    color: var(--white);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.contact-cta p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.2rem;
+    margin-bottom: 40px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-cta .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: linear-gradient(135deg, var(--accent-color) 0%, #d4b876 100%);
+    color: var(--primary-color);
+    padding: 18px 40px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 30px rgba(201, 169, 97, 0.4);
+    border: none;
+    cursor: pointer;
+}
+
+.contact-cta .btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 40px rgba(201, 169, 97, 0.5);
+    background: linear-gradient(135deg, #d4b876 0%, var(--accent-color) 100%);
+}
+
+/* Hide inactive FAQ items when filtering */
+.faq-item.hidden {
+    display: none;
 }
 
 /* Responsive FAQ */
 @media (max-width: 768px) {
-    .faq-hero {
-        padding: 60px 0 40px;
+    .sss-hero {
+        padding: 70px 0 50px;
     }
     
-    .faq-hero h1 {
+    .sss-hero h1 {
         font-size: 2rem;
     }
     
+    .sss-hero p {
+        font-size: 1rem;
+    }
+    
+    .faq-section {
+        padding: 50px 0;
+    }
+    
+    .faq-categories {
+        gap: 8px;
+        margin-bottom: 30px;
+    }
+    
     .faq-category {
-        padding: 20px;
+        padding: 10px 18px;
+        font-size: 0.85rem;
     }
     
     .faq-question {
-        padding: 15px 20px;
-        font-size: 0.95rem;
+        padding: 18px 20px;
+        font-size: 1rem;
+        gap: 15px;
+    }
+    
+    .faq-question::after {
+        width: 24px;
+        height: 24px;
     }
     
     .faq-item.active .faq-answer {
-        padding: 15px 20px;
+        padding: 0 20px 20px;
+    }
+    
+    .faq-answer p {
+        font-size: 0.95rem;
+    }
+    
+    .contact-cta {
+        padding: 70px 20px;
+    }
+    
+    .contact-cta h2 {
+        font-size: 1.8rem;
+    }
+    
+    .contact-cta p {
+        font-size: 1rem;
+    }
+    
+    .contact-cta .btn {
+        padding: 16px 32px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .sss-hero h1 {
+        font-size: 1.75rem;
+    }
+    
+    .faq-category {
+        padding: 8px 14px;
+        font-size: 0.8rem;
+    }
+    
+    .faq-question {
+        font-size: 0.95rem;
+        padding: 16px 18px;
     }
 }
 
@@ -3525,126 +3751,156 @@ body {
     border-left: 3px solid #c9a961;
 }
 
-/* Dilekçe Kartları - Modern Yeniden Tasarım */
+/* Dilekçe Kartları - Premium Profesyonel Tasarım */
 .petitions-section {
-    padding: 60px 0;
-    background: var(--bg-light);
+    padding: 80px 0;
+    background: linear-gradient(180deg, var(--bg-light) 0%, var(--white) 50%, var(--bg-light) 100%);
 }
 
 .petitions-section h2 {
-    font-size: 1.8rem;
+    font-size: 2.2rem;
     color: var(--primary-color);
     text-align: center;
-    margin-bottom: 15px;
+    margin-bottom: 12px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
 }
 
 .petitions-section .section-description {
     text-align: center;
     color: var(--text-light);
-    max-width: 700px;
-    margin: 0 auto 40px;
-    font-size: 1rem;
-    line-height: 1.6;
+    max-width: 600px;
+    margin: 0 auto 50px;
+    font-size: 1.05rem;
+    line-height: 1.7;
 }
 
 .petitions-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
-    gap: 25px;
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px;
 }
 
 .petition-card {
     background: var(--white);
-    border-radius: 16px;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-    transition: all 0.3s ease;
-    border: 1px solid rgba(0, 0, 0, 0.04);
+    box-shadow: 0 4px 24px rgba(26, 31, 61, 0.06);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(26, 31, 61, 0.04);
     display: flex;
     flex-direction: column;
-}
-
-.petition-card:hover {
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.12);
-}
-
-.petition-header {
-    padding: 25px 25px 15px;
     position: relative;
 }
 
+.petition-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent-color) 0%, #d4b876 50%, var(--accent-color) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.petition-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(26, 31, 61, 0.12);
+}
+
+.petition-card:hover::before {
+    opacity: 1;
+}
+
+.petition-header {
+    padding: 28px 28px 20px;
+    position: relative;
+    background: linear-gradient(135deg, #f8f9fa 0%, var(--white) 100%);
+}
+
 .petition-category {
-    display: inline-block;
-    font-size: 0.75rem;
-    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.7rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
-    padding: 6px 14px;
-    border-radius: 20px;
-    margin-bottom: 12px;
-}
-
-/* Kategori renkleri */
-.petition-card[data-category="ceza"] .petition-category,
-.petition-card:has(.petition-category:contains("Ceza")) .petition-category {
-    background: rgba(220, 53, 69, 0.1);
-    color: #dc3545;
-}
-
-.petition-card[data-category="icra"] .petition-category,
-.petition-card:has(.petition-category:contains("İcra")) .petition-category {
-    background: rgba(201, 169, 97, 0.15);
-    color: #c9a961;
-}
-
-.petition-card[data-category="aile"] .petition-category,
-.petition-card:has(.petition-category:contains("Aile")) .petition-category {
-    background: rgba(111, 66, 193, 0.1);
-    color: #6f42c1;
-}
-
-.petition-card[data-category="is"] .petition-category,
-.petition-card:has(.petition-category:contains("İş")) .petition-category {
-    background: rgba(40, 167, 69, 0.1);
-    color: #28a745;
-}
-
-.petition-card[data-category="tuketici"] .petition-category,
-.petition-card:has(.petition-category:contains("Tüketici")) .petition-category {
-    background: rgba(23, 162, 184, 0.1);
-    color: #17a2b8;
-}
-
-.petition-card[data-category="idare"] .petition-category,
-.petition-card:has(.petition-category:contains("İdare")) .petition-category {
-    background: rgba(108, 117, 125, 0.1);
-    color: #6c757d;
-}
-
-/* Varsayılan kategori rengi */
-.petition-category {
-    background: rgba(26, 31, 61, 0.08);
+    letter-spacing: 1.5px;
+    padding: 8px 16px;
+    border-radius: 30px;
+    margin-bottom: 14px;
+    background: var(--white);
+    border: 1.5px solid rgba(26, 31, 61, 0.08);
     color: var(--primary-color);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.petition-category::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: currentColor;
+}
+
+/* Kategori renkleri - Canlı ve profesyonel */
+.petition-card[data-category="ceza"] .petition-category {
+    color: #dc3545;
+    border-color: rgba(220, 53, 69, 0.2);
+    background: rgba(220, 53, 69, 0.04);
+}
+
+.petition-card[data-category="icra"] .petition-category {
+    color: #c9a961;
+    border-color: rgba(201, 169, 97, 0.3);
+    background: rgba(201, 169, 97, 0.06);
+}
+
+.petition-card[data-category="aile"] .petition-category {
+    color: #6f42c1;
+    border-color: rgba(111, 66, 193, 0.2);
+    background: rgba(111, 66, 193, 0.04);
+}
+
+.petition-card[data-category="is"] .petition-category {
+    color: #28a745;
+    border-color: rgba(40, 167, 69, 0.2);
+    background: rgba(40, 167, 69, 0.04);
+}
+
+.petition-card[data-category="tuketici"] .petition-category {
+    color: #17a2b8;
+    border-color: rgba(23, 162, 184, 0.2);
+    background: rgba(23, 162, 184, 0.04);
+}
+
+.petition-card[data-category="idare"] .petition-category {
+    color: #6c757d;
+    border-color: rgba(108, 117, 125, 0.2);
+    background: rgba(108, 117, 125, 0.04);
 }
 
 .petition-header h3 {
-    font-size: 1.25rem;
+    font-size: 1.3rem;
     color: var(--primary-color);
-    font-weight: 600;
-    line-height: 1.4;
+    font-weight: 700;
+    line-height: 1.35;
     margin: 0;
+    letter-spacing: -0.3px;
 }
 
 .petition-description {
-    padding: 0 25px 20px;
+    padding: 0 28px 24px;
     flex-grow: 1;
 }
 
 .petition-description p {
     font-size: 0.95rem;
     color: var(--text-light);
-    line-height: 1.6;
-    margin-bottom: 18px;
+    line-height: 1.7;
+    margin-bottom: 20px;
 }
 
 .petition-features {
@@ -3653,7 +3909,7 @@ body {
     margin: 0;
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 10px;
 }
 
 .petition-features li {
@@ -3661,73 +3917,107 @@ body {
     color: var(--text-color);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
+    padding: 4px 0;
 }
 
 .petition-features li::before {
-    content: '✓';
+    content: '';
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 18px;
-    height: 18px;
-    background: rgba(201, 169, 97, 0.15);
+    width: 22px;
+    height: 22px;
+    background: linear-gradient(135deg, rgba(201, 169, 97, 0.15) 0%, rgba(201, 169, 97, 0.08) 100%);
     color: var(--accent-color);
     border-radius: 50%;
-    font-size: 0.7rem;
+    font-size: 0.65rem;
     font-weight: 700;
+    flex-shrink: 0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23c9a961' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .petition-actions {
-    padding: 20px 25px 25px;
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding: 24px 28px 28px;
+    border-top: 1px solid rgba(26, 31, 61, 0.06);
+    background: linear-gradient(180deg, var(--white) 0%, #f8f9fa 100%);
 }
 
 .petition-actions .btn {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     width: 100%;
     text-align: center;
-    padding: 14px 20px;
-    border-radius: 10px;
+    padding: 16px 24px;
+    border-radius: 12px;
     font-size: 0.95rem;
-    font-weight: 500;
+    font-weight: 600;
     text-decoration: none;
-    transition: all 0.3s ease;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     border: none;
     cursor: pointer;
-}
-
-.petition-actions .btn-primary {
-    background: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     color: var(--white);
+    box-shadow: 0 4px 15px rgba(26, 31, 61, 0.15);
 }
 
-.petition-actions .btn-primary:hover {
-    background: var(--secondary-color);
+.petition-actions .btn::after {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='9 18 15 12 9 6'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+
+.petition-actions .btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(26, 31, 61, 0.2);
+    box-shadow: 0 8px 25px rgba(26, 31, 61, 0.25);
+    background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
+}
+
+.petition-actions .btn:hover::after {
+    transform: translateX(4px);
 }
 
 /* Responsive Dilekçe Kartları */
 @media (max-width: 768px) {
+    .petitions-section {
+        padding: 60px 0;
+    }
+    
     .petitions-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 24px;
     }
     
     .petition-card {
-        border-radius: 12px;
+        border-radius: 16px;
     }
     
     .petition-header,
     .petition-description,
     .petition-actions {
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 24px;
+        padding-right: 24px;
+    }
+    
+    .petition-header {
+        padding-top: 24px;
     }
     
     .petition-header h3 {
-        font-size: 1.15rem;
+        font-size: 1.2rem;
+    }
+    
+    .petition-category {
+        font-size: 0.65rem;
+        padding: 6px 12px;
     }
 }
 
@@ -3813,5 +4103,13 @@ body {
     .full-article .article-content ol,
     .full-article .article-content ul {
         padding: 1rem 1.5rem;
+    }
+}
+
+/* Desktop: Logo boyutunu artır (sadece 1024px ve üzeri) */
+@media (min-width: 1024px) {
+    .logo img {
+        width: 130px !important;
+        height: 84px !important;
     }
 }

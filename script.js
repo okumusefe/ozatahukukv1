@@ -318,4 +318,101 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('Filter buttons found, showing TCK articles by default');
         filterArticles('tck');
     }
+    
+    // Initialize FAQ functionality
+    initFAQ();
 });
+
+// FAQ Accordion and Category Filter Functions
+function initFAQ() {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const faqCategories = document.querySelectorAll('.faq-category');
+    
+    // Accordion functionality
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        if (question) {
+            question.addEventListener('click', function() {
+                const isActive = item.classList.contains('active');
+                
+                // Close all other items (optional - remove this block to allow multiple open)
+                faqItems.forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
+                if (isActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
+            });
+        }
+    });
+    
+    // Category filter functionality
+    faqCategories.forEach(category => {
+        category.addEventListener('click', function() {
+            const selectedCategory = this.getAttribute('data-category');
+            
+            // Update active category
+            faqCategories.forEach(cat => cat.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Filter FAQ items
+            faqItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                
+                if (selectedCategory === 'all' || itemCategory === selectedCategory) {
+                    item.classList.remove('hidden');
+                    // Add fade-in animation
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(10px)';
+                    setTimeout(() => {
+                        item.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }, 50);
+                } else {
+                    item.classList.add('hidden');
+                }
+            });
+        });
+    });
+}
+
+// FAQ Category Filter (alternative function for direct calls)
+function filterFAQ(category) {
+    const faqItems = document.querySelectorAll('.faq-item');
+    const faqCategories = document.querySelectorAll('.faq-category');
+    
+    // Update active category
+    faqCategories.forEach(cat => {
+        if (cat.getAttribute('data-category') === category) {
+            cat.classList.add('active');
+        } else {
+            cat.classList.remove('active');
+        }
+    });
+    
+    // Filter FAQ items
+    faqItems.forEach(item => {
+        const itemCategory = item.getAttribute('data-category');
+        
+        if (category === 'all' || itemCategory === category) {
+            item.classList.remove('hidden');
+        } else {
+            item.classList.add('hidden');
+        }
+    });
+}
+
+// Toggle FAQ item (for external calls)
+function toggleFAQItem(item) {
+    const faqItem = typeof item === 'string' ? document.querySelector(item) : item;
+    if (faqItem) {
+        faqItem.classList.toggle('active');
+    }
+}
