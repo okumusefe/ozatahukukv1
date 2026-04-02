@@ -401,30 +401,84 @@ function hesaplaZamanasimi() {
 
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
-    const yil = parseFloat(document.getElementById('infaz-yil')?.value) || 0;
-    const ay = parseFloat(document.getElementById('infaz-ay')?.value) || 0;
-    const gun = parseFloat(document.getElementById('infaz-gun')?.value) || 0;
-    const tur = document.getElementById('infaz-tur')?.value || 'agir';
-    const tutukluluk = document.getElementById('infaz-tutukluluk')?.value || 'yok';
-    
-    const ceza = yil + (ay / 12) + (gun / 365);
+    // Ceza süresi
+    const cezaYil = parseFloat(document.getElementById('ceza-yil')?.value) || 0;
+    const cezaAy = parseFloat(document.getElementById('ceza-ay')?.value) || 0;
+    const cezaGun = parseFloat(document.getElementById('ceza-gun')?.value) || 0;
+    const ceza = cezaYil + (cezaAy / 12) + (cezaGun / 365);
     
     if (ceza <= 0) {
         alert('Lütfen ceza süresi giriniz.');
         return;
     }
     
+    // Tutukluluk süresi
+    const tutuklulukYil = parseFloat(document.getElementById('tutukluluk-yil')?.value) || 0;
+    const tutuklulukAy = parseFloat(document.getElementById('tutukluluk-ay')?.value) || 0;
+    const tutuklulukGun = parseFloat(document.getElementById('tutukluluk-gun')?.value) || 0;
+    const tutukluluk = tutuklulukYil + (tutuklulukAy / 12) + (tutuklulukGun / 365);
+    
+    // Temel infaz oranı
+    const tur = document.getElementById('infaz-tur')?.value || 'agir';
     let oran = 0.66; // 2/3
-    if (tur === 'agir') oran = 0.66;
-    else if (tur === 'normal') oran = 0.50;
-    else if (tur === 'kisa') oran = 0.50;
-    else if (tur === 'denetimli') oran = 0.50;
+    if (tur === 'normal') oran = 0.50; // 1/2
     
+    // Temel infaz süresi
     const infazSuresi = ceza * oran;
-    const serbestlik = ceza - infazSuresi;
     
-    document.getElementById('infaz-sure').textContent = infazSuresi.toFixed(1) + ' yıl';
-    document.getElementById('infaz-serbestlik').textContent = serbestlik.toFixed(1) + ' yıl';
+    // İyi hal indirimi
+    const iyiHal = document.getElementById('iyi-hali')?.checked || false;
+    let indirimOrani = 0;
+    if (iyiHal) indirimOrani += 0.25; // 1/4 indirim
+    
+    // Yaş indirimi
+    const yas18 = document.getElementById('yas-18')?.checked || false;
+    const yas65 = document.getElementById('yas-65')?.checked || false;
+    if (yas18 || yas65) indirimOrani += 0.33; // 1/3 indirim
+    
+    // Hamilelik/küçük çocuk
+    const hamilelik = document.getElementById('hamilelik')?.checked || false;
+    const cocuk6 = document.getElementById('cocuk-6')?.checked || false;
+    if (hamilelik || cocuk6) indirimOrani += 0.50; // 1/2 erteleme
+    
+    // Sabıka artırımı
+    const sabika = document.getElementById('sabika')?.checked || false;
+    if (sabika) indirimOrani -= 0.20; // Artırım
+    
+    // Örgüt/terör artırımı
+    const orgut = document.getElementById('orgut')?.checked || false;
+    const silah = document.getElementById('silah')?.checked || false;
+    const uyusturucu = document.getElementById('uyusturucu')?.checked || false;
+    const teror = document.getElementById('teror')?.checked || false;
+    if (orgut || teror || silah || uyusturucu) indirimOrani -= 0.50; // Artırım
+    
+    // Yaralama artırımı
+    const yaralama = document.getElementById('yaralama')?.checked || false;
+    if (yaralama) indirimOrani -= 0.25; // Artırım
+    
+    // Net indirimli infaz süresi
+    const indirimliInfaz = infazSuresi * (1 - indirimOrani);
+    
+    // Tutukluluk mahsubu
+    const kalanInfaz = Math.max(0, indirimliInfaz - tutukluluk);
+    
+    // Denetimli serbestlik (kalan sürenin 1/5'i)
+    const denetimli = kalanInfaz / 5;
+    const cezaevinde = kalanInfaz - denetimli;
+    
+    // Tahliye tarihi hesaplama
+    const today = new Date();
+    const tahliye = new Date(today);
+    tahliye.setDate(tahliye.getDate() + Math.ceil(cezaevinde * 365));
+    
+    // Sonuçları göster
+    document.getElementById('infaz-toplam').textContent = ceza.toFixed(2) + ' yıl';
+    document.getElementById('infaz-oran').textContent = '%' + Math.round(oran * 100);
+    document.getElementById('infaz-yatar').textContent = infazSuresi.toFixed(2) + ' yıl';
+    document.getElementById('infaz-mahsup').textContent = tutukluluk.toFixed(2) + ' yıl';
+    document.getElementById('infaz-kalan').textContent = kalanInfaz.toFixed(2) + ' yıl';
+    document.getElementById('infaz-tahliye').textContent = tahliye.toLocaleDateString('tr-TR');
+    document.getElementById('infaz-denetim').textContent = denetimli.toFixed(2) + ' yıl';
     document.getElementById('infaz-sonuc').classList.add('active');
 }
 
