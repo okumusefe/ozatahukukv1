@@ -3975,7 +3975,6 @@ body {
 }
 
 .petition-actions .btn:hover {
-    transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(26, 31, 61, 0.25);
     background: linear-gradient(135deg, var(--secondary-color) 0%, var(--primary-color) 100%);
 }
