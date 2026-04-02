@@ -1746,7 +1746,6 @@ body {
 .filter-btn:hover {
     background: var(--accent-color);
     color: var(--white);
-    transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(197, 162, 98, 0.3);
 }
 
