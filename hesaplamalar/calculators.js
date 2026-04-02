@@ -399,6 +399,24 @@ function hesaplaZamanasimi() {
     document.getElementById('zamanasimi-sonuc').classList.add('active');
 }
 
+// Süreyi yıl/ay/gün formatına çevir
+function formatSure(yil) {
+    if (yil <= 0) return '0 gün';
+    
+    const toplamGun = Math.round(yil * 365);
+    const y = Math.floor(toplamGun / 365);
+    const kalanGun = toplamGun % 365;
+    const a = Math.floor(kalanGun / 30);
+    const g = kalanGun % 30;
+    
+    let sonuc = '';
+    if (y > 0) sonuc += y + ' yıl ';
+    if (a > 0) sonuc += a + ' ay ';
+    if (g > 0) sonuc += g + ' gün';
+    
+    return sonuc.trim() || '0 gün';
+}
+
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
     // Ceza süresi (HTML'de infaz-yil, infaz-ay, infaz-gun)
@@ -473,13 +491,13 @@ function hesaplaInfaz() {
     tahliye.setDate(tahliye.getDate() + Math.ceil(cezaevinde * 365));
     
     // Sonuçları göster
-    document.getElementById('infaz-toplam').textContent = ceza.toFixed(2) + ' yıl';
+    document.getElementById('infaz-toplam').textContent = formatSure(ceza);
     document.getElementById('infaz-oran').textContent = '%' + Math.round(oran * 100);
-    document.getElementById('infaz-yatar').textContent = infazSuresi.toFixed(2) + ' yıl';
-    document.getElementById('infaz-mahsup').textContent = tutukluluk.toFixed(2) + ' yıl';
-    document.getElementById('infaz-kalan').textContent = kalanInfaz.toFixed(2) + ' yıl';
+    document.getElementById('infaz-yatar').textContent = formatSure(infazSuresi);
+    document.getElementById('infaz-mahsup').textContent = formatSure(tutukluluk);
+    document.getElementById('infaz-kalan').textContent = formatSure(kalanInfaz);
     document.getElementById('infaz-tahliye').textContent = tahliye.toLocaleDateString('tr-TR');
-    document.getElementById('infaz-denetim').textContent = denetimli.toFixed(2) + ' yıl';
+    document.getElementById('infaz-denetim').textContent = formatSure(denetimli);
     document.getElementById('infaz-sonuc').classList.add('active');
 }
 
