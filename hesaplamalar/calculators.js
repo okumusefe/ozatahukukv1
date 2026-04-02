@@ -401,10 +401,10 @@ function hesaplaZamanasimi() {
 
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
-    // Ceza süresi
-    const cezaYil = parseFloat(document.getElementById('ceza-yil')?.value) || 0;
-    const cezaAy = parseFloat(document.getElementById('ceza-ay')?.value) || 0;
-    const cezaGun = parseFloat(document.getElementById('ceza-gun')?.value) || 0;
+    // Ceza süresi (HTML'de infaz-yil, infaz-ay, infaz-gun)
+    const cezaYil = parseFloat(document.getElementById('infaz-yil')?.value) || 0;
+    const cezaAy = parseFloat(document.getElementById('infaz-ay')?.value) || 0;
+    const cezaGun = parseFloat(document.getElementById('infaz-gun')?.value) || 0;
     const ceza = cezaYil + (cezaAy / 12) + (cezaGun / 365);
     
     if (ceza <= 0) {
@@ -412,59 +412,60 @@ function hesaplaInfaz() {
         return;
     }
     
-    // Tutukluluk süresi
-    const tutuklulukYil = parseFloat(document.getElementById('tutukluluk-yil')?.value) || 0;
-    const tutuklulukAy = parseFloat(document.getElementById('tutukluluk-ay')?.value) || 0;
-    const tutuklulukGun = parseFloat(document.getElementById('tutukluluk-gun')?.value) || 0;
-    const tutukluluk = tutuklulukYil + (tutuklulukAy / 12) + (tutuklulukGun / 365);
+    // Tutukluluk süresi (HTML'de infaz-tutukluluk - sadece gün)
+    const tutuklulukGun = parseFloat(document.getElementById('infaz-tutukluluk')?.value) || 0;
+    const tutukluluk = tutuklulukGun / 365;
     
-    // Temel infaz oranı
-    const tur = document.getElementById('infaz-tur')?.value || 'agir';
-    let oran = 0.66; // 2/3
-    if (tur === 'normal') oran = 0.50; // 1/2
+    // Suç türü
+    const tur = document.getElementById('infaz-tur')?.value || 'genel';
+    
+    // İndirimler (select elementler)
+    const etkinIndirim = parseFloat(document.getElementById('infaz-indirim-etkin')?.value) || 0;
+    const iyiHalIndirim = parseFloat(document.getElementById('infaz-indirim-iyi')?.value) || 0;
+    const yargilamaIndirim = parseFloat(document.getElementById('infaz-indirim-yargilama')?.value) || 0;
+    
+    // Checkbox durumlar
+    const mukerrer = document.getElementById('infaz-mukerrer')?.checked || false;
+    const cocuk = document.getElementById('infaz-cocuk')?.checked || false;
+    const saglik = document.getElementById('infaz-saglik')?.checked || false;
+    const yargi11 = document.getElementById('infaz-11yargi')?.checked || false;
+    
+    // İnfaz oranı belirleme (5275 SK)
+    let oran = 0.75; // Genel suçlar: 3/4
+    
+    // Ağırlaştırılmış suçlar için 2/3
+    const agirlastirilmis = ['kastenOldurme', 'nitelikliYaralama', 'cinselSaldiri', 
+                            'uyusturucu', 'teror', 'iskence', 'eziyet', 'orgut'];
+    if (agirlastirilmis.includes(tur)) {
+        oran = 0.66; // 2/3
+    }
     
     // Temel infaz süresi
-    const infazSuresi = ceza * oran;
+    let infazSuresi = ceza * oran;
     
-    // İyi hal indirimi
-    const iyiHal = document.getElementById('iyi-hali')?.checked || false;
-    let indirimOrani = 0;
-    if (iyiHal) indirimOrani += 0.25; // 1/4 indirim
+    // İndirim uygulama
+    const toplamIndirim = etkinIndirim + iyiHalIndirim;
+    if (toplamIndirim > 0) {
+        infazSuresi = infazSuresi * (1 - toplamIndirim / 100);
+    }
     
-    // Yaş indirimi
-    const yas18 = document.getElementById('yas-18')?.checked || false;
-    const yas65 = document.getElementById('yas-65')?.checked || false;
-    if (yas18 || yas65) indirimOrani += 0.33; // 1/3 indirim
-    
-    // Hamilelik/küçük çocuk
-    const hamilelik = document.getElementById('hamilelik')?.checked || false;
-    const cocuk6 = document.getElementById('cocuk-6')?.checked || false;
-    if (hamilelik || cocuk6) indirimOrani += 0.50; // 1/2 erteleme
-    
-    // Sabıka artırımı
-    const sabika = document.getElementById('sabika')?.checked || false;
-    if (sabika) indirimOrani -= 0.20; // Artırım
-    
-    // Örgüt/terör artırımı
-    const orgut = document.getElementById('orgut')?.checked || false;
-    const silah = document.getElementById('silah')?.checked || false;
-    const uyusturucu = document.getElementById('uyusturucu')?.checked || false;
-    const teror = document.getElementById('teror')?.checked || false;
-    if (orgut || teror || silah || uyusturucu) indirimOrani -= 0.50; // Artırım
-    
-    // Yaralama artırımı
-    const yaralama = document.getElementById('yaralama')?.checked || false;
-    if (yaralama) indirimOrani -= 0.25; // Artırım
-    
-    // Net indirimli infaz süresi
-    const indirimliInfaz = infazSuresi * (1 - indirimOrani);
+    // Yargılama süresi indirimi (yıldan düşülür)
+    if (yargilamaIndirim > 0) {
+        infazSuresi = Math.max(0, infazSuresi - yargilamaIndirim);
+    }
     
     // Tutukluluk mahsubu
-    const kalanInfaz = Math.max(0, indirimliInfaz - tutukluluk);
+    const kalanInfaz = Math.max(0, infazSuresi - tutukluluk);
     
-    // Denetimli serbestlik (kalan sürenin 1/5'i)
-    const denetimli = kalanInfaz / 5;
-    const cezaevinde = kalanInfaz - denetimli;
+    // 11. Yargı Paketi (3+3 düzenlemesi)
+    let denetimli = kalanInfaz / 5;
+    let cezaevinde = kalanInfaz - denetimli;
+    
+    if (yargi11 && ceza >= 3) {
+        // 11. Yargı Paketi uygulaması
+        denetimli = Math.min(ceza * 0.5, kalanInfaz * 0.3);
+        cezaevinde = kalanInfaz - denetimli;
+    }
     
     // Tahliye tarihi hesaplama
     const today = new Date();
