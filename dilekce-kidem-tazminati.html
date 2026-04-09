@@ -574,46 +574,40 @@
 
 <!-- Dilekçe İndirme Fonksiyonları -->
 <script>
-// UDF formatında indir - Client-side JavaScript ile
+// UDF formatında indir - SADECE dilekçe içeriği, web sitesi yok
 function downloadUDF(petitionId) {
     const petitionContent = document.getElementById(petitionId + '-content');
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
-    const title = petitionContent.querySelector('.petition-title');
-    const titleText = title ? title.innerText : 'Dilekçe';
+    const titleText = petitionContent.querySelector('.petition-title')?.innerText || 'Dilekçe';
     
-    const today = new Date();
-    const dateStr = today.toLocaleDateString('tr-TR', {day: '2-digit', month: '2-digit', year: 'numeric'});
-    const timeStr = today.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
-    const dateTimeStr = dateStr + ' ' + timeStr;
-    
-    let htmlContent = `<html>\n<body style="font-family: 'Times New Roman'; font-size: 12pt;">\n`;
-    htmlContent += `<p align="center"><b>${titleText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p>\n<br/>\n`;
+    let htmlBody = `<p align="center"><b>${titleText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p><br/>`;
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const lbl = section.querySelector('.petition-label');
-        const cnt = section.querySelector('.petition-content');
-        if (lbl && cnt) {
-            htmlContent += `<p><b>${lbl.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b> ${cnt.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>\n`;
-        } else if (lbl) {
-            htmlContent += `<p><b>${lbl.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p>\n`;
+        const label = section.querySelector('.petition-label')?.innerText || '';
+        const content = section.querySelector('.petition-content')?.innerText || '';
+        if (label || content) {
+            htmlBody += `<p><b>${label.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b> ${content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`;
         }
     });
     
-    petitionContent.querySelectorAll('.petition-content').forEach(cnt => {
-        if (!cnt.closest('.petition-section')) {
-            htmlContent += `<p>${cnt.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>\n`;
-        }
-    });
-    
-    const sig = petitionContent.querySelector('.petition-signature');
-    if (sig) {
-        htmlContent += `<br/>\n<p align="right"><b>${sig.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>')}</b></p>\n`;
+    const signature = petitionContent.querySelector('.petition-signature')?.innerText || '';
+    if (signature) {
+        htmlBody += `<br/><p align="right"><b>${signature.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>')}</b></p>`;
     }
     
-    htmlContent += `</body>\n</html>`;
+    const htmlContent = `<html><body style="font-family: 'Times New Roman'; font-size: 12pt;">${htmlBody}</body></html>`;
     
-    const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    console.log("UDF HTML İçerik Uzunluğu:", htmlContent.length);
+    if (htmlContent.length > 100000) {
+        alert('HATA: İçerik çok uzun! Web sitesi verisi dahil edilmiş olabilir.');
+        return;
+    }
+    
+    const today = new Date();
+    const dateTimeStr = today.toLocaleDateString('tr-TR') + ' ' + today.toLocaleTimeString('tr-TR');
+    
+const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <uyap:dokuman xmlns:uyap="http://www.uyap.gov.tr" Sürüm="4.0">
     <uyap:metaveri>
         <uyap:bilgi Ad="Döküman Türü" Değer="Dilekçe"/>
@@ -623,6 +617,8 @@ function downloadUDF(petitionId) {
         <![CDATA[${htmlContent}]]>
     </uyap:icerik>
 </uyap:dokuman>`;
+
+console.log("UDF Toplam Uzunluk:", udfContent.length);
     
     const BOM = '\uFEFF';
     const blob = new Blob([BOM + udfContent], { type: 'application/xml' });
