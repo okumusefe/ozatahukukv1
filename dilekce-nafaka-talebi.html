@@ -230,52 +230,79 @@
                     <h3>Tedbir veya Yoksulluk Nafakası Talep Dilekçesi</h3>
                 </div>
                 <div class="petition-preview">
-                    <pre><code>...AİLE MAHKEMESİ SAYI:...
-
-KONU:      Tedbir/Yoksulluk nafakası talebi
-
-DAVACI:    [Ad Soyad]
-TC No:     [Kimlik numarası]
-Meslek:    [Meslek]
-Gelir:     [Aylık gelir]
-Adres:     [Adres]
-
-DAVALI:    [Eşin Ad Soyad]
-TC No:     [Kimlik numarası]
-Meslek:    [Meslek]
-Adres:     [Adres]
-
-DAVA KONUSU:
-
-Davacı ile davalı [tarihte] evlenmiş olup, [tarihte] boşanma/dava açılmıştır.
-
-Talep Gerekçesi:
-Davalı, müşterek hayatı terk etmiş olup/kusurlu olarak ayrı yaşamaktadır.
-Davacının geçimini sağlayacak geliri bulunmamaktadır.
-
-Talep Edilen:
-Davalı'dan aylık [miktar] TL tedbir/yoksulluk nafakası bağlanması;
-Nafakanın tedbir kararıyla hüküm tarihinden/itibaren başlatılması;
-Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;
-hükümle arz ederim.
-
-Yasal Dayanak:
-- Hukuk Muhakemesi Kanunu
-- Medeni Kanun m. 175, 185, 196
-
-Ekler:
-1. Nüfus kayıt örneği
-2. Evlenme cüzdanı örneği
-3. Gelir belgesi
-4. Vekaletname
-
-[Ad Soyad]
-[Tarih]
-İmza</code></pre>
+                    <div class="petition-document" id="nafaka-dilekcesi-content">
+                        <div class="petition-title">AİLE MAHKEMESİ HAKİMLİĞİNE</div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Konu :</span>
+                            <div class="petition-content">Tedbir/Yoksulluk nafakası talebi</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Davacı :</span>
+                            <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Gelir: [Aylık gelir]<br>Adres: [Adres]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Davalı :</span>
+                            <div class="petition-content">[Eşin Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Adres: [Adres]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Dava Konusu :</span>
+                        </div>
+                        
+                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                            <p>Davacı ile davalı [tarihte] evlenmiş olup, [tarihte] boşanma/dava açılmıştır.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Talep Gerekçesi :</span>
+                        </div>
+                        
+                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                            <p>Davalı, müşterek hayatı terk etmiş olup/kusurlu olarak ayrı yaşamaktadır. Davacının geçimini sağlayacak geliri bulunmamaktadır.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Talep Edilen :</span>
+                        </div>
+                        
+                        <div class="petition-content">
+                            <p>Davalı'dan aylık [miktar] TL tedbir/yoksulluk nafakası bağlanması;<br>
+                            Nafakanın tedbir kararıyla hüküm tarihinden/itibaren başlatılması;<br>
+                            Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;<br>
+                            hükümle arz ederim.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Yasal Dayanak :</span>
+                            <div class="petition-content">Hukuk Muhakemesi Kanunu; Medeni Kanun m. 175, 185, 196</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Ekler :</span>
+                            <div class="petition-content">1. Nüfus kayıt örneği<br>2. Evlenme cüzdanı örneği<br>3. Gelir belgesi<br>4. Vekaletname</div>
+                        </div>
+                        
+                        <div class="petition-signature">
+                            <p><strong>[Ad Soyad]<br>[Tarih]<br>İmza</strong></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="petition-actions">
-                    <button class="btn btn-secondary" onclick="copyPetition('nafaka-dilekcesi')">Kopyala</button>
-                    <button class="btn btn-primary" onclick="downloadTXT('nafaka-dilekcesi')">İndir (TXT)</button>
+                    <button class="btn btn-secondary" onclick="copyPetition('nafaka-dilekcesi')" title="Metni kopyala">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Kopyala
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadUDF('nafaka-dilekcesi')" title="UYAP Döküman Editörü formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (UDF)
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadWord('nafaka-dilekcesi')" title="Microsoft Word formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (Word)
+                    </button>
                 </div>
             </article>
         </div>
@@ -534,6 +561,59 @@ Ekler:
         }
     });
 })();
+</script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+function downloadUDF(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    const udfContent = `<?xml version="1.0" encoding="UTF-8"?><dokuman><baslik>Nafaka Talebi Dilekçesi</baslik><icerik><![CDATA[${text}]]></icerik></dokuman>`;
+    const blob = new Blob([udfContent], { type: 'application/xml' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.udf'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function downloadWord(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    const wordContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset="utf-8"><title>Nafaka Talebi Dilekçesi</title><style>body { font-family: "Times New Roman", serif; font-size: 12pt; line-height: 1.5; } .petition-title { text-align: center; font-weight: bold; font-size: 14pt; margin-bottom: 20px; text-transform: uppercase; } .petition-section { margin-bottom: 15px; } .petition-label { font-weight: bold; } .petition-content { text-align: justify; } .petition-signature { text-align: right; margin-top: 30px; }</style></head><body>${petitionContent.innerHTML}</body></html>`;
+    const blob = new Blob([wordContent], { type: 'application/msword' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function copyPetition(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    navigator.clipboard.writeText(text).then(function() { alert('Dilekçe panoya kopyalandı!'); }).catch(function(err) { alert('Kopyalama başarısız oldu.'); });
+}
 </script>
 
 </body>

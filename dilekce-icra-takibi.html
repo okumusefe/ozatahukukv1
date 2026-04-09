@@ -231,45 +231,70 @@
                     <h3>İcra Takibi Başlatma Dilekçesi</h3>
                 </div>
                 <div class="petition-preview">
-                    <pre><code>...İCRA DAİRESİ MÜDÜRLÜĞÜ'NE
-
-KONU:      İlamsız icra takibi talebi
-
-ALACAKLI:  [Ad Soyad/Unvan]
-TC/Vergi No: [Numara]
-Adres:     [Adres]
-Tel:       [Telefon]
-
-BORÇLU:    [Ad Soyad/Unvan]
-Adres:     [Adres]
-
-AÇIKLAMA:
-
-Borçlu ile aramızdaki ilişki gereğince kendisine [tarihte] [miktar] TL ödeme yapmışım/yapmış olup/hesabıma geçmesi gerekmektedir.
-
-Borçlu, yasal vadesinde ödemeyi gerçekleştirmemiştir.
-
-Talep Edilen:
-İİK 58. madde uyarınca ilamsız icra takibi başlatılarak;
-- Anaç:      [Miktar] TL
-- Temerrüt faizi: [Miktar] TL (yıllık % [oran])
-- Takip masrafları
-Tahsilinin sağlanması hususunda;
-Bilgilerinize, gereğinin yapılmasını arz ederim.
-
-Ekler:
-1. Senet/fatura/sözleşme örneği
-2. İhtarname örneği
-3. Faiz hesap cetveli
-4. Vekaletname (varsa)
-
-[Ad Soyad]
-[Tarih]
-İmza</code></pre>
+                    <div class="petition-document" id="icra-dilekcesi-content">
+                        <div class="petition-title">İCRA DAİRESİ MÜDÜRLÜĞÜNE</div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Konu :</span>
+                            <div class="petition-content">İlamsız icra takibi talebi</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Alacaklı :</span>
+                            <div class="petition-content">[Ad Soyad/Unvan]<br>T.C./Vergi No: [Numara]<br>Adres: [Adres]<br>Tel: [Telefon]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Borçlu :</span>
+                            <div class="petition-content">[Ad Soyad/Unvan]<br>Adres: [Adres]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Açıklama :</span>
+                        </div>
+                        
+                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                            <p>Borçlu ile aramızdaki ilişki gereğince kendisine [tarihte] [miktar] TL ödeme yapmışım/yapmış olup/hesabıma geçmesi gerekmektedir.</p>
+                            
+                            <p>Borçlu, yasal vadesinde ödemeyi gerçekleştirmemiştir.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Talep Edilen :</span>
+                        </div>
+                        
+                        <div class="petition-content">
+                            <p>İİK 58. madde uyarınca ilamsız icra takibi başlatılarak;</p>
+                            <p>- Anaç: [Miktar] TL<br>
+                            - Temerrüt faizi: [Miktar] TL (yıllık % [oran])<br>
+                            - Takip masrafları</p>
+                            <p>Tahsilinin sağlanması hususunda;</p>
+                            <p>Bilgilerinize, gereğinin yapılmasını arz ederim.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Ekler :</span>
+                            <div class="petition-content">1. Senet/fatura/sözleşme örneği<br>2. İhtarname örneği<br>3. Faiz hesap cetveli<br>4. Vekaletname (varsa)</div>
+                        </div>
+                        
+                        <div class="petition-signature">
+                            <p><strong>[Ad Soyad]<br>[Tarih]<br>İmza</strong></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="petition-actions">
-                    <button class="btn btn-secondary" onclick="copyPetition('icra-dilekcesi')">Kopyala</button>
-                    <button class="btn btn-primary" onclick="downloadTXT('icra-dilekcesi')">İndir (TXT)</button>
+                    <button class="btn btn-secondary" onclick="copyPetition('icra-dilekcesi')" title="Metni kopyala">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Kopyala
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadUDF('icra-dilekcesi')" title="UYAP Döküman Editörü formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (UDF)
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadWord('icra-dilekcesi')" title="Microsoft Word formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (Word)
+                    </button>
                 </div>
             </article>
         </div>
@@ -528,6 +553,59 @@ Ekler:
         }
     });
 })();
+</script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+function downloadUDF(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    const udfContent = `<?xml version="1.0" encoding="UTF-8"?><dokuman><baslik>İcra Takibi Dilekçesi</baslik><icerik><![CDATA[${text}]]></icerik></dokuman>`;
+    const blob = new Blob([udfContent], { type: 'application/xml' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.udf'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function downloadWord(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    const wordContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset="utf-8"><title>İcra Takibi Dilekçesi</title><style>body { font-family: "Times New Roman", serif; font-size: 12pt; line-height: 1.5; } .petition-title { text-align: center; font-weight: bold; font-size: 14pt; margin-bottom: 20px; text-transform: uppercase; } .petition-section { margin-bottom: 15px; } .petition-label { font-weight: bold; } .petition-content { text-align: justify; } .petition-signature { text-align: right; margin-top: 30px; }</style></head><body>${petitionContent.innerHTML}</body></html>`;
+    const blob = new Blob([wordContent], { type: 'application/msword' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function copyPetition(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    navigator.clipboard.writeText(text).then(function() { alert('Dilekçe panoya kopyalandı!'); }).catch(function(err) { alert('Kopyalama başarısız oldu.'); });
+}
 </script>
 
 </body>

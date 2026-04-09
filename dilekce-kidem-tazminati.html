@@ -231,53 +231,87 @@
                     <h3>Kıdem Tazminatı Talep Dilekçesi</h3>
                 </div>
                 <div class="petition-preview">
-                    <pre><code>...İŞ MAHKEMESİ SAYI:...
-
-KONU:      Kıdem tazminatı alacağı talebi
-
-DAVACI:    [Ad Soyad]
-TC No:     [Kimlik numarası]
-Adres:     [Adres]
-
-DAVALI:    [Şirket Unvanı]
-Adres:     [Şirket adresi]
-
-DAVA KONUSU:
-
-Davacı, davalı işverenin [işyeri adresi] adresindeki işyerinde
-[tarihten/itibaren] çalışmaya başlamış olup, son görevi [pozisyon]
-olarak devam etmekteydi.
-
-Davalı işveren tarafından [tarihte] haksız/haksız nedenlerle
-iş sözleşmesi feshedilmiştir.
-
-Çalışılan Süre:    [Yıl] yıl [Ay] ay [Gün] gün
-Son Brüt Ücret:    [Miktar] TL
-Hak Edilen Kıdem:  [Miktar] TL
-
-Talep Edilen:
-Davalıdan [miktar] TL kıdem tazminatının tahsili;
-Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;
-Hükümle arz ederim.
-
-Yasal Dayanak:
-- Hukuk Muhakemesi Kanunu
-- İş Kanunu m. 14, 24, 25, 29
-
-Ekler:
-1. SGK hizmet dökümü
-2. Maaş bordrosu
-3. İhbar/İşten çıkarma yazısı
-4. İKÜS bildirgesi
-5. Vekaletname
-
-[Ad Soyad]
-[Tarih]
-İmza</code></pre>
+                    <div class="petition-document" id="kidem-dilekcesi-content">
+                        <div class="petition-title">İŞ MAHKEMESİ HAKİMLİĞİNE</div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Konu :</span>
+                            <div class="petition-content">Kıdem tazminatı alacağı talebi</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Davacı :</span>
+                            <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Adres: [Adres]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Davalı :</span>
+                            <div class="petition-content">[Şirket Unvanı]<br>Adres: [Şirket adresi]</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Dava Konusu :</span>
+                        </div>
+                        
+                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                            <p>Davacı, davalı işverenin [işyeri adresi] adresindeki işyerinde [tarihten/itibaren] çalışmaya başlamış olup, son görevi [pozisyon] olarak devam etmekteydi.</p>
+                            
+                            <p>Davalı işveren tarafından [tarihte] haksız/haksız nedenlerle iş sözleşmesi feshedilmiştir.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Çalışılan Süre :</span>
+                            <div class="petition-content">[Yıl] yıl [Ay] ay [Gün] gün</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Son Brüt Ücret :</span>
+                            <div class="petition-content">[Miktar] TL</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Hak Edilen Kıdem :</span>
+                            <div class="petition-content">[Miktar] TL</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Talep Edilen :</span>
+                        </div>
+                        
+                        <div class="petition-content">
+                            <p>Davalıdan [miktar] TL kıdem tazminatının tahsili;<br>
+                            Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;<br>
+                            Hükümle arz ederim.</p>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Yasal Dayanak :</span>
+                            <div class="petition-content">Hukuk Muhakemesi Kanunu; İş Kanunu m. 14, 24, 25, 29</div>
+                        </div>
+                        
+                        <div class="petition-section">
+                            <span class="petition-label">Ekler :</span>
+                            <div class="petition-content">1. SGK hizmet dökümü<br>2. Maaş bordrosu<br>3. İhbar/İşten çıkarma yazısı<br>4. İKÜS bildirgesi<br>5. Vekaletname</div>
+                        </div>
+                        
+                        <div class="petition-signature">
+                            <p><strong>[Ad Soyad]<br>[Tarih]<br>İmza</strong></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="petition-actions">
-                    <button class="btn btn-secondary" onclick="copyPetition('kidem-dilekcesi')">Kopyala</button>
-                    <button class="btn btn-primary" onclick="downloadTXT('kidem-dilekcesi')">İndir (TXT)</button>
+                    <button class="btn btn-secondary" onclick="copyPetition('kidem-dilekcesi')" title="Metni kopyala">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                        Kopyala
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadUDF('kidem-dilekcesi')" title="UYAP Döküman Editörü formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (UDF)
+                    </button>
+                    <button class="btn btn-primary" onclick="downloadWord('kidem-dilekcesi')" title="Microsoft Word formatında indir">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
+                        İndir (Word)
+                    </button>
                 </div>
             </article>
         </div>
@@ -536,6 +570,59 @@ Ekler:
         }
     });
 })();
+</script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+function downloadUDF(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    const udfContent = `<?xml version="1.0" encoding="UTF-8"?><dokuman><baslik>Kıdem Tazminatı Dilekçesi</baslik><icerik><![CDATA[${text}]]></icerik></dokuman>`;
+    const blob = new Blob([udfContent], { type: 'application/xml' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.udf'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function downloadWord(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    const wordContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset="utf-8"><title>Kıdem Tazminatı Dilekçesi</title><style>body { font-family: "Times New Roman", serif; font-size: 12pt; line-height: 1.5; } .petition-title { text-align: center; font-weight: bold; font-size: 14pt; margin-bottom: 20px; text-transform: uppercase; } .petition-section { margin-bottom: 15px; } .petition-label { font-weight: bold; } .petition-content { text-align: justify; } .petition-signature { text-align: right; margin-top: 30px; }</style></head><body>${petitionContent.innerHTML}</body></html>`;
+    const blob = new Blob([wordContent], { type: 'application/msword' });
+    const url = window.URL.createObjectURL(blob);
+    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+}
+function copyPetition(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) text += title.innerText + '\n\n';
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n';
+    });
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += signature.innerText + '\n';
+    navigator.clipboard.writeText(text).then(function() { alert('Dilekçe panoya kopyalandı!'); }).catch(function(err) { alert('Kopyalama başarısız oldu.'); });
+}
 </script>
 
 </body>
