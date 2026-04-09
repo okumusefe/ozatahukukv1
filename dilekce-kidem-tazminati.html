@@ -574,40 +574,45 @@
 
 <!-- Dilekçe İndirme Fonksiyonları -->
 <script>
-// UDF formatında indir - SADECE dilekçe içeriği, web sitesi yok
+// UDF formatında indir - SADECE saf metin, HTML yok
 function downloadUDF(petitionId) {
     const petitionContent = document.getElementById(petitionId + '-content');
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
-    const titleText = petitionContent.querySelector('.petition-title')?.innerText || 'Dilekçe';
+    let cleanText = '';
     
-    let htmlBody = `<p align="center"><b>${titleText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p><br/>`;
+    const title = petitionContent.querySelector('.petition-title');
+    if (title) cleanText += title.innerText.toUpperCase() + '\n\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label || content) {
-            htmlBody += `<p><b>${label.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b> ${content.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>`;
+        if (label) cleanText += label + ' ';
+        if (content) cleanText += content + '\n\n';
+    });
+    
+    petitionContent.querySelectorAll('.petition-content').forEach(content => {
+        if (!content.closest('.petition-section')) {
+            cleanText += content.innerText + '\n\n';
         }
     });
     
-    const signature = petitionContent.querySelector('.petition-signature')?.innerText || '';
-    if (signature) {
-        htmlBody += `<br/><p align="right"><b>${signature.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>')}</b></p>`;
-    }
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) cleanText += '\n' + signature.innerText + '\n';
     
-    const htmlContent = `<html><body style="font-family: 'Times New Roman'; font-size: 12pt;">${htmlBody}</body></html>`;
-    
-    console.log("UDF HTML İçerik Uzunluğu:", htmlContent.length);
-    if (htmlContent.length > 100000) {
-        alert('HATA: İçerik çok uzun! Web sitesi verisi dahil edilmiş olabilir.');
+    if (cleanText.length > 51200) {
+        alert('İçerik çok büyük, temizlenemiyor');
         return;
     }
+    
+    const htmlContent = '<html><body style="font-family: Times New Roman; font-size: 12pt;">' + 
+                        cleanText.replace(/\n/g, '<br/>') + 
+                        '</body></html>';
     
     const today = new Date();
     const dateTimeStr = today.toLocaleDateString('tr-TR') + ' ' + today.toLocaleTimeString('tr-TR');
     
-const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+    const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <uyap:dokuman xmlns:uyap="http://www.uyap.gov.tr" Sürüm="4.0">
     <uyap:metaveri>
         <uyap:bilgi Ad="Döküman Türü" Değer="Dilekçe"/>
@@ -617,8 +622,8 @@ const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
         <![CDATA[${htmlContent}]]>
     </uyap:icerik>
 </uyap:dokuman>`;
-
-console.log("UDF Toplam Uzunluk:", udfContent.length);
+    
+    console.log("UDF Boyut:", udfContent.length, "bytes");
     
     const BOM = '\uFEFF';
     const blob = new Blob([BOM + udfContent], { type: 'application/xml' });
