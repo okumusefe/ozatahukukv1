@@ -294,9 +294,9 @@
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
                         Kopyala
                     </button>
-                    <button class="btn btn-primary" onclick="downloadUDF('tuketici-dilekcesi')" title="UYAP Döküman Editörü formatında indir">
+                    <button class="btn btn-primary" onclick="downloadUYAP('tuketici-dilekcesi')" title="UYAP Döküman Editörü için indir">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                        İndir (UDF)
+                        İndir (UYAP)
                     </button>
                     <button class="btn btn-primary" onclick="downloadWord('tuketici-dilekcesi')" title="Microsoft Word formatında indir">
                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
@@ -562,15 +562,58 @@
 })();
 </script>
 
+<!-- Dilekçe İndirme Fonksiyonları -->
 <script>
-function downloadUDF(petitionId) {
-    const content = document.getElementById(petitionId + '-content');
-    if (!content) { alert('Dilekçe bulunamadı!'); return; }
-    let text = content.innerText;
-    const udf = `<?xml version="1.0"?><dokuman><baslik>Tüketici Dilekçesi</baslik><icerik><![CDATA[${text}]]></icerik></dokuman>`;
-    const blob = new Blob([udf], { type: 'application/xml' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.udf'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+// UYAP formatında indir - PHP endpoint kullanarak gerçek UDF dosyası
+function downloadUYAP(petitionId) {
+    const petitionContent = document.getElementById(petitionId + '-content');
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    
+    let text = '';
+    const title = petitionContent.querySelector('.petition-title');
+    const titleText = title ? title.innerText : 'Dilekçe';
+    text += titleText.toUpperCase() + '\n\n';
+    
+    const sections = petitionContent.querySelectorAll('.petition-section');
+    sections.forEach(section => {
+        const label = section.querySelector('.petition-label');
+        const content = section.querySelector('.petition-content');
+        if (label) text += label.innerText + ' ';
+        if (content) text += content.innerText + '\n\n'; else text += '\n';
+    });
+    
+    const contents = petitionContent.querySelectorAll('.petition-content');
+    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    
+    const signature = petitionContent.querySelector('.petition-signature');
+    if (signature) text += '\n' + signature.innerText + '\n';
+    
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'download-udf.php';
+    form.target = '_blank';
+    
+    const titleInput = document.createElement('input');
+    titleInput.type = 'hidden';
+    titleInput.name = 'title';
+    titleInput.value = titleText;
+    form.appendChild(titleInput);
+    
+    const contentInput = document.createElement('input');
+    contentInput.type = 'hidden';
+    contentInput.name = 'content';
+    contentInput.value = text;
+    form.appendChild(contentInput);
+    
+    const filenameInput = document.createElement('input');
+    filenameInput.type = 'hidden';
+    filenameInput.name = 'filename';
+    filenameInput.value = petitionId;
+    form.appendChild(filenameInput);
+    
+    document.body.appendChild(form);
+    form.submit();
+    document.body.removeChild(form);
 }
 function downloadWord(petitionId) {
     const content = document.getElementById(petitionId + '-content');
