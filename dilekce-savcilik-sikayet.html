@@ -641,7 +641,7 @@ function downloadUDF(petitionId) {
     const contentXml = `<?xml version="1.0" encoding="UTF-8" ?> 
 
 <template format_id="1.8" >
-<content><![CDATA[${cleanText}]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<content><![CDATA[${escapeXml(cleanText)}]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
 <elements resolver="hvl-default" >
 <paragraph Alignment="1"><content bold="true" startOffset="0" length="${cleanText.split('\n')[0]?.length || 0}" /></paragraph>
 </elements>

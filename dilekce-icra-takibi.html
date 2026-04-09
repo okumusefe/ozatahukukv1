@@ -614,31 +614,41 @@ function downloadUDF(petitionId) {
         return;
     }
     
-    const udfContent = `<?xml version="1.0" encoding="UTF-8" ?>
+    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?> 
+
 <template format_id="1.8" >
-<content><![CDATA[${cleanText}]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="56.69291305541992" topMargin="56.69291305541992" bottomMargin="56.69291305541992" paperOrientation="1" headerFOffset="14.99527550315857" footerFOffset="56.69291305541992" /></properties>
-<elements >
-<header startPage="2" background="-1" foreground="-8355712"><paragraph size="12" RightIndent="0.0" family="Times New Roman" resolver="default" SpaceAbove="2.0" SpaceBelow="2.0" LineSpacing="0.0" Alignment="0" description="Gövde" TabSet="254.0:0:0" LeftIndent="0.0"><content resolver="hvl-default" size="12" bold="false" startOffset="0" length="0" /></paragraph></header>
+<content><![CDATA[${cleanText}]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+<paragraph Alignment="1"><content bold="true" startOffset="0" length="${cleanText.split('\n')[0]?.length || 0}" /></paragraph>
 </elements>
-<styles>
-<style name="default" italic="false" size="12" description="Geçerli" family="Times New Roman" bold="false" RightIndent="0.0" foreground="-16777216" />
-<style name="hvl-default" SpaceBelow="2.0" Alignment="0" size="12" SpaceAbove="2.0" description="Gövde" LeftIndent="0.0" family="Times New Roman" LineSpacing="0.0" RightIndent="0.0" />
-</styles>
-<webID id="${petitionId}-${Date.now()}" >
-
-</webID>
-
+<styles><style name="default" description="Geçerli" family="Dialog" size="12" bold="false" italic="false" foreground="-13421773" /><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
 </template>
 
 `;
+
+    const docPropsXml = `<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="uyapdogrulamakodu">${Math.random().toString(36).substring(2, 10)}</entry>
+</properties>`;
+
+    // ZIP oluştur (imza olmadan)
+    const zip = new JSZip();
+    zip.file('content.xml', '\uFEFF' + contentXml);
+    zip.file('documentproperties.xml', docPropsXml);
     
-    console.log("UDF Boyut:", udfContent.length, "bytes");
-    
-    const BOM = '\uFEFF';
-    const blob = new Blob([BOM + udfContent], { type: 'application/xml' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.udf'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
+    zip.generateAsync({type: 'blob'}).then(function(blob) {
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = petitionId + '.udf';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        window.URL.revokeObjectURL(url);
+    });
 }
+
 function downloadWord(petitionId) {
     const petitionContent = document.getElementById(petitionId + '-content');
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
