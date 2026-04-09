@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?> 
+
+<template format_id="1.8" >
+<content><![CDATA[İZMİR CUMHURİYET BAŞSAVCILIĞI
+___________________________________________________________________________
+
+CBS Soruşturma No : 2025/2362 Cbs. 
+
+Şüpheli	            : Diyar VURAL
+
+Vekili	            : Av. Selami Sefa ŞIK (İzmir Barosu Sicil No: 20332)
+
+Konu  	            : Dosya İnceleme Talebimizi İçerir Dilekçedir.
+
+Açıklama  	            : Yukarıda CBS Soruşturma numarası yazılı dosyayı sistem üzerinden incelememiz için gereğinin yapılmasını, UYAP üzerinden erişimimize açılmasını talep ederiz. 10.01.2024
+
+				ŞÜPHELİ VEKİLİ
+			                     Avukat Selami Sefa ŞIK
+
+
+]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+<paragraph Alignment="1"><content bold="true" startOffset="0" length="30" /></paragraph><paragraph Alignment="1"><content bold="true" startOffset="30" length="76" /></paragraph><paragraph Alignment="1"><content startOffset="106" length="1" /></paragraph><paragraph><content bold="true" underline="true" startOffset="107" length="18" /><content bold="true" startOffset="125" length="16" /><content startOffset="141" length="2" /></paragraph><paragraph><content startOffset="143" length="1" /></paragraph><paragraph><content bold="true" underline="true" startOffset="144" length="20" /><content bold="true" startOffset="164" length="2" /><content startOffset="166" length="11" /><content bold="true" startOffset="177" length="1" /></paragraph><paragraph><content bold="true" startOffset="178" length="1" /></paragraph><paragraph><content bold="true" underline="true" startOffset="179" length="19" /><content bold="true" startOffset="198" length="2" /><content startOffset="200" length="51" /></paragraph><paragraph><content bold="true" startOffset="251" length="1" /></paragraph><paragraph><content bold="true" underline="true" startOffset="252" length="19" /><content bold="true" startOffset="271" length="2" /><content startOffset="273" length="45" /></paragraph><paragraph><content bold="true" startOffset="318" length="1" /></paragraph><paragraph><content bold="true" underline="true" startOffset="319" length="23" /><content bold="true" startOffset="342" length="2" /><content startOffset="344" length="162" /><content bold="true" startOffset="506" length="1" /><content startOffset="507" length="5" /></paragraph><paragraph><content startOffset="512" length="1" /></paragraph><paragraph><content startOffset="513" length="4" /><content bold="true" underline="true" startOffset="517" length="14" /><content startOffset="531" length="1" /></paragraph><paragraph><content startOffset="532" length="47" /></paragraph><paragraph><content startOffset="579" length="1" /></paragraph>
+</elements>
+<styles><style name="default" description="Geçerli" family="Dialog" size="12" bold="false" italic="false" foreground="-13421773" FONT_ATTRIBUTE_KEY="javax.swing.plaf.FontUIResource[family=Dialog,name=Dialog,style=plain,size=12]" /><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
+</template>
