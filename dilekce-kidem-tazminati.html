@@ -579,31 +579,50 @@ function downloadUDF(petitionId) {
     const petitionContent = document.getElementById(petitionId + '-content');
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
-    let text = '';
     const title = petitionContent.querySelector('.petition-title');
     const titleText = title ? title.innerText : 'Dilekçe';
-    text += titleText.toUpperCase() + '\n\n';
     
-    const sections = petitionContent.querySelectorAll('.petition-section');
-    sections.forEach(section => {
-        const label = section.querySelector('.petition-label');
-        const content = section.querySelector('.petition-content');
-        if (label) text += label.innerText + ' ';
-        if (content) text += content.innerText + '\n\n'; else text += '\n';
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('tr-TR', {day: '2-digit', month: '2-digit', year: 'numeric'});
+    const timeStr = today.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+    const dateTimeStr = dateStr + ' ' + timeStr;
+    
+    let htmlContent = `<html>\n<body style="font-family: 'Times New Roman'; font-size: 12pt;">\n`;
+    htmlContent += `<p align="center"><b>${titleText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p>\n<br/>\n`;
+    
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const lbl = section.querySelector('.petition-label');
+        const cnt = section.querySelector('.petition-content');
+        if (lbl && cnt) {
+            htmlContent += `<p><b>${lbl.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b> ${cnt.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>\n`;
+        } else if (lbl) {
+            htmlContent += `<p><b>${lbl.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</b></p>\n`;
+        }
     });
     
-    const contents = petitionContent.querySelectorAll('.petition-content');
-    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
+    petitionContent.querySelectorAll('.petition-content').forEach(cnt => {
+        if (!cnt.closest('.petition-section')) {
+            htmlContent += `<p>${cnt.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</p>\n`;
+        }
+    });
     
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) text += '\n' + signature.innerText + '\n';
+    const sig = petitionContent.querySelector('.petition-signature');
+    if (sig) {
+        htmlContent += `<br/>\n<p align="right"><b>${sig.innerText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/\n/g, '<br/>')}</b></p>\n`;
+    }
     
-    const udfContent = `<?xml version="1.0" encoding="UTF-8"?>
-<dokuman>
-  <baslik>${titleText.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</baslik>
-  <tarih>${new Date().toLocaleDateString('tr-TR')}</tarih>
-  <icerik><![CDATA[${text}]]></icerik>
-</dokuman>`;
+    htmlContent += `</body>\n</html>`;
+    
+    const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uyap:dokuman xmlns:uyap="http://www.uyap.gov.tr" Sürüm="4.0">
+    <uyap:metaveri>
+        <uyap:bilgi Ad="Döküman Türü" Değer="Dilekçe"/>
+        <uyap:bilgi Ad="Hazırlanma Tarihi" Değer="${dateTimeStr}"/>
+    </uyap:metaveri>
+    <uyap:icerik>
+        <![CDATA[${htmlContent}]]>
+    </uyap:icerik>
+</uyap:dokuman>`;
     
     const BOM = '\uFEFF';
     const blob = new Blob([BOM + udfContent], { type: 'application/xml' });

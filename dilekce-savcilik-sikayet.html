@@ -596,13 +596,49 @@ function downloadUDF(petitionId) {
     const signature = petitionContent.querySelector('.petition-signature');
     if (signature) text += '\n' + signature.innerText + '\n';
     
-    // UDF XML formatı oluştur
-    const udfContent = `<?xml version="1.0" encoding="UTF-8"?>
-<dokuman>
-  <baslik>${escapeXml(titleText)}</baslik>
-  <tarih>${new Date().toLocaleDateString('tr-TR')}</tarih>
-  <icerik><![CDATA[${text}]]></icerik>
-</dokuman>`;
+    // UDF (UYAP Döküman Editörü) formatı oluştur
+    const today = new Date();
+    const dateStr = today.toLocaleDateString('tr-TR', {day: '2-digit', month: '2-digit', year: 'numeric'});
+    const timeStr = today.toLocaleTimeString('tr-TR', {hour: '2-digit', minute: '2-digit', second: '2-digit'});
+    const dateTimeStr = dateStr + ' ' + timeStr;
+    
+    // HTML formatında dilekçe içeriği oluştur
+    let htmlContent = `<html>\n<body style="font-family: 'Times New Roman'; font-size: 12pt;">\n`;
+    htmlContent += `<p align="center"><b>${escapeXml(titleText)}</b></p>\n<br/>\n`;
+    
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const lbl = section.querySelector('.petition-label');
+        const cnt = section.querySelector('.petition-content');
+        if (lbl && cnt) {
+            htmlContent += `<p><b>${escapeXml(lbl.innerText)}</b> ${escapeXml(cnt.innerText)}</p>\n`;
+        } else if (lbl) {
+            htmlContent += `<p><b>${escapeXml(lbl.innerText)}</b></p>\n`;
+        }
+    });
+    
+    petitionContent.querySelectorAll('.petition-content').forEach(cnt => {
+        if (!cnt.closest('.petition-section')) {
+            htmlContent += `<p>${escapeXml(cnt.innerText)}</p>\n`;
+        }
+    });
+    
+    const sig = petitionContent.querySelector('.petition-signature');
+    if (sig) {
+        htmlContent += `<br/>\n<p align="right"><b>${escapeXml(sig.innerText).replace(/\n/g, '<br/>')}</b></p>\n`;
+    }
+    
+    htmlContent += `</body>\n</html>`;
+    
+    const udfContent = `<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<uyap:dokuman xmlns:uyap="http://www.uyap.gov.tr" Sürüm="4.0">
+    <uyap:metaveri>
+        <uyap:bilgi Ad="Döküman Türü" Değer="Dilekçe"/>
+        <uyap:bilgi Ad="Hazırlanma Tarihi" Değer="${dateTimeStr}"/>
+    </uyap:metaveri>
+    <uyap:icerik>
+        <![CDATA[${htmlContent}]]>
+    </uyap:icerik>
+</uyap:dokuman>`;
     
     // UTF-8 BOM ekle
     const BOM = '\uFEFF';
