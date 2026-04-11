@@ -245,8 +245,10 @@ function downloadUDF(elementId) {
     if (title) cleanText += title.innerText.toUpperCase() + '\n\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label').innerText || '';
-        const content = section.querySelector('.petition-content').innerText || '';
+        const labelEl = section.querySelector('.petition-label');
+        const contentEl = section.querySelector('.petition-content');
+        const label = labelEl ? labelEl.innerText : '';
+        const content = contentEl ? contentEl.innerText : '';
         if (label) cleanText += label + ' ';
         if (content) cleanText += content + '\n\n';
     });
@@ -270,8 +272,10 @@ function downloadUDF(elementId) {
     offset += 1;
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label').innerText || '';
-        const content = section.querySelector('.petition-content').innerText || '';
+        const labelEl = section.querySelector('.petition-label');
+        const contentEl = section.querySelector('.petition-content');
+        const label = labelEl ? labelEl.innerText : '';
+        const content = contentEl ? contentEl.innerText : '';
         
         if (label) {
             elementsXml += '<paragraph><content bold="true" underline="true" startOffset="' + offset + '" length="' + label.length + '" /></paragraph>';
@@ -328,8 +332,10 @@ function downloadWord(elementId) {
     if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label').innerText || '';
-        const content = section.querySelector('.petition-content').innerText || '';
+        const labelEl = section.querySelector('.petition-label');
+        const contentEl = section.querySelector('.petition-content');
+        const label = labelEl ? labelEl.innerText : '';
+        const content = contentEl ? contentEl.innerText : '';
         if (label) fullText += label + '\n';
         if (content) fullText += content + '\n\n';
     });
@@ -356,8 +362,10 @@ function copyPetition(elementId) {
     if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label').innerText || '';
-        const content = section.querySelector('.petition-content').innerText || '';
+        const labelEl = section.querySelector('.petition-label');
+        const contentEl = section.querySelector('.petition-content');
+        const label = labelEl ? labelEl.innerText : '';
+        const content = contentEl ? contentEl.innerText : '';
         if (label) fullText += label + '\n';
         if (content) fullText += content + '\n\n';
     });
