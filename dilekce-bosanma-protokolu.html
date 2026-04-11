@@ -388,8 +388,8 @@ function downloadWord(elementId) {
     if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
+        const label = section.querySelector('.petition-label').innerText || '';
+        const content = section.querySelector('.petition-content').innerText || '';
         if (label) fullText += label + '\n';
         if (content) fullText += content + '\n\n';
     });
@@ -404,7 +404,9 @@ function downloadWord(elementId) {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-}\n\nfunction copyPetition(elementId) {
+}
+
+function copyPetition(elementId) {
     const petitionContent = document.getElementById(elementId);
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
