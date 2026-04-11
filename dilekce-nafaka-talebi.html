@@ -1,103 +1,28 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-QYK959FEKW');
 </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Dilekce Nafaka Talebi hakkında bilgi ve hizmetler. Özata Hukuk Bürosu.">
     <meta name="keywords" content="izmir avukat, hukuk bürosu, ceza avukatı, aile avukatı, iş hukuku, icra avukatı">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="author" content="Özata Hukuk Bürosu">
     <title>Dilekce Nafaka Talebi | Özata Hukuk Bürosu</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="responsive.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500&display=swap" rel="stylesheet">
-    
-    <!-- Critical CSS inline for above-the-fold content -->
-    <style>
-        /* Critical: Prevent FOIT with system font fallback */
-        html {
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-        }
-        
-        /* Critical: Header styles to prevent layout shift */
-        .header {
-            min-height: 80px;
-        }
-        
-        /* Preloader critical styles */
-        #preloader {
-            contain: strict;
-            content-visibility: auto;
-        }
-    </style>
 </head>
 <body>
-    <!-- Preloader - only shows if loading takes longer than 800ms -->
-    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); z-index: 9999; display: flex; align-items: center; justify-content: center; flex-direction: column; transition: opacity 0.5s ease, visibility 0.5s ease; opacity: 0; visibility: hidden; pointer-events: none;">
-        <div class="preloader-logo" style="animation: spin 2s linear infinite;">
-            <img src="logo.svg" alt="Özata Hukuk" width="100" height="64" style="display: block;">
-        </div>
-        <div class="preloader-text" style="margin-top: 20px; color: rgba(201,169,97,0.9); font-size: 0.9rem; font-weight: 500; letter-spacing: 2px; animation: pulse 1.5s ease-in-out infinite;">YÜKLENİYOR...</div>
-    </div>
-    
-    <style>
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        @keyframes pulse {
-            0%, 100% { opacity: 0.6; }
-            50% { opacity: 1; }
-        }
-        #preloader.visible {
-            opacity: 1;
-            visibility: visible;
-            pointer-events: auto;
-        }
-    </style>
-    
-    <script>
-        (function() {
-            const preloader = document.getElementById('preloader');
-            let preloaderShown = false;
-            let pageLoaded = false;
-            
-            // Show preloader only if loading takes longer than 800ms
-            const showTimeout = setTimeout(function() {
-                if (!pageLoaded) {
-                    preloader.classList.add('visible');
-                    preloaderShown = true;
-                }
-            }, 800);
-            
-            window.addEventListener('load', function() {
-                pageLoaded = true;
-                clearTimeout(showTimeout);
-                if (preloaderShown) {
-                    preloader.classList.remove('visible');
-                }
-            });
-        })();
-    </script>
-
     <header class="header">
         <nav class="nav-container">
             <div class="logo">
-                <a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-                    <img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
+                <a href="index.html">
+                    <img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48">
                 </a>
             </div>
             <button class="mobile-menu-toggle" aria-label="Menü">
@@ -108,7 +33,7 @@
             <ul class="nav-menu">
                 <li><a href="index.html">Anasayfa</a></li>
                 <li class="dropdown">
-                    <a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
+                    <a href="kurumsal.html">Kurumsal <span>▼</span></a>
                     <ul class="dropdown-menu">
                         <li><a href="kurumsal.html">Hakkımızda</a></li>
                         <li><a href="ekibimiz.html">Ekibimiz</a></li>
@@ -121,260 +46,86 @@
                 <li><a href="yayinlar.html">Yayınlar</a></li>
                 <li><a href="iletisim.html">İletişim</a></li>
             </ul>
-            <div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
-                <a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                    </svg>
-                </a>
-                <a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-                        <rect x="2" y="9" width="4" height="12"></rect>
-                        <circle cx="4" cy="4" r="2"></circle>
-                    </svg>
-                </a>
-                <a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
-                        <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-                    </svg>
-                </a>
-            </div>
-                    <button class="nav-search-btn" aria-label="Ara" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(201,169,97,0.35); border: none; border-radius: 50%; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </button>
-</nav>
+        </nav>
     </header>
 
-    <section class="page-hero">
+    <section class="page-banner">
         <div class="container">
-            <h1>Nafaka Talep Dilekçesi</h1>
-            <p>Medeni Kanun'a uygun tedbir ve yoksulluk nafakası dilekçesi örneği ve hazırlama rehberi</p>
+            <h1>Dilekce Nafaka Talebi</h1>
         </div>
     </section>
 
-    <!-- Ön Bilgilendirme Bölümü -->
-    <section class="info-section">
+    <section class="content-section">
         <div class="container">
-            <div class="info-content">
-                <h2>Nafaka Dilekçesi Nedir ve Ne İşe Yarar?</h2>
-                
-                <p class="lead-text">Nafaka talep dilekçesi, boşanma davası sırasında veya sonrasında, maddi güçlük içinde olan eşin diğer eşten nafaka (geçim yardımı) talep etmesi için kullanılan resmi başvuru aracıdır. Tedbir nafakası (dava sırasında) ve yoksulluk nafakası (boşanma sonrası) olmak üzere iki türü vardır.</p>
-                
-                <div class="info-grid">
-                    <div class="info-card">
-                        <h3>🎯 Kimler Nafaka Talep Edebilir?</h3>
-                        <ul>
-                            <li>Maddi durumu zayıf olan eş (kadın veya erkek)</li>
-                            <li>Boşanma davası devam ederken tedbir nafakası</li>
-                            <li>Boşanma sonrası yoksulluk nafakası</li>
-                            <li>Çocuk için iştirak nafakası (velayet dışı ebeveyn)</li>
-                            <li>Evli olup ayrı yaşayan eş</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>⚖️ Hukuki Dayanak</h3>
-                        <ul>
-                            <li><strong>MK m. 175:</strong> Tedbir nafakası</li>
-                            <li><strong>MK m. 185:</strong> Yoksulluk nafakası</li>
-                            <li><strong>MK m. 196:</strong> Nafakanın şartları</li>
-                            <li><strong>HMK m. 119:</strong> Dilekçe şekli</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>⏰ Süreler ve Zamanaşımı</h3>
-                        <ul>
-                            <li>Tedbir nafakası: <strong>dava devam ederken</strong> sürekli talep edilebilir</li>
-                            <li>Yoksulluk nafakası: boşanmadan sonra <strong>1 yıl içinde</strong></li>
-                            <li>Nafaka alacağı: <strong>10 yıllık</strong> zamanaşımına tabi</li>
-                            <li>Nafaka artırımı/düşürümü: her zaman talep edilebilir</li>
-                        </ul>
-                    </div>
-                    
-                    <div class="info-card">
-                        <h3>📝 Dilekçe Hazırlarken Dikkat!</h3>
-                        <ul>
-                            <li>Eşlerin gelir durumunu belgelendirin</li>
-                            <li>Evli olunduğu tarihi ve boşanma/birliktelik durumunu yazın</li>
-                            <li>Talep edilen nafaka miktarını makul gerekçelerle belirtin</li>
-                            <li>Tedbir nafakası mı yoksa yoksulluk nafakası mı olduğunu açıklayın</li>
-                            <li>Varsa çocukların durumunu belirtin</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="warning-box">
-                    <h4>⚠️ Önemli Uyarı</h4>
-                    <p>Bu dilekçe örneği yalnızca bilgilendirme amaçlıdır. Her boşanma ve nafaka davası kendi özel şartlarını taşır. Dilekçenizi sunmadan önce bir avukata danışmanız, haklarınızın korunması açısından kritik önem taşır. Nafaka miktarının yetersiz veya aşırı talep edilmesi, davanın seyrini olumsuz etkileyebilir.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Dilekçe Örneği Bölümü -->
-    <section class="petitions-section">
-        <div class="container">
-            <h2>Tedbir ve Yoksulluk Nafakası Talep Dilekçesi Örneği</h2>
-            <p class="section-description">Aşağıdaki dilekçe örneği, Medeni Kanun ve Hukuk Muhakemesi Kanunu hükümlerine uygun olarak hazırlanmış şablondur.</p>
-
-            <article class="petition-card" id="nafaka-dilekcesi">
-                <div class="petition-header">
-                    <span class="petition-category">Aile Hukuku</span>
-                    <h3>Tedbir veya Yoksulluk Nafakası Talep Dilekçesi</h3>
-                </div>
-                <div class="petition-preview">
-                    <div class="petition-document" id="nafaka-dilekcesi-content">
-                        <div class="petition-title">AİLE MAHKEMESİ HAKİMLİĞİNE</div>
-                        
+            <div class="petition-preview" id="nafaka-dilekcesi-content">
+                <div class="petition-letter" id="nafaka-dilekcesi-content-content">
+<div class="petition-title">AİLE MAHKEMESİ HAKİMLİĞİNE</div>
                         <div class="petition-section">
                             <span class="petition-label">Konu :</span>
                             <div class="petition-content">Tedbir/Yoksulluk nafakası talebi</div>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Davacı :</span>
                             <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Gelir: [Aylık gelir]<br>Adres: [Adres]</div>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Davalı :</span>
                             <div class="petition-content">[Eşin Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Adres: [Adres]</div>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Dava Konusu :</span>
                         </div>
-                        
                         <div class="petition-content" style="margin-bottom: 1.5rem;">
                             <p>Davacı ile davalı [tarihte] evlenmiş olup, [tarihte] boşanma/dava açılmıştır.</p>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Talep Gerekçesi :</span>
                         </div>
-                        
                         <div class="petition-content" style="margin-bottom: 1.5rem;">
                             <p>Davalı, müşterek hayatı terk etmiş olup/kusurlu olarak ayrı yaşamaktadır. Davacının geçimini sağlayacak geliri bulunmamaktadır.</p>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Talep Edilen :</span>
                         </div>
-                        
                         <div class="petition-content">
                             <p>Davalı'dan aylık [miktar] TL tedbir/yoksulluk nafakası bağlanması;<br>
                             Nafakanın tedbir kararıyla hüküm tarihinden/itibaren başlatılması;<br>
                             Yargılama giderleri ve vekalet ücretinin davalıya yükletilmesi;<br>
                             hükümle arz ederim.</p>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Yasal Dayanak :</span>
                             <div class="petition-content">Hukuk Muhakemesi Kanunu; Medeni Kanun m. 175, 185, 196</div>
                         </div>
-                        
                         <div class="petition-section">
                             <span class="petition-label">Ekler :</span>
                             <div class="petition-content">1. Nüfus kayıt örneği<br>2. Evlenme cüzdanı örneği<br>3. Gelir belgesi<br>4. Vekaletname</div>
                         </div>
-                        
                         <div class="petition-signature">
                             <p><strong>[Ad Soyad]<br>[Tarih]<br>İmza</strong></p>
                         </div>
-                    </div>
                 </div>
-                <div class="petition-actions">
-                    <button class="btn btn-secondary" onclick="copyPetition('nafaka-dilekcesi-content')" title="Metni kopyala">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        Kopyala
-                    </button>
-                    <button class="btn btn-primary" onclick="downloadUDF('nafaka-dilekcesi-content')" title="UYAP Döküman Editörü formatında indir (.udf)">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                        İndir (UDF)
-                    </button>
-                    <button class="btn btn-primary" onclick="downloadWord('nafaka-dilekcesi-content')" title="Microsoft Word formatında indir">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="vertical-align: middle; margin-right: 5px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg>
-                        İndir (Word)
-                    </button>
-                </div>
-            </article>
-        </div>
-    </section>
-
-    <!-- FAQ Bölümü -->
-    <section class="faq-section">
-        <div class="container">
-            <h2>Sıkça Sorulan Sorular</h2>
-            
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <h3>Tedbir nafakası ile yoksulluk nafakası arasındaki fark nedir?</h3>
-                    <p><strong>Tedbir nafakası</strong>, boşanma davası devam ederken (dava süresince) talep edilir ve dava sonuçlanıncaya kadar ödenir. <strong>Yoksulluk nafakası</strong> ise boşanma kararı kesinleştikten sonra, yoksul düşen eşin talebiyle bağlanır ve belirsiz süreyle (evlenme veya ölüm hariç) devam eder. Tedbir nafakası "geçici", yoksulluk nafakası "kalıcı" niteliktedir.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Nafaka miktarı nasıl belirlenir?</h3>
-                    <p>Nafaka miktarı, <strong>eşlerin sosyal ve ekonomik durumlarına göre</strong> hakim tarafından takdir edilir (MK m. 196). Gelir, meslek, yaş, sağlık durumu, evlilik süresi, kusur durumu gibi faktörler göz önünde bulundurulur. Nafaka, yoksul eşin geçimini sağlayacak asgari düzeyde olmalıdır. 2026 yılı için İstanbul'da ortalama 5.000-15.000 TL arası değişmektedir.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Nafaka ödenmezse ne olur?</h3>
-                    <p>Nafaka ödenmezse, <strong>icra takibi</strong> başlatılabilir. Nafaka alacağı, temerrüt faiziyle birlikte tahsil edilir. Ayrıca nafaka borçlusu, nafaka ödememesi nedeniyle <strong>hapis cezası</strong> ile cezalandırılabilir (MK m. 493). Ödeme gücü olup ödemeyen borçlu, 1 aydan 3 aya kadar hapisle cezalandırılır. Ödeme gücünün olmadığı ispatlanırsa ceza verilmez.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Nafaka artırımı veya azaltımı talep edilebilir mi?</h3>
-                    <p>Evet, her iki taraf da <strong>değişen koşullara göre</strong> nafakanın artırılmasını veya azaltılmasını talep edebilir (MK m. 192). Örneğin, nafaka ödeyen eşin geliri düşerse azaltma; artarsa artırım talep edilebilir. Aynı şekilde alan eşin ihtiyacı artarsa artırım talep edilebilir. Mahkeme, yeni koşulları değerlendirerek karar verir.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Boşanmadan önce evli olup ayrı yaşayanlar nafaka alabilir mi?</h3>
-                    <p>Evet, <strong>boşanmadan önce</strong> dahi evli olup ayrı yaşayan eş, nafaka talep edebilir (MK m. 197). Bu durumda "tedbir nafakası" yerine "ayrılık nafakası" talep edilir. Eğer bir eş kusurlu olarak evi terk etmişse veya ayrı yaşamaya zorlamışsa, diğer eş ayrılık nafakası talep edebilir. Bu dava, boşanma davası ile birlikte veya ayrıca açılabilir.</p>
-                </div>
-                
-                <div class="faq-item">
-                    <h3>Nafaka borcu ne zaman sona erer?</h3>
-                    <p>Yoksulluk nafakası, alan eşin <strong>evlenmesi</strong> veya <strong>ölümü</strong> halinde sona erer (MK m. 195). Ayrıca, alan eşin yoksulluk içinde olmaktan çıkması (örneğin iş sahibi olması, miras alması) durumunda da nafaka kaldırılabilir. Tedbir nafakası ise dava sonuçlanınca sona erer veya yoksulluk nafakasına dönüşür.</p>
-                </div>
+            </div>
+            <div class="petition-actions">
+                <button class="btn btn-secondary" onclick="copyPetition('nafaka-dilekcesi-content-content')">Kopyala</button>
+                <button class="btn btn-primary" onclick="downloadUDF('nafaka-dilekcesi-content-content')">İndir (UDF)</button>
+                <button class="btn btn-primary" onclick="downloadWord('nafaka-dilekcesi-content-content')">İndir (Word)</button>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container">
-            <div class="cta-content">
-                <h2>Hukuki Danışmanlık İçin Bizimle İletişime Geçin</h2>
-                <p>Nafaka davalarınızın etkili yürütülmesi için profesyonel hukuki destek alın. Özata Hukuk Bürosu olarak haklarınızı koruyoruz.</p>
-                <a href="iletisim.html" class="btn btn-primary btn-large">İletişim</a>
-            </div>
-        </div>
-    </section>
     <footer class="footer">
         <div class="container">
             <div class="footer-grid">
                 <div class="footer-col">
                     <h4>ÖZATA HUKUK</h4>
                     <p>Profesyonel avukatlık hizmetleri ile hukuki haklarınızı koruyoruz.</p>
-                    <h4 style="margin-top: 25px; font-size: 1rem;">Bilgilendirme</h4>
-                    <p style="font-size: 0.85rem; line-height: 1.6; margin-top: 10px;">Bu internet sitesinde yer alan bilgiler potansiyel avukat-müvekkil ilişkisi yaratılması amacına yönelik değildir.</p>
                 </div>
                 <div class="footer-col">
                     <h4>Hızlı Bağlantılar</h4>
                     <ul>
                         <li><a href="index.html">Anasayfa</a></li>
-                        <li><a href="kurumsal.html">Kurumsal</a></li>
-                        <li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-                <li><a href="calisma-bolgeleri.html" class="active">Çalışma Bölgelerimiz</a></li>
-                <li><a href="hesaplamalar.html">Hesaplama Araçları</a></li>
-                <li><a href="dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
-                <li><a href="yayinlar.html">Yayınlar</a></li>
+                        <li><a href="dilekce-ornekleri.html">Dilekçe Örnekleri</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -382,193 +133,19 @@
                     <ul>
                         <li><a href="iletisim.html">İletişim Formu</a></li>
                         <li><a href="tel:+905325273993">0 (532) 527 39 93</a></li>
-                        <li><a href="mailto:info@ozatahukuk.av.tr">E-posta</a></li>
                     </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Son Eklenen Yayınlar</h4>
-                    <div class="latest-publications-list"></div>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır. | <a href="gizlilik-politikasi.html" style="color: var(--accent-color);">Gizlilik Politikası</a></p>
+                <p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p>
             </div>
         </div>
     </footer>
 
-    <a href="https://wa.me/905325273993" class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp ile iletişime geçin">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-    <script src="script.js"></script>
-    <script src="publications.js"></script>
-
-<!-- Search Modal -->
-<div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
-    <div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
-        <div class="search-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-            <h3 style="color: #c9a961; margin: 0; font-size: 1.3rem;">Site İçi Arama</h3>
-            <button id="closeSearchModal" class="close-search-btn" style="background: none; border: none; color: #c9a961; font-size: 1.5rem; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'" onmouseout="this.style.background='none'">×</button>
-        </div>
-        <div class="search-input-wrapper" style="position: relative; margin-bottom: 20px;">
-            <input type="text" id="searchInput" placeholder="Aramak istediğiniz kelimeyi yazın..." style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='rgba(255,255,255,0.1)';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
-            <button id="searchSubmitBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <path d="m21 21-4.35-4.35"></path>
-                </svg>
-            </button>
-        </div>
-        <div id="searchResults" class="search-results" style="max-height: 400px; overflow-y: auto; color: #fff;">
-            <p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>
-        </div>
-    </div>
-</div>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-(function() {
-    const searchModal = document.getElementById('searchModal');
-    const searchInput = document.getElementById('searchInput');
-    const searchResults = document.getElementById('searchResults');
-    const closeSearchBtn = document.getElementById('closeSearchModal');
-    const searchSubmitBtn = document.getElementById('searchSubmitBtn');
-    const navSearchBtns = document.querySelectorAll('.nav-search-btn');
-    
-    function openSearchModal() {
-        searchModal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        setTimeout(() => searchInput.focus(), 100);
-    }
-    
-    function closeSearchModal() {
-        searchModal.style.display = 'none';
-        document.body.style.overflow = '';
-        searchInput.value = '';
-        searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>';
-    }
-    
-    navSearchBtns.forEach(btn => {
-        btn.addEventListener('click', openSearchModal);
-    });
-    
-    if (closeSearchBtn) {
-        closeSearchBtn.addEventListener('click', closeSearchModal);
-    }
-    
-    searchModal.addEventListener('click', function(e) {
-        if (e.target === searchModal) {
-            closeSearchModal();
-        }
-    });
-    
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && searchModal.style.display === 'flex') {
-            closeSearchModal();
-        }
-    });
-    
-    function performSearch(query) {
-        if (!query.trim()) {
-            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Lütfen bir arama terimi girin.</p>';
-            return;
-        }
-        
-        query = query.toLowerCase();
-        const prefix = '';
-        const pages = [
-            { title: 'Anasayfa', url: prefix + 'index.html', keywords: 'anasayfa, ana sayfa, home, avukat, hukuk, ege özata' },
-            { title: 'Kurumsal', url: prefix + 'kurumsal.html', keywords: 'kurumsal, hakkımızda, about, hukuk bürosu, ofis' },
-            { title: 'Ekibimiz', url: prefix + 'ekibimiz.html', keywords: 'ekip, ekibimiz, team, avukatlar, personel' },
-            { title: 'Sıkça Sorulan Sorular', url: prefix + 'sss.html', keywords: 'sss, sıkça sorulan sorular, faq, soru cevap' },
-            { title: 'Çalışma Alanlarımız', url: prefix + 'calisma-alanlari.html', keywords: 'çalışma alanları, hizmetler, hukuk alanları, uzmanlık' },
-            { title: 'Çalışma Bölgelerimiz', url: prefix + 'calisma-bolgeleri.html', keywords: 'çalışma bölgeleri, bölgeler, izmir, istanbul, bölge' },
-            { title: 'Hesaplama Araçları', url: prefix + 'hesaplamalar.html', keywords: 'hesaplama, hesaplayıcı, hesap, araçlar, tools' },
-            { title: 'Dilekçe Örnekleri', url: prefix + 'dilekce-ornekleri.html', keywords: 'dilekçe, örnek, şablon, dilekçe örneği' },
-            { title: 'Yayınlar', url: prefix + 'yayinlar.html', keywords: 'yayınlar, makaleler, blog, yazılar' },
-            { title: 'İletişim', url: prefix + 'iletisim.html', keywords: 'iletişim, contact, telefon, email, adres' },
-            { title: 'Gizlilik Politikası', url: prefix + 'gizlilik-politikasi.html', keywords: 'gizlilik, privacy, kvkk, politika' }
-        ];
-        
-        const calcPages = [
-            'arac-deger-kaybi', 'askerlik-borclanmasi', 'bayram-tatil-ucreti', 'ceza-zamanasimi',
-            'dogum-izni-hesaplama', 'emekli-maasi-hesaplama', 'fazla-mesai', 'gece-calismasi',
-            'gunluk-yevmiye', 'hukumlu-infaz', 'icra-harci', 'ihbar-tazminati', 'is-kazasi-tazminati',
-            'islah-harci', 'issizlik-maasi', 'kidem-tazminati', 'kira-artis', 'kira-stopaj-hesaplama',
-            'mahkeme-harci', 'nafaka-hesaplama', 'netten-brute-maas', 'smm-hesaplama', 'tapu-harci',
-            'tazminat', 'trafik-kazasi-tazminati', 'vekalet-ucreti', 'yillik-izin', 'yurtdisi-borclanmasi'
-        ];
-        
-        calcPages.forEach(page => {
-            const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-            pages.push({
-                title: title + ' Hesaplayıcı',
-                url: prefix + 'hesaplamalar/' + page + '.html',
-                keywords: page.replace(/-/g, ' ') + ' hesapla, hesaplama, hesaplayıcı'
-            });
-        });
-        
-        const petitionPages = [
-            { name: 'İcra Takibi', file: 'icra-takibi' },
-            { name: 'İdari İptal', file: 'idari-iptal' },
-            { name: 'Kıdem Tazminatı', file: 'kidem-tazminati' },
-            { name: 'Nafaka Talebi', file: 'nafaka-talebi' },
-            { name: 'Savcılık Şikayet', file: 'savcilik-sikayet' },
-            { name: 'Tüketici Hakem', file: 'tuketici-hakem' }
-        ];
-        
-        petitionPages.forEach(p => {
-            pages.push({
-                title: p.name + ' Dilekçesi',
-                url: prefix + 'dilekce-' + p.file + '.html',
-                keywords: p.name.toLowerCase() + ' dilekçe, dilekçe örneği, şablon'
-            });
-        });
-        
-        const results = pages.filter(page => 
-            page.title.toLowerCase().includes(query) || 
-            page.keywords.toLowerCase().includes(query)
-        );
-        
-        if (results.length === 0) {
-            searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramanıza uygun sonuç bulunamadı.</p>';
-        } else {
-            let html = '<div style="display: flex; flex-direction: column; gap: 10px;">';
-            results.slice(0, 8).forEach(result => {
-                html += `<a href="${result.url}" style="display: block; padding: 15px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'; this.style.borderColor='#c9a961';" onmouseout="this.style.background='rgba(201,169,97,0.1)'; this.style.borderColor='rgba(201,169,97,0.2)';"><div style="font-weight: 600; color: #c9a961; margin-bottom: 5px;">${result.title}</div></a>`;
-            });
-            html += '</div>';
-            searchResults.innerHTML = html;
-        }
-    }
-    
-    let searchTimeout;
-    searchInput.addEventListener('input', function() {
-        clearTimeout(searchTimeout);
-        searchTimeout = setTimeout(() => performSearch(this.value), 300);
-    });
-    
-    if (searchSubmitBtn) {
-        searchSubmitBtn.addEventListener('click', function() {
-            performSearch(searchInput.value);
-        });
-    }
-    
-    searchInput.addEventListener('keypress', function(e) {
-        if (e.key === 'Enter') {
-            performSearch(this.value);
-        }
-    });
-})();
-</script>
-
-<!-- Dilekçe İndirme Fonksiyonları -->
-<script>
-// UDF formatında indir - SADECE saf metin, HTML yok
-function downloadUDF(petitionId) {
-    const petitionContent = document.getElementById(petitionId + '-content');
+function downloadUDF(elementId) {
+    const petitionContent = document.getElementById(elementId);
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
     let cleanText = '';
@@ -583,514 +160,125 @@ function downloadUDF(petitionId) {
         if (content) cleanText += content + '\n\n';
     });
     
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            cleanText += content.innerText + '\n\n';
-        }
-    });
-    
     const signature = petitionContent.querySelector('.petition-signature');
     if (signature) cleanText += '\n' + signature.innerText + '\n';
     
-    if (cleanText.length > 51200) {
-        alert('İçerik çok büyük, temizlenemiyor');
-        return;
-    }
-
-    // Elements oluştur - Her satır için ayrı paragraph
     let elementsXml = '';
     let offset = 0;
-
+    
     const titleEl = petitionContent.querySelector('.petition-title');
     if (titleEl) {
-        const titleLines = titleEl.innerText.toUpperCase().split('\n');
-        titleLines.forEach(line => {
-            if (line.trim()) {
-                elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`;
-                offset += line.length;
-            }
-            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-            offset += 1;
-        });
+        const titleText = titleEl.innerText.toUpperCase();
+        elementsXml += '<paragraph Alignment="1"><content bold="true" startOffset="' + offset + '" length="' + titleText.length + '" /></paragraph>';
+        offset += titleText.length;
+        elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
+        offset += 1;
     }
-
-    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+    
+    elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
     offset += 1;
-
+    
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-
+        
         if (label) {
-            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`;
+            elementsXml += '<paragraph><content bold="true" underline="true" startOffset="' + offset + '" length="' + label.length + '" /></paragraph>';
             offset += label.length;
-            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+            elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
             offset += 1;
         }
-
+        
         if (content) {
-            const contentLines = content.split('\n');
-            contentLines.forEach((line, idx) => {
+            const lines = content.split('\n');
+            lines.forEach((line) => {
                 if (line.trim()) {
-                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
+                    elementsXml += '<paragraph><content startOffset="' + offset + '" length="' + line.length + '" /></paragraph>';
                     offset += line.length;
                 }
-                if (idx < contentLines.length - 1 || label) {
-                    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-                    offset += 1;
-                }
+                elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
+                offset += 1;
             });
         }
-
-        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+        
+        elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
         offset += 1;
     });
-
+    
     const sigEl = petitionContent.querySelector('.petition-signature');
     if (sigEl) {
-        const sigLines = sigEl.innerText.split('\n');
-        sigLines.forEach(line => {
-            if (line.trim()) {
-                elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
-                offset += line.length;
-            } else {
-                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-                offset += 1;
-            }
-        });
+        const sigText = sigEl.innerText;
+        elementsXml += '<paragraph Alignment="2"><content startOffset="' + offset + '" length="' + sigText.length + '" /></paragraph>';
+        offset += sigText.length;
     }
-
-    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?> 
-
-<template format_id="1.8" >
-<content><![CDATA[${cleanText}]]></content><properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
-<elements resolver="hvl-default" >
-${elementsXml}
-</elements>
-<styles><style name="default" description="Geçerli" family="Dialog" size="12" bold="false" italic="false" foreground="-13421773" /><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
-</template>
-
-`;
-
-    const docPropsXml = `<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
-<properties>
-</properties>`;
-
-    const zip = new JSZip();
-    zip.file('content.xml', '\uFEFF' + contentXml);
-    zip.file('documentproperties.xml', docPropsXml);
     
-    zip.generateAsync({type: 'blob'}).then(function(blob) {
-        const url = window.URL.createObjectURL(blob);
+    const contentXml = '<?xml version="1.0" encoding="UTF-8" ?>\n<template format_id="1.8" >\n<content><![CDATA[' + cleanText + ']]></content>\n<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n<elements resolver="hvl-default" >\n' + elementsXml + '\n</elements>\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>';
+    
+    const zip = new JSZip();
+    zip.file("content.xml", contentXml);
+    zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
+    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
+    
+    zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
-        a.href = url;
-        a.download = petitionId + '.udf';
+        a.href = window.URL.createObjectURL(blob);
+        a.download = elementId + '.udf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-        window.URL.revokeObjectURL(url);
     });
-}
-
-function downloadWord(petitionId) {
-    const petitionContent = document.getElementById(petitionId + '-content');
-    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
-    const wordContent = `<html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'><head><meta charset="utf-8"><title>Nafaka Talebi Dilekçesi</title><style>body { font-family: "Times New Roman", serif; font-size: 12pt; line-height: 1.5; } .petition-title { text-align: center; font-weight: bold; font-size: 14pt; margin-bottom: 20px; text-transform: uppercase; } .petition-section { margin-bottom: 15px; } .petition-label { font-weight: bold; } .petition-content { text-align: justify; } .petition-signature { text-align: right; margin-top: 30px; }</style></head><body>${petitionContent.innerHTML}<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
-<!-- Dilekçe İndirme Fonksiyonları -->
-<script>
-async function downloadUDF(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
-    
-    // Tam metni topla
-    let fullText = '';
-    
-    // Başlık
-    const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
-    
-    // Tüm section'ları topla
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
-    });
-    
-    // Ek içerikler (section dışındaki petition-content'ler)
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
-    
-    // Elements oluştur
-    let elementsXml = '';
-    let offset = 0;
-    
-    // Başlık
-    const titleEl = petitionContent.querySelector('.petition-title');
-    if (titleEl) {
-        const titleText = titleEl.innerText.toUpperCase();
-        elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${titleText.length}" /></paragraph>`;
-        offset += titleText.length;
-        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-        offset += 1;
-    }
-    
-    // Boş satır
-    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-    offset += 1;
-    
-    // Sectionlar
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        
-        if (label) {
-            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`;
-            offset += label.length;
-            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-            offset += 1;
-        }
-        
-        if (content) {
-            const lines = content.split(/\r?\n/);
-            lines.forEach((line, idx) => {
-                if (line.trim()) {
-                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
-                    offset += line.length;
-                }
-                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-                offset += 1;
-            });
-        }
-        
-        // Boş satır section sonu
-        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-        offset += 1;
-    });
-    
-    // İmza
-    const sigEl = petitionContent.querySelector('.petition-signature');
-    if (sigEl) {
-        const sigText = sigEl.innerText;
-        elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${sigText.length}" /></paragraph>`;
-        offset += sigText.length;
-    }
-    
-    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>\n<template format_id="1.8" >\n<content><![CDATA[${fullText}]]></content>\n<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n<elements resolver="hvl-default" >\n${elementsXml}\n</elements>\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>`;
-    
-    const zip = new JSZip();
-    zip.file("content.xml", contentXml);
-    zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
-    zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
-    
-    const blob = await zip.generateAsync({type: "blob"});
-    const a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = 'dilekce-nafaka-talebi.udf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
 }
 
 function downloadWord(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
+    const petitionContent = document.getElementById(elementId);
+    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
-    // Tüm içeriği al
     let fullText = '';
     
-    // Başlık
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
+    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
-    // Tüm section'lar
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
+        if (label) fullText += label + '\n';
+        if (content) fullText += content + '\n\n';
     });
     
-    // Ek içerikler
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
+    if (signature) fullText += '\n' + signature.innerText + '\n';
     
-    const blob = new Blob(["\ufeff", fullText], {type: 'application/msword'});
+    const blob = new Blob(['\ufeff', fullText], {type: 'application/msword'});
     const a = document.createElement('a');
     a.href = window.URL.createObjectURL(blob);
-    a.download = 'dilekce-nafaka-talebi.doc';
+    a.download = elementId + '.doc';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
 }
 
 function copyPetition(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
-    
-    let fullText = '';
-    
-    // Başlık
-    const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
-    
-    // Tüm section'lar
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
-    });
-    
-    // Ek içerikler
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
-    
-    navigator.clipboard.writeText(fullText).then(() => alert('Dilekçe kopyalandı!'));
-}
-</script>
-</body></html>`;
-    const blob = new Blob([wordContent], { type: 'application/msword' });
-    const url = window.URL.createObjectURL(blob);
-    const a = document.createElement('a'); a.href = url; a.download = petitionId + '.doc'; document.body.appendChild(a); a.click(); document.body.removeChild(a); window.URL.revokeObjectURL(url);
-}
-function copyPetition(petitionId) {
-    const petitionContent = document.getElementById(petitionId + '-content');
+    const petitionContent = document.getElementById(elementId);
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
-    let text = '';
-    const title = petitionContent.querySelector('.petition-title');
-    if (title) text += title.innerText + '\n\n';
-    const sections = petitionContent.querySelectorAll('.petition-section');
-    sections.forEach(section => {
-        const label = section.querySelector('.petition-label');
-        const content = section.querySelector('.petition-content');
-        if (label) text += label.innerText + ' ';
-        if (content) text += content.innerText + '\n\n';
-    });
-    const contents = petitionContent.querySelectorAll('.petition-content');
-    contents.forEach(content => { if (!content.closest('.petition-section')) text += content.innerText + '\n\n'; });
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) text += signature.innerText + '\n';
-    navigator.clipboard.writeText(text).then(function() { alert('Dilekçe panoya kopyalandı!'); }).catch(function(err) { alert('Kopyalama başarısız oldu.'); });
-}
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-
-<!-- Dilekçe İndirme Fonksiyonları -->
-<script>
-async function downloadUDF(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
-    
-    // Tam metni topla
-    let fullText = '';
-    
-    // Başlık
-    const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
-    
-    // Tüm section'ları topla
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
-    });
-    
-    // Ek içerikler (section dışındaki petition-content'ler)
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
-    
-    // Elements oluştur
-    let elementsXml = '';
-    let offset = 0;
-    
-    // Başlık
-    const titleEl = petitionContent.querySelector('.petition-title');
-    if (titleEl) {
-        const titleText = titleEl.innerText.toUpperCase();
-        elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${titleText.length}" /></paragraph>`;
-        offset += titleText.length;
-        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-        offset += 1;
-    }
-    
-    // Boş satır
-    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-    offset += 1;
-    
-    // Sectionlar
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        
-        if (label) {
-            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`;
-            offset += label.length;
-            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-            offset += 1;
-        }
-        
-        if (content) {
-            const lines = content.split(/\r?\n/);
-            lines.forEach((line, idx) => {
-                if (line.trim()) {
-                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
-                    offset += line.length;
-                }
-                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-                offset += 1;
-            });
-        }
-        
-        // Boş satır section sonu
-        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
-        offset += 1;
-    });
-    
-    // İmza
-    const sigEl = petitionContent.querySelector('.petition-signature');
-    if (sigEl) {
-        const sigText = sigEl.innerText;
-        elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${sigText.length}" /></paragraph>`;
-        offset += sigText.length;
-    }
-    
-    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>\n<template format_id="1.8" >\n<content><![CDATA[${fullText}]]></content>\n<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n<elements resolver="hvl-default" >\n${elementsXml}\n</elements>\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>`;
-    
-    const zip = new JSZip();
-    zip.file("content.xml", contentXml);
-    zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
-    zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
-    
-    const blob = await zip.generateAsync({type: "blob"});
-    const a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = 'dilekce-nafaka-talebi.udf';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-function downloadWord(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
-    
-    // Tüm içeriği al
-    let fullText = '';
-    
-    // Başlık
-    const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
-    
-    // Tüm section'lar
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
-        const label = section.querySelector('.petition-label')?.innerText || '';
-        const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
-    });
-    
-    // Ek içerikler
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
-    const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
-    
-    const blob = new Blob(["\ufeff", fullText], {type: 'application/msword'});
-    const a = document.createElement('a');
-    a.href = window.URL.createObjectURL(blob);
-    a.download = 'dilekce-nafaka-talebi.doc';
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-function copyPetition(elementId) {
-    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-    if (!petitionContent) {
-        alert('Dilekçe içeriği bulunamadı!');
-        return;
-    }
     
     let fullText = '';
     
-    // Başlık
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + "\n\n";
+    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
-    // Tüm section'lar
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + "\n";
-        if (content) fullText += content + "\n\n";
+        if (label) fullText += label + '\n';
+        if (content) fullText += content + '\n\n';
     });
     
-    // Ek içerikler
-    petitionContent.querySelectorAll('.petition-content').forEach(content => {
-        if (!content.closest('.petition-section')) {
-            fullText += content.innerText + "\n\n";
-        }
-    });
-    
-    // İmza
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += "\n" + signature.innerText + "\n";
+    if (signature) fullText += '\n' + signature.innerText + '\n';
     
     navigator.clipboard.writeText(fullText).then(() => alert('Dilekçe kopyalandı!'));
 }
 </script>
+
 </body>
 </html>
