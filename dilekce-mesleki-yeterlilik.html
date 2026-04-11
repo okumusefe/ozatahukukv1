@@ -323,25 +323,56 @@ function downloadWord(elementId) {
     const petitionContent = document.getElementById(elementId);
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
-    let fullText = '';
+    let rtfBody = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
+    if (title) {
+        const titleText = title.innerText.toUpperCase().replace(/[\\{}]/g, '\\\\$&');
+        rtfBody += '\\pard\\qc\\b ' + titleText + '\\b0\\par\\par';
+    }
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + '\n';
-        if (content) fullText += content + '\n\n';
+        
+        if (label) {
+            const labelText = label.replace(/[\\{}]/g, '\\\\$&');
+            rtfBody += '\\b ' + labelText + '\\b0\\par';
+        }
+        
+        if (content) {
+            const lines = content.split('\n');
+            lines.forEach(line => {
+                const lineText = line.replace(/[\\{}]/g, '\\\\$&').trim();
+                if (lineText) {
+                    rtfBody += lineText + '\\par';
+                }
+            });
+        }
+        
+        rtfBody += '\\par';
     });
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += '\n' + signature.innerText + '\n';
+    if (signature) {
+        rtfBody += '\\par';
+        const sigLines = signature.innerText.split('\n');
+        rtfBody += '\\pard\\qr';
+        sigLines.forEach(line => {
+            const lineText = line.replace(/[\\{}]/g, '\\\\$&').trim();
+            if (lineText) {
+                rtfBody += lineText + '\\par';
+            }
+        });
+        rtfBody += '\\pard';
+    }
     
-    const blob = new Blob(['\ufeff', fullText], {type: 'application/msword'});
+    const rtfContent = '{\\rtf1\\ansi\\ansicpg1254\\deff0\\nouicompat\\deflang1055\\deflangfe1055{\\fonttbl{\\f0\\fnil\\fcharset162 Times New Roman;}}{\\*\\generator Riched20 10.0.19041}\\viewkind4\uc1 \\pard\plain\\fs28\\lang1055 ' + rtfBody + '}';
+    
+    const blob = new Blob([rtfContent], {type: 'application/rtf'});
     const a = document.createElement('a');
     a.href = window.URL.createObjectURL(blob);
-    a.download = elementId + '.doc';
+    a.download = elementId + '.rtf';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
