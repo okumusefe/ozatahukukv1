@@ -296,7 +296,129 @@ ${elementsXml}
     
     function downloadWord(elementId) {
         const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-        let htmlContent = `<html><head><meta charset="utf-8"><title>Ailenin Korunması İçin Tedbir Dilekçesi</title></head><body>${petitionContent.innerHTML}</body></html>`;
+        let htmlContent = `<html><head><meta charset="utf-8"><title>Ailenin Korunması İçin Tedbir Dilekçesi</title></head><body>${petitionContent.innerHTML}<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+async function downloadUDF(elementId) {
+    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
+    if (!petitionContent) {
+        alert('Dilekçe içeriği bulunamadı!');
+        return;
+    }
+    
+    let fullText = '';
+    petitionContent.querySelectorAll('.petition-title, .petition-section, .petition-content, .petition-signature').forEach(el => { 
+        fullText += el.innerText + '
+'; 
+    });
+    
+    let elementsXml = ''; 
+    let offset = 0;
+    
+    const titleEl = petitionContent.querySelector('.petition-title');
+    if (titleEl) {
+        const titleLines = titleEl.innerText.toUpperCase().split('
+');
+        titleLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            }
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1;
+        });
+    }
+    
+    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+    offset += 1;
+    
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const label = section.querySelector('.petition-label')?.innerText || '';
+        const content = section.querySelector('.petition-content')?.innerText || '';
+        
+        if (label) { 
+            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`; 
+            offset += label.length; 
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1; 
+        }
+        
+        if (content) {
+            const contentLines = content.split('
+');
+            contentLines.forEach((line, idx) => {
+                if (line.trim()) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                    offset += line.length; 
+                }
+                if (idx < contentLines.length - 1 || label) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                    offset += 1; 
+                }
+            });
+        }
+        
+        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+        offset += 1;
+    });
+    
+    const sigEl = petitionContent.querySelector('.petition-signature');
+    if (sigEl) {
+        const sigLines = sigEl.innerText.split('
+');
+        sigLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            } else { 
+                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                offset += 1; 
+            }
+        });
+    }
+    
+    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>
+<template format_id="1.8" >
+<content><![CDATA[${fullText}]]></content>
+<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+${elementsXml}
+</elements>
+<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
+</template>`;
+    
+    const zip = new JSZip();
+    zip.file("content.xml", contentXml);
+    zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
+    zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
+    
+    const blob = await zip.generateAsync({type: "blob"});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'ailenin-korunmasi-dilekcesi.udf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function downloadWord(elementId) {
+    const content = document.getElementById(elementId).querySelector('.petition-letter').innerHTML;
+    const blob = new Blob(['\ufeff', `<html><meta charset="utf-8"><title>Ailenin Korunması İçin Tedbir Dilekçesi</title><body>${content}</body></html>`], {type: 'application/msword'});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'ailenin-korunmasi-dilekcesi.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function copyPetition(elementId) {
+    const text = document.getElementById(elementId).querySelector('.petition-letter').innerText;
+    navigator.clipboard.writeText(text).then(() => alert('Kopyalandı!'));
+}
+</script>
+</body></html>`;
         const blob = new Blob(['\ufeff', htmlContent], {type: 'application/msword'});
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -313,5 +435,127 @@ ${elementsXml}
         navigator.clipboard.writeText(petitionContent.innerText).then(() => alert('Dilekçe içeriği kopyalandı!'));
     }
     </script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+async function downloadUDF(elementId) {
+    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
+    if (!petitionContent) {
+        alert('Dilekçe içeriği bulunamadı!');
+        return;
+    }
+    
+    let fullText = '';
+    petitionContent.querySelectorAll('.petition-title, .petition-section, .petition-content, .petition-signature').forEach(el => { 
+        fullText += el.innerText + '
+'; 
+    });
+    
+    let elementsXml = ''; 
+    let offset = 0;
+    
+    const titleEl = petitionContent.querySelector('.petition-title');
+    if (titleEl) {
+        const titleLines = titleEl.innerText.toUpperCase().split('
+');
+        titleLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            }
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1;
+        });
+    }
+    
+    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+    offset += 1;
+    
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const label = section.querySelector('.petition-label')?.innerText || '';
+        const content = section.querySelector('.petition-content')?.innerText || '';
+        
+        if (label) { 
+            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`; 
+            offset += label.length; 
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1; 
+        }
+        
+        if (content) {
+            const contentLines = content.split('
+');
+            contentLines.forEach((line, idx) => {
+                if (line.trim()) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                    offset += line.length; 
+                }
+                if (idx < contentLines.length - 1 || label) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                    offset += 1; 
+                }
+            });
+        }
+        
+        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+        offset += 1;
+    });
+    
+    const sigEl = petitionContent.querySelector('.petition-signature');
+    if (sigEl) {
+        const sigLines = sigEl.innerText.split('
+');
+        sigLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            } else { 
+                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                offset += 1; 
+            }
+        });
+    }
+    
+    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>
+<template format_id="1.8" >
+<content><![CDATA[${fullText}]]></content>
+<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+${elementsXml}
+</elements>
+<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
+</template>`;
+    
+    const zip = new JSZip();
+    zip.file("content.xml", contentXml);
+    zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
+    zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
+    
+    const blob = await zip.generateAsync({type: "blob"});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'ailenin-korunmasi-dilekcesi.udf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function downloadWord(elementId) {
+    const content = document.getElementById(elementId).querySelector('.petition-letter').innerHTML;
+    const blob = new Blob(['\ufeff', `<html><meta charset="utf-8"><title>Ailenin Korunması İçin Tedbir Dilekçesi</title><body>${content}</body></html>`], {type: 'application/msword'});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'ailenin-korunmasi-dilekcesi.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function copyPetition(elementId) {
+    const text = document.getElementById(elementId).querySelector('.petition-letter').innerText;
+    navigator.clipboard.writeText(text).then(() => alert('Kopyalandı!'));
+}
+</script>
 </body>
 </html>

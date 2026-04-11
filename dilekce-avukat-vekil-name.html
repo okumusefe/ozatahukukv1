@@ -196,217 +196,7 @@
 <script src="script.js"></script>
 <script src="publications.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
-<script>
-async function downloadUDF(elementId) {
-const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
-let fullText = '';
-petitionContent.querySelectorAll('.petition-title, .petition-section, .petition-content, .petition-signature').forEach(el => { fullText += el.innerText + '\n'; });
-let elementsXml = ''; let offset = 0;
-const titleEl = petitionContent.querySelector('.petition-title');
-if (titleEl) {
-const titleLines = titleEl.innerText.toUpperCase().split('\n');
-titleLines.forEach(line => {
-if (line.trim()) { elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
-elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
-});
-}
-elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
-petitionContent.querySelectorAll('.petition-section').forEach(section => {
-const label = section.querySelector('.petition-label')?.innerText || '';
-const content = section.querySelector('.petition-content')?.innerText || '';
-if (label) { elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`; offset += label.length; elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
-if (content) {
-const contentLines = content.split('\n');
-contentLines.forEach((line, idx) => {
-if (line.trim()) { elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
-if (idx < contentLines.length - 1 || label) { elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
-});
-}
-elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
-});
-const sigEl = petitionContent.querySelector('.petition-signature');
-if (sigEl) {
-const sigLines = sigEl.innerText.split('\n');
-sigLines.forEach(line => {
-if (line.trim()) { elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
-else { elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
-});
-}
-const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>
-<template format_id="1.8" >
-<content><![CDATA[${fullText}]]></content>
-<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
-<elements resolver="hvl-default" >
-${elementsXml}
-</elements>
-<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
-</template>`;
-const zip = new JSZip();
-zip.file("content.xml", contentXml);
-zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
-zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
-const blob = await zip.generateAsync({type: "blob"});
-const a = document.createElement('a');
-a.href = window.URL.createObjectURL(blob);
-a.download = 'avukat-vekil-name-dilekcesi.udf';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-}
-function downloadWord(elementId) {
-const content = document.getElementById(elementId).querySelector('.petition-letter').innerHTML;
-const blob = new Blob(['\ufeff', `<html><meta charset="utf-8"><title>Avukat Vekil Name</title><body>${content}<!-- Search Modal -->
-<div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
-<div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
-<div class="search-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-<h3 style="color: #c9a961; margin: 0; font-size: 1.3rem;">Site İçi Arama</h3>
-<button id="closeSearchModal" class="close-search-btn" style="background: none; border: none; color: #c9a961; font-size: 1.5rem; cursor: pointer; padding: 0; width: 32px; height: 32px; display: flex; align-items: center; justify-content: center; border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'" onmouseout="this.style.background='none'">×</button>
-</div>
-<div class="search-input-wrapper" style="position: relative; margin-bottom: 20px;">
-<input type="text" id="searchInput" placeholder="Aramak istediğiniz kelimeyi yazın..." style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.05); color: #fff; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='rgba(255,255,255,0.1)';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.05)';">
-<button id="searchSubmitBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="11" cy="11" r="8"></circle>
-<path d="m21 21-4.35-4.35"></path>
-</svg>
-</button>
-</div>
-<div id="searchResults" class="search-results" style="max-height: 400px; overflow-y: auto; color: #fff;">
-<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>
-</div>
-</div>
-</div>
-<script>
-(function() {
-const searchModal = document.getElementById('searchModal');
-const searchInput = document.getElementById('searchInput');
-const searchResults = document.getElementById('searchResults');
-const closeSearchBtn = document.getElementById('closeSearchModal');
-const searchSubmitBtn = document.getElementById('searchSubmitBtn');
-const navSearchBtns = document.querySelectorAll('.nav-search-btn');
 
-function openSearchModal() {
-searchModal.style.display = 'flex';
-document.body.style.overflow = 'hidden';
-setTimeout(() => searchInput.focus(), 100);
-}
-
-function closeSearchModal() {
-searchModal.style.display = 'none';
-document.body.style.overflow = '';
-searchInput.value = '';
-searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramak istediğiniz kelimeyi yukarıya yazın...</p>';
-}
-
-navSearchBtns.forEach(btn => {
-btn.addEventListener('click', openSearchModal);
-});
-
-if (closeSearchBtn) {
-closeSearchBtn.addEventListener('click', closeSearchModal);
-}
-
-searchModal.addEventListener('click', function(e) {
-if (e.target === searchModal) {
-closeSearchModal();
-}
-});
-
-document.addEventListener('keydown', function(e) {
-if (e.key === 'Escape' && searchModal.style.display === 'flex') {
-closeSearchModal();
-}
-});
-
-function performSearch(query) {
-if (!query.trim()) {
-searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Lütfen bir arama terimi girin.</p>';
-return;
-}
-
-query = query.toLowerCase();
-const prefix = '';
-const pages = [
-{ title: 'Anasayfa', url: prefix + 'index.html', keywords: 'anasayfa, ana sayfa, home, avukat, hukuk, ege özata' },
-{ title: 'Kurumsal', url: prefix + 'kurumsal.html', keywords: 'kurumsal, hakkımızda, about, hukuk bürosu, ofis' },
-{ title: 'Ekibimiz', url: prefix + 'ekibimiz.html', keywords: 'ekip, ekibimiz, team, avukatlar, personel' },
-{ title: 'Sıkça Sorulan Sorular', url: prefix + 'sss.html', keywords: 'sss, sıkça sorulan sorular, faq, soru cevap' },
-{ title: 'Çalışma Alanlarımız', url: prefix + 'calisma-alanlari.html', keywords: 'çalışma alanları, hizmetler, hukuk alanları, uzmanlık' },
-{ title: 'Çalışma Bölgelerimiz', url: prefix + 'calisma-bolgeleri.html', keywords: 'çalışma bölgeleri, bölgeler, izmir, istanbul, bölge' },
-{ title: 'Hesaplama Araçları', url: prefix + 'hesaplamalar.html', keywords: 'hesaplama, hesaplayıcı, hesap, araçlar, tools' },
-{ title: 'Dilekçe Örnekleri', url: prefix + 'dilekce-ornekleri.html', keywords: 'dilekçe, örnek, şablon, dilekçe örneği' },
-{ title: 'Yayınlar', url: prefix + 'yayinlar.html', keywords: 'yayınlar, makaleler, blog, yazılar' },
-{ title: 'İletişim', url: prefix + 'iletisim.html', keywords: 'iletişim, contact, telefon, email, adres' },
-{ title: 'Gizlilik Politikası', url: prefix + 'gizlilik-politikasi.html', keywords: 'gizlilik, privacy, kvkk, politika' }
-];
-
-const calcPages = [
-'arac-deger-kaybi', 'askerlik-borclanmasi', 'bayram-tatil-ucreti', 'ceza-zamanasimi',
-'dogum-izni-hesaplama', 'emekli-maasi-hesaplama', 'fazla-mesai', 'gece-calismasi',
-'gunluk-yevmiye', 'hukumlu-infaz', 'icra-harci', 'ihbar-tazminati', 'is-kazasi-tazminati',
-'islah-harci', 'issizlik-maasi', 'kidem-tazminati', 'kira-artis', 'kira-stopaj-hesaplama',
-'mahkeme-harci', 'nafaka-hesaplama', 'netten-brute-maas', 'smm-hesaplama', 'tapu-harci',
-'tazminat', 'trafik-kazasi-tazminati', 'vekalet-ucreti', 'yillik-izin', 'yurtdisi-borclanmasi'
-];
-
-calcPages.forEach(page => {
-const title = page.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
-pages.push({
-title: title + ' Hesaplayıcı',
-url: prefix + 'hesaplamalar/' + page + '.html',
-keywords: page.replace(/-/g, ' ') + ' hesapla, hesaplama, hesaplayıcı'
-});
-});
-
-const results = pages.filter(page => 
-page.title.toLowerCase().includes(query) || 
-page.keywords.toLowerCase().includes(query)
-);
-
-if (results.length === 0) {
-searchResults.innerHTML = '<p style="text-align: center; color: rgba(255,255,255,0.6); margin: 30px 0;">Aramanıza uygun sonuç bulunamadı.</p>';
-} else {
-let html = '<div style="display: flex; flex-direction: column; gap: 10px;">';
-results.slice(0, 8).forEach(result => {
-html += `<a href="${result.url}" style="display: block; padding: 15px; background: rgba(201,169,97,0.1); border: 1px solid rgba(201,169,97,0.2); border-radius: 8px; color: #fff; text-decoration: none; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.2)'; this.style.borderColor='#c9a961';" onmouseout="this.style.background='rgba(201,169,97,0.1)'; this.style.borderColor='rgba(201,169,97,0.2)';"><div style="font-weight: 600; color: #c9a961; margin-bottom: 5px;">${result.title}</div></a>`;
-});
-html += '</div>';
-searchResults.innerHTML = html;
-}
-}
-
-let searchTimeout;
-searchInput.addEventListener('input', function() {
-clearTimeout(searchTimeout);
-searchTimeout = setTimeout(() => performSearch(this.value), 300);
-});
-
-if (searchSubmitBtn) {
-searchSubmitBtn.addEventListener('click', function() {
-performSearch(searchInput.value);
-});
-}
-
-searchInput.addEventListener('keypress', function(e) {
-if (e.key === 'Enter') {
-performSearch(this.value);
-}
-});
-})();
-</script>
-</body></html>`], {type: 'application/msword'});
-const a = document.createElement('a');
-a.href = window.URL.createObjectURL(blob);
-a.download = 'avukat-vekil-name-dilekcesi.doc';
-document.body.appendChild(a);
-a.click();
-document.body.removeChild(a);
-}
-function copyPetition(elementId) {
-navigator.clipboard.writeText(document.getElementById(elementId).querySelector('.petition-letter').innerText).then(() => alert('Kopyalandı!'));
-}
-</script>
 <!-- Search Modal -->
 <div id="searchModal" class="search-modal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(26, 31, 61, 0.95); z-index: 10000; justify-content: center; align-items: flex-start; padding-top: 100px;">
 <div class="search-modal-content" style="background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%); border: 1px solid rgba(201,169,97,0.3); border-radius: 12px; width: 90%; max-width: 600px; padding: 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5);">
@@ -545,6 +335,128 @@ performSearch(this.value);
 }
 });
 })();
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+<!-- Dilekçe İndirme Fonksiyonları -->
+<script>
+async function downloadUDF(elementId) {
+    const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
+    if (!petitionContent) {
+        alert('Dilekçe içeriği bulunamadı!');
+        return;
+    }
+    
+    let fullText = '';
+    petitionContent.querySelectorAll('.petition-title, .petition-section, .petition-content, .petition-signature').forEach(el => { 
+        fullText += el.innerText + '
+'; 
+    });
+    
+    let elementsXml = ''; 
+    let offset = 0;
+    
+    const titleEl = petitionContent.querySelector('.petition-title');
+    if (titleEl) {
+        const titleLines = titleEl.innerText.toUpperCase().split('
+');
+        titleLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            }
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1;
+        });
+    }
+    
+    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+    offset += 1;
+    
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const label = section.querySelector('.petition-label')?.innerText || '';
+        const content = section.querySelector('.petition-content')?.innerText || '';
+        
+        if (label) { 
+            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`; 
+            offset += label.length; 
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+            offset += 1; 
+        }
+        
+        if (content) {
+            const contentLines = content.split('
+');
+            contentLines.forEach((line, idx) => {
+                if (line.trim()) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                    offset += line.length; 
+                }
+                if (idx < contentLines.length - 1 || label) { 
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                    offset += 1; 
+                }
+            });
+        }
+        
+        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+        offset += 1;
+    });
+    
+    const sigEl = petitionContent.querySelector('.petition-signature');
+    if (sigEl) {
+        const sigLines = sigEl.innerText.split('
+');
+        sigLines.forEach(line => {
+            if (line.trim()) { 
+                elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`; 
+                offset += line.length; 
+            } else { 
+                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; 
+                offset += 1; 
+            }
+        });
+    }
+    
+    const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>
+<template format_id="1.8" >
+<content><![CDATA[${fullText}]]></content>
+<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+${elementsXml}
+</elements>
+<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
+</template>`;
+    
+    const zip = new JSZip();
+    zip.file("content.xml", contentXml);
+    zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
+    zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
+    
+    const blob = await zip.generateAsync({type: "blob"});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'avukat-vekil-name-dilekcesi.udf';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function downloadWord(elementId) {
+    const content = document.getElementById(elementId).querySelector('.petition-letter').innerHTML;
+    const blob = new Blob(['\ufeff', `<html><meta charset="utf-8"><title>Avukat Vekil Name Dilekçesi</title><body>${content}</body></html>`], {type: 'application/msword'});
+    const a = document.createElement('a');
+    a.href = window.URL.createObjectURL(blob);
+    a.download = 'avukat-vekil-name-dilekcesi.doc';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+}
+
+function copyPetition(elementId) {
+    const text = document.getElementById(elementId).querySelector('.petition-letter').innerText;
+    navigator.clipboard.writeText(text).then(() => alert('Kopyalandı!'));
+}
 </script>
 </body>
 </html>
