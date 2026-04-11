@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Download Test</title>
+</head>
+<body>
+    <h1>Download Test</h1>
+    <div id="test-content">
+        <h2>Test Content</h2>
+        <p>This is test content for download.</p>
+    </div>
+    <button onclick="testDownload()">Test Download</button>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script>
+    function testDownload() {
+        try {
+            const content = document.getElementById('test-content').innerText;
+            const blob = new Blob([content], {type: 'text/plain'});
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'test.txt';
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            URL.revokeObjectURL(url);
+            alert('Download started!');
+        } catch (e) {
+            alert('Error: ' + e.message);
+        }
+    }
+    </script>
+</body>
+</html>
