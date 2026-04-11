@@ -165,7 +165,21 @@
                 <h2>Hukuki Dilekçe Örnekleri</h2>
                 <p class="section-description">Aşağıda farklı hukuk alanlarında sıkça kullanılan dilekçe örneklerini bulabilirsiniz. Bu örnekler, mevzuat hükümlerine uygun olarak hazırlanmış şablonlardır.</p>
 
-                <div class="petitions-grid">
+                <!-- Dilekçe Arama -->
+                <div class="petition-search" style="max-width: 600px; margin: 30px auto;">
+                    <div class="search-input-wrapper" style="position: relative;">
+                        <input type="text" id="petitionSearchInput" placeholder="Dilekçe adı yazın (örn: boşanma, nafaka, icra...)" style="width: 100%; padding: 15px 50px 15px 20px; border: 2px solid rgba(201,169,97,0.3); border-radius: 8px; background: rgba(255,255,255,0.9); color: #1a1f3d; font-size: 1rem; box-sizing: border-box; transition: all 0.3s ease;" onfocus="this.style.borderColor='#c9a961'; this.style.background='#fff';" onblur="this.style.borderColor='rgba(201,169,97,0.3)'; this.style.background='rgba(255,255,255,0.9)';">
+                        <button id="petitionSearchBtn" style="position: absolute; right: 8px; top: 50%; transform: translateY(-50%); background: #c9a961; border: none; border-radius: 6px; width: 36px; height: 36px; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease;" onmouseover="this.style.background='#d4b76a'" onmouseout="this.style.background='#c9a961'">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#1a1f3d" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.35-4.35"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <p id="petitionSearchResults" style="text-align: center; color: #666; margin-top: 10px; font-size: 0.9rem;"></p>
+                </div>
+
+                <div class="petitions-grid" id="petitionsGrid">
                     <!-- Savcılık Şikayet Dilekçesi -->
                     <article class="petition-card" data-category="ceza">
                         <div class="petition-header">
@@ -1582,6 +1596,73 @@
             performSearch(this.value);
         }
     });
+})();
+
+// Dilekçe Arama Fonksiyonu
+(function() {
+    const petitionSearchInput = document.getElementById('petitionSearchInput');
+    const petitionSearchBtn = document.getElementById('petitionSearchBtn');
+    const petitionSearchResults = document.getElementById('petitionSearchResults');
+    const petitionsGrid = document.getElementById('petitionsGrid');
+    const petitionCards = petitionsGrid ? petitionsGrid.querySelectorAll('.petition-card') : [];
+    
+    function filterPetitions(query) {
+        if (!query.trim()) {
+            // Show all petitions
+            petitionCards.forEach(card => {
+                card.style.display = '';
+            });
+            petitionSearchResults.textContent = '';
+            return;
+        }
+        
+        query = query.toLowerCase();
+        let matchCount = 0;
+        
+        petitionCards.forEach(card => {
+            const title = card.querySelector('h3')?.innerText?.toLowerCase() || '';
+            const category = card.querySelector('.petition-category')?.innerText?.toLowerCase() || '';
+            const description = card.querySelector('.petition-description p')?.innerText?.toLowerCase() || '';
+            
+            if (title.includes(query) || category.includes(query) || description.includes(query)) {
+                card.style.display = '';
+                matchCount++;
+            } else {
+                card.style.display = 'none';
+            }
+        });
+        
+        if (matchCount === 0) {
+            petitionSearchResults.textContent = 'Aramanıza uygun dilekçe bulunamadı.';
+            petitionSearchResults.style.color = '#e74c3c';
+        } else {
+            petitionSearchResults.textContent = `${matchCount} dilekçe bulundu.`;
+            petitionSearchResults.style.color = '#27ae60';
+        }
+    }
+    
+    let petitionSearchTimeout;
+    if (petitionSearchInput) {
+        petitionSearchInput.addEventListener('input', function() {
+            clearTimeout(petitionSearchTimeout);
+            petitionSearchTimeout = setTimeout(() => filterPetitions(this.value), 300);
+        });
+        
+        petitionSearchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                clearTimeout(petitionSearchTimeout);
+                filterPetitions(this.value);
+            }
+        });
+    }
+    
+    if (petitionSearchBtn) {
+        petitionSearchBtn.addEventListener('click', function() {
+            if (petitionSearchInput) {
+                filterPetitions(petitionSearchInput.value);
+            }
+        });
+    }
 })();
 </script>
 
