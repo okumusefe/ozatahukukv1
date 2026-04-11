@@ -1,16 +1,45 @@
-<!DOCTYPE html>
+#!/usr/bin/env python3
+"""
+Standardize all petition files to have identical CSS and JS structure
+"""
+
+import glob
+import re
+
+def standardize_file(filepath):
+    with open(filepath, 'r', encoding='utf-8') as f:
+        content = f.read()
+    
+    # Extract title from h1
+    title_match = re.search(r'<h1>(.*?)</h1>', content)
+    title = title_match.group(1) if title_match else 'Dilekçe'
+    
+    # Extract content ID
+    id_match = re.search(r'id="([\w-]+-content)"', content)
+    content_id = id_match.group(1) if id_match else 'dilekce-content'
+    base_id = content_id.replace('-content', '')
+    
+    # Extract petition letter content
+    letter_match = re.search(r'<div class="petition-letter"[^>]*>(.*?)</div>\s*</div>\s*<div class="petition-actions">', content, re.DOTALL)
+    if letter_match:
+        letter_content = letter_match.group(1)
+    else:
+        letter_content = '<div class="petition-title"><h3>DİLEKÇE</h3></div><div class="petition-section"><span class="petition-label">Konu :</span><div class="petition-content">Dilekçe konusu</div></div>'
+    
+    # Build standardized HTML
+    std_html = f'''<!DOCTYPE html>
 <html lang="tr">
 <head>
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
+  function gtag(){{dataLayer.push(arguments);}}
   gtag('js', new Date());
   gtag('config', 'G-QYK959FEKW');
 </script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Mesleki Yeterlilik Kurumuna Başvuru Dilekçesi | Özata Hukuk Bürosu</title>
+<title>{title} | Özata Hukuk Bürosu</title>
 <link rel="stylesheet" href="styles.css">
 <link rel="stylesheet" href="responsive.css">
 </head>
@@ -43,72 +72,28 @@
 
 <section class="page-banner">
 <div class="container">
-<h1>Mesleki Yeterlilik Kurumuna Başvuru Dilekçesi</h1>
+<h1>{title}</h1>
 </div>
 </section>
 
 <section class="content-section">
 <div class="container">
-<div class="petition-preview" id="myk-dilekcesi">
-<div class="petition-letter" id="myk-dilekcesi-content">
-
-<div class="petition-title"><h3>MESLEKİ YETERLİLİK KURUMU BAŞKANLIĞINA</h3></div>
-<div class="petition-section">
-<span class="petition-label">Konu :</span>
-<div class="petition-content">Mesleki Yeterlilik Belgesi Başvurusu (MYK 5544 sayılı Kanun)</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Başvuru Sahibi :</span>
-<div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Yeri/Tarihi: ..........<br>Adresi: ..........<br>Telefon: ..........<br>E-posta: ..........</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Başvuru Konusu Meslek :</span>
-<div class="petition-content">Ulusal Yeterlilik: ..........<br>Seviye: 3/4/5/6<br>Meslek Alanı: ..........<br>Referans Kodu: ..........</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Eğitim Durumu :</span>
-<div class="petition-content">Mezun Olunan Okul/Kurs: ..........<br>Bölüm/Program: ..........<br>Mezuniyet Tarihi: ..../..../....<br>Diploma No: ..........</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Mesleki Deneyim :</span>
-<div class="petition-content">Çalışılan İşyeri: ..........<br>Görev/Pozisyon: ..........<br>Çalışma Süresi: .......... yıl<br>Sigorta Kayıtları: Mevcut</div>
-</div>
-<div class="petition-content">
-<p>Sayın Kurum,</p>
-<p>Yukarıda bilgileri verilen ulusal yeterlilik kapsamında mesleki yeterlilik belgesi almak için başvuruyorum.</p>
-<p>Teorik ve/veya uygulamalı sınavlara katılmaya hazırım.</p>
-</div>
-<div class="petition-section">
-<span class="petition-label">Başvuru Türü :</span>
-<div class="petition-content">☐ Eğitim yoluyla belgelendirme<br>☐ Doğrudan belgelendirme (deneyim)<br>☐ Seviye atlama<br>☐ Yenileme</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Ekler :</span>
-<div class="petition-content">1. Kimlik fotokopisi<br>2. Diploma/transkript<br>3. Nüfus kayıt örneği<br>4. İkametgah belgesi<br>5. Fotoğraf (2 adet)<br>6. SGK hizmet dökümü<br>7. Kurs bitirme belgesi (varsa)<br>8. Ustalık/Kalfalık belgesi (varsa)<br>9. Sınav ücreti dekontu</div>
-</div>
-<div class="petition-section">
-<span class="petition-label">Sonuç ve İstem :</span>
-</div>
-<div class="petition-content">
-<p>Gereğinin yapılmasını ve mesleki yeterlilik belgesi almak için gerekli işlemlerin başlatılmasını arz ederim. ..../..../20...</p>
-</div>
-<div class="petition-signature">
-<p><strong>Başvuru Sahibi – Adı Soyadı – İmza</strong></p>
-</div>
-                
+<div class="petition-preview" id="{base_id}">
+<div class="petition-letter" id="{content_id}">
+{letter_content}
 </div>
 </div>
 <div class="petition-actions">
-<button class="btn btn-secondary" onclick="copyPetition('myk-dilekcesi-content')">Kopyala</button>
-<button class="btn btn-primary" onclick="downloadUDF('myk-dilekcesi-content')">İndir (UDF)</button>
-<button class="btn btn-primary" onclick="downloadWord('myk-dilekcesi-content')">İndir (Word)</button>
+<button class="btn btn-secondary" onclick="copyPetition('{content_id}')">Kopyala</button>
+<button class="btn btn-primary" onclick="downloadUDF('{content_id}')">İndir (UDF)</button>
+<button class="btn btn-primary" onclick="downloadWord('{content_id}')">İndir (Word)</button>
 </div>
 </div>
 </section>
 
 <section class="info-section">
 <div class="container">
-<h2>Mesleki Yeterlilik Kurumuna Başvuru Dilekçesi Hakkında Bilgilendirme</h2>
+<h2>{title} Hakkında Bilgilendirme</h2>
 <div class="info-grid">
 <div class="info-card">
 <h3>Dilekçe Nedir?</h3>
@@ -129,168 +114,159 @@
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
 <script>
-function downloadUDF(elementId) {
+function downloadUDF(elementId) {{
     const petitionContent = document.getElementById(elementId);
-    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    if (!petitionContent) {{ alert('Dilekçe içeriği bulunamadı!'); return; }}
     
     let cleanText = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) cleanText += title.innerText.toUpperCase() + '
-
-';
+    if (title) cleanText += title.innerText.toUpperCase() + '\n\n';
     
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {{
         const label = section.querySelector('.petition-label').innerText;
         const content = section.querySelector('.petition-content').innerText;
         if (label) cleanText += label + ' ';
-        if (content) cleanText += content + '
-
-';
-    });
+        if (content) cleanText += content + '\n\n';
+    }});
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) cleanText += '
-' + signature.innerText + '
-';
+    if (signature) cleanText += '\n' + signature.innerText + '\n';
     
     let elementsXml = '';
     let offset = 0;
     
     const titleEl = petitionContent.querySelector('.petition-title');
-    if (titleEl) {
+    if (titleEl) {{
         const titleText = titleEl.innerText.toUpperCase();
         elementsXml += '<paragraph Alignment="1"><content bold="true" startOffset="' + offset + '" length="' + titleText.length + '" /></paragraph>';
         offset += titleText.length;
         elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
         offset += 1;
-    }
+    }}
     
     elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
     offset += 1;
     
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {{
         const label = section.querySelector('.petition-label').innerText;
         const content = section.querySelector('.petition-content').innerText;
         
-        if (label) {
+        if (label) {{
             elementsXml += '<paragraph><content bold="true" underline="true" startOffset="' + offset + '" length="' + label.length + '" /></paragraph>';
             offset += label.length;
             elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
             offset += 1;
-        }
+        }}
         
-        if (content) {
-            const lines = content.split('
-');
-            lines.forEach((line) => {
-                if (line.trim()) {
+        if (content) {{
+            const lines = content.split('\n');
+            lines.forEach((line) => {{
+                if (line.trim()) {{
                     elementsXml += '<paragraph><content startOffset="' + offset + '" length="' + line.length + '" /></paragraph>';
                     offset += line.length;
-                }
+                }}
                 elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
                 offset += 1;
-            });
-        }
+            }});
+        }}
         
         elementsXml += '<paragraph><content startOffset="' + offset + '" length="1" /></paragraph>';
         offset += 1;
-    });
+    }});
     
     const sigEl = petitionContent.querySelector('.petition-signature');
-    if (sigEl) {
+    if (sigEl) {{
         const sigText = sigEl.innerText;
         elementsXml += '<paragraph Alignment="2"><content startOffset="' + offset + '" length="' + sigText.length + '" /></paragraph>';
         offset += sigText.length;
-    }
+    }}
     
-    const contentXml = '<?xml version="1.0" encoding="UTF-8" ?>
-<template format_id="1.8" >
-<content><![CDATA[' + cleanText + ']]></content>
-<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
-<elements resolver="hvl-default" >
-' + elementsXml + '
-</elements>
-<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
-</template>';
+    const contentXml = '<?xml version="1.0" encoding="UTF-8" ?>\n<template format_id="1.8" >\n<content><![CDATA[' + cleanText + ']]></content>\n<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n<elements resolver="hvl-default" >\n' + elementsXml + '\n</elements>\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>';
     
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.generateAsync({type: "blob"}).then(function(blob) {
+    zip.generateAsync({{type: "blob"}}).then(function(blob) {{
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
         a.download = elementId + '.udf';
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);
-    });
-}
+    }});
+}}
 
-function downloadWord(elementId) {
+function downloadWord(elementId) {{
     const petitionContent = document.getElementById(elementId);
-    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    if (!petitionContent) {{ alert('Dilekçe içeriği bulunamadı!'); return; }}
     
     let fullText = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + '
-
-';
+    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {{
         const label = section.querySelector('.petition-label').innerText;
         const content = section.querySelector('.petition-content').innerText;
-        if (label) fullText += label + '
-';
-        if (content) fullText += content + '
-
-';
-    });
+        if (label) fullText += label + '\n';
+        if (content) fullText += content + '\n\n';
+    }});
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += '
-' + signature.innerText + '
-';
+    if (signature) fullText += '\n' + signature.innerText + '\n';
     
-    const blob = new Blob(['﻿', fullText], {type: 'application/msword'});
+    const blob = new Blob(['\ufeff', fullText], {{type: 'application/msword'}});
     const a = document.createElement('a');
     a.href = window.URL.createObjectURL(blob);
     a.download = elementId + '.doc';
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-}
+}}
 
-function copyPetition(elementId) {
+function copyPetition(elementId) {{
     const petitionContent = document.getElementById(elementId);
-    if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
+    if (!petitionContent) {{ alert('Dilekçe içeriği bulunamadı!'); return; }}
     
     let fullText = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + '
-
-';
+    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
     
-    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {{
         const label = section.querySelector('.petition-label').innerText;
         const content = section.querySelector('.petition-content').innerText;
-        if (label) fullText += label + '
-';
-        if (content) fullText += content + '
-
-';
-    });
+        if (label) fullText += label + '\n';
+        if (content) fullText += content + '\n\n';
+    }});
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += '
-' + signature.innerText + '
-';
+    if (signature) fullText += '\n' + signature.innerText + '\n';
     
     navigator.clipboard.writeText(fullText).then(() => alert('Dilekçe kopyalandı!'));
-}
+}}
 </script>
 
 </body>
-</html>
+</html>'''
+    
+    with open(filepath, 'w', encoding='utf-8') as f:
+        f.write(std_html)
+    
+    print(f'Standardized: {filepath}')
+
+def main():
+    files = glob.glob('dilekce-*.html')
+    files = [f for f in files if 'ornekleri' not in f]
+    
+    for f in files:
+        try:
+            standardize_file(f)
+        except Exception as e:
+            print(f'Error {f}: {e}')
+    
+    print('Done!')
+
+if __name__ == '__main__':
+    main()
