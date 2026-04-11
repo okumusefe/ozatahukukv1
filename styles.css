@@ -1445,6 +1445,25 @@ body {
     background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
 }
 
+/* Page Banner */
+.page-banner {
+    background: linear-gradient(135deg, var(--primary-color) 0%, #2d3561 100%);
+    color: var(--white);
+    padding: 4rem 0;
+    text-align: center;
+}
+
+.page-banner h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--accent-color);
+}
+
+.page-banner p {
+    font-size: 1.2rem;
+    opacity: 0.9;
+}
+
 .content-container {
     max-width: 900px;
     margin: 0 auto;
@@ -2824,6 +2843,18 @@ body {
     margin-top: 2rem;
     padding-top: 1rem;
     border-top: 1px dashed #ccc;
+}
+
+/* Petition Letter - Main container for petition content */
+.petition-letter {
+    background: linear-gradient(135deg, #fdfbf7 0%, #f5f0e6 100%);
+    border: 2px solid #e8dcc8;
+    border-radius: 12px;
+    padding: 3rem;
+    font-family: 'Times New Roman', Georgia, serif;
+    line-height: 1.8;
+    color: #2c3e50;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 }
 
 .petition-actions {
