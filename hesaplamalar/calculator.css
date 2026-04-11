@@ -3,6 +3,35 @@
    Sadece hesaplama sayfaları için
    ============================================ */
 
+/* Page Hero - Hesaplama sayfaları başlık bölümü */
+.page-hero {
+    background: linear-gradient(135deg, #1a1f3d 0%, #2d3561 100%);
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.page-hero .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.page-hero h1 {
+    color: #ffffff;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.page-hero p {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Ana Hesaplama Bölümü */
 .calculator-section {
     padding: 40px 0 60px;
