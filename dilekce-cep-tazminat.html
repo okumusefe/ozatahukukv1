@@ -375,7 +375,9 @@ function downloadWord(elementId) {
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
-}\n\nfunction copyPetition(elementId) {
+}
+
+function copyPetition(elementId) {
     const petitionContent = document.getElementById(elementId);
     if (!petitionContent) { alert('Dilekçe içeriği bulunamadı!'); return; }
     
