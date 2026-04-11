@@ -1,92 +1,25 @@
-<!DOCTYPE html>
-<html lang="tr">
-<head>
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-QYK959FEKW');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Gayrimenkul satış dilekçesi örneği ve şablonu. Tapu müdürlüğüne verilmek üzere hazırlanmış, taşınmaz satışı için profesyonel dilekçe formatı. Özata Hukuk Bürosu avukatları tarafından hazırlanmıştır.">
-<meta name="keywords" content="gayrimenkul satış dilekçesi, tapu satış dilekçesi, taşınmaz satış dilekçesi, arsa satış dilekçesi, konut satış dilekçesi, tapu müdürlüğü dilekçe, satış vaadi dilekçesi, önalım hakkı dilekçesi, şufa hakkı dilekçesi, gayrimenkul avukatı, izmir tapu avukatı, taşınmaz hukuku">
-<meta name="author" content="Özata Hukuk Bürosu">
-<meta name="robots" content="index, follow">
-<meta name="theme-color" content="#1a1f3d">
-<meta property="og:title" content="Gayrimenkul Satış Dilekçesi Örneği | Özata Hukuk Bürosu">
-<meta property="og:description" content="Gayrimenkul satış dilekçesi örneği ve şablonu. Tapu müdürlüğüne verilmek üzere hazırlanmış profesyonel dilekçe formatı.">
-<meta property="og:url" content="https://ozatahukuk.av.tr/dilekce-gayrimenkul-satis.html">
-<meta property="og:type" content="article">
-<meta property="og:site_name" content="Özata Hukuk Bürosu">
-<meta property="og:locale" content="tr_TR">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Gayrimenkul Satış Dilekçesi Örneği | Özata Hukuk Bürosu">
-<meta name="twitter:description" content="Gayrimenkul satış dilekçesi örneği ve şablonu. Tapu müdürlüğüne verilmek üzere hazırlanmış profesyonel dilekçe formatı.">
-<link rel="canonical" href="https://ozatahukuk.av.tr/dilekce-gayrimenkul-satis.html">
-<title>Gayrimenkul Satış Dilekçesi Örneği | Özata Hukuk Bürosu</title>
-<link rel="stylesheet" href="styles.css">
-<link rel="stylesheet" href="responsive.css">
-<style>html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}</style>
-</head><body>
-<header class="header">
-<nav class="nav-container">
-<div class="logo">
-<a href="index.html" style="display: flex; align-items: center; gap: 10px; text-decoration: none;">
-<img src="logo.svg" alt="Özata Hukuk Logo" width="75" height="48" style="display: block;">
-</a>
-</div>
-<button class="mobile-menu-toggle" aria-label="Menü">
-<span></span>
-<span></span>
-<span></span>
-</button>
-<ul class="nav-menu">
-<li><a href="index.html">Anasayfa</a></li>
-<li class="dropdown">
-<a href="kurumsal.html">Kurumsal <span style="font-size: 0.7em;">▼</span></a>
-<ul class="dropdown-menu">
-<li><a href="kurumsal.html">Hakkımızda</a></li>
-<li><a href="ekibimiz.html">Ekibimiz</a></li>
-<li><a href="sss.html">Sıkça Sorulan Sorular</a></li>
-</ul>
-</li>
-<li><a href="calisma-alanlari.html">Çalışma Alanlarımız</a></li>
-<li><a href="hesaplamalar.html">Hesaplama Araçları</a></li>
-<li><a href="dilekce-ornekleri.html" class="active">Dilekçe Örnekleri</a></li>
-<li><a href="yayinlar.html">Yayınlar</a></li>
-<li><a href="iletisim.html">İletişim</a></li>
-</ul>
-<div class="nav-social" style="display: flex; align-items: center; gap: 8px; margin-left: 15px;">
-<a href="https://www.instagram.com/av.egeozata/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-<path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-<line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-</svg>
-</a>
-<a href="https://tr.linkedin.com/in/ege-%C3%B6zata-269994aa" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
-<rect x="2" y="9" width="4" height="12"></rect>
-<circle cx="4" cy="4" r="2"></circle>
-</svg>
-</a>
-<a href="https://www.youtube.com/@AvukatEge%C3%96zata" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="display: flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(201,169,97,0.35); border-radius: 50%; transition: all 0.3s ease;" onmouseover="this.style.background='rgba(201,169,97,0.55)'" onmouseout="this.style.background='rgba(201,169,97,0.35)'" onclick="window.open('https://www.youtube.com/@AvukatEge%C3%96zata', '_blank'); return false;">
-<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="white" stroke="none">
-<path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
-</svg>
-</a>
-</div>
-<button class="nav-search-btn" aria-label="Ara" style="display: flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(201,169,97,0.35); border: none; border-radius: 50%; cursor: pointer; margin-left: 10px; transition: all 0.3s ease;">
-<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="11" cy="11" r="8"></circle>
-<path d="m21 21-4.35-4.35"></path>
-</svg>
-</button>
-</nav>
-</header>
+#!/usr/bin/env python3
+"""
+Fix dilekce-gayrimenkul-satis.html to use standard petition format
+"""
+
+import re
+
+# Read the file
+with open('dilekce-gayrimenkul-satis.html', 'r', encoding='utf-8') as f:
+    content = f.read()
+
+# Extract the head content
+head_match = re.search(r'(<head>.*?</head>)', content, re.DOTALL)
+head_content = head_match.group(1) if head_match else ''
+
+# Extract header nav
+header_match = re.search(r'(<header class="header">.*?</header>)', content, re.DOTALL)
+header_html = header_match.group(1) if header_match else ''
+
+# Create the new body structure
+new_body = '''<body>
+''' + header_html + '''
 
     <section class="page-banner">
         <div class="container">
@@ -315,17 +248,17 @@ function downloadUDF(elementId) {
     let cleanText = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) cleanText += title.innerText.toUpperCase() + '\n\n';
+    if (title) cleanText += title.innerText.toUpperCase() + '\\n\\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
         if (label) cleanText += label + ' ';
-        if (content) cleanText += content + '\n\n';
+        if (content) cleanText += content + '\\n\\n';
     });
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) cleanText += '\n' + signature.innerText + '\n';
+    if (signature) cleanText += '\\n' + signature.innerText + '\\n';
     
     let elementsXml = '';
     let offset = 0;
@@ -354,7 +287,7 @@ function downloadUDF(elementId) {
         }
         
         if (content) {
-            const contentLines = content.split('\n');
+            const contentLines = content.split('\\n');
             contentLines.forEach((line, idx) => {
                 if (line.trim()) {
                     elementsXml += '<paragraph><content startOffset="' + offset + '" length="' + line.length + '" /></paragraph>';
@@ -378,7 +311,7 @@ function downloadUDF(elementId) {
         offset += sigText.length;
     }
     
-    const contentXml = '<?xml version="1.0" encoding="UTF-8" ?>\n<template format_id="1.8" >\n<content><![CDATA[' + cleanText + ']]></content>\n<properties><pageFormat mediaSizeName="1.8" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\n<elements resolver="hvl-default" >\n' + elementsXml + '\n</elements>\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\n</template>';
+    const contentXml = '<?xml version="1.0" encoding="UTF-8" ?>\\n<template format_id="1.8" >\\n<content><![CDATA[' + cleanText + ']]></content>\\n<properties><pageFormat mediaSizeName="1.8" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>\\n<elements resolver="hvl-default" >\\n' + elementsXml + '\\n</elements>\\n<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>\\n</template>';
     
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
@@ -401,8 +334,8 @@ function downloadWord(elementId) {
     
     const title = petitionContent.querySelector('.petition-title');
     if (title) {
-        const titleText = title.innerText.toUpperCase().replace(/[\\{}]/g, '\\\\$&');
-        rtfBody += '\\pard\\qc\\b ' + titleText + '\\b0\\par\\par';
+        const titleText = title.innerText.toUpperCase().replace(/[\\\\{}]/g, '\\\\\\\\$&');
+        rtfBody += '\\\\pard\\\\qc\\\\b ' + titleText + '\\\\b0\\\\par\\\\par';
     }
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
@@ -410,38 +343,38 @@ function downloadWord(elementId) {
         const content = section.querySelector('.petition-content')?.innerText || '';
         
         if (label) {
-            const labelText = label.replace(/[\\{}]/g, '\\\\$&');
-            rtfBody += '\\b ' + labelText + '\\b0\\par';
+            const labelText = label.replace(/[\\\\{}]/g, '\\\\\\\\$&');
+            rtfBody += '\\\\b ' + labelText + '\\\\b0\\\\par';
         }
         
         if (content) {
-            const lines = content.split('\n');
+            const lines = content.split('\\n');
             lines.forEach(line => {
-                const lineText = line.replace(/[\\{}]/g, '\\\\$&').trim();
+                const lineText = line.replace(/[\\\\{}]/g, '\\\\\\\\$&').trim();
                 if (lineText) {
-                    rtfBody += lineText + '\\par';
+                    rtfBody += lineText + '\\\\par';
                 }
             });
         }
         
-        rtfBody += '\\par';
+        rtfBody += '\\\\par';
     });
     
     const signature = petitionContent.querySelector('.petition-signature');
     if (signature) {
-        rtfBody += '\\par';
-        const sigLines = signature.innerText.split('\n');
-        rtfBody += '\\pard\\qr';
+        rtfBody += '\\\\par';
+        const sigLines = signature.innerText.split('\\n');
+        rtfBody += '\\\\pard\\\\qr';
         sigLines.forEach(line => {
-            const lineText = line.replace(/[\\{}]/g, '\\\\$&').trim();
+            const lineText = line.replace(/[\\\\{}]/g, '\\\\\\\\$&').trim();
             if (lineText) {
-                rtfBody += lineText + '\\par';
+                rtfBody += lineText + '\\\\par';
             }
         });
-        rtfBody += '\\pard';
+        rtfBody += '\\\\pard';
     }
     
-    const rtfContent = '{\\rtf1\\ansi\\ansicpg1254\\deff0\\nouicompat\\deflang1055\\deflangfe1055{\\fonttbl{\\f0\\fnil\\fcharset162 Times New Roman;}}{\\*\\generator Riched20 10.0.19041}\\viewkind4\uc1 \\pard\plain\\fs28\\lang1055 ' + rtfBody + '}';
+    const rtfContent = '{\\\\rtf1\\\\ansi\\\\ansicpg1254\\\\deff0\\\\nouicompat\\\\deflang1055\\\\deflangfe1055{\\\\fonttbl{\\\\f0\\\\fnil\\\\fcharset162 Times New Roman;}}{\\\\*\\\\generator Riched20 10.0.19041}\\\\viewkind4\\uc1 \\\\pard\\plain\\\\fs28\\\\lang1055 ' + rtfBody + '}';
     
     const blob = new Blob([rtfContent], {type: 'application/rtf'});
     const a = document.createElement('a');
@@ -459,21 +392,34 @@ function copyPetition(elementId) {
     let fullText = '';
     
     const title = petitionContent.querySelector('.petition-title');
-    if (title) fullText += title.innerText.toUpperCase() + '\n\n';
+    if (title) fullText += title.innerText.toUpperCase() + '\\n\\n';
     
     petitionContent.querySelectorAll('.petition-section').forEach(section => {
         const label = section.querySelector('.petition-label')?.innerText || '';
         const content = section.querySelector('.petition-content')?.innerText || '';
-        if (label) fullText += label + '\n';
-        if (content) fullText += content + '\n\n';
+        if (label) fullText += label + '\\n';
+        if (content) fullText += content + '\\n\\n';
     });
     
     const signature = petitionContent.querySelector('.petition-signature');
-    if (signature) fullText += '\n' + signature.innerText + '\n';
+    if (signature) fullText += '\\n' + signature.innerText + '\\n';
     
     navigator.clipboard.writeText(fullText).then(() => alert('Dilekçe kopyalandı!'));
 }
 </script>
 
 </body>
-</html>
+</html>'''
+
+# Extract everything before </head>
+head_end = content.find('</head>') + 7
+before_head = content[:head_end]
+
+# Create the new complete HTML
+new_html = before_head + new_body
+
+# Write the fixed file
+with open('dilekce-gayrimenkul-satis.html', 'w', encoding='utf-8') as f:
+    f.write(new_html)
+
+print("Fixed dilekce-gayrimenkul-satis.html")
