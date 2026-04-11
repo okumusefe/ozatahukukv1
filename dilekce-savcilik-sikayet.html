@@ -637,24 +637,78 @@ function downloadUDF(petitionId) {
         return;
     }
     
-    // Elements oluştur - tüm metni kapsayan paragraph/content yapısı
+    // Elements oluştur - Her satır için ayrı paragraph
     let elementsXml = '';
     let offset = 0;
-    const lines = cleanText.split('\n');
     
-    lines.forEach((line, index) => {
-        if (line.length > 0) {
-            // İlk satır başlık - ortalı ve kalın
-            if (index === 0) {
+    // Başlık - her satırı ayrı paragraph olarak işle
+    const titleEl = petitionContent.querySelector('.petition-title');
+    if (titleEl) {
+        const titleLines = titleEl.innerText.toUpperCase().split('\n');
+        titleLines.forEach(line => {
+            if (line.trim()) {
                 elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`;
-            } else {
-                // Diğer satırlar normal
-                elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
+                offset += line.length;
             }
+            // Yeni satır karakteri
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+            offset += 1;
+        });
+    }
+    
+    // Boş satır
+    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+    offset += 1;
+    
+    // Her section için - Label ayrı satırda (bold+underline)
+    petitionContent.querySelectorAll('.petition-section').forEach(section => {
+        const label = section.querySelector('.petition-label')?.innerText || '';
+        const content = section.querySelector('.petition-content')?.innerText || '';
+        
+        if (label) {
+            // Label satırı - bold ve underline
+            elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`;
+            offset += label.length;
+            // Yeni satır
+            elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+            offset += 1;
         }
-        // Yeni satır karakteri için de offset ekle
-        offset += line.length + 1;
+        
+        if (content) {
+            // İçerik satırları - normal metin, satır satır
+            const contentLines = content.split('\n');
+            contentLines.forEach((line, idx) => {
+                if (line.trim()) {
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
+                    offset += line.length;
+                }
+                // Her satır sonu yeni satır (son satır hariç)
+                if (idx < contentLines.length - 1 || label) {
+                    elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+                    offset += 1;
+                }
+            });
+        }
+        
+        // Sectionlar arası boş satır
+        elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+        offset += 1;
     });
+    
+    // İmza - sağa hizalı, her satırı ayrı paragraph
+    const sigEl = petitionContent.querySelector('.petition-signature');
+    if (sigEl) {
+        const sigLines = sigEl.innerText.split('\n');
+        sigLines.forEach(line => {
+            if (line.trim()) {
+                elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`;
+                offset += line.length;
+            } else {
+                elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`;
+                offset += 1;
+            }
+        });
+    }
     
     const contentXml = `<?xml version="1.0" encoding="UTF-8" ?> 
 

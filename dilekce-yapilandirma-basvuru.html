@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-QYK959FEKW"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-QYK959FEKW');</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Yapılandırma dilekçesi örneği. Borç yapılandırması ve taksitlendirme talebi.">
+<title>Borç Yapılandırma Dilekçesi | Özata Hukuk</title>
+<link rel="stylesheet" href="styles.css">
+<style>html{font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;}</style>
+</head>
+<body>
+<header class="header">
+<nav class="nav-container">
+<div class="logo"><a href="index.html"><img src="logo.svg" alt="Logo" width="75" height="48"></a></div>
+<ul class="nav-menu">
+<li><a href="index.html">Anasayfa</a></li>
+<li><a href="dilekce-ornekleri.html" class="active">Dilekçe Örnekleri</a></li>
+<li><a href="iletisim.html">İletişim</a></li>
+</ul>
+</nav>
+</header>
+
+<section class="page-banner">
+<div class="container">
+<h1>Borç Yapılandırma Dilekçesi</h1>
+<p>Kamu borçları için yapılandırma ve taksitlendirme</p>
+</div>
+</section>
+
+<section class="content-section">
+<div class="container">
+<article class="petition-container">
+<div class="petition-preview" id="yapilandirma-dilekcesi">
+<div class="petition-letter">
+<div class="petition-title"><h3>..... VERGİ DAİRESİ/BELEDİYE/SGK MÜDÜRLÜĞÜ'NE</h3></div>
+
+<div class="petition-section">
+<span class="petition-label">Konu :</span>
+<div class="petition-content">Yapılandırma Başvurusu (6183 s. Kanun ve ilgili mevzuat)</div>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Başvuru Sahibi :</span>
+<div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>TC Kimlik/Vergi No: ..........<br>Adresi: ..........<br>Telefon: ..........</div>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Borç Bilgileri :</span>
+<div class="petition-content">Borç Türü: Vergi/Prim/Belediye cezası<br>Toplam Borç: ......... TL<br>Asıl Alacak: ......... TL<br>Gecikme Zammı/Faiz: ......... TL<br>Ceza: ......... TL<br>Yapılandırma Kanunu: 7256/7143/6183 vb.</div>
+</div>
+
+<div class="petition-content">
+<p>Sayın Kurum Müdürlüğü,</p>
+<p>Yukarıda bilgileri verilen borcumun yapılandırılmasını talep ediyorum.</p>
+<p>Borcun yapılandırılması ile ödeme güçlüğümü aşacağıma inanıyorum.</p>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Talep Edilen Yapılandırma :</span>
+</div>
+
+<div class="petition-content">
+<p style="text-indent: 30px;">☐ Peşin ödeme (indirimli)</p>
+<p style="text-indent: 30px;">☐ Taksitlendirme: .......... ay</p>
+<p style="text-indent: 30px;">☐ İlk taksit ödeme tarihi: ..../..../....</p>
+<p style="text-indent: 30px;">☐ Aylık taksit tutarı: ......... TL</p>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Başvuru Gerekçesi :</span>
+</div>
+
+<div class="petition-content">
+<p style="text-indent: 30px;">- Ekonomik zorluklar</p>
+<p style="text-indent: 30px;">- İş kaybı/gelir azalması</p>
+<p style="text-indent: 30px;">- Sağlık sorunları</p>
+<p style="text-indent: 30px;">- Diğer: ..........................</p>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Ekler :</span>
+<div class="petition-content">1. Kimlik fotokopisi<br>2. Vergi levhası (varsa)<br>3. Gelir belgesi<br>4. Banka hesap özeti<br>5. Taahhütname<br>6. İmza sirküleri (tüzel kişi için)</div>
+</div>
+
+<div class="petition-section">
+<span class="petition-label">Sonuç ve İstem :</span>
+</div>
+
+<div class="petition-content">
+<p>Gereğinin yapılmasını ve borcuma ilişkin yapılandırma işlemlerinin başlatılmasını saygılarımla arz ve talep ederim. ..../..../20...</p>
+</div>
+
+<div class="petition-signature">
+<p><strong>Başvuru Sahibi – Adı Soyadı – İmza</strong></p>
+</div>
+</div>
+</div>
+<div class="petition-actions">
+<button class="btn btn-secondary" onclick="copyPetition('yapilandirma-dilekcesi')">Kopyala</button>
+<button class="btn btn-primary" onclick="downloadUDF('yapilandirma-dilekcesi')">İndir (UDF)</button>
+<button class="btn btn-primary" onclick="downloadWord('yapilandirma-dilekcesi')">İndir (Word)</button>
+</div>
+</article>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container"><p>&copy; 2026 Özata Hukuk. Tüm hakları saklıdır.</p></div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+async function downloadUDF(elementId) {
+const petitionContent = document.getElementById(elementId).querySelector('.petition-letter');
+let fullText = '';
+petitionContent.querySelectorAll('.petition-title, .petition-section, .petition-content, .petition-signature').forEach(el => { fullText += el.innerText + '\n'; });
+let elementsXml = ''; let offset = 0;
+const titleEl = petitionContent.querySelector('.petition-title');
+if (titleEl) {
+const titleLines = titleEl.innerText.toUpperCase().split('\n');
+titleLines.forEach(line => {
+if (line.trim()) { elementsXml += `<paragraph Alignment="1"><content bold="true" startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
+elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
+});
+}
+elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
+petitionContent.querySelectorAll('.petition-section').forEach(section => {
+const label = section.querySelector('.petition-label')?.innerText || '';
+const content = section.querySelector('.petition-content')?.innerText || '';
+if (label) { elementsXml += `<paragraph><content bold="true" underline="true" startOffset="${offset}" length="${label.length}" /></paragraph>`; offset += label.length; elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
+if (content) {
+const contentLines = content.split('\n');
+contentLines.forEach((line, idx) => {
+if (line.trim()) { elementsXml += `<paragraph><content startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
+if (idx < contentLines.length - 1 || label) { elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
+});
+}
+elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1;
+});
+const sigEl = petitionContent.querySelector('.petition-signature');
+if (sigEl) {
+const sigLines = sigEl.innerText.split('\n');
+sigLines.forEach(line => {
+if (line.trim()) { elementsXml += `<paragraph Alignment="2"><content startOffset="${offset}" length="${line.length}" /></paragraph>`; offset += line.length; }
+else { elementsXml += `<paragraph><content startOffset="${offset}" length="1" /></paragraph>`; offset += 1; }
+});
+}
+const contentXml = `<?xml version="1.0" encoding="UTF-8" ?>
+<template format_id="1.8" >
+<content><![CDATA[${fullText}]]></content>
+<properties><pageFormat mediaSizeName="1" leftMargin="70.8661413192749" rightMargin="70.8661413192749" topMargin="70.8661413192749" bottomMargin="70.8661413192749" paperOrientation="1" headerFOffset="20.0" footerFOffset="20.0" /></properties>
+<elements resolver="hvl-default" >
+${elementsXml}
+</elements>
+<styles><style name="hvl-default" family="Times New Roman" size="12" description="Gövde" /></styles>
+</template>`;
+const zip = new JSZip();
+zip.file("content.xml", contentXml);
+zip.file("documentproperties.xml", `<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>`);
+zip.file("sign.sgn", `<?xml version="1.0" encoding="UTF-8"?><signature-list/>`);
+const blob = await zip.generateAsync({type: "blob"});
+const a = document.createElement('a');
+a.href = window.URL.createObjectURL(blob);
+a.download = 'borc-yapilandirma-dilekcesi.udf';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+}
+function downloadWord(elementId) {
+const content = document.getElementById(elementId).querySelector('.petition-letter').innerHTML;
+const blob = new Blob(['\ufeff', `<html><meta charset="utf-8"><title>Yapılandırma</title><body>${content}</body></html>`], {type: 'application/msword'});
+const a = document.createElement('a');
+a.href = window.URL.createObjectURL(blob);
+a.download = 'borc-yapilandirma-dilekcesi.doc';
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+}
+function copyPetition(elementId) {
+navigator.clipboard.writeText(document.getElementById(elementId).querySelector('.petition-letter').innerText).then(() => alert('Kopyalandı!'));
+}
+</script>
+</body>
+</html>
