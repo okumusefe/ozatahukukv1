@@ -61,21 +61,21 @@
                 <div class="petition-letter" id="tuketici-dilekcesi-content-content">
 <div class="petition-title">TÜKETİCİ MAHKEMESİ HAKİMLİĞİNE</div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Ayıplı mal nedeniyle ücret iadesi talebi</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı/Başvurucu :</span>
+<span class="petition-label">Davacı/Başvurucu :</span>
                             <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Adres: [Adres]<br>Tel: [Telefon]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı/Satıcı :</span>
+<span class="petition-label">Davalı/Satıcı :</span>
                             <div class="petition-content">[Satıcı Firma Unvanı]<br>Adres: [Firma adresi]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava/Başvuru Konusu :</span>
+<span class="petition-label">Dava/Başvuru Konusu :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>Davacı/başvurucu, davalı/satıcıdan [tarihte] satın aldığı [ürün marka/model] cihazın ayıplı olduğunu tespit etmiştir.</p>
                             <p>Tüketici Hakları Kanunu m. 4, 11, 13 uyarınca;</p>
                             <p>Ürün bedeli: [Miktar] TL<br>
@@ -83,7 +83,7 @@
                             Ayıp bildirim tarihi: [Tarih]</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep Edilen :</span>
+<span class="petition-label">Talep Edilen :</span>
                         </div>
                         <div class="petition-content">
                             <p>Davalıdan ürün bedeli [miktar] TL'nin iadesi;<br>
@@ -93,11 +93,11 @@
                             Hükümle arz ederim.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Yasal Dayanak :</span>
+<span class="petition-label">Yasal Dayanak :</span>
                             <div class="petition-content">Hukuk Muhakemesi Kanunu; Tüketici Kanunu m. 4, 11, 13, 23; 6502 sayılı Tüketicinin Korunması Hakkında Kanun</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Ekler :</span>
+<span class="petition-label">Ekler :</span>
                             <div class="petition-content">1. Fatura/garanti belgesi<br>2. Ayıp tespit tutanağı/expertiz raporu<br>3. Tüketici Hakem Heyeti kararı (varsa)<br>4. Yazışma örnekleri (satıcıyla yapılan)<br>5. Vekaletname (varsa)</div>
                         </div>
                         <div class="petition-signature">
@@ -216,8 +216,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

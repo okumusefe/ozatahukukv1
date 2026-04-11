@@ -63,19 +63,19 @@
                             <h3>..... ASLİYE HUKUK MAHKEMESİ BAŞKANLIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Kiracının Tahliyesi Talebi (TBK m. 344, 350)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı (Kiralayan/Malik) :</span>
+<span class="petition-label">Davacı (Kiralayan/Malik) :</span>
                             <div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>TC Kimlik No/Vergi No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (Kiracı) :</span>
+<span class="petition-label">Davalı (Kiracı) :</span>
                             <div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>TC Kimlik No/Vergi No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava Konusu Taşınmaz :</span>
+<span class="petition-label">Dava Konusu Taşınmaz :</span>
                             <div class="petition-content">Adresi: ..........<br>Niteliği: Konut/İşyeri/Dükkan<br>Bağımsız Bölüm No: ..........</div>
                         </div>
                         <div class="petition-content">
@@ -85,7 +85,7 @@
                             <p>Kiralayan tarafından kiracıya ....../..../.... tarihinde noter aracılığıyla tahliye ihtarı gönderilmiş olup, ihtar süresi dolmasına rağmen davalı taşınmazı boşaltmamıştır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Tahliye Sebebi :</span>
+<span class="petition-label">Tahliye Sebebi :</span>
                         </div>
                         <div class="petition-content">
                             <p style="text-indent: 30px;">- Sürenin Dolması: Kira süresi ..../..../.... tarihinde dolmuş olup, taraflar sözleşmeyi yenilememiştir.</p>
@@ -97,15 +97,15 @@
                             <p style="text-indent: 30px;">- Yeni İktisap: Kiralayan, taşınmazı satın almış olup kendisi için konut/işyeri ihtiyacı bulunmaktadır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Kira Alacağı (varsa) :</span>
+<span class="petition-label">Kira Alacağı (varsa) :</span>
                             <div class="petition-content">Ödenmemiş kira bedeli: ......... TL<br>Gecikme faizi: ......... TL<br>Toplam: ......... TL</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Kira sözleşmesi<br>2. Tapu kaydı<br>3. Tahliye ihtarnamesi<br>4. Kira ödeme kayıtları<br>5. Banka dekontları<br>6. Tebligat kayıtları<br>7. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -231,8 +231,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

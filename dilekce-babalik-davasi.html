@@ -61,23 +61,23 @@
                 <div class="petition-letter" id="babalik-dilekcesi-content">
 <div class="petition-title"><h3>..... AİLE MAHKEMESİ BAŞKANLIĞI'NA</h3></div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Babalığın Tespiti ve İştirak Nafakası Talebi (TMK m. 291-301)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı (Anne/Vasi) :</span>
+<span class="petition-label">Davacı (Anne/Vasi) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (Sözde Baba) :</span>
+<span class="petition-label">Davalı (Sözde Baba) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Çocuk :</span>
+<span class="petition-label">Çocuk :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>Doğum Tarihi: ..........<br>Doğum Yeri: ..........<br>Annesi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......</div>
                         </div>
                         <div class="petition-content">
@@ -87,7 +87,7 @@
                             <p>Davalı, çocuğun babası olup, bu durum davalı tarafından bilinmektedir/bilinmemektedir. Çocuk halen anne nüfusuna kayıtlı olup babalık hanesi boştur.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Babalık İlişkisinin İspatı :</span>
+<span class="petition-label">Babalık İlişkisinin İspatı :</span>
                         </div>
                         <div class="petition-content">
                             <p>Babalık ilişkisi aşağıdaki delillerle ispatlanmaktadır:</p>
@@ -97,15 +97,15 @@
                             <p style="text-indent: 30px;">- Yazışmalar/mesajlar</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">İştirak Nafakası Talebi :</span>
+<span class="petition-label">İştirak Nafakası Talebi :</span>
                             <div class="petition-content">Davalı babanın çocuğun bakım ve eğitim giderlerine katkıda bulunması amacıyla aylık ......... TL iştirak nafakası ödemesi talep edilmektedir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Nüfus kayıt örneği<br>2. Çocuk doğum belgesi<br>3. DNA testi talebi<br>4. Tanık listesi<br>5. Yazışmalar/mesajlar<br>6. Gider belgeleri<br>7. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -231,8 +231,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

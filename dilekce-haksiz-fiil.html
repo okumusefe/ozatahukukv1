@@ -63,19 +63,19 @@
                             <h3>..... ASLİYE HUKUK MAHKEMESİ BAŞKANLIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Haksız Fiilden Doğan Maddi ve Manevi Tazminat Talebi (TBK m. 49 vd.)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı (Mağdur) :</span>
+<span class="petition-label">Davacı (Mağdur) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Tarihi: ..........<br>Adresi: ..........<br>Mesleği: ..........<br>Telefon: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (Sorumlu) :</span>
+<span class="petition-label">Davalı (Sorumlu) :</span>
                             <div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>TC Kimlik No/Vergi No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......</div>
                         </div>
                         <div class="petition-content">
@@ -85,7 +85,7 @@
                             <p>Davalı, .......... tarihinde .......... şekilde hareket ederek müvekkilin .......... şekilde yaralanmasına/malvarlığında zarar oluşmasına sebep olmuştur.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Maddi Zararlar :</span>
+<span class="petition-label">Maddi Zararlar :</span>
                         </div>
                         <div class="petition-content">
                             <p><strong>1. Tedavi Giderleri:</strong></p>
@@ -102,7 +102,7 @@
                             <p><strong>TOPLAM MADDİ TAZMİNAT:</strong> ......... TL</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Manevi Tazminat :</span>
+<span class="petition-label">Manevi Tazminat :</span>
                         </div>
                         <div class="petition-content">
                             <p>Müvekkilim, olay sonucu .......... derecede acı çekmiş, psikolojik travma yaşamış ve yaşam kalitesi düşmüştür.</p>
@@ -110,15 +110,15 @@
                             <p>Talep edilen miktar, olayın ağırlığı, müvekkilin çektiği acı ve Türk hukuk sistemindeki benzer kararlar göz önünde bulundurularak belirlenmiştir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Sağlık raporları ve tedavi evrakları<br>2. Olay yeri tutanağı/polis tutanağı<br>3. Tanık beyanları<br>4. Fotoğraflar<br>5. Ücret bordroları/vergi levhası (kazanç kaybı için)<br>6. Masraf faturaları ve dekontları<br>7. Sigorta ekspertiz raporu (varsa)<br>8. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Hukuki Dayanak :</span>
+<span class="petition-label">Hukuki Dayanak :</span>
                             <div class="petition-content">TBK m. 49, 50, 52, 54, 55, 56 ve ilgili mevzuat</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -243,8 +243,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

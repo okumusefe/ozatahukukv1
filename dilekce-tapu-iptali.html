@@ -63,19 +63,19 @@
                             <h3>..... ASLİYE HUKUK (TÜRK MEDENİ KANUNU) MAHKEMESİ BAŞKANLIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Tapu İptali ve Tescil Davası (TMK m. 1013, 1024)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı :</span>
+<span class="petition-label">Davacı :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı :</span>
+<span class="petition-label">Davalı :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava Konusu Taşınmaz :</span>
+<span class="petition-label">Dava Konusu Taşınmaz :</span>
                             <div class="petition-content">İli: ..........<br>İlçesi: ..........<br>Mahalle/Köy: ..........<br>Ada No: ..........<br>Parsel No: ..........<br>Yüzölçümü: .......... m²<br>Niteliği: ..........</div>
                         </div>
                         <div class="petition-content">
@@ -85,15 +85,15 @@
                             <p>Müvekkilin tapu kaydının düzeltilmesi ve hakiki malik sıfatı ile tesciline karar verilmesi gerekmektedir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Hukuki Dayanak :</span>
+<span class="petition-label">Hukuki Dayanak :</span>
                             <div class="petition-content">TMK m. 1013, 1024, 1028, Tapu Kanunu ilgili maddeleri</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Tapu kayıt örneği<br>2. Tapu sicil müdürlüğü yazışmaları<br>3. İpotek/serhlı kayıtları<br>4. Tapu kütük örnekleri<br>5. Satış sözleşmesi/geçerli temlik sebebi<br>6. Tanık beyanları<br>7. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -218,8 +218,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

@@ -64,39 +64,39 @@
                             <h3 style="font-size: 1.1rem; margin: 8px 0 0 0; font-weight: normal;">..... AİLE MAHKEMESİ SAVCILIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Anlaşmalı Boşanma Talebi (TMK m. 166)</div>
                         </div>
                         <div class="petition-content" style="margin: 15px 0;">
                             <p style="margin: 0; text-indent: 30px;">Sayın Mahkeme Başkanlığı/Mahkeme Savcılığı,</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı – Kadın Eş :</span>
+<span class="petition-label">Davacı – Kadın Eş :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Tarihi: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı – Erkek Eş :</span>
+<span class="petition-label">Davalı – Erkek Eş :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Tarihi: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......<br>Adres: ......</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava Konusu :</span>
+<span class="petition-label">Dava Konusu :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>Müvekkilim (Davacı) ile davalı arasında .... tarihinde .......... ilinde yapılan evlilik, ..../..../.... tarihli ..../..../.... sayılı aile cüzdanı ile resmen kurulmuştur. Evlilik birliği hâlen devam etmekte olup bu birlikten çocuk bulunmamaktadır/müştak çocuk .......... isimli çocuk mevcuttur.</p>
                             <p>Eşler arasında evlilik birliğinin temelinden sarsılmasına neden olan bir olay bulunmamaktadır. Ancak eşler, karşılıklı olarak anlaşarak evlilik birliğini sona erdirmeyi arzu etmektedirler.</p>
                             <p>Taraflar, boşanma konusunda anlaşmış olup; nafaka, velayet, tazminat ve mal rejimi konusunda da uzlaşmışlardır. Taraflar arasındaki anlaşma, ekli "Boşanma Protokolü"nde gösterilmiştir.</p>
                             <p>Taraflar, en az bir yıldan beri evlenmelerine engel bir hâl bulunmadığına göre, Türk Medeni Kanunu'nun 166. maddesi gereğince anlaşmalı olarak boşanmalarına karar verilmesini talep etmektedirler.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Nüfus kayıt örneği<br>2. Evlilik cüzdanı örneği<br>3. Boşanma Protokolü<br>4. Vekaletname<br>5. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -223,8 +223,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

@@ -63,27 +63,27 @@
                             <h3>İCRA DAİRESİ MÜDÜRLÜĞÜNE</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">İlamsız icra takibi talebi</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Alacaklı :</span>
+<span class="petition-label">Alacaklı :</span>
                             <div class="petition-content">Adı Soyadı/Unvan: ..........<br>T.C./Vergi No: ..........<br>Adres: ..........<br>Tel: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Borçlu :</span>
+<span class="petition-label">Borçlu :</span>
                             <div class="petition-content">Adı Soyadı/Unvan: ..........<br>T.C./Vergi No: ..........<br>Adres: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Alacak :</span>
+<span class="petition-label">Alacak :</span>
                             <div class="petition-content">Ana Para: .......... TL<br>Faiz: .......... TL<br>Gecikme Faizi: .......... TL<br><strong>Toplam: .......... TL</strong></div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Alacak Konusu :</span>
+<span class="petition-label">Alacak Konusu :</span>
                             <div class="petition-content">[Alacağın dayanağı - fatura, senet, sözleşme vb.]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep :</span>
+<span class="petition-label">Talep :</span>
                             <div class="petition-content">Yukarıda belirtilen alacağımın tahsili için İİK'nun ilgili hükümleri uyarınca ilamsız icra takibi yapılmasını,<br>Borçlunun mal ve haklarına haciz konulmasını,<br>Borçlunun ödeme yapmaması halinde haczedilen malların satılmasını,<br>Yargılama giderleri ve vekalet ücretinin borçluya yükletilmesini talep ederim.</div>
                         </div>
                         <div class="petition-signature">
@@ -205,8 +205,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

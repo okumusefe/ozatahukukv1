@@ -61,31 +61,31 @@
                 <div class="petition-letter" id="nafaka-dilekcesi-content-content">
 <div class="petition-title">AİLE MAHKEMESİ HAKİMLİĞİNE</div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Tedbir/Yoksulluk nafakası talebi</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı :</span>
+<span class="petition-label">Davacı :</span>
                             <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Gelir: [Aylık gelir]<br>Adres: [Adres]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı :</span>
+<span class="petition-label">Davalı :</span>
                             <div class="petition-content">[Eşin Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Meslek: [Meslek]<br>Adres: [Adres]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava Konusu :</span>
+<span class="petition-label">Dava Konusu :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>Davacı ile davalı [tarihte] evlenmiş olup, [tarihte] boşanma/dava açılmıştır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep Gerekçesi :</span>
+<span class="petition-label">Talep Gerekçesi :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>Davalı, müşterek hayatı terk etmiş olup/kusurlu olarak ayrı yaşamaktadır. Davacının geçimini sağlayacak geliri bulunmamaktadır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep Edilen :</span>
+<span class="petition-label">Talep Edilen :</span>
                         </div>
                         <div class="petition-content">
                             <p>Davalı'dan aylık [miktar] TL tedbir/yoksulluk nafakası bağlanması;<br>
@@ -94,11 +94,11 @@
                             hükümle arz ederim.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Yasal Dayanak :</span>
+<span class="petition-label">Yasal Dayanak :</span>
                             <div class="petition-content">Hukuk Muhakemesi Kanunu; Medeni Kanun m. 175, 185, 196</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Ekler :</span>
+<span class="petition-label">Ekler :</span>
                             <div class="petition-content">1. Nüfus kayıt örneği<br>2. Evlenme cüzdanı örneği<br>3. Gelir belgesi<br>4. Vekaletname</div>
                         </div>
                         <div class="petition-signature">
@@ -217,8 +217,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

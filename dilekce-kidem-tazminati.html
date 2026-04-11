@@ -61,38 +61,38 @@
                 <div class="petition-letter" id="kidem-dilekcesi-content-content">
 <div class="petition-title">İŞ MAHKEMESİ HAKİMLİĞİNE</div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Kıdem tazminatı alacağı talebi</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı :</span>
+<span class="petition-label">Davacı :</span>
                             <div class="petition-content">[Ad Soyad]<br>T.C. No: [Kimlik numarası]<br>Adres: [Adres]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı :</span>
+<span class="petition-label">Davalı :</span>
                             <div class="petition-content">[Şirket Unvanı]<br>Adres: [Şirket adresi]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Dava Konusu :</span>
+<span class="petition-label">Dava Konusu :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>Davacı, davalı işverenin [işyeri adresi] adresindeki işyerinde [tarihten/itibaren] çalışmaya başlamış olup, son görevi [pozisyon] olarak devam etmekteydi.</p>
                             <p>Davalı işveren tarafından [tarihte] haksız/haksız nedenlerle iş sözleşmesi feshedilmiştir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Çalışılan Süre :</span>
+<span class="petition-label">Çalışılan Süre :</span>
                             <div class="petition-content">[Yıl] yıl [Ay] ay [Gün] gün</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Son Brüt Ücret :</span>
+<span class="petition-label">Son Brüt Ücret :</span>
                             <div class="petition-content">[Miktar] TL</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Hak Edilen Kıdem :</span>
+<span class="petition-label">Hak Edilen Kıdem :</span>
                             <div class="petition-content">[Miktar] TL</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep Edilen :</span>
+<span class="petition-label">Talep Edilen :</span>
                         </div>
                         <div class="petition-content">
                             <p>Davalıdan [miktar] TL kıdem tazminatının tahsili;<br>
@@ -100,11 +100,11 @@
                             Hükümle arz ederim.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Yasal Dayanak :</span>
+<span class="petition-label">Yasal Dayanak :</span>
                             <div class="petition-content">Hukuk Muhakemesi Kanunu; İş Kanunu m. 14, 24, 25, 29</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Ekler :</span>
+<span class="petition-label">Ekler :</span>
                             <div class="petition-content">1. SGK hizmet dökümü<br>2. Maaş bordrosu<br>3. İhbar/İşten çıkarma yazısı<br>4. İKÜS bildirgesi<br>5. Vekaletname</div>
                         </div>
                         <div class="petition-signature">
@@ -223,8 +223,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

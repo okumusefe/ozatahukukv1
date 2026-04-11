@@ -63,19 +63,19 @@
                             <h3>..... İŞ MAHKEMESİ BAŞKANLIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">İşe İade ve Boşta Geçen Süre Ücreti Talebi (İş Kanunu m. 20, 21)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı (İşçi) :</span>
+<span class="petition-label">Davacı (İşçi) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........<br>Telefon: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (İşveren) :</span>
+<span class="petition-label">Davalı (İşveren) :</span>
                             <div class="petition-content">Adı/Ünvanı: ..........<br>Adresi: ..........<br>Vergi No/MERSIS: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......</div>
                         </div>
                         <div class="petition-content">
@@ -85,25 +85,25 @@
                             <p>Müvekkilin iş yerinde .......... çalışma performansı bulunmakta olup, herhangi bir disiplinsizlik veya işverene zarar veren davranışı söz konusu değildir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Feshin Haksızlığı :</span>
+<span class="petition-label">Feshin Haksızlığı :</span>
                         </div>
                         <div class="petition-content">
                             <p>Davalının ileri sürdüğü fesih sebepleri gerçeği yansıtmamaktadır. İş sözleşmesinin haklı sebeple feshedilmediği, feshin haksız olduğu açıktır.</p>
                             <p>İş Kanunu m. 20 gereğince müvekkilin işe iadesi talep edilmektedir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Boşta Geçen Süre Ücreti :</span>
+<span class="petition-label">Boşta Geçen Süre Ücreti :</span>
                         </div>
                         <div class="petition-content">
                             <p>Feshin geçersiz sayılması halinde, müvekkilin iş başı yapmasına rağmen işverence çalıştırılmaması nedeniyle en çok dört aylık ücreti ödenmelidir.</p>
                             <p>Aylık ücret: ......... TL<br>Talep edilen boşta geçen süre ücreti (4 ay): ......... TL</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. İş sözleşmesi<br>2. Ücret bordroları<br>3. Fesih bildirimi<br>4. SGK kayıtları<br>5. Tanık beyanları<br>6. İş yerindeki yazışmalar<br>7. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -228,8 +228,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

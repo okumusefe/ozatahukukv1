@@ -67,24 +67,24 @@
                             <p style="text-align: center;">Taraflar:</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Kadın Eş :</span>
+<span class="petition-label">Kadın Eş :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Yeri/Tarihi: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Erkek Eş :</span>
+<span class="petition-label">Erkek Eş :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Yeri/Tarihi: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-content">
                             <p style="text-indent: 30px;">Yukarıda bilgileri yazılı taraflar arasında aşağıdaki şekilde anlaşmaya varılmıştır:</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">1. BOŞANMA :</span>
+<span class="petition-label">1. BOŞANMA :</span>
                         </div>
                         <div class="petition-content">
                             <p>Taraflar, ..../..../.... tarihinde akdetmiş oldukları evliliklerini TMK 166. madde gereğince anlaşmalı olarak sona erdirmeyi kararlaştırmışlardır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">2. VELAYET :</span>
+<span class="petition-label">2. VELAYET :</span>
                         </div>
                         <div class="petition-content">
                             <p>Tarafların müştak çocukları .......... (Doğum Tarihi: ..../..../....) 'ın velayeti ........... eşine bırakılmıştır.</p>
@@ -92,27 +92,27 @@
                             <p>Çocuğun ihtiyaçları için .......... TL aylık nafaka ödenmesi kararlaştırılmıştır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">3. TEDBİR NAFAKASI :</span>
+<span class="petition-label">3. TEDBİR NAFAKASI :</span>
                         </div>
                         <div class="petition-content">
                             <p>.......... eşi, boşanma davası süresince .......... eşine aylık .......... TL tedbir nafakası ödeyecektir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">4. YOKSULLUK NAFAKASI :</span>
+<span class="petition-label">4. YOKSULLUK NAFAKASI :</span>
                         </div>
                         <div class="petition-content">
                             <p>TMK 175 gereğince .......... eşi, .......... eşine boşanma sonrası yoksulluk nafakası olarak aylık .......... TL ödeyecektir.</p>
                             <p>Nafaka süresi: ..............<br>Nafaka bağlanma şartları: ............</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">5. TAZMİNAT :</span>
+<span class="petition-label">5. TAZMİNAT :</span>
                         </div>
                         <div class="petition-content">
                             <p>TMK 174 gereğince .......... eşi, .......... eşine maddi-manevi tazminat olarak toplam .......... TL ödeyecektir.</p>
                             <p>Ödeme şekli: ............</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">6. MAL REJİMİ :</span>
+<span class="petition-label">6. MAL REJİMİ :</span>
                         </div>
                         <div class="petition-content">
                             <p>Tarafların mal rejimi .......... şeklindedir.</p>
@@ -123,13 +123,13 @@
                             <p style="text-indent: 30px;">- Diğer taşınır/taşınmaz mallar: ............</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">7. KİŞİSEL EŞYALAR :</span>
+<span class="petition-label">7. KİŞİSEL EŞYALAR :</span>
                         </div>
                         <div class="petition-content">
                             <p>Tarafların kişisel eşyaları kendilerinde kalacaktır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">8. BORÇLAR :</span>
+<span class="petition-label">8. BORÇLAR :</span>
                         </div>
                         <div class="petition-content">
                             <p>Tarafların müşterek borçları:</p>
@@ -137,13 +137,13 @@
                             <p>Kişisel borçlar borçlu olan tarafından ödenecektir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">9. DİĞER HUSUSLAR :</span>
+<span class="petition-label">9. DİĞER HUSUSLAR :</span>
                         </div>
                         <div class="petition-content">
                             <p>............</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">10. SONUÇ HÜKÜM :</span>
+<span class="petition-label">10. SONUÇ HÜKÜM :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıdaki şartları kabul eden taraflar, bu protokolün bir örneğini boşanma davası dilekçesine ekleyerek imzalamışlardır.</p>
@@ -276,8 +276,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

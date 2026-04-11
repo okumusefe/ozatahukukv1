@@ -65,19 +65,19 @@
                             <p style="font-size: 0.9rem; font-weight: normal;">Dosya No: 20../..../.... Esas</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Davaya Cevap ve Savunma (HMK m. 119)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı :</span>
+<span class="petition-label">Davacı :</span>
                             <div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (Cevap Veren) :</span>
+<span class="petition-label">Davalı (Cevap Veren) :</span>
                             <div class="petition-content">Adı Soyadı/Ünvanı: ..........<br>TC Kimlik/Vergi No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......</div>
                         </div>
                         <div class="petition-content">
@@ -85,7 +85,7 @@
                             <p>Yukarıda dosya numarası yazılı davaya ilişkin olarak aşağıdaki açıklamalarla cevap verme gereği hasıl olmuştur.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Cevap ve Savunma :</span>
+<span class="petition-label">Cevap ve Savunma :</span>
                         </div>
                         <div class="petition-content">
                             <p><strong>1. Yetki ve Görev İtirazı (varsa):</strong></p>
@@ -105,11 +105,11 @@
                             <p style="text-indent: 30px;">- ..........................</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sayılan Deliller :</span>
+<span class="petition-label">Sayılan Deliller :</span>
                             <div class="petition-content">1. ............<br>2. ............<br>3. Tanık beyanları<br>4. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -235,8 +235,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

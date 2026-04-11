@@ -61,19 +61,19 @@
                 <div class="petition-letter" id="nafaka-dilekcesi-content">
 <div class="petition-title"><h3>..... AİLE MAHKEMESİ BAŞKANLIĞI'NA</h3></div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Nafaka Artırımı Talebi (TMK m. 175, 328, 336)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davacı (Nafaka Alacaklısı) :</span>
+<span class="petition-label">Davacı (Nafaka Alacaklısı) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Davalı (Nafaka Borçlusu) :</span>
+<span class="petition-label">Davalı (Nafaka Borçlusu) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Adresi: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Vekil :</span>
+<span class="petition-label">Vekil :</span>
                             <div class="petition-content">Av. ......<br>Baro Sicil No: ......</div>
                         </div>
                         <div class="petition-content">
@@ -82,15 +82,15 @@
                             <p>Ancak değişen sosyo-ekonomik şartlar nedeniyle mevcut nafaka yetersiz kalmaktadır.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Nafaka Türü :</span>
+<span class="petition-label">Nafaka Türü :</span>
                             <div class="petition-content">☐ Tedbir Nafakası<br>☐ İştirak Nafakası (Çocuk)<br>☐ Yoksulluk Nafakası<br>☐ Yaralama/Eşitlenme Tazminatı</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Mevcut Nafaka :</span>
+<span class="petition-label">Mevcut Nafaka :</span>
                             <div class="petition-content">Aylık Nafaka: ......... TL<br>Hükmedildiği Tarih: ..../..../....<br>Dava Dosyası: ....../..../.... E.</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Artırım Sebepleri :</span>
+<span class="petition-label">Artırım Sebepleri :</span>
                         </div>
                         <div class="petition-content">
                             <p><strong>1. Enflasyon ve Yaşam Maliyeti Artışı:</strong></p>
@@ -103,15 +103,15 @@
                             <p style="text-indent: 30px;">..........................</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Talep Edilen Yeni Nafaka :</span>
+<span class="petition-label">Talep Edilen Yeni Nafaka :</span>
                             <div class="petition-content">Aylık ......... TL (Mevcut nafakanın ....... katı)<br>Geçmişe Yönelik Alacak (varsa): ......... TL<br>İhtiyati Haciz Talebi: (talep ediliyorsa)</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Boşanma kararı örneği<br>2. Nüfus kayıt örneği<br>3. Gelir belgesi (davacı)<br>4. Gelir belgesi (davalı-SGK, vergi kaydı)<br>5. Banka hesap özetleri<br>6. Gider belgeleri (kira, okul, sağlık)<br>7. TÜFE istatistikleri<br>8. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -236,8 +236,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

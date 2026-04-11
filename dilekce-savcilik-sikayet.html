@@ -61,39 +61,39 @@
                 <div class="petition-letter" id="sikayet-dilekcesi-content-content">
 <div class="petition-title">SAVCILIĞA ŞİKAYET DİLEKÇESİ</div>
                         <div class="petition-section">
-                            <span class="petition-label">Şikayet Eden :</span>
+<span class="petition-label">Şikayet Eden :</span>
                             <div class="petition-content">Adı Soyadı – T.C. Kimlik numarası – Adres ve telefon bilgileri</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Şikayet Edilen :</span>
+<span class="petition-label">Şikayet Edilen :</span>
                             <div class="petition-content">Adı Soyadı – T.C. Kimlik numarası – Adres ve telefon bilgileri</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">(Şüpheli belli değil ise bu bölüme faili meçhul yazılmalıdır)</span>
+<span class="petition-label">(Şüpheli belli değil ise bu bölüme faili meçhul yazılmalıdır)</span>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Suç :</span>
+<span class="petition-label">Suç :</span>
                             <div class="petition-content">Kasten yaralama, hakaret, tehdit, iş yeri dokunulmazlığının ihlali</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Suç Tarihi :</span>
+<span class="petition-label">Suç Tarihi :</span>
                             <div class="petition-content">[Tarih]</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Açıklamalar :</span>
+<span class="petition-label">Açıklamalar :</span>
                         </div>
-                        <div class="petition-content" style="margin-bottom: 1.5rem;">
+                        <div class="petition-content">
                             <p>[Tarih] tarihinde şikayet edilen şüpheli .... isimli kişi sahibi bulunduğum iş yerime gelerek bir anda küfürler ve tehditler yağdırarak üzerime saldırmış ve beni dövmeye başlamıştır. Hiç anlamadığım bir şekilde dükkanımı basan şüpheli hem beni dövmüş, hem de tarafıma hitaben "gerizekalı, aptal, seni öldüreceğim, seni bu şehirde yaşatmayacağım" şeklinde cümleler sarf ederek tehdit ve hakaret etmiştir.</p>
                             <p>Kendisine defalarca dükkanımı terk etmesini söylememe rağmen gitmemiş ve suç oluşturan bu eylemlerine devam etmiştir. Çevredeki esnafların araya girmesi ile şüpheli dükkanımdan uzaklaştırılmıştır. Bu hususta dükkanımın bulunduğu sokaktaki diğer esnafların tanık olarak dinlenmesini ve kamera kaydı araştırılmasını yapılmasını talep ediyorum.</p>
                             <p>Şüphelinin tarafıma saldırmasının ardından hastaneden aldığım darp raporunu dosyaya sunuyorum.</p>
                             <p>Tüm bu açıklamalar ışığında dükkanıma gelerek tarafıma saldıran, tehdit ve hakaret eden şüpheli ..... isimli kişi hakkında kasten yaralama, hakaret, tehdit, iş yeri dokunulmazlığının ihlali suçlarından soruşturma yürütülmesini ve kamu dava davası açılmasını isteme gereği hasıl olmuştur.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">Kamera kaydı, darp raporu, tanık beyanları ve her türlü delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">İstem ve Sonuç :</span>
+<span class="petition-label">İstem ve Sonuç :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda ayrıntılı izah ettiğimiz üzere dükkanıma gelerek tarafıma saldıran, tehdit ve hakaret eden şüpheli ..... isimli kişi hakkında kasten yaralama, hakaret, tehdit, iş yeri dokunulmazlığının ihlali suçlarından soruşturma yürütülmesini ve kamu dava davası açılmasını sayın savcılığınızdan saygılarımla arz ve talep ederim. .../.../20...</p>
@@ -214,8 +214,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);

@@ -63,15 +63,15 @@
                             <h3>..... AİLE MAHKEMESİ BAŞKANLIĞI'NA</h3>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Konu :</span>
+<span class="petition-label">Konu :</span>
                             <div class="petition-content">Ailenin Korunması ve Kadına Karşı Şiddetin Önlenmesine Dair Kanun Kapsamında Tedbir Kararı Talebi</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Şikayetçi (Mağdur) :</span>
+<span class="petition-label">Şikayetçi (Mağdur) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Tarihi: ..........<br>Adresi: ..........<br>Telefon: ..........</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Şüpheli (Şiddet Uygulayan) :</span>
+<span class="petition-label">Şüpheli (Şiddet Uygulayan) :</span>
                             <div class="petition-content">Adı Soyadı: ..........<br>TC Kimlik No: ..........<br>Doğum Tarihi: ..........<br>Adresi: ..........<br>Yakınlık Derecesi: ..........</div>
                         </div>
                         <div class="petition-content">
@@ -79,7 +79,7 @@
                             <p>Şikayetçi olarak yukarıda kimlik bilgilerini belirttiğim şüpheli ile aramızda ........ ilişkisi bulunmaktadır. Şüpheli tarafından aşağıda açıklanan şiddet olaylarına maruz kalmaktayım.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Olayın Açıklaması :</span>
+<span class="petition-label">Olayın Açıklaması :</span>
                         </div>
                         <div class="petition-content">
                             <p>..../..../.... tarihinde şüpheli tarafından .......... şeklinde fiziksel/psikolojik/ekonomik/şiddet uygulanmıştır. Bu tarihten önce de sürekli olarak şiddet ve tehdit olayları yaşanmıştır.</p>
@@ -87,7 +87,7 @@
                             <p>Yaşanan şiddet olayları nedeniyle çocuklarım ve kendim için hayati tehlike oluşmuştur. Acil koruma tedbirlerinin alınması gerekmektedir.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">İstenen Tedbirler :</span>
+<span class="petition-label">İstenen Tedbirler :</span>
                         </div>
                         <div class="petition-content">
                             <p style="text-indent: 30px;">1. Şüphelinin aile konutundan uzaklaştırılması,</p>
@@ -102,11 +102,11 @@
                             <p style="text-indent: 30px;">10. Gerektiğinde koruma kararının elektronik kelepçe ile takip edilmesi.</p>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Deliller :</span>
+<span class="petition-label">Deliller :</span>
                             <div class="petition-content">1. Sağlık raporu<br>2. Şikayet tutanağı<br>3. Tanık beyanları<br>4. Fotoğraflar ve video kayıtları<br>5. Ses kayıtları<br>6. Mesajlaşma kayıtları<br>7. Her türlü yasal delil</div>
                         </div>
                         <div class="petition-section">
-                            <span class="petition-label">Sonuç ve İstem :</span>
+<span class="petition-label">Sonuç ve İstem :</span>
                         </div>
                         <div class="petition-content">
                             <p>Yukarıda açıklanan nedenlerle;</p>
@@ -228,8 +228,6 @@ function downloadUDF(elementId) {
     const zip = new JSZip();
     zip.file("content.xml", contentXml);
     zip.file("documentproperties.xml", '<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd"><properties><entry key="user.gercek"></entry></properties>');
-    zip.file("sign.sgn", '<?xml version="1.0" encoding="UTF-8"?><signature-list/>');
-    
     zip.generateAsync({type: "blob"}).then(function(blob) {
         const a = document.createElement('a');
         a.href = window.URL.createObjectURL(blob);
