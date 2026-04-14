@@ -181,11 +181,11 @@
                         <div class="form-row">
                             <div class="form-group">
                                 <label for="ilkDavaBedeli">İlk Dava Bedeli (TL) *</label>
-                                <input type="number" id="ilkDavaBedeli" min="0" step="0.01" required>
+                                <input type="text" id="islah-eski" placeholder="örn: 100,00" required>
                             </div>
                             <div class="form-group">
                                 <label for="artirilanBedel">Artırılan Yeni Bedel (TL) *</label>
-                                <input type="number" id="artirilanBedel" min="0" step="0.01" required>
+                                <input type="text" id="islah-yeni" placeholder="örn: 75.765,78" required>
                             </div>
                         </div>
 
@@ -193,10 +193,6 @@
                             <div class="form-group">
                                 <label for="harçOranı">Harç Oranı (Binde)</label>
                                 <input type="number" id="harçOranı" min="0" max="1000" step="0.01" value="68.31" readonly>
-                            </div>
-                            <div class="form-group">
-                                <label for="asgariHarç">Asgari Harç (TL)</label>
-                                <input type="number" id="asgariHarç" min="0" step="0.01" value="247.00">
                             </div>
                         </div>
 
@@ -211,7 +207,7 @@
                             </select>
                         </div>
 
-                        <button type="button" class="calculate-btn" onclick="hesaplaIslahHarci()">Islah Harcı Hesapla</button>
+                        <button type="button" class="calculate-btn" onclick="hesaplaIslahHarciInline()">Islah Harcı Hesapla</button>
                     </form>
 
                     <div id="sonuc" class="result-section">
@@ -427,6 +423,109 @@
         }
     });
 })();
+</script>
+
+<script>
+// Türkçe sayı formatlama (75765,78 → 75.765,78)
+function formatNumberTR(value) {
+    if (!value) return '';
+    // Remove existing dots and convert comma to dot for parsing
+    let clean = value.replace(/\./g, '').replace(',', '.');
+    let num = parseFloat(clean);
+    if (isNaN(num)) return value;
+    
+    // Format with Turkish locale
+    return num.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+}
+
+// Parse Turkish formatted number (75.765,78 → 75765.78)
+function parseNumberTR(value) {
+    if (!value) return 0;
+    // Remove dots and convert comma to dot
+    let clean = value.replace(/\./g, '').replace(',', '.');
+    return parseFloat(clean) || 0;
+}
+
+// Input formatlama
+function setupNumberFormatting(inputId) {
+    const input = document.getElementById(inputId);
+    if (!input) return;
+    
+    input.addEventListener('blur', function() {
+        let val = this.value.trim();
+        if (val) {
+            // Replace dot with nothing, comma with dot for parsing
+            let clean = val.replace(/\./g, '').replace(',', '.');
+            let num = parseFloat(clean);
+            if (!isNaN(num)) {
+                this.value = num.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2});
+            }
+        }
+    });
+    
+    input.addEventListener('focus', function() {
+        // Remove formatting for editing
+        let val = this.value.replace(/\./g, '').replace(',', '.');
+        if (val && !isNaN(parseFloat(val))) {
+            this.value = val;
+        }
+    });
+}
+
+// Formatlama kurulumu
+document.addEventListener('DOMContentLoaded', function() {
+    setupNumberFormatting('islah-eski');
+    setupNumberFormatting('islah-yeni');
+});
+
+// Islah harcı hesaplama
+function hesaplaIslahHarciInline() {
+    const eskiVal = document.getElementById('islah-eski').value;
+    const yeniVal = document.getElementById('islah-yeni').value;
+    
+    const eski = parseNumberTR(eskiVal);
+    const yeni = parseNumberTR(yeniVal);
+    
+    if (eski === 0 || yeni === 0) {
+        alert('Lütfen eski ve yeni dava değerlerini giriniz.');
+        return;
+    }
+    
+    if (yeni <= eski) {
+        alert('Yeni bedel eski bedelden büyük olmalıdır.');
+        return;
+    }
+    
+    const fark = yeni - eski;
+    const harcOrani = 68.31 / 1000; // Binde 68.31 = %6.831
+    const harc = fark * harcOrani;
+    
+    const sonucDiv = document.getElementById('sonucDetay');
+    sonucDiv.innerHTML = `
+        <div class="result-item">
+            <span>İlk Dava Bedeli:</span>
+            <strong>${eski.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</strong>
+        </div>
+        <div class="result-item">
+            <span>Artırılan Yeni Bedel:</span>
+            <strong>${yeni.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</strong>
+        </div>
+        <div class="result-item">
+            <span>Artırılan Tutar (Fark):</span>
+            <strong>${fark.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</strong>
+        </div>
+        <div class="result-item">
+            <span>Harç Oranı:</span>
+            <strong>Binde 68,31</strong>
+        </div>
+        <div class="result-item highlight">
+            <span>Ödenecek Islah Harcı:</span>
+            <strong>${harc.toLocaleString('tr-TR', {minimumFractionDigits: 2, maximumFractionDigits: 2})} TL</strong>
+        </div>
+    `;
+    
+    document.getElementById('sonuc').classList.add('active');
+}
 </script>
 
 <script src="./calculators.js"></script>
