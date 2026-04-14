@@ -10,12 +10,12 @@ function formatPara(tutar) {
 
 // Kıdem Tazminatı Hesaplama
 function hesaplaKidem() {
-    const brut = parseFloat(document.getElementById('kidem-brut')?.value) || 0;
-    const yil = parseInt(document.getElementById('kidem-yil')?.value) || 0;
-    const ay = parseInt(document.getElementById('kidem-ay')?.value) || 0;
-    const gun = parseInt(document.getElementById('kidem-gun')?.value) || 0;
-    const izin = parseInt(document.getElementById('kidem-izin')?.value) || 0;
-    const indirim = parseInt(document.getElementById('kidem-indirim')?.value) || 0;
+    const brut = parseFloat((document.getElementById('kidem-brut') && document.getElementById('kidem-brut').value)) || 0;
+    const yil = parseInt((document.getElementById('kidem-yil') && document.getElementById('kidem-yil').value)) || 0;
+    const ay = parseInt((document.getElementById('kidem-ay') && document.getElementById('kidem-ay').value)) || 0;
+    const gun = parseInt((document.getElementById('kidem-gun') && document.getElementById('kidem-gun').value)) || 0;
+    const izin = parseInt((document.getElementById('kidem-izin') && document.getElementById('kidem-izin').value)) || 0;
+    const indirim = parseInt((document.getElementById('kidem-indirim') && document.getElementById('kidem-indirim').value)) || 0;
     
     if (brut === 0) {
         alert('Lütfen aylık brüt ücret giriniz.');
@@ -75,10 +75,10 @@ function hesaplaKidem() {
 
 // İhbar Tazminatı Hesaplama
 function hesaplaIhbar() {
-    const brut = parseFloat(document.getElementById('ihbar-brut')?.value) || 0;
-    const yil = parseInt(document.getElementById('ihbar-yil')?.value) || 0;
-    const ay = parseInt(document.getElementById('ihbar-ay')?.value) || 0;
-    const gun = parseInt(document.getElementById('ihbar-gun')?.value) || 0;
+    const brut = parseFloat((document.getElementById('ihbar-brut') && document.getElementById('ihbar-brut').value)) || 0;
+    const yil = parseInt((document.getElementById('ihbar-yil') && document.getElementById('ihbar-yil').value)) || 0;
+    const ay = parseInt((document.getElementById('ihbar-ay') && document.getElementById('ihbar-ay').value)) || 0;
+    const gun = parseInt((document.getElementById('ihbar-gun') && document.getElementById('ihbar-gun').value)) || 0;
     
     if (brut === 0) {
         alert('Lütfen aylık brüt ücret giriniz.');
@@ -106,10 +106,10 @@ function hesaplaIhbar() {
 
 // Fazla Mesai Hesaplama
 function hesaplaMesai() {
-    const saatUcret = parseFloat(document.getElementById('mesai-saat')?.value) || 0;
-    const saat = parseFloat(document.getElementById('mesai-saat-sayisi')?.value) || 0;
-    const gun = parseFloat(document.getElementById('mesai-gun-sayisi')?.value) || 1;
-    const oran = parseFloat(document.getElementById('mesai-oran')?.value) || 50;
+    const saatUcret = parseFloat((document.getElementById('mesai-saat') && document.getElementById('mesai-saat').value)) || 0;
+    const saat = parseFloat((document.getElementById('mesai-saat-sayisi') && document.getElementById('mesai-saat-sayisi').value)) || 0;
+    const gun = parseFloat((document.getElementById('mesai-gun-sayisi') && document.getElementById('mesai-gun-sayisi').value)) || 1;
+    const oran = parseFloat((document.getElementById('mesai-oran') && document.getElementById('mesai-oran').value)) || 50;
     
     if (saatUcret === 0 || saat === 0) {
         alert('Lütfen saat ücreti ve çalışma saati giriniz.');
@@ -124,9 +124,9 @@ function hesaplaMesai() {
 
 // Gece Çalışması Hesaplama
 function hesaplaGece() {
-    const saatUcret = parseFloat(document.getElementById('gece-saat')?.value) || 0;
-    const saat = parseFloat(document.getElementById('gece-saat-sayisi')?.value) || 0;
-    const gun = parseFloat(document.getElementById('gece-gun-sayisi')?.value) || 1;
+    const saatUcret = parseFloat((document.getElementById('gece-saat') && document.getElementById('gece-saat').value)) || 0;
+    const saat = parseFloat((document.getElementById('gece-saat-sayisi') && document.getElementById('gece-saat-sayisi').value)) || 0;
+    const gun = parseFloat((document.getElementById('gece-gun-sayisi') && document.getElementById('gece-gun-sayisi').value)) || 1;
     
     if (saatUcret === 0 || saat === 0) {
         alert('Lütfen saat ücreti ve çalışma saati giriniz.');
@@ -142,9 +142,9 @@ function hesaplaGece() {
 
 // Bayram Tatil Ücreti Hesaplama
 function hesaplaBayram() {
-    const saatUcret = parseFloat(document.getElementById('bayram-saat')?.value) || 0;
-    const saat = parseFloat(document.getElementById('bayram-saat-sayisi')?.value) || 0;
-    const oran = parseFloat(document.getElementById('bayram-oran')?.value) || 200;
+    const saatUcret = parseFloat((document.getElementById('bayram-saat') && document.getElementById('bayram-saat').value)) || 0;
+    const saat = parseFloat((document.getElementById('bayram-saat-sayisi') && document.getElementById('bayram-saat-sayisi').value)) || 0;
+    const oran = parseFloat((document.getElementById('bayram-oran') && document.getElementById('bayram-oran').value)) || 200;
     
     if (saatUcret === 0 || saat === 0) {
         alert('Lütfen saat ücreti ve çalışma saati giriniz.');
@@ -159,9 +159,9 @@ function hesaplaBayram() {
 
 // İşsizlik Maaşı Hesaplama
 function hesaplaIssizlik() {
-    const brut = parseFloat(document.getElementById('issizlik-brut')?.value) || 0;
-    const prim = parseInt(document.getElementById('issizlik-prim')?.value) || 0;
-    const yas = parseInt(document.getElementById('issizlik-yas')?.value) || 0;
+    const brut = parseFloat((document.getElementById('issizlik-brut') && document.getElementById('issizlik-brut').value)) || 0;
+    const prim = parseInt((document.getElementById('issizlik-prim') && document.getElementById('issizlik-prim').value)) || 0;
+    const yas = parseInt((document.getElementById('issizlik-yas') && document.getElementById('issizlik-yas').value)) || 0;
     
     if (brut === 0 || prim === 0) {
         alert('Lütfen brüt ücret ve prim günü giriniz.');
@@ -187,9 +187,9 @@ function hesaplaIssizlik() {
 
 // Yıllık İzin Hesaplama
 function hesaplaIzin() {
-    const yil = parseInt(document.getElementById('izin-yil')?.value) || 0;
-    const ay = parseInt(document.getElementById('izin-ay')?.value) || 0;
-    const kullanilan = parseInt(document.getElementById('izin-kullanilan')?.value) || 0;
+    const yil = parseInt((document.getElementById('izin-yil') && document.getElementById('izin-yil').value)) || 0;
+    const ay = parseInt((document.getElementById('izin-ay') && document.getElementById('izin-ay').value)) || 0;
+    const kullanilan = parseInt((document.getElementById('izin-kullanilan') && document.getElementById('izin-kullanilan').value)) || 0;
     
     const toplamAy = (yil * 12) + ay;
     
@@ -208,9 +208,9 @@ function hesaplaIzin() {
 
 // Doğum İzni Hesaplama
 function hesaplaDogum() {
-    const tur = document.getElementById('dogum-tur')?.value || 'isci';
-    const once = parseInt(document.getElementById('dogum-once')?.value) || 0;
-    const sonra = parseInt(document.getElementById('dogum-sonra')?.value) || 0;
+    const tur = (document.getElementById('dogum-tur') && document.getElementById('dogum-tur').value) || 'isci';
+    const once = parseInt((document.getElementById('dogum-once') && document.getElementById('dogum-once').value)) || 0;
+    const sonra = parseInt((document.getElementById('dogum-sonra') && document.getElementById('dogum-sonra').value)) || 0;
     
     let toplamIzın = 0;
     let emzirme = 0;
@@ -234,7 +234,7 @@ function hesaplaDogum() {
 
 // Netten Brüte Maaş Hesaplama
 function hesaplaNetBrut() {
-    const net = parseFloat(document.getElementById('net-net')?.value) || 0;
+    const net = parseFloat((document.getElementById('net-net') && document.getElementById('net-net').value)) || 0;
     
     if (net === 0) {
         alert('Lütfen net maaş tutarı giriniz.');
@@ -263,8 +263,8 @@ function hesaplaNetBrut() {
 
 // İş Kazası Tazminatı Hesaplama
 function hesaplaIsKazasi() {
-    const brut = parseFloat(document.getElementById('iskazasi-brut')?.value) || 0;
-    const engel = parseFloat(document.getElementById('iskazasi-engel')?.value) || 0;
+    const brut = parseFloat((document.getElementById('iskazasi-brut') && document.getElementById('iskazasi-brut').value)) || 0;
+    const engel = parseFloat((document.getElementById('iskazasi-engel') && document.getElementById('iskazasi-engel').value)) || 0;
     
     if (brut === 0 || engel === 0) {
         alert('Lütfen günlük ücret ve engel oranı giriniz.');
@@ -279,9 +279,9 @@ function hesaplaIsKazasi() {
 
 // Emekli Maaşı Hesaplama
 function hesaplaEmekli() {
-    const prim = parseInt(document.getElementById('emekli-prim')?.value) || 0;
-    const tur = document.getElementById('emekli-tur')?.value || '4a';
-    const aylik = parseFloat(document.getElementById('emekli-aylik')?.value) || 0;
+    const prim = parseInt((document.getElementById('emekli-prim') && document.getElementById('emekli-prim').value)) || 0;
+    const tur = (document.getElementById('emekli-tur') && document.getElementById('emekli-tur').value) || '4a';
+    const aylik = parseFloat((document.getElementById('emekli-aylik') && document.getElementById('emekli-aylik').value)) || 0;
     
     if (prim === 0 || aylik === 0) {
         alert('Lütfen prim günü ve ortalama aylık kazancı giriniz.');
@@ -303,8 +303,8 @@ function hesaplaEmekli() {
 
 // Askerlik Borçlanması Hesaplama
 function hesaplaAskerlik() {
-    const gun = parseInt(document.getElementById('askerlik-gun')?.value) || 0;
-    const ucret = parseFloat(document.getElementById('askerlik-ucret')?.value) || 0;
+    const gun = parseInt((document.getElementById('askerlik-gun') && document.getElementById('askerlik-gun').value)) || 0;
+    const ucret = parseFloat((document.getElementById('askerlik-ucret') && document.getElementById('askerlik-ucret').value)) || 0;
     
     if (gun === 0) {
         alert('Lütfen askerlik süresi giriniz.');
@@ -320,9 +320,9 @@ function hesaplaAskerlik() {
 
 // Yurtdışı Borçlanması Hesaplama
 function hesaplaYurtdisi() {
-    const gun = parseInt(document.getElementById('yurtdisi-gun')?.value) || 0;
-    const ucret = parseFloat(document.getElementById('yurtdisi-ucret')?.value) || 0;
-    const odeme = document.getElementById('yurtdisi-odeme')?.value || 'pesin';
+    const gun = parseInt((document.getElementById('yurtdisi-gun') && document.getElementById('yurtdisi-gun').value)) || 0;
+    const ucret = parseFloat((document.getElementById('yurtdisi-ucret') && document.getElementById('yurtdisi-ucret').value)) || 0;
+    const odeme = (document.getElementById('yurtdisi-odeme') && document.getElementById('yurtdisi-odeme').value) || 'pesin';
     
     if (gun === 0) {
         alert('Lütfen yurtdışı çalışma süresi giriniz.');
@@ -339,8 +339,8 @@ function hesaplaYurtdisi() {
 
 // Kira Stopajı Hesaplama
 function hesaplaStopaj() {
-    const kira = parseFloat(document.getElementById('stopaj-kira')?.value) || 0;
-    const tur = document.getElementById('stopaj-tur')?.value || 'konut';
+    const kira = parseFloat((document.getElementById('stopaj-kira') && document.getElementById('stopaj-kira').value)) || 0;
+    const tur = (document.getElementById('stopaj-tur') && document.getElementById('stopaj-tur').value) || 'konut';
     
     if (kira === 0) {
         alert('Lütfen kira tutarı giriniz.');
@@ -361,7 +361,7 @@ function hesaplaStopaj() {
 
 // SMM Hesaplama
 function hesaplaSMM() {
-    const tutar = parseFloat(document.getElementById('smm-tutar')?.value) || 0;
+    const tutar = parseFloat((document.getElementById('smm-tutar') && document.getElementById('smm-tutar').value)) || 0;
     
     if (tutar === 0) {
         alert('Lütfen makbuz tutarı giriniz.');
@@ -382,8 +382,8 @@ function hesaplaSMM() {
 
 // Ceza Zamanaşımı Hesaplama
 function hesaplaZamanasimi() {
-    const tur = document.getElementById('zamanasimi-tur')?.value || 'diger';
-    const yil = parseInt(document.getElementById('zamanasimi-yil')?.value) || 0;
+    const tur = (document.getElementById('zamanasimi-tur') && document.getElementById('zamanasimi-tur').value) || 'diger';
+    const yil = parseInt((document.getElementById('zamanasimi-yil') && document.getElementById('zamanasimi-yil').value)) || 0;
     
     let sure = 0;
     if (tur === 'hapis') sure = 20; // 20 yıl
@@ -420,9 +420,9 @@ function formatSure(yil) {
 // Hükümlü İnfaz Hesaplama
 function hesaplaInfaz() {
     // Ceza süresi (HTML'de infaz-yil, infaz-ay, infaz-gun)
-    const cezaYil = parseFloat(document.getElementById('infaz-yil')?.value) || 0;
-    const cezaAy = parseFloat(document.getElementById('infaz-ay')?.value) || 0;
-    const cezaGun = parseFloat(document.getElementById('infaz-gun')?.value) || 0;
+    const cezaYil = parseFloat((document.getElementById('infaz-yil') && document.getElementById('infaz-yil').value)) || 0;
+    const cezaAy = parseFloat((document.getElementById('infaz-ay') && document.getElementById('infaz-ay').value)) || 0;
+    const cezaGun = parseFloat((document.getElementById('infaz-gun') && document.getElementById('infaz-gun').value)) || 0;
     const ceza = cezaYil + (cezaAy / 12) + (cezaGun / 365);
     
     if (ceza <= 0) {
@@ -431,22 +431,22 @@ function hesaplaInfaz() {
     }
     
     // Tutukluluk süresi (HTML'de infaz-tutukluluk - sadece gün)
-    const tutuklulukGun = parseFloat(document.getElementById('infaz-tutukluluk')?.value) || 0;
+    const tutuklulukGun = parseFloat((document.getElementById('infaz-tutukluluk') && document.getElementById('infaz-tutukluluk').value)) || 0;
     const tutukluluk = tutuklulukGun / 365;
     
     // Suç türü
-    const tur = document.getElementById('infaz-tur')?.value || 'genel';
+    const tur = (document.getElementById('infaz-tur') && document.getElementById('infaz-tur').value) || 'genel';
     
     // İndirimler (select elementler)
-    const etkinIndirim = parseFloat(document.getElementById('infaz-indirim-etkin')?.value) || 0;
-    const iyiHalIndirim = parseFloat(document.getElementById('infaz-indirim-iyi')?.value) || 0;
-    const yargilamaIndirim = parseFloat(document.getElementById('infaz-indirim-yargilama')?.value) || 0;
+    const etkinIndirim = parseFloat((document.getElementById('infaz-indirim-etkin') && document.getElementById('infaz-indirim-etkin').value)) || 0;
+    const iyiHalIndirim = parseFloat((document.getElementById('infaz-indirim-iyi') && document.getElementById('infaz-indirim-iyi').value)) || 0;
+    const yargilamaIndirim = parseFloat((document.getElementById('infaz-indirim-yargilama') && document.getElementById('infaz-indirim-yargilama').value)) || 0;
     
     // Checkbox durumlar
-    const mukerrer = document.getElementById('infaz-mukerrer')?.checked || false;
-    const cocuk = document.getElementById('infaz-cocuk')?.checked || false;
-    const saglik = document.getElementById('infaz-saglik')?.checked || false;
-    const yargi11 = document.getElementById('infaz-11yargi')?.checked || false;
+    const mukerrer = (document.getElementById('infaz-mukerrer') && document.getElementById('infaz-mukerrer').checked) || false;
+    const cocuk = (document.getElementById('infaz-cocuk') && document.getElementById('infaz-cocuk').checked) || false;
+    const saglik = (document.getElementById('infaz-saglik') && document.getElementById('infaz-saglik').checked) || false;
+    const yargi11 = (document.getElementById('infaz-11yargi') && document.getElementById('infaz-11yargi').checked) || false;
     
     // İnfaz oranı belirleme (5275 SK)
     let oran = 0.75; // Genel suçlar: 3/4
@@ -503,8 +503,8 @@ function hesaplaInfaz() {
 
 // Mahkeme Harcı Hesaplama
 function hesaplaMahkemeHarci() {
-    const tutar = parseFloat(document.getElementById('mahkeme-tutar')?.value) || 0;
-    const tur = document.getElementById('mahkeme-tur')?.value || 'basit';
+    const tutar = parseFloat((document.getElementById('mahkeme-tutar') && document.getElementById('mahkeme-tutar').value)) || 0;
+    const tur = (document.getElementById('mahkeme-tur') && document.getElementById('mahkeme-tur').value) || 'basit';
     
     if (tutar === 0) {
         alert('Lütfen dava değeri giriniz.');
@@ -523,8 +523,8 @@ function hesaplaMahkemeHarci() {
 
 // İcra Harcı Hesaplama
 function hesaplaIcraHarci() {
-    const alacak = parseFloat(document.getElementById('icra-alacak')?.value) || 0;
-    const tur = document.getElementById('icra-tur')?.value || 'takip';
+    const alacak = parseFloat((document.getElementById('icra-alacak') && document.getElementById('icra-alacak').value)) || 0;
+    const tur = (document.getElementById('icra-tur') && document.getElementById('icra-tur').value) || 'takip';
     
     if (alacak === 0) {
         alert('Lütfen alacak tutarı giriniz.');
@@ -542,8 +542,8 @@ function hesaplaIcraHarci() {
 
 // Vekalet Ücreti Hesaplama
 function hesaplaVekalet() {
-    const deger = parseFloat(document.getElementById('vekalet-deger')?.value) || 0;
-    const kdv = document.getElementById('vekalet-kdv')?.checked || false;
+    const deger = parseFloat((document.getElementById('vekalet-deger') && document.getElementById('vekalet-deger').value)) || 0;
+    const kdv = (document.getElementById('vekalet-kdv') && document.getElementById('vekalet-kdv').checked) || false;
     
     if (deger === 0) {
         alert('Lütfen dava değeri giriniz.');
@@ -573,9 +573,9 @@ function hesaplaVekalet() {
 
 // Kira Artışı Hesaplama - Güncel (2026 Mart - %25 sınırı kaldırıldı)
 function hesaplaKiraArtis() {
-    const kira = parseFloat(document.getElementById('kira-mevcut')?.value) || 0;
-    const yontem = document.getElementById('kira-yontem')?.value || 'tufe_gercek';
-    const manuelOran = parseFloat(document.getElementById('kira-oran')?.value) || 0;
+    const kira = parseFloat((document.getElementById('kira-mevcut') && document.getElementById('kira-mevcut').value)) || 0;
+    const yontem = (document.getElementById('kira-yontem') && document.getElementById('kira-yontem').value) || 'tufe_gercek';
+    const manuelOran = parseFloat((document.getElementById('kira-oran') && document.getElementById('kira-oran').value)) || 0;
     
     if (kira === 0) {
         alert('Lütfen mevcut kira tutarı giriniz.');
@@ -611,8 +611,8 @@ function hesaplaKiraArtis() {
 
 // Islah Harcı Hesaplama
 function hesaplaIslahHarci() {
-    const eski = parseFloat(document.getElementById('islah-eski')?.value) || 0;
-    const yeni = parseFloat(document.getElementById('islah-yeni')?.value) || 0;
+    const eski = parseFloat((document.getElementById('islah-eski') && document.getElementById('islah-eski').value)) || 0;
+    const yeni = parseFloat((document.getElementById('islah-yeni') && document.getElementById('islah-yeni').value)) || 0;
     
     if (eski === 0 || yeni === 0) {
         alert('Lütfen eski ve yeni dava değerlerini giriniz.');
@@ -629,8 +629,8 @@ function hesaplaIslahHarci() {
 
 // Tapu Harcı Hesaplama
 function hesaplaTapuHarci() {
-    const bedel = parseFloat(document.getElementById('tapu-bedel')?.value) || 0;
-    const tur = document.getElementById('tapu-tur')?.value || 'satis';
+    const bedel = parseFloat((document.getElementById('tapu-bedel') && document.getElementById('tapu-bedel').value)) || 0;
+    const tur = (document.getElementById('tapu-tur') && document.getElementById('tapu-tur').value) || 'satis';
     
     if (bedel === 0) {
         alert('Lütfen gayrimenkul değeri giriniz.');
@@ -647,9 +647,9 @@ function hesaplaTapuHarci() {
 
 // Nafaka Hesaplama
 function hesaplaNafaka() {
-    const gelir = parseFloat(document.getElementById('nafaka-gelir')?.value) || 0;
-    const tur = document.getElementById('nafaka-tur')?.value || 'tedbir';
-    const sure = parseInt(document.getElementById('nafaka-sure')?.value) || 0;
+    const gelir = parseFloat((document.getElementById('nafaka-gelir') && document.getElementById('nafaka-gelir').value)) || 0;
+    const tur = (document.getElementById('nafaka-tur') && document.getElementById('nafaka-tur').value) || 'tedbir';
+    const sure = parseInt((document.getElementById('nafaka-sure') && document.getElementById('nafaka-sure').value)) || 0;
     
     if (gelir === 0) {
         alert('Lütfen gelir tutarı giriniz.');
@@ -671,9 +671,9 @@ function hesaplaNafaka() {
 
 // Trafik Kazası Tazminatı Hesaplama
 function hesaplaTrafikKazasi() {
-    const arac = parseFloat(document.getElementById('trafik-arac')?.value) || 0;
-    const kusur = parseFloat(document.getElementById('trafik-kusur')?.value) || 0;
-    const manevi = parseFloat(document.getElementById('trafik-manevi')?.value) || 0;
+    const arac = parseFloat((document.getElementById('trafik-arac') && document.getElementById('trafik-arac').value)) || 0;
+    const kusur = parseFloat((document.getElementById('trafik-kusur') && document.getElementById('trafik-kusur').value)) || 0;
+    const manevi = parseFloat((document.getElementById('trafik-manevi') && document.getElementById('trafik-manevi').value)) || 0;
     
     if (arac === 0) {
         alert('Lütfen araç değeri giriniz.');
@@ -690,9 +690,9 @@ function hesaplaTrafikKazasi() {
 
 // Araç Değer Kaybı Hesaplama
 function hesaplaAracDegerKaybi() {
-    const arac = parseFloat(document.getElementById('deger-arac')?.value) || 0;
-    const hasar = parseFloat(document.getElementById('deger-hasar')?.value) || 0;
-    const yil = parseInt(document.getElementById('deger-yil')?.value) || 0;
+    const arac = parseFloat((document.getElementById('deger-arac') && document.getElementById('deger-arac').value)) || 0;
+    const hasar = parseFloat((document.getElementById('deger-hasar') && document.getElementById('deger-hasar').value)) || 0;
+    const yil = parseInt((document.getElementById('deger-yil') && document.getElementById('deger-yil').value)) || 0;
     
     if (arac === 0 || hasar === 0) {
         alert('Lütfen araç değeri ve hasar oranı giriniz.');
@@ -709,7 +709,7 @@ function hesaplaAracDegerKaybi() {
 
 // Günlük Yevmiye Hesaplama
 function hesaplaYevmiye() {
-    const brut = parseFloat(document.getElementById('yevmiye-brut')?.value) || 0;
+    const brut = parseFloat((document.getElementById('yevmiye-brut') && document.getElementById('yevmiye-brut').value)) || 0;
     
     if (brut === 0) {
         alert('Lütfen brüt ücret giriniz.');
