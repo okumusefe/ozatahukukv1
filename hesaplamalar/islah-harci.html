@@ -172,7 +172,8 @@
                         <ul>
                             <li>Islah, davacının dava konusunu artırması işlemidir</li>
                             <li>Artırılan kısım için ek harç ödenir (fark harcı)</li>
-                            <li>2026 dava harcı oranı: Binde 68.45 (asgari 247 TL)</li>
+                            <li>2026 yılı itibarıyla ıslah harcı, dava değerinin artırılan tutarı üzerinden binde 68,31 oranındaki karar ve ilam harcının dörtte biri (1/4) olarak hesaplanır</li>
+                            <li>Formül: Artırılan Miktar × 0,06831 / 4</li>
                             <li>Islah, ilk cevap dilekçesine kadar yapılabilir</li>
                         </ul>
                     </div>
@@ -498,7 +499,7 @@ function hesaplaIslahHarciInline() {
     
     const fark = yeni - eski;
     const harcOrani = 68.31 / 1000; // Binde 68.31 = %6.831
-    const harc = fark * harcOrani;
+    const harc = (fark * harcOrani) / 4; // Islah harcı 1/4 oranında uygulanır
     
     const sonucDiv = document.getElementById('sonucDetay');
     sonucDiv.innerHTML = `
